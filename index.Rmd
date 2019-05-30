@@ -1,0 +1,40 @@
+--- 
+title: "Planning Tool Guidance"
+author: "Project Big Life"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+always_allow_html: yes
+github-repo: rstudio/bookdown-demo
+description: "This html is to provide you with guidance on how to use the BATCH interface."
+---
+
+# Welcome to Project Big Life's Planning Tool
+
+```{r eval=FALSE, echo=FALSE}
+library(bookdown)
+library(knitr)
+library(kableExtra)
+#install.packages('tinytex')
+#tinytex::install_tinytex()
+tinytex:::is_tinytex()
+```
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+To do: Include motivation: why someone should use the platform (video and text)
+
+```{r embed2, out.extra='style="border: none;"', out.width='99%', echo=FALSE}
+knitr::include_url('https://www.youtube.com/embed/5pZhRSM1cyk')
+#Not sure how to work the vimeo embeding
+knitr::include_url('https://vimeo.com/embed/267453408')
+```
