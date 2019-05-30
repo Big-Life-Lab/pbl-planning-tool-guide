@@ -1,0 +1,30 @@
+#How To {#howto}
+
+These guides will cover similar topics as the tutorials but in greater detail.
+
+##Import Data
+
+##Filter Data
+
+##Stratify Data
+- Default Stratification
+- Custom Stratification
+Include the coding steps for R/STATA/SAS
+
+##Calculate Outcomes
+*Note that the larger the file the longer the calculations will take. Use LE or Risk of death as examples in the how-to
+
+##Visualize Data
+- export
+- create your own(?)
+
+##Export Data
+
+##Generate Intervention Scenarios
+- Define target population (all or high-risk only), and specify intervention effect
+
+##Resolve Error Messages
+###Age out of range
+###Sample Size is too small
+
+

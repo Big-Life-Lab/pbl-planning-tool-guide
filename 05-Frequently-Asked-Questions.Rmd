@@ -1,0 +1,18 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+#Frequently Asked Questions
+
+This section explains some key concepts in Project Big Life's Planning Tool. This section will explain *how it works* rather then *how to do things*.
+
+##Predictive Risk Algorithm
+
+What is a multivariable risk algorithm?
+
+How can multivariable predictive algorithms be used?
+
+##Variables
+What are the variables in my output?
+_Table that has the CCHS code and what it means_

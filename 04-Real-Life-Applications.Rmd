@@ -1,0 +1,19 @@
+# Applications
+
+This chapter provides you with examples of how Project Big Life's Planning Tool can be used in your day to day operations. The examples will cover: generating a health status report, determining the impact of a local policy, and determing the impact of a national policy.
+
+*Note to self: All of the data manipulation will occur through R and then be uploaded to the platform to be run.
+
+## Health Status Report - Seven More Years
+In this example we are going to replicate elements of the health status report: [Seven More Years] (https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years). 
+
+The Seven More Years Report examines the burden of health behaviours: smoking, physical activity, diet, and alcohol consumption, and their impact on life expectancy. 
+
+Through this example we will generate: 
+
+
+
+
+## Diet
+
+## Transportation
