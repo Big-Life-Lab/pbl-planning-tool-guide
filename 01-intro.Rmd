@@ -1,6 +1,33 @@
-# Introduction
+#Introduction
 
-Title
-Function - what is the aim/goal/objective
-Mechanism - How does it work, how is the function carried out?
-Values - What are the values of the concept: advantages, usefulness
+The Project Big Life Planning Tool was developed in order to support public health practitioners in thier: research, planning, development and decision making of evidence-based policy.
+
+**How does it work?**
+
+- This tool provides public health practitioners with access to population predictive risk algorithms, created and housed by the Project Big Life Team.
+
+- The population predictive risk algorithms use distinct characteristics and health profiles of groups of people to assess the risk of a health outcome (e.g. Life Expectancy).
+
+- The population predictive risk algorithms are developed and validated using routinely collected data by Statistics Canada and provincial health agencies, and the algorithms have been published in various journals.
+
+- More information about population predictive risk algorithms can be found in the reference section (Chapter \@ref(references).
+
+**Why should I used it?**
+
+- It is **easy** and **flexible** to use. 
+
+    - The user only needs to upload their data and choose which calculation to run.
+    - It can be used to assess the current or future risk of a health outcome
+    - It can be used to assess the effect of different intervention scenarios (e.g. policy) on a health outcome.
+    
+    
+-	It generates **accurate** predictions.
+
+    - It can be used to accurately assess the risk of a health outcome in different populations, and groups of people that account for a fraction of the population. 
+
+    
+-	It is **Private**. 
+
+    - Uploaded data remains on your computer and are not uploaded or sent anywhere.
+
+
