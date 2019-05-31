@@ -2,6 +2,16 @@
 
 These guides will cover similar topics as the tutorials but in greater detail.
 
+- Import Data
+- Filter Data
+- Stratify Data
+- Calculate Outcomes
+- Visualize Data
+- Export Data
+- Generate Intervention Scenarios
+- Resolve Error Messages
+
+
 ##Import Data
 
 ##Filter Data
@@ -24,7 +34,7 @@ Include the coding steps for R/STATA/SAS
 - Define target population (all or high-risk only), and specify intervention effect
 
 ##Resolve Error Messages
-###Age out of range
-###Sample Size is too small
+- Age out of range
+- Sample Size is too small
 
 
