@@ -1,18 +1,22 @@
 #Appendix 1: Mortality Population Risk Tool (MPoRT)
 
-**Outcomes: Life Expectancy, 5-yr risk of death, Cause-deleted**
+**Outcomes: 5-yr risk of death, Life Expectancy, Cause-deleted Life Expectancy**
 
-*Description*: A multivariable predictive risk model that estimates the future risk of all-cause death in Canada. It adjusts for health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity, and a wide range of other risk factors. 
+**Description**: A multivariable predictive risk model that estimates the future risk of all-cause death in Canada. It adjusts for health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity, and a wide range of other risk factors. 
 
-Versions of MPoRT have been developed since 2012 and used in various studies. Each version of MPoRT (v1.0, v1.2, v2.0) used the Ontario subset of the Canadian Community Health Survey (CCHS) for development and the survey respondents were linked to personal death records. In later versions of MPoRT (v1.2, v2.0) the following changes were made:, (a) algorithm variables were adjusted to improve predictions, and (b) the algorithms were validated using: the Ontario subset of CCHS of the years that were not used in development and the National CCHS dataset (excluding Ontario). 
+Versions of MPoRT have been developed since 2012 and used in various studies. Each version of MPoRT (v1.0, v1.2, v2.0) used the Ontario subset of the Canadian Community Health Survey (CCHS) for development and the survey respondents were linked to personal death records. In later versions of MPoRT (v1.2, v2.0) the following changes were made:, (a) algorithm variables were adjusted to improve predictions, and (b) the algorithms were validated using: the Ontario subset of CCHS of the years that were not used in development and the National CCHS dataset (excluding Ontario).
+
+**Calculations**
+*Are the methods to calculate each of them the same in each version?*
+
 
 **MPoRTv1.0**
 Was used in the "Seven More Years" report, a joint report with Public Health Ontario and IC/ES (https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years). 
-In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, physical inactivity and stress. There were approximately 550,000 person-years of follow up and over 6000 deaths in the development dataset. The algorthim used categorical predictor variables for health behaviours and socio-demographic factors.
+In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, physical inactivity and stress. There were approximately 550,000 person-years of follow up and over 6000 deaths in the development dataset. The algorthim used categorical predictor variables for health behaviours and sociodemographic factors.
 
 **MPoRTv1.2**
 Was published in PLoS (https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002082).
-In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity (stress was removed due to its low prediction ability).  There were approximately 1 million person-years of follow up and over 9000 deaths in the development and validation datasets. The algorithm used multiple continous predictor variables, chronic disease predictor variables, and interaction terms.
+In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity (stress was removed due to its low prediction ability).  There were approximately 1 million person-years of follow up and over 9000 deaths in the development and validation datasets. The algorithm used multiple continous predictor variables, and added chronic disease predictor variables and interaction terms.
 
 **MPoRTv2.0 - The version used in Project Big Life's Planning Tool**
 This version of MPoRT has not yet been published.
