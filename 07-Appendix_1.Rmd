@@ -1,6 +1,13 @@
-#Appendix 1: Mortality Population Risk Tool (MPoRT)
+# (APPENDIX) Appendix {-} 
+
+#Mortality Population Risk Tool (MPoRT)
 
 **Outcomes: 5-yr risk of death, Life Expectancy, Cause-deleted Life Expectancy**
+
+**Types of Questions**
+
+- What is the burden of smoking on life expectancy?
+- How many deaths would be prevented if everyone met their daily excersize requirements?
 
 **Description**: A multivariable predictive risk model that estimates the future risk of all-cause death in Canada. It adjusts for health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity, and a wide range of other risk factors. 
 
