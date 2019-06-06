@@ -2,34 +2,37 @@
 
 This section explains some key concepts in Project Big Life’s Planning Tool. This section will explain how it works rather then how to do things.
 
-- Population Predictive Risk Algorithms
+- Multivariable Predictive Risk Algorithms
 
-##Population Predictive Risk Algorithms
+##Multivariable Predictive Risk Algorithms
 
-Population predictive risk algorithms predict the future risk of health outcomes (e.g. Life Expectancy) for a population using routinely collected health data.
+Multivariable predictive risk algorithms predict the future risk of health outcomes (e.g. Life Expectancy) for a population using routinely collected health data.
 
-Population predictive risk algorithms can be used to:
+Multivariable predictive risk algorithms can be used to:
 
-- Describe the distribution of risk in the population (diffused or concentrated)
 - Project the number of new cases of the health outcome
 - Estimate the contribution of specific risk factors of the health outcome
 - Evaluate effectiveness of health interventions
+- Describe the distribution of risk in the population (diffused or concentrated)
 
-More information on what population predictive risk algorithms are and how they can be used can be found the journal article: Predictive risk algorithms in a population setting: an overview [@PoRTover]
+Multivariable predictive risk algorithms are able to assess equity issues compared to competing population risk methods (e.g. World Health Organization Global Burden of Disease).
 
-**4.1.1 Development of predictive risk models**
+More information on what multivariable predictive risk algorithms are and how they can be used can be found the journal article: *Predictive risk algorithms in a population setting: an overview* [@PoRTover]
 
-**Data:**
+**4.1.1 Development of  multivariable predictive risk models**
 
--	Population predictive risk models are created using routinely collected data that includes information about risk factors (exposure) and health events (outcomes).
+Data:
+
+-	Multivariable predictive risk models are created using routinely collected data that includes information about risk factors (exposure) and health events (outcomes).
 -	Data is collected at an individual level through population health surveys (e.g. Canadian Community Health Survey) and administrative databases (e.g. Vital Statistics). Data sources are linked together when the individual has given permission too.
+- Individuals are followed overtime until the health event (e.g. death or disease) occurs.
 - Separate data is collected to create a derivation cohort and validation cohort(s). 
 
     - Note: The risk factors that are collected are from population health surveys and are self-reported; no clinical data (e.g. blood pressure) is collected. Risk factors focus on health behaviours (e.g. smoking) and sociodemographic factors, commonly associated with health outcome.
 
 **Model Generation:**
 
-- Predictive risk models are developed and validated in 4 stages:
+- Multivariable predictive risk models are developed and validated in 4 stages:
 
     - Model derivation: the predictive risk model is created using data from the derivation cohort
     - Model validation: the predictive risk model is applied to the validation cohort
@@ -56,3 +59,6 @@ library(kableExtra)
 kable(PoRTs) %>%
   kable_styling(full_width = T)
 ```
+
+
+##Cause-deleted
