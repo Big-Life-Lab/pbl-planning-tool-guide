@@ -34,7 +34,9 @@ Include the coding steps for R/STATA/SAS
 - Define target population (all or high-risk only), and specify intervention effect
 
 ##Resolve Error Messages
-- Age out of range
+
+- Out of range
+
 - Sample Size is too small
 
 
