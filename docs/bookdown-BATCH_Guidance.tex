@@ -31,46 +31,6 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{apalike}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -153,18 +113,6 @@ and text)
 ## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#library(rsconnect)}
-\CommentTok{#bookdown::publish_book(name = "BATCH_Guidance", account = "rhiannon_roberts22", server = "bookdown.org", }
-  \CommentTok{#render = c("server"))}
-
-\CommentTok{#install.packages("testit")}
-\CommentTok{#library(testit)}
-\CommentTok{#install.packages("contrib.url", repos= "http://cran.us.r-project.org")}
-\end{Highlighting}
-\end{Shaded}
-
 \chapter{Introduction}\label{introduction}
 
 The Project Big Life Planning Tool was developed in order to support
@@ -176,22 +124,18 @@ For instance Project Big Life Planning Tool helps:
 \begin{itemize}
 \tightlist
 \item
-  Public health practitioners: Assess the impact of a preventative
+  Public health practitioners: assess the impact of a preventative
   intervention on a health behaviour.
 \item
-  Health planners: Assess the need for palliative care.
+  Health planners: assess the need for palliative care.
 \end{itemize}
 
 \textbf{What types of questions can it answer?}
 
-\begin{itemize}
-\tightlist
-\item
-  What is the burden of smoking on life expectancy?
-\item
-  How many deaths would be prevented if everyone met their daily
-  excersize requirements?
-\end{itemize}
+The Project Big Life Planning Tool can answer the following types of
+questions (this list is not exhaustive): - What is the burden of smoking
+on life expectancy? - How many deaths would be prevented if everyone met
+their daily excersize requirements?
 
 \textbf{How does it work?}
 
@@ -266,8 +210,7 @@ to use the Planning Tool!
 
 \textbf{To access the tutorial}, go onto Project Big Life's Planning
 Tool (\url{http://policy.projectbiglife.ca/}) and click on the Tutorial
-button \emph{placeholder to insert the picture of the tutorial `button'}
-in the top right corner!
+button in the top right corner!
 
 \chapter{How To}\label{howto}
 
@@ -348,16 +291,10 @@ Scenarios}\label{generate-intervention-scenarios}
 
 This chapter provides you with examples of how Project Big Life's
 Planning Tool can be used in your day-to-day operations. The examples
-will cover: generating a health status report, determining the impact of
-a local policy, and determing the impact of a national policy.
-
-\emph{Note to self: All of the data manipulation will occur through R
-and then be uploaded to the platform to be run.}
+will cover: generating a health status report and determining the impact
+of a local and national policy.
 
 \section{Health Status Report}\label{health-status-report}
-
-In this example we will generate a health status report. This will
-include:
 
 \section{Diet}\label{diet}
 
@@ -370,9 +307,22 @@ Tool. This section will explain how it works rather then how to do
 things.
 
 \begin{itemize}
-\tightlist
 \item
   Multivariable Predictive Risk Algorithms
+\item
+  Calculations
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Risk
+  \item
+    Life Expectancy
+  \item
+    Cause-Deleted
+  \end{itemize}
+\item
+  Health Intervention Scenarios
 \end{itemize}
 
 \section{Multivariable Predictive Risk
@@ -491,15 +441,17 @@ Mortality Population Risk Tool
 
 Appendix 1
 
-\section{Cause-Deleted}\label{cause-deleted}
+\section{Calculations}\label{calculations}
 
-\section{Life Expectancy Calculation}\label{life-expectancy-calculation}
+\subsection{Risk}\label{risk}
+
+\subsection{Life Expectancy
+Calculation}\label{life-expectancy-calculation}
+
+\subsection{Cause-Deleted}\label{cause-deleted}
 
 \section{Health Interventions
 Scenarios}\label{health-interventions-scenarios}
-
-The Project Big Life Planning Tool is a robust, it allows you to run
-many different types of health intervention scenarios.
 
 \chapter{Glossary}\label{glossary}
 
@@ -519,7 +471,7 @@ The impact or size of a health problem in an area, measured by cost,
 mortality, morbidity or other indicators. The burden of unhealthy
 behaviour is calculated by the differences in life expectancy based on
 individuals' exposure to four health behavioural risks for poor health
-\emph{relative to what for continous outcomes}. - Seven More Years
+relative to the healthy category.
 
 \textbf{By Row Measures}
 
@@ -551,6 +503,13 @@ Calculation''} are missing in the data. If the entire column for the
 variable is missing then the calculation cannot be performed on the
 data. If there are missing row entries for the variable then the entire
 row will not be used in the calculation.
+
+\textbf{Exposure}
+
+In the risk algorithms the exposure refers to the level of the predictor
+varaible, e.g.~for the predictor variable EDUDR04 there are four levels
+of exposure: (1) Post-Secondary, (2) Some Post-Secondary, (3) High
+School, (4) Less then High School.
 
 \textbf{Filter}
 
@@ -592,6 +551,10 @@ type, duration and frequency of physical activity. The reference value
 of 1 MET is defined as the energy expediture rate at rest which is equal
 to 1kcal/kg/day.
 
+\textbf{Predictor}
+
+A variable that is used in the algorithm to predict the outcome.
+
 \textbf{Recommend for calculation}
 
 Variables that are included in the calculation but not necessary for the
@@ -608,17 +571,16 @@ the calculation will not run.
 
 People in poorer socioeconomic circumstances generally have poorer
 health. Deprivation measures identify those who experience material or
-social disadvantage compared to others in their community.\emph{3 - Link
-no longer exists} The Deprivation Index for Health in Canada developed
-by the Institut national desanté publique du Québec
-(INSPQ)\citep{INSPQ2000} is used in this plannning tool. The index
-includes education, employment and income as measures of material
-deprivation; and single-parent families, living alone, or being
-divorced, widowed or separated as measures of social deprivation. The
-deprivation index was used to assign geographical areas into
-socioeconomic position groups (low, middle and high) based on material
-and social quintiles. High-deprivation neighbourhoods were those in the
-top two quintiles for both social and material deprivation.
+social disadvantage compared to others in their community. The
+Deprivation Index for Health in Canada developed by the Institut
+national desanté publique du Québec (INSPQ)\citep{INSPQ2000} is used in
+this plannning tool. The index includes education, employment and income
+as measures of material deprivation; and single-parent families, living
+alone, or being divorced, widowed or separated as measures of social
+deprivation. The deprivation index was used to assign geographical areas
+into socioeconomic position groups (low, middle and high) based on
+material and social quintiles. High-deprivation neighbourhoods were
+those in the top two quintiles for both social and material deprivation.
 Low-deprivation neighbourhoods were those in the bottom two quintiles.
 
 \textbf{Stratification}
