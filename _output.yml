@@ -3,10 +3,13 @@ bookdown::gitbook:
   split_by: "section"
   config:
     toc:
+      collapse: 'section'
       before: |
         <li><a href="./">BATCH Guidance</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    toolbar:
+      position: "fixed"
     edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:

@@ -41,9 +41,9 @@ Data:
     
 - In each stage of the model development and validation, model performance is assessed using measures of discrimination and calibration.
 
-**4.1.2 Predictive risk algorithms in Project Big Life Planning Tool**
+**4.1.2 Multivariable predictive risk algorithms in Project Big Life Planning Tool**
 
-- There is currently 1 predictive risk model is built into to Project Big Life planning tool.
+- There is currently 1 multivariable predictive risk model is built into to Project Big Life planning tool.
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(knitr)
 library(kableExtra)
@@ -64,9 +64,10 @@ kable(PoRTs) %>%
 ##Cause-Deleted
 
 
+
 ##Life Expectancy Calculation
 
 
-## Health Interventions
+## Health Interventions Scenarios
 
 The Project Big Life Planning Tool is a robust, it allows you to run many different types of health intervention scenarios.

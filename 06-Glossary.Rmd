@@ -12,7 +12,7 @@ A weight-to-height ratio used as an indicator of obesity and underweight. BMI is
 
 **Burden** 
 
-The impact or size of a health problem in an area, measured by cost, mortality, morbidity or other indicators.*1- Link no longer exists* The burden of unhealthy behaviour is calculated by the differences in life expectancy based on individuals’ exposure to four health behavioural risks for poor health *relative to what for continous outcomes*. - Seven More Years
+The impact or size of a health problem in an area, measured by cost, mortality, morbidity or other indicators. The burden of unhealthy behaviour is calculated by the differences in life expectancy based on individuals’ exposure to four health behavioural risks for poor health relative to the healthy category.
 
 
 **By Row Measures**
@@ -39,6 +39,9 @@ The ability of the model to differentiate between high risk individuals and low 
 
 Error messages will occur when variables that are **"Required for Calculation"** are missing in the data. If the entire column for the variable is missing then the calculation cannot be performed on the data. If there are missing row entries for the variable then the entire row will not be used in the calculation.
 
+**Exposure**
+
+In the risk algorithms the exposure refers to the level of the predictor varaible, e.g. for the predictor variable EDUDR04 there are four levels of exposure: (1) Post-Secondary, (2) Some Post-Secondary, (3) High School, (4) Less then High School.
 
 **Filter**
 
@@ -64,6 +67,10 @@ Are not included in the calculation. It does not matter if your dataset includes
 
 The metabolic equivalent of task (MET) is a measure of the rate of energy expenditure from an activity; a measure of calories burned by type, duration and frequency of physical activity. The reference value of 1 MET is defined as the energy expediture rate at rest which is equal to 1kcal/kg/day.
 
+**Predictor**
+
+A variable that is used in the algorithm to predict the outcome.
+
 
 **Recommend for calculation**
 
@@ -77,7 +84,7 @@ Variables that are included in the calculations and are necessary for the calcul
 
 **Socioeconomic Position**
 
-People in poorer socioeconomic circumstances generally have poorer health. Deprivation measures identify those who experience material or social disadvantage compared to others in their community.*3 - Link no longer exists* The Deprivation Index for Health in Canada developed by the Institut national desanté publique du Québec (INSPQ)[@INSPQ2000] is used in this plannning tool. The index includes education, employment and income as measures of material deprivation; and single-parent families, living alone, or being divorced, widowed or separated as measures of social deprivation. The deprivation index was used to assign geographical areas into socioeconomic position groups (low, middle and high) based on material and social quintiles. High-deprivation neighbourhoods were those in the top two quintiles for both social and material deprivation. Low-deprivation neighbourhoods were those in the bottom two quintiles.
+People in poorer socioeconomic circumstances generally have poorer health. Deprivation measures identify those who experience material or social disadvantage compared to others in their community. The Deprivation Index for Health in Canada developed by the Institut national desanté publique du Québec (INSPQ)[@INSPQ2000] is used in this plannning tool. The index includes education, employment and income as measures of material deprivation; and single-parent families, living alone, or being divorced, widowed or separated as measures of social deprivation. The deprivation index was used to assign geographical areas into socioeconomic position groups (low, middle and high) based on material and social quintiles. High-deprivation neighbourhoods were those in the top two quintiles for both social and material deprivation. Low-deprivation neighbourhoods were those in the bottom two quintiles.
 
 
 **Stratification**

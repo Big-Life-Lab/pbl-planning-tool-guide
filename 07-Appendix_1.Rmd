@@ -4,17 +4,26 @@
 
 **Outcomes: 5-yr risk of death, Life Expectancy, Cause-deleted Life Expectancy**
 
+**Calculations**
+ 
+Using MPoRT you are able to calculate:
+
+- 5 year mortality risk
+- Number of deaths
+- Life Expectancy
+- Cause-deleted deaths and life expectancy
+- Burden of health behaviour in deaths and on life expectancy
+
 **Types of Questions**
 
 - What is the burden of smoking on life expectancy?
 - How many deaths would be prevented if everyone met their daily excersize requirements?
 
+
+
 **Description**: A multivariable predictive risk model that estimates the future risk of all-cause death in Canada. It adjusts for health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity, and a wide range of other risk factors. 
 
 Versions of MPoRT have been developed since 2012 and used in various studies. Each version of MPoRT (v1.0, v1.2, v2.0) used the Ontario subset of the Canadian Community Health Survey (CCHS) for development and the survey respondents were linked to personal death records. In later versions of MPoRT (v1.2, v2.0) the following changes were made:, (a) algorithm variables were adjusted to improve predictions, and (b) the algorithms were validated using: the Ontario subset of CCHS of the years that were not used in development and the National CCHS dataset (excluding Ontario).
-
-**Calculations**
-*Are the methods to calculate each of them the same in each version?*
 
 
 **MPoRTv1.0**
