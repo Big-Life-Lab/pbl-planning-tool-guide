@@ -1,0 +1,949 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Planning Tool Guidance},
+            pdfauthor={Project Big Life},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Planning Tool Guidance}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Project Big Life}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{2019-06-10}
+
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter{Welcome to Project Big Life's Planning
+Tool}\label{welcome-to-project-big-lifes-planning-tool}
+
+To do: Include motivation: why someone should use the platform (video
+and text)
+
+\begin{verbatim}
+## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#library(rsconnect)}
+\CommentTok{#bookdown::publish_book(name = "BATCH_Guidance", account = "rhiannon_roberts22", server = "bookdown.org", }
+  \CommentTok{#render = c("server"))}
+
+\CommentTok{#install.packages("testit")}
+\CommentTok{#library(testit)}
+\CommentTok{#install.packages("contrib.url", repos= "http://cran.us.r-project.org")}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter{Introduction}\label{introduction}
+
+The Project Big Life Planning Tool was developed in order to support
+health practitioners: research, plan, develop, and evaluate
+evidence-based health interventions.
+
+For instance Project Big Life Planning Tool helps:
+
+\begin{itemize}
+\tightlist
+\item
+  Public health practitioners: Assess the impact of a preventative
+  intervention on a health behaviour.
+\item
+  Health planners: Assess the need for palliative care.
+\end{itemize}
+
+\textbf{What types of questions can it answer?}
+
+\begin{itemize}
+\tightlist
+\item
+  What is the burden of smoking on life expectancy?
+\item
+  How many deaths would be prevented if everyone met their daily
+  excersize requirements?
+\end{itemize}
+
+\textbf{How does it work?}
+
+\begin{itemize}
+\item
+  This tool provides health planners with access to multivariable
+  predictive risk algorithms, created and housed by the Project Big Life
+  Team.
+\item
+  The multivariable predictive risk algorithms use distinct
+  characteristics and health profiles of groups of people to assess the
+  risk of a health outcome (e.g.~Life Expectancy).
+\item
+  The multivariable predictive risk algorithms are developed and
+  validated using routinely collected data by Statistics Canada and
+  provincial health agencies, and the algorithms have been published in
+  various journals.
+\item
+  More information about multivariable predictive risk algorithms can be
+  found in the key concepts (Chapter \ref{keytopics}).
+\end{itemize}
+
+\textbf{Why should I used it?}
+
+\begin{itemize}
+\item
+  It is \textbf{easy} and \textbf{flexible} to use.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The user only needs to upload their data and choose which
+    calculation to run.
+  \item
+    It can be used to assess the current or future risk of a health
+    outcome.
+  \item
+    It can be used to assess the effectiveness of different intervention
+    scenarios (e.g.~policy) on a health outcome.
+  \end{itemize}
+\item
+  It generates \textbf{accurate} predictions.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    It can be used to accurately assess the risk of a health outcome in
+    populations that were not used in its developement, and groups of
+    people that account for only a fraction of the population.
+  \end{itemize}
+\item
+  It is \textbf{Private}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Uploaded data remains on your computer and is not uploaded or sent
+    anywhere.
+  \end{itemize}
+\end{itemize}
+
+\chapter{Getting Started}\label{getting-started}
+
+To help you get started with Project Big Life's Planning Tool quickly,
+we built a Tutorial directly onto the platform.
+
+The tutorial takes you through step-by-step how to use Project Big
+Life's Planning Tool. The tutorial will not explain the steps in detail
+(Chapter \ref{howto}) nor will it provide reference material (Chapter
+\ref{glossary}), but it will give you an understanding of how easy it is
+to use the Planning Tool!
+
+\textbf{To access the tutorial}, go onto Project Big Life's Planning
+Tool (\url{http://policy.projectbiglife.ca/}) and click on the Tutorial
+button \emph{placeholder to insert the picture of the tutorial `button'}
+in the top right corner!
+
+\chapter{How To}\label{howto}
+
+These guides will cover similar topics as the tutorials but in greater
+detail.
+
+\begin{itemize}
+\tightlist
+\item
+  Import Data
+\item
+  Filter Data
+\item
+  Stratify Data
+\item
+  Calculate Outcomes
+\item
+  Visualize Data
+\item
+  Export Data
+\item
+  Generate Intervention Scenarios
+\item
+  Resolve Error Messages
+\end{itemize}
+
+\section{Import Data}\label{import-data}
+
+\section{Filter Data}\label{filter-data}
+
+\section{Stratify Data}\label{stratify-data}
+
+\begin{itemize}
+\tightlist
+\item
+  Default Stratification
+\item
+  Custom Stratification Include the coding steps for R/STATA/SAS
+\end{itemize}
+
+\section{Calculate Outcomes}\label{calculate-outcomes}
+
+*Note that the larger the file the longer the calculations will take.
+Use LE or Risk of death as examples in the how-to
+
+\section{Visualize Data}\label{visualize-data}
+
+\begin{itemize}
+\tightlist
+\item
+  export
+\item
+  create your own(?)
+\end{itemize}
+
+\section{Export Data}\label{export-data}
+
+\section{Generate Intervention
+Scenarios}\label{generate-intervention-scenarios}
+
+\begin{itemize}
+\tightlist
+\item
+  Define target population (all or high-risk only), and specify
+  intervention effect
+\end{itemize}
+
+\section{Resolve Error Messages}\label{resolve-error-messages}
+
+\begin{itemize}
+\item
+  Out of range
+\item
+  Sample Size is too small
+\end{itemize}
+
+\chapter{Applications}\label{applications}
+
+This chapter provides you with examples of how Project Big Life's
+Planning Tool can be used in your day-to-day operations. The examples
+will cover: generating a health status report, determining the impact of
+a local policy, and determing the impact of a national policy.
+
+\emph{Note to self: All of the data manipulation will occur through R
+and then be uploaded to the platform to be run.}
+
+\section{Health Status Report}\label{health-status-report}
+
+In this example we will generate a health status report. This will
+include:
+
+\section{Diet}\label{diet}
+
+\section{Transportation}\label{transportation}
+
+\chapter{Key Topics}\label{keytopics}
+
+This section explains some key concepts in Project Big Life's Planning
+Tool. This section will explain how it works rather then how to do
+things.
+
+\begin{itemize}
+\tightlist
+\item
+  Multivariable Predictive Risk Algorithms
+\end{itemize}
+
+\section{Multivariable Predictive Risk
+Algorithms}\label{multivariable-predictive-risk-algorithms}
+
+Multivariable predictive risk algorithms predict the future risk of
+health outcomes (e.g.~Life Expectancy) for a population using routinely
+collected health data.
+
+Multivariable predictive risk algorithms can be used to:
+
+\begin{itemize}
+\tightlist
+\item
+  Project the number of new cases of the health outcome
+\item
+  Estimate the contribution of specific risk factors of the health
+  outcome
+\item
+  Evaluate effectiveness of health interventions
+\item
+  Describe the distribution of risk in the population (diffused or
+  concentrated)
+\end{itemize}
+
+Multivariable predictive risk algorithms are able to assess equity
+issues compared to competing population risk methods (e.g.~World Health
+Organization Global Burden of Disease).
+
+More information on what multivariable predictive risk algorithms are
+and how they can be used can be found the journal article:
+\emph{Predictive risk algorithms in a population setting: an overview}
+\citep{PoRTover}
+
+\textbf{4.1.1 Development of multivariable predictive risk models}
+
+Data:
+
+\begin{itemize}
+\item
+  Multivariable predictive risk models are created using routinely
+  collected data that includes information about risk factors (exposure)
+  and health events (outcomes).
+\item
+  Data is collected at an individual level through population health
+  surveys (e.g.~Canadian Community Health Survey) and administrative
+  databases (e.g.~Vital Statistics). Data sources are linked together
+  when the individual has given permission too.
+\item
+  Individuals are followed overtime until the health event (e.g.~death
+  or disease) occurs.
+\item
+  Separate data is collected to create a derivation cohort and
+  validation cohort(s).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Note: The risk factors that are collected are from population health
+    surveys and are self-reported; no clinical data (e.g.~blood
+    pressure) is collected. Risk factors focus on health behaviours
+    (e.g.~smoking) and sociodemographic factors, commonly associated
+    with health outcome.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Model Generation:}
+
+\begin{itemize}
+\item
+  Multivariable predictive risk models are developed and validated in 4
+  stages:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Model derivation: the predictive risk model is created using data
+    from the derivation cohort
+  \item
+    Model validation: the predictive risk model is applied to the
+    validation cohort
+  \item
+    Final Model Generation: validation and derivation cohorts are
+    combined to estimate the final application of the predictive risk
+    model
+  \item
+    Derivation of the application model: creation of a parsimonous
+    (fewer predictors) model that maintained discrimination,
+    calibration, and overall model performance
+  \end{itemize}
+\item
+  In each stage of the model development and validation, model
+  performance is assessed using measures of discrimination and
+  calibration.
+\end{itemize}
+
+\textbf{4.1.2 Multivariable predictive risk algorithms in Project Big
+Life Planning Tool}
+
+\begin{itemize}
+\tightlist
+\item
+  There is currently 1 multivariable predictive risk model is built into
+  to Project Big Life planning tool.
+\end{itemize}
+
+Title
+
+Outcomes
+
+Information
+
+Mortality Population Risk Tool
+
+5 year risk of death, Life Expectancy, Life years lost
+
+Appendix 1
+
+\section{Cause-Deleted}\label{cause-deleted}
+
+\section{Life Expectancy Calculation}\label{life-expectancy-calculation}
+
+\section{Health Interventions
+Scenarios}\label{health-interventions-scenarios}
+
+The Project Big Life Planning Tool is a robust, it allows you to run
+many different types of health intervention scenarios.
+
+\chapter{Glossary}\label{glossary}
+
+\textbf{5-year mortality risk}
+
+The probability that an individual will die in the next 5 years.
+
+\textbf{Body Mass Index (BMI)}
+
+A weight-to-height ratio used as an indicator of obesity and
+underweight. BMI is calculated by dividing an individual's body weight
+in kilograms by the square of height in metres (kg/m2).
+
+\textbf{Burden}
+
+The impact or size of a health problem in an area, measured by cost,
+mortality, morbidity or other indicators. The burden of unhealthy
+behaviour is calculated by the differences in life expectancy based on
+individuals' exposure to four health behavioural risks for poor health
+\emph{relative to what for continous outcomes}. - Seven More Years
+
+\textbf{By Row Measures}
+
+When selected, the output `.csv' file will include the result of the
+calculation for each row (e.g.~individual) of the dataset.
+
+\textbf{Calibration}
+
+The agreement between predicted risk generated from the model and
+observed risk generated from the data.
+
+\textbf{Canadian Community Health Survey}
+
+An annual survey preformed by Statistics Canada that collects
+information related to health status, health care utilization and health
+determinants for the Canadian population. Details about the survey can
+be found on Statistic Canada website
+(\url{http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey\&Id=795204}).
+
+\textbf{Discrimination}
+
+The ability of the model to differentiate between high risk individuals
+and low risk individuals.
+
+\textbf{Error Message}
+
+Error messages will occur when variables that are \textbf{``Required for
+Calculation''} are missing in the data. If the entire column for the
+variable is missing then the calculation cannot be performed on the
+data. If there are missing row entries for the variable then the entire
+row will not be used in the calculation.
+
+\textbf{Filter}
+
+Chooses part of your dataset for analysis. If you filter on
+`Sex' and then `Male', calculations will only be performed on
+individuals that are `Male' and `Females' will be excluded. For example,
+when calculating Life Expectancy on the filter variable `Sex' then
+`Male' there will be a Life Expectancy estimate for `Males' and
+\emph{no} Life Expectancy estimate for `Females'.
+
+\textbf{Health Behaviour}
+
+Actions people do that may affect their health, positively or
+negatively. Health behaviours are among the determinants of health and
+are influenced by the social, cultural and physical environments in
+which people live and work.\citep{StatsCan2010} They are also shaped by
+individual choices and external constraints.\citep{StatsCan2010} The
+four health behaviours of \textbf{smoking, alcohol consumption, diet,}
+and \textbf{physical activity} are specified in Project Big Life's
+planning tool.
+
+\textbf{Ignored Variables}
+
+Are not included in the calculation. It does not matter if your dataset
+includes these variables or not. Ignored variables can used for filter
+and stratification.
+
+\textbf{Life Expectancy (LE)}
+
+Life expectancy is a calculation of how long a person or
+population would be expected to live, on average, given unchanging risk
+of death from a specific point in time.
+
+\textbf{Metabolic Equivalent of Task (MET)}
+
+The metabolic equivalent of task (MET) is a measure of the rate of
+energy expenditure from an activity; a measure of calories burned by
+type, duration and frequency of physical activity. The reference value
+of 1 MET is defined as the energy expediture rate at rest which is equal
+to 1kcal/kg/day.
+
+\textbf{Recommend for calculation}
+
+Variables that are included in the calculation but not necessary for the
+calculation to run. Rather these variables increase the accuracy of the
+results.
+
+\textbf{Required for calculation}
+
+Variables that are included in the calculations and are necessary for
+the calculation to run. If a dataset does not have these variables then
+the calculation will not run.
+
+\textbf{Socioeconomic Position}
+
+People in poorer socioeconomic circumstances generally have poorer
+health. Deprivation measures identify those who experience material or
+social disadvantage compared to others in their community.\emph{3 - Link
+no longer exists} The Deprivation Index for Health in Canada developed
+by the Institut national desanté publique du Québec
+(INSPQ)\citep{INSPQ2000} is used in this plannning tool. The index
+includes education, employment and income as measures of material
+deprivation; and single-parent families, living alone, or being
+divorced, widowed or separated as measures of social deprivation. The
+deprivation index was used to assign geographical areas into
+socioeconomic position groups (low, middle and high) based on material
+and social quintiles. High-deprivation neighbourhoods were those in the
+top two quintiles for both social and material deprivation.
+Low-deprivation neighbourhoods were those in the bottom two quintiles.
+
+\textbf{Stratification}
+
+The seperation of data into smaller strata (levels or
+classes which individuals are assigned too). If the variable `Sex' is
+stratified it creates two strata: `Male' and `Female'. Calculations are
+performed on each strata (level or class) and the outcome will be
+specific to that strata. For example, when calculating Life Expectancy
+on the stratified variable `Sex' there will be a Life Expectancy
+estimate for `Males' and a different Life Expectancy estimate for
+`Females'.
+
+\textbf{Summary Measures}
+
+When selected, the output .csv file will include the calculation result
+for the entire population of the dataset.
+
+\textbf{Warning Message}
+
+Warning messages will occur when variables that are
+\textbf{``Recommended for Calculation''} are missing in the data. If the
+entire column for the variable is missing the calculation will still be
+performed on the data. If there are missing row entries for the variable
+the row will still be used in the calculation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\appendix
+
+
+\chapter{Mortality Population Risk Tool
+(MPoRT)}\label{mortality-population-risk-tool-mport}
+
+\textbf{Outcomes: 5-yr risk of death, Life Expectancy, Cause-deleted
+Life Expectancy}
+
+\textbf{Calculations}
+
+Using MPoRT you are able to calculate:
+
+\begin{itemize}
+\tightlist
+\item
+  5 year mortality risk
+\item
+  Number of deaths
+\item
+  Life Expectancy
+\item
+  Cause-deleted deaths and life expectancy
+\item
+  Burden of health behaviour in deaths and on life expectancy
+\end{itemize}
+
+\textbf{Types of Questions}
+
+\begin{itemize}
+\tightlist
+\item
+  What is the burden of smoking on life expectancy?
+\item
+  How many deaths would be prevented if everyone met their daily
+  excersize requirements?
+\end{itemize}
+
+\textbf{Description}: A multivariable predictive risk model that
+estimates the future risk of all-cause death in Canada. It adjusts for
+health behaviours: smoking, unhealthy alcohol consumption, poor diet,
+and physical inactivity, and a wide range of other risk factors.
+
+Versions of MPoRT have been developed since 2012 and used in various
+studies. Each version of MPoRT (v1.0, v1.2, v2.0) used the Ontario
+subset of the Canadian Community Health Survey (CCHS) for development
+and the survey respondents were linked to personal death records. In
+later versions of MPoRT (v1.2, v2.0) the following changes were made:,
+(a) algorithm variables were adjusted to improve predictions, and (b)
+the algorithms were validated using: the Ontario subset of CCHS of the
+years that were not used in development and the National CCHS dataset
+(excluding Ontario).
+
+\textbf{MPoRTv1.0} Was used in the ``Seven More Years'' report, a joint
+report with Public Health Ontario and IC/ES
+(\url{https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years}).
+In summary, the algorithm estimated the risk of death associated with
+health behaviours: smoking, unhealthy alcohol consumption, poor diet,
+physical inactivity and stress. There were approximately 550,000
+person-years of follow up and over 6000 deaths in the development
+dataset. The algorthim used categorical predictor variables for health
+behaviours and sociodemographic factors.
+
+\textbf{MPoRTv1.2} Was published in PLoS
+(\url{https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002082}).
+In summary, the algorithm estimated the risk of death associated with
+health behaviours: smoking, unhealthy alcohol consumption, poor diet,
+and physical inactivity (stress was removed due to its low prediction
+ability). There were approximately 1 million person-years of follow up
+and over 9000 deaths in the development and validation datasets. The
+algorithm used multiple continous predictor variables, and added chronic
+disease predictor variables and interaction terms.
+
+\textbf{MPoRTv2.0 - The version used in Project Big Life's Planning
+Tool} This version of MPoRT has not yet been published.
+
+\emph{Development}: This predictive risk model was developed using
+Ontario subsets of the 2001 to 2008 CCHS and participants were linked to
+personal health records. There were approximately 1.3 million
+person-years of follow-up and over 15,000 deaths in the developmental
+dataset.
+
+\emph{Validation}: This predictive risk model was validated using three
+different datasets: Ontario subset of the 2009 to 2012 CCHS, National
+dataset (except Ontario) of the 2003 to 2008 CCHS, and the National
+dataset of the 2000 and 2005 National Health Interview Survey in the
+United States of America. In all validation datasets individuals were
+linked to personal health records.
+
+\emph{Parameters}: The parameters used in this predictive risk model
+are:
+
+Category
+
+Variable
+
+Scale
+
+Description
+
+Demographic
+
+Age*
+
+Continous
+
+5 knot spline. Valid range 20 to 102
+
+Sex
+
+Dichotomous
+
+Stratified Female/Male
+
+Health Behaviour
+
+Pack years of smoking
+
+Continous
+
+3 knot spline. Valid range: 0 to 78 (Female), 0 to 112.5 (Male)
+
+Smoking Status
+
+Categorical
+
+Non-smoker
+
+Current Smoker
+
+Former Smoker \textless{}= 5 years
+
+Former \textgreater{} 5 years
+
+Alcohol (number of drinks per week)
+
+Continous
+
+4 knot spline (Females) and 3 knot spline (Males). Valid range: 0 to 25
+(Female), 0 to 50 (Male)
+
+Former/non-drinker
+
+Dichotomous
+
+Yes/No
+
+Simplified diet score
+
+Continous
+
+3 knot spline. Valid range: -18.9 to 20.7 (Female), -16.8 to 18.4 (Male)
+
+Leisure physical activity (MET)
+
+Continous
+
+3 knot spline. Valid range: 0 to 12.4 (Female), 0 to 16 (Male)
+
+Socio-demographic
+
+Ethnicity
+
+Categorical
+
+White
+
+Black
+
+Chinese
+
+Arab; South Asian; West Asian
+
+Filipino; Japanese; Korean; Southeach Asian
+
+Other; Indigenous; Latin American; Multiple origin; unknown
+
+Immigrant
+
+Dichotomous
+
+Yes/No
+
+Fraction of lifetime in Canada
+
+Continous
+
+3 knot spline\textsuperscript{†}. Valid range: 0 to 1
+
+Education
+
+Categorical
+
+Less than secondary
+
+Secondary School Graduation
+
+Some Post-Secondary
+
+Post-Secondary Graduation
+
+Neighbourhood social and material deprivation
+
+Ordinal
+
+Low (1st or 2nd quantile
+
+High (4th or 5th quantile)
+
+Moderate (all others)
+
+Chronic Conditions
+
+Diabetes
+
+Dichotomous
+
+Yes/No
+
+High Blood Pressure
+
+Dichotomous
+
+Yes/No
+
+Chronic Respiratory Disease
+
+Dichotomous
+
+Yes/No
+
+Mood Disorder
+
+Dichotomous
+
+Yes/No
+
+Cancer
+
+Dichotomous
+
+Yes/No
+
+Dementia
+
+Dichotomous
+
+Yes/No
+
+Heart Disease
+
+Dichotomous
+
+Yes/No
+
+Stroke
+
+Dichotomous
+
+Yes/No
+
+Epilepsy
+
+Dichotomous
+
+Yes/No\textsuperscript{‡}
+
+BMI
+
+Continous
+
+3 knot spline. Valid range: 8.9 to 47.2 (Female), 8.6 to 43.7 (Male)
+
+* Age interaction included for all variables exept immigrant, fraction
+of time in Canada, and ethnicity † Excluded in the male model, remains
+in the female model ‡ Excluded in the female model, remains in the male
+model
+
+\bibliography{book.bib,packages.bib}
+
+
+\end{document}
