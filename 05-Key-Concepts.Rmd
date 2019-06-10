@@ -3,6 +3,13 @@
 This section explains some key concepts in Project Big Life’s Planning Tool. This section will explain how it works rather then how to do things.
 
 - Multivariable Predictive Risk Algorithms
+- Calculations
+
+    - Risk
+    - Life Expectancy
+    - Cause-Deleted
+    
+- Health Intervention Scenarios
 
 ##Multivariable Predictive Risk Algorithms
 
@@ -61,13 +68,11 @@ kable(PoRTs) %>%
 ```
 
 
-##Cause-Deleted
+##Calculations
+###Risk
 
+###Life Expectancy Calculation
 
-
-##Life Expectancy Calculation
-
+###Cause-Deleted
 
 ## Health Interventions Scenarios
-
-The Project Big Life Planning Tool is a robust, it allows you to run many different types of health intervention scenarios.

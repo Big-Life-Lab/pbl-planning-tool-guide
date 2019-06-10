@@ -19,6 +19,7 @@ description: "This html is to provide you with guidance on how to use the BATCH 
 library(bookdown)
 library(knitr)
 library(kableExtra)
+install.packages("ggplot2")
 #install.packages('tinytex')
 #tinytex::install_tinytex()
 tinytex:::is_tinytex()
@@ -36,5 +37,5 @@ To do: Include motivation: why someone should use the platform (video and text)
 ```{r embed2, out.extra='style="border: none;"', out.width='99%', echo=FALSE}
 knitr::include_url('https://www.youtube.com/embed/5pZhRSM1cyk')
 #Not sure how to work the vimeo embeding
-knitr::include_url('https://vimeo.com/embed/267453408')
+#knitr::include_url('https://vimeo.com/embed/267453408')
 ```

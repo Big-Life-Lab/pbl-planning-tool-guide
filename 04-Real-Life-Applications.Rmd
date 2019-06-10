@@ -1,12 +1,8 @@
 # Applications
 
-This chapter provides you with examples of how Project Big Life's Planning Tool can be used in your day-to-day operations. The examples will cover: generating a health status report, determining the impact of a local policy, and determing the impact of a national policy.
-
-*Note to self: All of the data manipulation will occur through R and then be uploaded to the platform to be run.*
+This chapter provides you with examples of how Project Big Life's Planning Tool can be used in your day-to-day operations. The examples will cover: generating a health status report and determining the impact of a local and national policy.
 
 ## Health Status Report
-In this example we will generate a health status report. This will include:
-
 
 ## Diet
 
