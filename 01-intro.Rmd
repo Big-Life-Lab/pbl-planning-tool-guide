@@ -22,7 +22,7 @@ The Project Big Life Planning Tool can answer the following types of questions (
 
 - The multivariable predictive risk algorithms are developed and validated using routinely collected data by Statistics Canada and provincial health agencies, and the algorithms have been published in various journals.
 
-- More information about multivariable predictive risk algorithms can be found in the key concepts (Chapter \@ref(keytopics)).
+- More information about multivariable predictive risk algorithms can be found in the key concepts (Chapter \@ref(keyconcepts)).
 
 **Why should I used it?**
 

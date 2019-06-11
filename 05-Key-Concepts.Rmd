@@ -1,4 +1,4 @@
-#Key Topics {#keytopics}
+#Key Concepts {#keyconcepts}
 
 This section explains some key concepts in Project Big Life’s Planning Tool. This section will explain how it works rather then how to do things.
 
