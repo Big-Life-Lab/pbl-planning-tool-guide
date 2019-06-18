@@ -117,7 +117,7 @@ Tool?}\label{who-made-the-project-big-life-planning-tool}
 
 The Project Big Life Planning Tool was developed by the Project Big Life
 Team. The Project Big Life Team is part of the ICES. The below video
-explains what the ICES is.
+explains what ICES is.
 
 \begin{verbatim}
 ## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
@@ -167,7 +167,7 @@ questions:
   risk of a health outcome (e.g.~Life Expectancy).
 \item
   The multivariable predictive risk algorithms are developed and
-  validated using routinely collected data by Statistics Canada and
+  validated using data routinely collected by Statistics Canada and
   provincial health agencies, and the algorithms have been published in
   various journals.
 \item
@@ -187,8 +187,7 @@ questions:
     The user only needs to upload their data and choose which
     calculation to run.
   \item
-    It can be used to assess the current or future risk of a health
-    outcome.
+    It can be used to assess the future risk of a health outcome.
   \item
     It can be used to assess the effectiveness of different intervention
     scenarios (e.g.~policy) on a health outcome.
@@ -249,11 +248,11 @@ detail.
 \item
   Calculate Outcomes
 \item
+  Generate Intervention Scenarios
+\item
   Visualize Data
 \item
   Export Data
-\item
-  Generate Intervention Scenarios
 \item
   Resolve Error Messages
 \end{itemize}
@@ -267,12 +266,12 @@ custom filter or custom stratification.
 Data manipulation can occur on any programming software: R, SAS, STATA,
 etc, provided you output your dataset as a .csv file.
 
-The following table shows the applicable R, SAS, STATA code to complete
-following example:
+The following table shows the example R, SAS, STATA code for the
+following:
 
-\emph{To clarify: Not sure whether to continue with this section, as
-there are multiple ways to manipulate the data. Could provide an
-example}
+\emph{Put example in to the Consult with Doug} \emph{To clarify: Not
+sure whether to continue with this section, as there are multiple ways
+to manipulate the data. Could provide an example}
 
 \section{Upload Data}\label{upload-data}
 
@@ -282,15 +281,17 @@ Data \emph{uploaded} to the Project Big Life Planning Tool remains on
 your computer and is not uploaded or sent anywhere.
 
 \textbf{Note} The Project Big Life Planning Tool can currently only
-support: data from the 2013/2014 Canadian Community Health Survey and
-`.csv' files.
+support .csv data files from the 2013/2014 Canadian Community Health
+Survey \emph{TBD - whether it's shared}.
 
 There are two options for your data: use a sample file or upload your
 own file.
 
 \subsection{Use a sample file}\label{use-a-sample-file}
 
-There are \textbf{X} sample files you may use to complete your
+If you don't have your own data or want to explore the platform
+capabilities prior to your data you can use the sample files already on
+the There are \textbf{X} sample files you may use to complete your
 calculations:
 
 \begin{itemize}
@@ -313,19 +314,22 @@ for calculation, you will be able to continue with the planning tool.
 
 \begin{itemize}
 \item
-  If the imported file does \textbf{not} have all the variables required
-  for the calculation you will not be able to continue with the planning
-  tool.
+  If the imported file does \textbf{not} have all the variables
+  \textbf{required} for the calculation you will not be able to continue
+  with the planning tool.
 \item
   If the imported file does \textbf{not} have all the variables
-  recommended for calculation you will be able to continue with the
-  planning tool, however the calculations may be less accurate.
+  \textbf{recommended} for calculation you will be able to continue with
+  the planning tool, however the calculations may be less accurate.
 \end{itemize}
 
 \section{Select Outcome}\label{select-outcome}
 
 Click on box beside the calculation name under \textbf{Select initial
 calculations}.
+
+\emph{TO Do: add details about the calculations can be found in the
+glossary and key concepts}
 
 \section{Filter Data}\label{filter-data}
 
@@ -334,7 +338,7 @@ Click on the + Add filter button.
 Select the variable that you want to filter on.
 
 \emph{To Clarify: CAT vs.~Continous - what are we letting them filter
-on}
+on} *Clarify with Luke if this is done, WKLY ALCOHOL Consumption**
 
 To add another filter repeat the steps above. A maximum of three filters
 are recommended to maintain statistical power (added filters reduce
@@ -359,9 +363,13 @@ maximum of 3 stratifications are recommended to maintain statistical
 power (added strata reduce strata sample size and reduces statistical
 power).
 
-You are able to stratify on all types of variables: required for
-calculation, recommended for calculation, and ignore variables (includes
-customized variables).
+You are able to stratify on categorical variables, but not continous.
+
+You are able to stratify on all types of categorical variables: required
+for calculation, recommended for calculation, and ignore variables
+(includes customized variables).
+
+\emph{With Luke - prevent stratification of continous variables}
 
 \section{Calculate Outcomes}\label{calculate-outcomes}
 
@@ -422,23 +430,24 @@ determining the impact of a local and national policy.
 \section{Cause-deleted life
 expectancy}\label{cause-deleted-life-expectancy}
 
-What everyone in the population never smoked? This scenario is a
-cause-deleted scenario.
+What would be the life expectancy of a population if be no one in the
+population ever smoked? This scenario is a cause-deleted scenario.
 
-Cause-deleted life expectancy is the estimated life
-expectancy of a population if a specific cause (e.g.~smoking) did not
-exist in that population.
+\textbf{Cause-deleted life expectancy} is the estimated life expectancy
+of a population if a specific cause (e.g.~smoking) did not exist in that
+population. This population is known as the counterfactual population.
 
-The scenario compares the population with the current exposure status of
-smoking status and pack-years of smoking to a counterfactual population
-where these two variables are: smoking status = never smoker, and
-pack-years of smoking = 0.
+\textbf{Cause-deleted effect of life expectancy} is calculated by
+comparing the population with the current exposure status of smoking
+status and pack-years of smoking to a counterfactual population where
+these two variables are: smoking status = never smoker, and pack-years
+of smoking = 0. It is measured in life years lost. This calculation can
+also be preformed with the health outcome: risk of mortality. Further
+explaination of cause-deleted risk and cause-deleted effect of a risk
+can be found in key concepts (Chapter \ref(keyconcepts)).
 
-The health outcome life expectancy is calculated for both the current
-population and it's counterfactual population, and then compared to each
-other.
-
-The outcome will give you the life-years lost due to smoking.
+\emph{Cause-deleted effect of the risk for the probability of death \%
+of risk that is due to smoking is the difference in the risk}
 
 Lets walk through this scenario step-by-step!
 
@@ -566,12 +575,9 @@ models}\label{development-of-multivariable-predictive-risk-models}
   calibration.
 \end{itemize}
 
-\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}
-HEAD \#\#\#Multivariable predictive risk algorithms in Project Big Life
-Planning Tool** ======= \#\#\#Multivariable predictive risk algorithms
-built in Project Big Life Planning Tool
-\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}
-c5e58bf3e8579a2807de28584232b427069a22aa
+\subsection{Multivariable predictive risk algorithms built in Project
+Big Life Planning
+Tool}\label{multivariable-predictive-risk-algorithms-built-in-project-big-life-planning-tool}
 
 \begin{itemize}
 \tightlist
@@ -588,35 +594,64 @@ Information
 
 Mortality Population Risk Tool
 
-5 year risk of death, Life Expectancy, Life years lost
+5 year risk of death, Life Expectancy, Cause deleted
 
-Appendix 1
+Appendix A
 
 \section{Calculations}\label{calculations}
 
-\subsection{Life Expectancy
-Calculation}\label{life-expectancy-calculation}
+\subsection{Life expectancy
+calculation}\label{life-expectancy-calculation}
 
 Life expectancy is calculated using abridge life-tables.
 
 \emph{TO DO: further develop this section}
 
-\subsection{Cause-Deleted Life
-Expectancy}\label{cause-deleted-life-expectancy-1}
+\subsection{Cause-deleted and cause-deleted effect
+calculation}\label{cause-deleted-and-cause-deleted-effect-calculation}
 
-Cause-deleted life expectancy is the estimated life
-expectancy of a population if a specific cause (e.g.~smoking) did not
-exist in that population.
+\textbf{Cause-deleted} : A cause-deleted health outcome is the estimated
+health outcome of a population if a specific cause (e.g.~smoking) did
+not exist in that population. - A cause-deleted health
+outcome is the estimated health outcome of a population if a specific
+cause (e.g.~smoking) did not exist in that population.
 
-Cause-deleted life expectancy is the estimated life expectancy for a
-population if a specific cause (e.g.~smoking) did not exist in that
-population.
+\textbf{Cause-deleted effect}: The health outcome (e.g.~Life Expectancy)
+is calculated for both the: population with the current exposure status
+of the exposure (e.g.~smoking status and pack-years of smoking) and a
+counterfactual population where these the exposures are at their
+reference values (e.g.~smoking status = never smoker and pack-years of
+smoking = 0).
 
-Cause-deleted life expectancy is used to calculate life years
-attributable to a health behaviour.
+The comparison of the health outcomes from the two populations are the
+cause-deleted effect or the health outcome attributable to that
+exposure.
 
-Life years attributable to a health behaviour are the life years gained
-or lost due to having a health behaviour.
+The following table describes the terminology used for each calculation:
+
+Original\_outcome
+
+Counterfactual\_outcome
+
+Difference\_in\_outcome
+
+Measure\_of\_difference
+
+Life expectancy
+
+Cause-deleted life expectancy
+
+Cause-deleted effect of life expectancy
+
+Life years lost
+
+Risk of mortality
+
+Cause-deleted mortality risk
+
+Cause-deleted effect of mortality risk
+
+TBD
 
 \emph{To Do: Generate a table of the reference categories for each of
 the variables that can be adjusted.}
@@ -638,8 +673,8 @@ the variables that can be adjusted.}
   \emph{To clarify: How these steps work}
 \end{enumerate}
 
-\section{Health Interventions
-Scenarios}\label{health-interventions-scenarios}
+\section{Health interventions
+scenarios}\label{health-interventions-scenarios}
 
 \emph{TBD: whether this will be built into the platform or not.
 Depending on the outcome will dictate how I write the following section
@@ -685,9 +720,9 @@ be found on Statistic Canada website
 
 \textbf{Cause-deleted life expectancy}
 
-Cause-deleted life expectancy is the estimated life
-expectancy of a population if a specific cause (e.g.~smoking) did not
-exist in that population.
+A cause-deleted health outcome is the estimated
+health outcome of a population if a specific cause (e.g.~smoking) did
+not exist in that population.
 
 \textbf{Discrimination}
 
@@ -869,7 +904,7 @@ Using MPoRT you are able to calculate:
   What is the burden of smoking on life expectancy?
 \item
   How many deaths would be prevented if everyone met their daily
-  excersize requirements?
+  excercise requirements?
 \end{itemize}
 
 \textbf{Description}: A multivariable predictive risk model that

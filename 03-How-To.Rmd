@@ -8,9 +8,9 @@ These guides will cover similar topics as the tutorials but in greater detail.
 - Filter Data
 - Stratify Data
 - Calculate Outcomes
+- Generate Intervention Scenarios
 - Visualize Data
 - Export Data
-- Generate Intervention Scenarios
 - Resolve Error Messages
 
 
@@ -20,8 +20,9 @@ Prior to using the Project Big Life Planning Tool you may want to manipulate you
 
 Data manipulation can occur on any programming software: R, SAS, STATA, etc, provided you output your dataset as a .csv file. 
 
-The following table shows the applicable R, SAS, STATA code to complete following example:
+The following table shows the example R, SAS, STATA code for the following:
 
+*Put example in to the Consult with Doug*
 *To clarify: Not sure whether to continue with this section, as there are multiple ways to manipulate the data. Could provide an example*
 
 
@@ -32,13 +33,13 @@ The following table shows the applicable R, SAS, STATA code to complete followin
 
 Data *uploaded* to the Project Big Life Planning Tool remains on your computer and is not uploaded or sent anywhere. 
 
-**Note** The Project Big Life Planning Tool can currently only support: data from the 2013/2014 Canadian Community Health Survey and '.csv' files.
+**Note** The Project Big Life Planning Tool can currently only support .csv data files from the 2013/2014 Canadian Community Health Survey *TBD - whether it's shared*.
 
 There are two options for your data: use a sample file or upload your own file. 
 
 ###Use a sample file
 
-There are **X** sample files you may use to complete your calculations:
+If you don't have your own data or want to explore the platform capabilities prior to your data you can use the sample files already on the There are **X** sample files you may use to complete your calculations:
 
 - MockPUMF2013.csv is the Public Use Microdata File from the [2013 Canadian Community Health Survey] (https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X). 
 
@@ -51,14 +52,16 @@ Locate the file on your computer, select, and open.
 
 If the imported file has all of the variables required and recommended for calculation, you will be able to continue with the planning tool. 
 
-- If the imported file does **not** have all the variables required for the calculation you will not be able to continue with the planning tool.
+- If the imported file does **not** have all the variables **required** for the calculation you will not be able to continue with the planning tool.
 
-- If the imported file does **not** have all the variables recommended for calculation you will be able to continue with the planning tool, however the calculations may be less accurate. 
+- If the imported file does **not** have all the variables **recommended** for calculation you will be able to continue with the planning tool, however the calculations may be less accurate. 
 
 
 ##Select Outcome
 
 Click on box beside the calculation name under **Select initial calculations**.
+
+*TO Do: add details about the calculations can be found in the glossary and key concepts*
 
 
 ##Filter Data
@@ -68,6 +71,7 @@ Click on the + Add filter button.
 Select the variable that you want to filter on. 
 
 *To Clarify: CAT vs. Continous - what are we letting them filter on*
+*Clarify with Luke if this is done, WKLY ALCOHOL Consumption**
 
 To add another filter repeat the steps above. A maximum of three filters are recommended to maintain statistical power (added filters reduce sample sizes and reduces statistical power). 
 
@@ -84,7 +88,11 @@ To remove a level within a filtered variable, click on the 'x' beside the variab
 
 Select the variables you want to stratify on Under 'Stratifications'. A maximum of 3 stratifications are recommended to maintain statistical power (added strata reduce strata sample size and reduces statistical power).
 
-You are able to stratify on all types of variables: required for calculation, recommended for calculation, and ignore variables (includes customized variables).
+You are able to stratify on categorical variables, but not continous.
+
+You are able to stratify on all types of categorical variables: required for calculation, recommended for calculation, and ignore variables (includes customized variables).
+
+*With Luke - prevent stratification of continous variables*
 
 
 

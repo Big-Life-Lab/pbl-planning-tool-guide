@@ -110,7 +110,7 @@ When selected, the output .csv file will include the calculation result for the 
 
 Warning messages will occur when variables that are **"Recommended for Calculation"** are missing in the data. If the entire column for the variable is missing the calculation will still be performed on the data. If there are missing row entries for the variable the row will still be used in the calculation.
 
-(ref:causedeleted) Cause-deleted life expectancy is the estimated life expectancy of a population if a specific cause (e.g. smoking) did not exist in that population. 
+(ref:causedeleted) A cause-deleted health outcome is the estimated health outcome of a population if a specific cause (e.g. smoking) did not exist in that population. 
 
 (ref:LE) Life expectancy is a calculation of how long a person or population would be expected to live, on average, given unchanging risk of death from a specific point in time.
 

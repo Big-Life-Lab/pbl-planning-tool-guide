@@ -17,7 +17,7 @@ Using MPoRT you are able to calculate:
 **Types of Questions**
 
 - What is the burden of smoking on life expectancy?
-- How many deaths would be prevented if everyone met their daily excersize requirements?
+- How many deaths would be prevented if everyone met their daily excercise requirements?
 
 
 

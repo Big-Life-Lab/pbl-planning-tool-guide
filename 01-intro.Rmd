@@ -20,7 +20,7 @@ The Project Big Life Planning Tool can answer the following types of questions:
 
 - The multivariable predictive risk algorithms use distinct characteristics and health profiles of groups of people to assess the risk of a health outcome (e.g. Life Expectancy).
 
-- The multivariable predictive risk algorithms are developed and validated using routinely collected data by Statistics Canada and provincial health agencies, and the algorithms have been published in various journals.
+- The multivariable predictive risk algorithms are developed and validated using data routinely collected by Statistics Canada and provincial health agencies, and the algorithms have been published in various journals.
 
 - More information about multivariable predictive risk algorithms can be found in the key concepts (Chapter \@ref(keyconcepts)).
 
@@ -29,7 +29,7 @@ The Project Big Life Planning Tool can answer the following types of questions:
 - It is **easy** and **flexible** to use. 
 
     - The user only needs to upload their data and choose which calculation to run.
-    - It can be used to assess the current or future risk of a health outcome.
+    - It can be used to assess the future risk of a health outcome.
     - It can be used to assess the effectiveness of different intervention scenarios (e.g. policy) on a health outcome.
     
     

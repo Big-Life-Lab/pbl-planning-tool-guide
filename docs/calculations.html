@@ -99,12 +99,13 @@
 <li class="chapter" data-level="6" data-path="keyconcepts.html"><a href="keyconcepts.html"><i class="fa fa-check"></i><b>6</b> Key Concepts</a><ul>
 <li class="chapter" data-level="6.1" data-path="multivariable-predictive-risk-algorithms.html"><a href="multivariable-predictive-risk-algorithms.html"><i class="fa fa-check"></i><b>6.1</b> Multivariable Predictive Risk Algorithms</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="multivariable-predictive-risk-algorithms.html"><a href="multivariable-predictive-risk-algorithms.html#development-of-multivariable-predictive-risk-models"><i class="fa fa-check"></i><b>6.1.1</b> Development of multivariable predictive risk models</a></li>
+<li class="chapter" data-level="6.1.2" data-path="multivariable-predictive-risk-algorithms.html"><a href="multivariable-predictive-risk-algorithms.html#multivariable-predictive-risk-algorithms-built-in-project-big-life-planning-tool"><i class="fa fa-check"></i><b>6.1.2</b> Multivariable predictive risk algorithms built in Project Big Life Planning Tool</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="calculations.html"><a href="calculations.html"><i class="fa fa-check"></i><b>6.2</b> Calculations</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="calculations.html"><a href="calculations.html#life-expectancy-calculation"><i class="fa fa-check"></i><b>6.2.1</b> Life Expectancy Calculation</a></li>
-<li class="chapter" data-level="6.2.2" data-path="calculations.html"><a href="calculations.html#cause-deleted-life-expectancy-1"><i class="fa fa-check"></i><b>6.2.2</b> Cause-Deleted Life Expectancy</a></li>
+<li class="chapter" data-level="6.2.1" data-path="calculations.html"><a href="calculations.html#life-expectancy-calculation"><i class="fa fa-check"></i><b>6.2.1</b> Life expectancy calculation</a></li>
+<li class="chapter" data-level="6.2.2" data-path="calculations.html"><a href="calculations.html#cause-deleted-and-cause-deleted-effect-calculation"><i class="fa fa-check"></i><b>6.2.2</b> Cause-deleted and cause-deleted effect calculation</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="health-interventions-scenarios.html"><a href="health-interventions-scenarios.html"><i class="fa fa-check"></i><b>6.3</b> Health Interventions Scenarios</a></li>
+<li class="chapter" data-level="6.3" data-path="health-interventions-scenarios.html"><a href="health-interventions-scenarios.html"><i class="fa fa-check"></i><b>6.3</b> Health interventions scenarios</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>7</b> Glossary</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
@@ -132,16 +133,64 @@
 <div id="calculations" class="section level2">
 <h2><span class="header-section-number">6.2</span> Calculations</h2>
 <div id="life-expectancy-calculation" class="section level3">
-<h3><span class="header-section-number">6.2.1</span> Life Expectancy Calculation</h3>
+<h3><span class="header-section-number">6.2.1</span> Life expectancy calculation</h3>
 <p>Life expectancy is calculated using abridge life-tables.</p>
 <p><em>TO DO: further develop this section</em></p>
 </div>
-<div id="cause-deleted-life-expectancy-1" class="section level3">
-<h3><span class="header-section-number">6.2.2</span> Cause-Deleted Life Expectancy</h3>
-<p>Cause-deleted life expectancy is the estimated life expectancy of a population if a specific cause (e.g. smoking) did not exist in that population.</p>
-<p>Cause-deleted life expectancy is the estimated life expectancy for a population if a specific cause (e.g. smoking) did not exist in that population.</p>
-<p>Cause-deleted life expectancy is used to calculate life years attributable to a health behaviour.</p>
-<p>Life years attributable to a health behaviour are the life years gained or lost due to having a health behaviour.</p>
+<div id="cause-deleted-and-cause-deleted-effect-calculation" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Cause-deleted and cause-deleted effect calculation</h3>
+<p><strong>Cause-deleted</strong> : A cause-deleted health outcome is the estimated health outcome of a population if a specific cause (e.g. smoking) did not exist in that population. - A cause-deleted health outcome is the estimated health outcome of a population if a specific cause (e.g. smoking) did not exist in that population.</p>
+<p><strong>Cause-deleted effect</strong>: The health outcome (e.g. Life Expectancy) is calculated for both the: population with the current exposure status of the exposure (e.g. smoking status and pack-years of smoking) and a counterfactual population where these the exposures are at their reference values (e.g. smoking status = never smoker and pack-years of smoking = 0).</p>
+<p>The comparison of the health outcomes from the two populations are the cause-deleted effect or the health outcome attributable to that exposure.</p>
+<p>The following table describes the terminology used for each calculation:</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Original_outcome
+</th>
+<th style="text-align:left;">
+Counterfactual_outcome
+</th>
+<th style="text-align:left;">
+Difference_in_outcome
+</th>
+<th style="text-align:left;">
+Measure_of_difference
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Life expectancy
+</td>
+<td style="text-align:left;">
+Cause-deleted life expectancy
+</td>
+<td style="text-align:left;">
+Cause-deleted effect of life expectancy
+</td>
+<td style="text-align:left;">
+Life years lost
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Risk of mortality
+</td>
+<td style="text-align:left;">
+Cause-deleted mortality risk
+</td>
+<td style="text-align:left;">
+Cause-deleted effect of mortality risk
+</td>
+<td style="text-align:left;">
+TBD
+</td>
+</tr>
+</tbody>
+</table>
 <p><em>To Do: Generate a table of the reference categories for each of the variables that can be adjusted.</em></p>
 <p><strong>Calculations</strong></p>
 <ol style="list-style-type: decimal">

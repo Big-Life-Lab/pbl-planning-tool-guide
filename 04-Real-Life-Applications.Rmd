@@ -4,17 +4,16 @@ This chapter provides you with examples of how Project Big Life's Planning Tool 
 
 ## Cause-deleted life expectancy
 
-What everyone in the population never smoked? This scenario is a cause-deleted scenario.
+What would be the life expectancy of a population if be no one in the population ever smoked? This scenario is a cause-deleted scenario.
 
-(ref:causedeleted)
+**Cause-deleted life expectancy** is the estimated life expectancy of a population if a specific cause (e.g. smoking) did not exist in that population. This population is known as the counterfactual population. 
 
-The scenario compares the population with the current exposure status of smoking status and pack-years of smoking to a counterfactual population where these two variables are: smoking status = never smoker, and pack-years of smoking = 0. 
+**Cause-deleted effect of life expectancy** is calculated by comparing the population with the current exposure status of smoking status and pack-years of smoking to a counterfactual population where these two variables are: smoking status = never smoker, and pack-years of smoking = 0. It is measured in life years lost. This calculation can also be preformed with the health outcome: risk of mortality. Further explaination of cause-deleted risk and cause-deleted effect of a risk can be found in key concepts (Chapter \ref(keyconcepts)).
 
-The health outcome life expectancy is calculated for both the current population and it's counterfactual population, and then compared to each other.
-
-The outcome will give you the life-years lost due to smoking. 
+*Cause-deleted effect of the risk for the probability of death % of risk that is due to smoking is the difference in the risk*
 
 Lets walk through this scenario step-by-step!
+
 
 ## Health Status Report
 

@@ -47,11 +47,7 @@ More information on what multivariable predictive risk algorithms are and how th
     
 - In each stage of the model development and validation, model performance is assessed using measures of discrimination and calibration.
 
-<<<<<<< HEAD
-###Multivariable predictive risk algorithms in Project Big Life Planning Tool**
-=======
 ###Multivariable predictive risk algorithms built in Project Big Life Planning Tool
->>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 
 - There is currently 1 multivariable predictive risk model is built into to Project Big Life planning tool.
 ```{r, echo=FALSE, results='hide', message=FALSE}
@@ -60,8 +56,8 @@ library(kableExtra)
 #Replicated Table 1 from MPoRTv2 Figures - Predictor variables for the MPoRTv2
 (PoRTs <- data.frame(
     Title = c("Mortality Population Risk Tool"),
-    Outcomes = c("5 year risk of death, Life Expectancy, Life years lost"),
-    Information =c("Appendix 1"))
+    Outcomes = c("5 year risk of death, Life Expectancy, Cause deleted"),
+    Information =c("Appendix A"))
     )#closingbracket 
 ```
 ```{r, echo=FALSE}
@@ -73,21 +69,40 @@ kable(PoRTs) %>%
 
 ##Calculations
 
-###Life Expectancy Calculation
+###Life expectancy calculation
 
 Life expectancy is calculated using abridge life-tables. 
 
 *TO DO: further develop this section*
 
-###Cause-Deleted Life Expectancy
 
-(ref:causedeleted)
 
-Cause-deleted life expectancy is the estimated life expectancy for a population if a specific cause (e.g. smoking) did not exist in that population.
+###Cause-deleted and cause-deleted effect calculation
 
-Cause-deleted life expectancy is used to calculate life years attributable to a health behaviour. 
+**Cause-deleted** : (ref:causedeleted) - A cause-deleted health outcome is the estimated health outcome of a population if a specific cause (e.g. smoking) did not exist in that population. 
 
-Life years attributable to a health behaviour are the life years gained or lost due to having a health behaviour. 
+**Cause-deleted effect**: The health outcome (e.g. Life Expectancy) is calculated for both the: population with the current exposure status of the exposure (e.g. smoking status and pack-years of smoking) and a counterfactual population where these the exposures are at their reference values (e.g. smoking status = never smoker and pack-years of smoking = 0). 
+
+The comparison of the health outcomes from the two populations are the cause-deleted effect or the health outcome attributable to that exposure.
+
+The following table describes the terminology used for each calculation:
+
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+#Replicated Table 1 from MPoRTv2 Figures - Predictor variables for the MPoRTv2
+(cause_deleted <- data.frame(
+    Original_outcome = c("Life expectancy", "Risk of mortality"),
+    Counterfactual_outcome = c("Cause-deleted life expectancy", "Cause-deleted mortality risk"),
+    Difference_in_outcome =c("Cause-deleted effect of life expectancy", "Cause-deleted effect of mortality risk"), 
+    Measure_of_difference = c("Life years lost", "TBD"))
+    )#closingbracket 
+```
+```{r, echo=FALSE}
+#Creating the table
+kable(cause_deleted) %>%
+  kable_styling(full_width = T)
+```
 
 *To Do: Generate a table of the reference categories for each of the variables that can be adjusted.*
 
@@ -100,6 +115,6 @@ Life years attributable to a health behaviour are the life years gained or lost 
 3) *To clarify: How these steps work*
 
 
-## Health Interventions Scenarios
+## Health interventions scenarios
 
 *TBD: whether this will be built into the platform or not. Depending on the outcome will dictate how I write the following section (e.g. do they have to manipulate thier data)*
