@@ -30,6 +30,10 @@ The agreement between predicted risk generated from the model and observed risk 
 An annual survey preformed by Statistics Canada that collects information related to health status, health care utilization and health determinants for the Canadian population. Details about the survey can be found on Statistic Canada website  (http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&Id=795204). 
 
 
+**Cause-deleted life expectancy**
+(ref:causedeleted)
+
+
 **Discrimination**
 
 The ability of the model to differentiate between high risk individuals and low risk individuals.
@@ -81,6 +85,10 @@ Variables that are included in the calculation but not necessary for the calcula
 
 Variables that are included in the calculations and are necessary for the calculation to run. If a dataset does not have these variables then the calculation will not run.
 
+**Risk**
+
+The probability of an event occuring at some point of time in the future.
+
 
 **Socioeconomic Position**
 
@@ -101,6 +109,7 @@ When selected, the output .csv file will include the calculation result for the 
 
 Warning messages will occur when variables that are **"Recommended for Calculation"** are missing in the data. If the entire column for the variable is missing the calculation will still be performed on the data. If there are missing row entries for the variable the row will still be used in the calculation.
 
+(ref:causedeleted) Cause-deleted life expectancy is the estimated life expectancy of a population if a specific cause (e.g. smoking) did not exist in that population. 
 
 (ref:LE) Life expectancy is a calculation of how long a person or population would be expected to live, on average, given unchanging risk of death from a specific point in time.
 

@@ -32,7 +32,13 @@ knitr::write_bib(c(
 ), 'packages.bib')
 ```
 
-To do: Include motivation: why someone should use the platform (video and text)
+##What is the Project Big Life Planning Tool
+
+*To do: Develop video showcasing the platform including what it is and why someone should use the platform*
+
+##Who made the Project Big Life Planning Tool?
+
+The Project Big Life Planning Tool was developed by the Project Big Life Team. The Project Big Life Team is part of the ICES. The below video explains what the ICES is. 
 
 ```{r embed2, out.extra='style="border: none;"', out.width='99%', echo=FALSE}
 knitr::include_url('https://www.youtube.com/embed/5pZhRSM1cyk')

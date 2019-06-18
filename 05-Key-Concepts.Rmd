@@ -5,7 +5,6 @@ This section explains some key concepts in Project Big Life’s Planning Tool. T
 - Multivariable Predictive Risk Algorithms
 - Calculations
 
-    - Risk
     - Life Expectancy
     - Cause-Deleted
     
@@ -26,9 +25,9 @@ Multivariable predictive risk algorithms are able to assess equity issues compar
 
 More information on what multivariable predictive risk algorithms are and how they can be used can be found the journal article: *Predictive risk algorithms in a population setting: an overview* [@PoRTover]
 
-**4.1.1 Development of  multivariable predictive risk models**
+###Development of  multivariable predictive risk models
 
-Data:
+**Data:**
 
 -	Multivariable predictive risk models are created using routinely collected data that includes information about risk factors (exposure) and health events (outcomes).
 -	Data is collected at an individual level through population health surveys (e.g. Canadian Community Health Survey) and administrative databases (e.g. Vital Statistics). Data sources are linked together when the individual has given permission too.
@@ -48,7 +47,7 @@ Data:
     
 - In each stage of the model development and validation, model performance is assessed using measures of discrimination and calibration.
 
-**4.1.2 Multivariable predictive risk algorithms in Project Big Life Planning Tool**
+###Multivariable predictive risk algorithms in Project Big Life Planning Tool**
 
 - There is currently 1 multivariable predictive risk model is built into to Project Big Life planning tool.
 ```{r, echo=FALSE, results='hide', message=FALSE}
@@ -69,10 +68,30 @@ kable(PoRTs) %>%
 
 
 ##Calculations
-###Risk
 
 ###Life Expectancy Calculation
 
+Life expectancy is calculated using abridge life-tables. 
+
+*TO DO: further develop this section*
+
 ###Cause-Deleted
 
+Cause-deleted life expectancy is the estimated life expectancy for a population if a specific cause (e.g. smoking) did not exist in that population.
+
+Cause-deleted life expectancy is used to calculate life years attributable to a health behaviour. 
+
+Life years attributable to a health behaviour are the life years gained or lost due to having a health behaviour. 
+
+*To Do: Generate a table of the reference categories for each of the variables that can be adjusted.*
+
+**Calculations**
+
+1) The 5-year risk of mortality of the population is calculated using current health behaviour levels, e.g. your population will have individuals that never smoked, current smoker, former smoker who quit < 5 years ago, and former smokers that quit >= 5 years ago.
+
+2) The "cause-deleted 5-yr mortality risk" is calculated by setting the exposure of interest (e.g. smoking status) to its reference level.
+
+3) *To clarify: How these steps work*
+
+*TBD: whether this will be built into the platform or not. Depending on the outcome will dictate how I write the following section (e.g. do they have to manipulate thier data)*
 ## Health Interventions Scenarios

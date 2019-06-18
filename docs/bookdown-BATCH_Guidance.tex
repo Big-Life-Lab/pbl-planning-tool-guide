@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-06-10}
+    \date{2019-06-18}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -106,8 +106,18 @@
 \chapter{Welcome to Project Big Life's Planning
 Tool}\label{welcome-to-project-big-lifes-planning-tool}
 
-To do: Include motivation: why someone should use the platform (video
-and text)
+\section{What is the Project Big Life Planning
+Tool}\label{what-is-the-project-big-life-planning-tool}
+
+\emph{To do: Develop video showcasing the platform including what it is
+and why someone should use the platform}
+
+\section{Who made the Project Big Life Planning
+Tool?}\label{who-made-the-project-big-life-planning-tool}
+
+The Project Big Life Planning Tool was developed by the Project Big Life
+Team. The Project Big Life Team is part of the ICES. The below video
+explains what the ICES is.
 
 \begin{verbatim}
 ## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
@@ -133,9 +143,16 @@ For instance Project Big Life Planning Tool helps:
 \textbf{What types of questions can it answer?}
 
 The Project Big Life Planning Tool can answer the following types of
-questions (this list is not exhaustive): - What is the burden of smoking
-on life expectancy? - How many deaths would be prevented if everyone met
-their daily excersize requirements?
+questions (this list is not exhaustive):
+
+\begin{itemize}
+\tightlist
+\item
+  What is the burden of smoking on life expectancy?
+\item
+  How many deaths would be prevented if everyone met their daily
+  excersize requirements?
+\end{itemize}
 
 \textbf{How does it work?}
 
@@ -155,7 +172,7 @@ their daily excersize requirements?
   various journals.
 \item
   More information about multivariable predictive risk algorithms can be
-  found in the key concepts (Chapter \ref{keytopics}).
+  found in the key concepts (Chapter \ref{keyconcepts}).
 \end{itemize}
 
 \textbf{Why should I used it?}
@@ -237,52 +254,159 @@ detail.
   Resolve Error Messages
 \end{itemize}
 
-\section{Import Data}\label{import-data}
+\section{Customize data}\label{customize-data}
+
+Prior to using the Project Big Life Planning Tool you may want to
+manipulate your dataset. Reasons for data manipulation may include:
+custom filter or custom stratification.
+
+Data manipulation can occur on any programming software: R, SAS, STATA,
+etc, provided you output your dataset as a .csv file.
+
+The following table shows the applicable R, SAS, STATA code to complete
+following example:
+
+\emph{To clarify: Not sure whether to continue with this section, as
+there are multiple ways to manipulate the data. Could provide an
+example}
+
+\section{Upload Data}\label{upload-data}
+
+\emph{To Do: determine what terminology to use Uploaded vs.~Imported}
+
+Data \emph{uploaded} to the Project Big Life Planning Tool remains on
+your computer and is not uploaded or sent anywhere.
+
+\textbf{Note} The Project Big Life Planning Tool can currently only
+support: data from the 2013/2014 Canadian Community Health Survey and
+`.csv' files.
+
+There are two options for your data: use a sample file or upload your
+own file.
+
+\subsection{Use a sample file}\label{use-a-sample-file}
+
+There are \textbf{X} sample files you may use to complete your
+calculations:
+
+\begin{itemize}
+\tightlist
+\item
+  MockPUMF2013.csv is the Public Use Microdata File from the {[}2013
+  Canadian Community Health Survey{]}
+  (\url{https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X}).
+\end{itemize}
+
+Click on the file name under the \textbf{Sample files} to select it.
+
+\subsection{Upload your own file}\label{upload-your-own-file}
+
+Click the browse button under \textbf{Select a file to use in
+calculations}. Locate the file on your computer, select, and open.
+
+If the imported file has all of the variables required and recommended
+for calculation, you will be able to continue with the planning tool.
+
+\begin{itemize}
+\item
+  If the imported file does \textbf{not} have all the variables required
+  for the calculation you will not be able to continue with the planning
+  tool.
+\item
+  If the imported file does \textbf{not} have all the variables
+  recommended for calculation you will be able to continue with the
+  planning tool, however the calculations may be less accurate.
+\end{itemize}
+
+\section{Select Outcome}\label{select-outcome}
+
+Click on box beside the calculation name under \textbf{Select initial
+calculations}.
 
 \section{Filter Data}\label{filter-data}
 
-\section{Stratify Data}\label{stratify-data}
+Click on the + Add filter button.
 
-\begin{itemize}
-\tightlist
-\item
-  Default Stratification
-\item
-  Custom Stratification Include the coding steps for R/STATA/SAS
-\end{itemize}
+Select the variable that you want to filter on.
 
-\section{Calculate Outcomes}\label{calculate-outcomes}
+\emph{To Clarify: CAT vs.~Continous - what are we letting them filter
+on}
 
-*Note that the larger the file the longer the calculations will take.
-Use LE or Risk of death as examples in the how-to
+To add another filter repeat the steps above. A maximum of three filters
+are recommended to maintain statistical power (added filters reduce
+sample sizes and reduces statistical power).
 
-\section{Visualize Data}\label{visualize-data}
+You are able to filter on all types of variables: required for
+calculation, recommended for calculation, and ignore variables (includes
+customized variables).
 
-\begin{itemize}
-\tightlist
-\item
-  export
-\item
-  create your own(?)
-\end{itemize}
+\subsection{Remove a filter}\label{remove-a-filter}
 
-\section{Export Data}\label{export-data}
+To remove a filter entirely, click on the trash can beside the filter
+you want to delete.
+
+To remove a level within a filtered variable, click on the `x' beside
+the variable level.
+
+\section{Stratify data}\label{stratify-data}
+
+Select the variables you want to stratify on Under `Stratifications'. A
+maximum of 3 stratifications are recommended to maintain statistical
+power (added strata reduce strata sample size and reduces statistical
+power).
+
+You are able to stratify on all types of variables: required for
+calculation, recommended for calculation, and ignore variables (includes
+customized variables).
+
+Name your calculation to quickly differentiate multiple calculations.
+
+\textbf{Note} the larger the data file is the longer the calculations
+will take. It may take a few minutes for the calculation to complete.
+\emph{TBD: There has been discussion on changing the current method.
+Once a method has been selected then Indicate how they know that the
+calculation is being preformed.}
 
 \section{Generate Intervention
 Scenarios}\label{generate-intervention-scenarios}
 
+\emph{TBD: How much of it will be included in the platform. Will inform
+how to write this section}
+
+\section{Visualize Data}\label{visualize-data}
+
+\emph{TBD: Need plots on the platform to work through the steps below}
+
+\section{Export Data}\label{export-data}
+
+Click on the \textbf{Download results} button under the \textbf{Results}
+section.
+
+Select which calculations you'd like to download.
+
+\emph{To Do: Screenshot of all the calculation options once the platform
+is fixed.}
+
+\section{Generate Intervention
+Scenarios}\label{generate-intervention-scenarios-1}
+
+\emph{TBD - how much will be included on the platform. It will inform
+these next steps}
+
+\section{Resolve Warning or Error
+Messages}\label{resolve-warning-or-error-messages}
+
+\emph{TO DO: confirm with Luke possible error messages and what they
+mean}
+
 \begin{itemize}
 \tightlist
 \item
-  Define target population (all or high-risk only), and specify
-  intervention effect
-\end{itemize}
-
-\section{Resolve Error Messages}\label{resolve-error-messages}
-
-\begin{itemize}
+  Invalid category
 \item
   Out of range
+\item
+  Not a number
 \item
   Sample Size is too small
 \end{itemize}
@@ -294,13 +418,36 @@ Planning Tool can be used in your day-to-day operations. The examples
 will cover: generating a health status report and determining the impact
 of a local and national policy.
 
+\section{Cause-deleted life
+expectancy}\label{cause-deleted-life-expectancy}
+
+What everyone in the population never smoked? This scenario is a
+cause-deleted scenario.
+
+Cause-deleted life expectancy is the estimated life
+expectancy of a population if a specific cause (e.g.~smoking) did not
+exist in that population.
+
+The scenario compares the population with the current exposure status of
+smoking status and pack-years of smoking to a counterfactual population
+where these two variables are: smoking status = never smoker, and
+pack-years of smoking = 0.
+
+The health outcome life expectancy is calculated for both the current
+population and it's counterfactual population, and then compared to each
+other.
+
+The outcome will give you the life-years lost due to smoking.
+
+Lets walk through this scenario step-by-step!
+
 \section{Health Status Report}\label{health-status-report}
 
 \section{Diet}\label{diet}
 
 \section{Transportation}\label{transportation}
 
-\chapter{Key Topics}\label{keytopics}
+\chapter{Key Concepts}\label{keyconcepts}
 
 This section explains some key concepts in Project Big Life's Planning
 Tool. This section will explain how it works rather then how to do
@@ -314,8 +461,6 @@ things.
 
   \begin{itemize}
   \tightlist
-  \item
-    Risk
   \item
     Life Expectancy
   \item
@@ -357,9 +502,10 @@ and how they can be used can be found the journal article:
 \emph{Predictive risk algorithms in a population setting: an overview}
 \citep{PoRTover}
 
-\textbf{4.1.1 Development of multivariable predictive risk models}
+\subsection{Development of multivariable predictive risk
+models}\label{development-of-multivariable-predictive-risk-models}
 
-Data:
+**\url{Data:**}
 
 \begin{itemize}
 \item
@@ -419,8 +565,9 @@ Data:
   calibration.
 \end{itemize}
 
-\textbf{4.1.2 Multivariable predictive risk algorithms in Project Big
-Life Planning Tool}
+\subsection{Multivariable predictive risk algorithms in Project Big Life
+Planning
+Tool**}\label{multivariable-predictive-risk-algorithms-in-project-big-life-planning-tool}
 
 \begin{itemize}
 \tightlist
@@ -443,15 +590,49 @@ Appendix 1
 
 \section{Calculations}\label{calculations}
 
-\subsection{Risk}\label{risk}
-
 \subsection{Life Expectancy
 Calculation}\label{life-expectancy-calculation}
 
+Life expectancy is calculated using abridge life-tables.
+
+\emph{TO DO: further develop this section}
+
 \subsection{Cause-Deleted}\label{cause-deleted}
 
-\section{Health Interventions
-Scenarios}\label{health-interventions-scenarios}
+Cause-deleted life expectancy is the estimated life expectancy for a
+population if a specific cause (e.g.~smoking) did not exist in that
+population.
+
+Cause-deleted life expectancy is used to calculate life years
+attributable to a health behaviour.
+
+Life years attributable to a health behaviour are the life years gained
+or lost due to having a health behaviour.
+
+\emph{To Do: Generate a table of the reference categories for each of
+the variables that can be adjusted.}
+
+\textbf{Calculations}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  The 5-year risk of mortality of the population is calculated using
+  current health behaviour levels, e.g.~your population will have
+  individuals that never smoked, current smoker, former smoker who quit
+  \textless{} 5 years ago, and former smokers that quit \textgreater{}=
+  5 years ago.
+\item
+  The ``cause-deleted 5-yr mortality risk'' is calculated by setting the
+  exposure of interest (e.g.~smoking status) to its reference level.
+\item
+  \emph{To clarify: How these steps work}
+\end{enumerate}
+
+\emph{TBD: whether this will be built into the platform or not.
+Depending on the outcome will dictate how I write the following section
+(e.g.~do they have to manipulate thier data)} \#\# Health Interventions
+Scenarios
 
 \chapter{Glossary}\label{glossary}
 
@@ -490,6 +671,10 @@ information related to health status, health care utilization and health
 determinants for the Canadian population. Details about the survey can
 be found on Statistic Canada website
 (\url{http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey\&Id=795204}).
+
+\textbf{Cause-deleted life expectancy} Cause-deleted life expectancy is the estimated life
+expectancy of a population if a specific cause (e.g.~smoking) did not
+exist in that population.
 
 \textbf{Discrimination}
 
@@ -567,6 +752,11 @@ Variables that are included in the calculations and are necessary for
 the calculation to run. If a dataset does not have these variables then
 the calculation will not run.
 
+\textbf{Risk}
+
+The probability of an event occuring at some point of time in the
+future.
+
 \textbf{Socioeconomic Position}
 
 People in poorer socioeconomic circumstances generally have poorer
@@ -606,6 +796,10 @@ Warning messages will occur when variables that are
 entire column for the variable is missing the calculation will still be
 performed on the data. If there are missing row entries for the variable
 the row will still be used in the calculation.
+
+
+
+
 
 
 
