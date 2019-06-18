@@ -75,6 +75,8 @@ The metabolic equivalent of task (MET) is a measure of the rate of energy expend
 
 A variable that is used in the algorithm to predict the outcome.
 
+**Risk**
+The probability of an event occuring at some point of time in the future.
 
 **Recommend for calculation**
 
@@ -108,6 +110,8 @@ When selected, the output .csv file will include the calculation result for the 
 **Warning Message**
 
 Warning messages will occur when variables that are **"Recommended for Calculation"** are missing in the data. If the entire column for the variable is missing the calculation will still be performed on the data. If there are missing row entries for the variable the row will still be used in the calculation.
+
+(ref:causedeleted) Cause-deleted life expectancy is the estimated life expectancy of a population if a specific cause (e.g. smoking) did not exist in that population. 
 
 (ref:causedeleted) Cause-deleted life expectancy is the estimated life expectancy of a population if a specific cause (e.g. smoking) did not exist in that population. 
 

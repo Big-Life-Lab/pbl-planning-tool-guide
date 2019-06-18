@@ -1,15 +1,15 @@
 #Introduction
 
-The Project Big Life Planning Tool was developed in order to support health practitioners: research, plan, develop, and evaluate evidence-based health interventions.
+The Project Big Life Planning Tool was developed in order to support health professionals: research, plan, develop, and evaluate evidence-based health interventions.
 
 For instance Project Big Life Planning Tool helps:
 
-- Public health practitioners: assess the impact of a preventative intervention on a health behaviour.
-- Health planners: assess the need for palliative care.
+- Public health professionals: assess the impact of a preventative intervention on a health behaviour
+- Health planners: assess the need for palliative care
 
 **What types of questions can it answer?**
 
-The Project Big Life Planning Tool can answer the following types of questions (this list is not exhaustive): 
+The Project Big Life Planning Tool can answer the following types of questions: 
 
 - What is the burden of smoking on life expectancy?
 - How many deaths would be prevented if everyone met their daily excersize requirements?

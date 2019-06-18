@@ -2,7 +2,9 @@
 
 These guides will cover similar topics as the tutorials but in greater detail.
 
+- Customize Data
 - Import Data
+- Select Outcome
 - Filter Data
 - Stratify Data
 - Calculate Outcomes
@@ -12,7 +14,12 @@ These guides will cover similar topics as the tutorials but in greater detail.
 - Resolve Error Messages
 
 
+<<<<<<< HEAD
 ##Customize data
+=======
+##Customize Data
+
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 Prior to using the Project Big Life Planning Tool you may want to manipulate your dataset. Reasons for data manipulation may include: custom filter or custom stratification. 
 
 Data manipulation can occur on any programming software: R, SAS, STATA, etc, provided you output your dataset as a .csv file. 
@@ -61,6 +68,7 @@ Click on box beside the calculation name under **Select initial calculations**.
 
 ##Filter Data
 
+<<<<<<< HEAD
 Click on the + Add filter button.
 
 Select the variable that you want to filter on. 
@@ -83,6 +91,36 @@ Select the variables you want to stratify on Under 'Stratifications'. A maximum 
 
 You are able to stratify on all types of variables: required for calculation, recommended for calculation, and ignore variables (includes customized variables).
 
+=======
+(ref:Filter)
+
+Click on the + Add filter button.
+
+Select the variable that you want to filter on. 
+
+*To Clarify: CAT vs. Continous - what are we letting them filter on*
+
+To add another filter repeat the steps above. A maximum of three filters are recommended to maintain statistical power (added filters reduce sample sizes and reduces statistical power). 
+
+You are able to filter on all types of variables: required for calculation, recommended for calculation, and ignore variables (includes customized variables).
+
+###Remove a filter
+
+To remove a filter entirely, click on the trash can beside the filter you want to delete.
+
+To remove a level within a filtered variable, click on the 'x' beside the variable level.
+
+
+
+##Stratify Data
+
+Select the variables you want to stratify on Under 'Stratifications'. A maximum of 3 stratifications are recommended to maintain statistical power (added strata reduce strata sample size and reduces statistical power).
+
+You are able to stratify on all types of variables: required for calculation, recommended for calculation, and ignore variables (includes customized variables).
+
+
+##Calculate Outcomes
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 
 Name your calculation to quickly differentiate multiple calculations.
 
@@ -93,14 +131,27 @@ Name your calculation to quickly differentiate multiple calculations.
 ##Generate Intervention Scenarios
 
 *TBD: How much of it will be included in the platform. Will inform how to write this section*
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 
 ##Visualize Data
 
 *TBD: Need plots on the platform to work through the steps below*
+<<<<<<< HEAD
+=======
+- export
+- create your own(?)
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
+
+
 
 ##Export Data
 
 Click on the **Download results** button under the **Results** section.
+<<<<<<< HEAD
 
 Select which calculations you'd like to download. 
 
@@ -113,6 +164,18 @@ Select which calculations you'd like to download.
 
 *TO DO: confirm with Luke possible error messages and what they mean*
 
+=======
+
+Select which calculations you'd like to download. 
+
+*To Do: Screenshot of all the calculation options once the platform is fixed.*
+
+
+##Resolve Warning or Error Messages
+
+*TO DO: confirm with Luke possible error messages and what they mean*
+
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 - Invalid category
 - Out of range
 - Not a number

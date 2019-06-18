@@ -85,7 +85,11 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
+<<<<<<< HEAD
     \date{2019-06-18}
+=======
+    \date{2019-06-17}
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -126,7 +130,7 @@ explains what the ICES is.
 \chapter{Introduction}\label{introduction}
 
 The Project Big Life Planning Tool was developed in order to support
-health practitioners: research, plan, develop, and evaluate
+health professionals: research, plan, develop, and evaluate
 evidence-based health interventions.
 
 For instance Project Big Life Planning Tool helps:
@@ -134,16 +138,20 @@ For instance Project Big Life Planning Tool helps:
 \begin{itemize}
 \tightlist
 \item
-  Public health practitioners: assess the impact of a preventative
-  intervention on a health behaviour.
+  Public health professionals: assess the impact of a preventative
+  intervention on a health behaviour
 \item
-  Health planners: assess the need for palliative care.
+  Health planners: assess the need for palliative care
 \end{itemize}
 
 \textbf{What types of questions can it answer?}
 
 The Project Big Life Planning Tool can answer the following types of
+<<<<<<< HEAD
 questions (this list is not exhaustive):
+=======
+questions:
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 
 \begin{itemize}
 \tightlist
@@ -237,7 +245,11 @@ detail.
 \begin{itemize}
 \tightlist
 \item
+  Customize Data
+\item
   Import Data
+\item
+  Select Outcome
 \item
   Filter Data
 \item
@@ -254,11 +266,16 @@ detail.
   Resolve Error Messages
 \end{itemize}
 
+<<<<<<< HEAD
 \section{Customize data}\label{customize-data}
+=======
+\section{Customize Data}\label{customize-data}
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 
 Prior to using the Project Big Life Planning Tool you may want to
 manipulate your dataset. Reasons for data manipulation may include:
 custom filter or custom stratification.
+<<<<<<< HEAD
 
 Data manipulation can occur on any programming software: R, SAS, STATA,
 etc, provided you output your dataset as a .csv file.
@@ -274,6 +291,23 @@ example}
 
 \emph{To Do: determine what terminology to use Uploaded vs.~Imported}
 
+=======
+
+Data manipulation can occur on any programming software: R, SAS, STATA,
+etc, provided you output your dataset as a .csv file.
+
+The following table shows the applicable R, SAS, STATA code to complete
+following example:
+
+\emph{To clarify: Not sure whether to continue with this section, as
+there are multiple ways to manipulate the data. Could provide an
+example}
+
+\section{Upload Data}\label{upload-data}
+
+\emph{To Do: determine what terminology to use Uploaded vs.~Imported}
+
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 Data \emph{uploaded} to the Project Big Life Planning Tool remains on
 your computer and is not uploaded or sent anywhere.
 
@@ -325,6 +359,16 @@ calculations}.
 
 \section{Filter Data}\label{filter-data}
 
+<<<<<<< HEAD
+=======
+Chooses part of your dataset for analysis. If you filter on
+`Sex' and then `Male', calculations will only be performed on
+individuals that are `Male' and `Females' will be excluded. For example,
+when calculating Life Expectancy on the filter variable `Sex' then
+`Male' there will be a Life Expectancy estimate for `Males' and
+\emph{no} Life Expectancy estimate for `Females'.
+
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 Click on the + Add filter button.
 
 Select the variable that you want to filter on.
@@ -348,7 +392,11 @@ you want to delete.
 To remove a level within a filtered variable, click on the `x' beside
 the variable level.
 
+<<<<<<< HEAD
 \section{Stratify data}\label{stratify-data}
+=======
+\section{Stratify Data}\label{stratify-data}
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 
 Select the variables you want to stratify on Under `Stratifications'. A
 maximum of 3 stratifications are recommended to maintain statistical
@@ -359,6 +407,11 @@ You are able to stratify on all types of variables: required for
 calculation, recommended for calculation, and ignore variables (includes
 customized variables).
 
+<<<<<<< HEAD
+=======
+\section{Calculate Outcomes}\label{calculate-outcomes}
+
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 Name your calculation to quickly differentiate multiple calculations.
 
 \textbf{Note} the larger the data file is the longer the calculations
@@ -374,6 +427,7 @@ Scenarios}\label{generate-intervention-scenarios}
 how to write this section}
 
 \section{Visualize Data}\label{visualize-data}
+<<<<<<< HEAD
 
 \emph{TBD: Need plots on the platform to work through the steps below}
 
@@ -392,6 +446,21 @@ Scenarios}\label{generate-intervention-scenarios-1}
 
 \emph{TBD - how much will be included on the platform. It will inform
 these next steps}
+=======
+
+\emph{TBD: Need plots on the platform to work through the steps below} -
+export - create your own(?)
+
+\section{Export Data}\label{export-data}
+
+Click on the \textbf{Download results} button under the \textbf{Results}
+section.
+
+Select which calculations you'd like to download.
+
+\emph{To Do: Screenshot of all the calculation options once the platform
+is fixed.}
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 
 \section{Resolve Warning or Error
 Messages}\label{resolve-warning-or-error-messages}
@@ -415,8 +484,31 @@ mean}
 
 This chapter provides you with examples of how Project Big Life's
 Planning Tool can be used in your day-to-day operations. The examples
-will cover: generating a health status report and determining the impact
-of a local and national policy.
+will cover: cause-deletion, generating a health status report and
+determining the impact of a local and national policy.
+
+\section{Cause-deleted life
+expectancy}\label{cause-deleted-life-expectancy}
+
+What everyone in the population never smoked? This scenario is a
+cause-deleted scenario.
+
+Cause-deleted life expectancy is the estimated life
+expectancy for a population if a specific cause (e.g.~smoking) did not
+exist in that population.
+
+The scenario compares the population with the current exposure status of
+smoking status and pack-years of smoking to a counterfactual population
+where these two variables are: smoking status = never smoker, and
+pack-years of smoking = 0.
+
+The health outcome life expectancy is calculated for both the current
+population and it's counterfactual population, and then compared to each
+other.
+
+The outcome will give you the life-years lost due to smoking.
+
+Lets walk through this scenario step-by-step!
 
 \section{Cause-deleted life
 expectancy}\label{cause-deleted-life-expectancy}
@@ -565,9 +657,15 @@ models}\label{development-of-multivariable-predictive-risk-models}
   calibration.
 \end{itemize}
 
+<<<<<<< HEAD
 \subsection{Multivariable predictive risk algorithms in Project Big Life
 Planning
 Tool**}\label{multivariable-predictive-risk-algorithms-in-project-big-life-planning-tool}
+=======
+\subsection{Multivariable predictive risk algorithms built in Project
+Big Life Planning
+Tool}\label{multivariable-predictive-risk-algorithms-built-in-project-big-life-planning-tool}
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 
 \begin{itemize}
 \tightlist
@@ -597,7 +695,42 @@ Life expectancy is calculated using abridge life-tables.
 
 \emph{TO DO: further develop this section}
 
+<<<<<<< HEAD
 \subsection{Cause-Deleted}\label{cause-deleted}
+=======
+\subsection{Cause-Deleted Life
+Expectancy}\label{cause-deleted-life-expectancy-1}
+
+
+
+
+
+Cause-deleted life expectancy is used to calculate life years
+attributable to a health behaviour.
+
+Life years attributable to a health behaviour are the life years gained
+or lost due to having a health behaviour.
+
+\emph{To Do: Generate a table of the reference categories for each of
+the variables that can be adjusted.}
+
+\textbf{Calculations}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  The 5-year risk of mortality of the population is calculated using
+  current health behaviour levels, e.g.~your population will have
+  individuals that never smoked, current smoker, former smoker who quit
+  \textless{} 5 years ago, and former smokers that quit \textgreater{}=
+  5 years ago.
+\item
+  The ``cause-deleted 5-yr mortality risk'' is calculated by setting the
+  exposure of interest (e.g.~smoking status) to its reference level.
+\item
+  \emph{To clarify: How these steps work}
+\end{enumerate}
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 
 Cause-deleted life expectancy is the estimated life expectancy for a
 population if a specific cause (e.g.~smoking) did not exist in that
@@ -633,6 +766,10 @@ the variables that can be adjusted.}
 Depending on the outcome will dictate how I write the following section
 (e.g.~do they have to manipulate thier data)} \#\# Health Interventions
 Scenarios
+
+\emph{TBD: whether this will be built into the platform or not.
+Depending on the outcome will dictate how I write the following section
+(e.g.~do they have to manipulate thier data)}
 
 \chapter{Glossary}\label{glossary}
 
@@ -673,7 +810,11 @@ be found on Statistic Canada website
 (\url{http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey\&Id=795204}).
 
 \textbf{Cause-deleted life expectancy} Cause-deleted life expectancy is the estimated life
+<<<<<<< HEAD
 expectancy of a population if a specific cause (e.g.~smoking) did not
+=======
+expectancy for a population if a specific cause (e.g.~smoking) did not
+>>>>>>> c5e58bf3e8579a2807de28584232b427069a22aa
 exist in that population.
 
 \textbf{Discrimination}
@@ -740,6 +881,9 @@ to 1kcal/kg/day.
 
 A variable that is used in the algorithm to predict the outcome.
 
+\textbf{Risk} The probability of an event occuring at some point of time
+in the future.
+
 \textbf{Recommend for calculation}
 
 Variables that are included in the calculation but not necessary for the
@@ -796,6 +940,12 @@ Warning messages will occur when variables that are
 entire column for the variable is missing the calculation will still be
 performed on the data. If there are missing row entries for the variable
 the row will still be used in the calculation.
+
+Cause-deleted life expectancy is the estimated life
+expectancy for a population if a specific cause (e.g.~smoking) did not
+exist in that population. Cause-deleted life expectancy is the estimated life
+expectancy of a population if a specific cause (e.g.~smoking) did not
+exist in that population.
 
 
 

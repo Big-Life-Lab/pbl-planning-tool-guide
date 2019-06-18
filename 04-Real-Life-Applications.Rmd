@@ -1,6 +1,23 @@
 # Applications
 
-This chapter provides you with examples of how Project Big Life's Planning Tool can be used in your day-to-day operations. The examples will cover: generating a health status report and determining the impact of a local and national policy.
+This chapter provides you with examples of how Project Big Life's Planning Tool can be used in your day-to-day operations. The examples will cover: cause-deletion, generating a health status report and determining the impact of a local and national policy.
+
+## Cause-deleted life expectancy
+
+What everyone in the population never smoked? This scenario is a cause-deleted scenario.
+
+(ref:causedeleted)
+
+The scenario compares the population with the current exposure status of smoking status and pack-years of smoking to a counterfactual population where these two variables are: smoking status = never smoker, and pack-years of smoking = 0. 
+
+The health outcome life expectancy is calculated for both the current population and it's counterfactual population, and then compared to each other.
+
+The outcome will give you the life-years lost due to smoking. 
+
+Lets walk through this scenario step-by-step!
+
+
+
 
 ## Cause-deleted life expectancy
 
