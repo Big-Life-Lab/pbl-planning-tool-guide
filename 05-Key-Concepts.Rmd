@@ -115,7 +115,7 @@ The number of health outcomes (e.g. Summary Deaths) is calculated through the fo
 
 Life expectancy is calculated using abridge life tables:
 
-1. The mortality risk for each individual is calculated using the mutlivariable predictive risk algorithm for mortality (MPoRT \@ref(appedA)).
+1. The mortality risk for each individual is calculated using the mutlivariable predictive risk algorithm for mortality (MPoRT - details can be found in Appendix A).
 2. Mortality risks for each individual are weighted using the corresponding survey weights (CCHS variable - WTS_M).
 3. Weighted mortality risks are then used in sex-specific 5-year abridge period life tables.
 4. Life expectancy was then calculated using these 5-year abridge period life tables. 
@@ -171,7 +171,7 @@ $$ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\te
 
 $$\text{Cause-deleted risk}_{ external} = \text{Original risk} - \text{Cause-deleted effect}_{external}$$
 
-```{r, echo=FALSE, fig.align='center', fig.cap= "Risk porportion of cause-deleted calculations"}
+```{r, echo=FALSE, fig.align='center', fig.cap= "Risk portion of cause-deleted calculations"}
 knitr::include_graphics("Method2 only -cbf.jpg")
 ```
 
