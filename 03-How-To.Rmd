@@ -3,7 +3,7 @@
 These guides will cover similar topics as the tutorials but in greater detail.
 
 - Customize Data
-- Import Data
+- Load Data
 - Select Outcome
 - Filter Data
 - Stratify Data
@@ -27,34 +27,36 @@ The following table shows the example R, SAS, STATA code for the following:
 
 
 
-##Upload Data 
+##Load Data 
 
-*To Do: determine what terminology to use Uploaded vs. Imported*
-
-Data *uploaded* to the Project Big Life Planning Tool remains on your computer and is not uploaded or sent anywhere. 
+Data *loaded* to the Project Big Life Planning Tool remains on your computer and is not uploaded or sent anywhere. 
 
 **Note** The Project Big Life Planning Tool can currently only support .csv data files from the 2013/2014 Canadian Community Health Survey *TBD - whether it's shared*.
 
 There are two options for your data: use a sample file or upload your own file. 
 
+
 ###Use a sample file
 
 If you don't have your own data or want to explore the platform capabilities prior to your data you can use the sample files already on the There are **X** sample files you may use to complete your calculations:
 
-- MockPUMF2013.csv is the Public Use Microdata File from the [2013 Canadian Community Health Survey] (https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X). 
+- MockPUMF2013.csv is a subsample of the Public Use Microdata File from the [2013 Canadian Community Health Survey] (https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X). 
+
+
 
 Click on the file name under the **Sample files** to select it. 
 
-###Upload your own file
+
+###Load your own file
 
 Click the browse button under **Select a file to use in calculations**. 
 Locate the file on your computer, select, and open. 
 
-If the imported file has all of the variables required and recommended for calculation, you will be able to continue with the planning tool. 
+If the loaded file has all of the variables required and recommended for calculation, you will be able to continue with the planning tool. 
 
-- If the imported file does **not** have all the variables **required** for the calculation you will not be able to continue with the planning tool.
+- If the loaded file does **not** have all the variables **required** for the calculation you will not be able to continue with the planning tool.
 
-- If the imported file does **not** have all the variables **recommended** for calculation you will be able to continue with the planning tool, however the calculations may be less accurate. 
+- If the loaded file does **not** have all the variables **recommended** for calculation you will be able to continue with the planning tool, however the calculations may be less accurate. 
 
 
 ##Select Outcome
