@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-06-18}
+    \date{2019-06-28}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -151,7 +151,7 @@ questions:
   What is the burden of smoking on life expectancy?
 \item
   How many deaths would be prevented if everyone met their daily
-  excersize requirements?
+  exercise requirements?
 \end{itemize}
 
 \textbf{How does it work?}
@@ -238,7 +238,7 @@ detail.
 \item
   Customize Data
 \item
-  Import Data
+  Load Data
 \item
   Select Outcome
 \item
@@ -273,12 +273,10 @@ following:
 sure whether to continue with this section, as there are multiple ways
 to manipulate the data. Could provide an example}
 
-\section{Upload Data}\label{upload-data}
+\section{Load Data}\label{load-data}
 
-\emph{To Do: determine what terminology to use Uploaded vs.~Imported}
-
-Data \emph{uploaded} to the Project Big Life Planning Tool remains on
-your computer and is not uploaded or sent anywhere.
+Data \emph{loaded} to the Project Big Life Planning Tool remains on your
+computer and is not uploaded or sent anywhere.
 
 \textbf{Note} The Project Big Life Planning Tool can currently only
 support .csv data files from the 2013/2014 Canadian Community Health
@@ -297,28 +295,28 @@ calculations:
 \begin{itemize}
 \tightlist
 \item
-  MockPUMF2013.csv is the Public Use Microdata File from the {[}2013
-  Canadian Community Health Survey{]}
+  MockPUMF2013.csv is a subsample of the Public Use Microdata File from
+  the {[}2013 Canadian Community Health Survey{]}
   (\url{https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X}).
 \end{itemize}
 
 Click on the file name under the \textbf{Sample files} to select it.
 
-\subsection{Upload your own file}\label{upload-your-own-file}
+\subsection{Load your own file}\label{load-your-own-file}
 
 Click the browse button under \textbf{Select a file to use in
 calculations}. Locate the file on your computer, select, and open.
 
-If the imported file has all of the variables required and recommended
-for calculation, you will be able to continue with the planning tool.
+If the loaded file has all of the variables required and recommended for
+calculation, you will be able to continue with the planning tool.
 
 \begin{itemize}
 \item
-  If the imported file does \textbf{not} have all the variables
+  If the loaded file does \textbf{not} have all the variables
   \textbf{required} for the calculation you will not be able to continue
   with the planning tool.
 \item
-  If the imported file does \textbf{not} have all the variables
+  If the loaded file does \textbf{not} have all the variables
   \textbf{recommended} for calculation you will be able to continue with
   the planning tool, however the calculations may be less accurate.
 \end{itemize}
@@ -446,9 +444,6 @@ also be preformed with the health outcome: risk of mortality. Further
 explaination of cause-deleted risk and cause-deleted effect of a risk
 can be found in key concepts (Chapter \ref(keyconcepts)).
 
-\emph{Cause-deleted effect of the risk for the probability of death \%
-of risk that is due to smoking is the difference in the risk}
-
 Lets walk through this scenario step-by-step!
 
 \section{Health Status Report}\label{health-status-report}
@@ -465,23 +460,66 @@ things.
 
 \begin{itemize}
 \item
-  Multivariable Predictive Risk Algorithms
+  Data and sample files
+\item
+  Multivariable predictive risk algorithms
 \item
   Calculations
 
   \begin{itemize}
   \tightlist
   \item
-    Life Expectancy
+    Risk of health outcome
   \item
-    Cause-Deleted
+    Number of health outcomes
+  \item
+    Life expectancy
+  \item
+    Cause-deleted
   \end{itemize}
 \item
-  Health Intervention Scenarios
+  Health intervention scenarios
 \end{itemize}
 
-\section{Multivariable Predictive Risk
-Algorithms}\label{multivariable-predictive-risk-algorithms}
+\section{Data and sample files}\label{data-and-sample-files}
+
+The Project Big Life Planning Tool currently accepts \textbf{2013/2014
+Public Use Microdata File and Shared File of the Canadian Community
+Health Survey (CCHS) in `.csv' format.}
+
+The CCHS is an annual cross-sectional survey preformed by Statistics
+Canada. The CCHS collects information related to health status, health
+care utilization, and health determinants for the Canadian population.
+Data is shared at the the sub-provincial geographic level (health region
+or combination of health regions).
+
+\begin{itemize}
+\tightlist
+\item
+  Details about the survey and its design can be found on Statistic
+  Canada website
+  (\url{http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey\&Id=144170}).
+\item
+  Details and access to the Public Use Microdata file (PUMF) can be
+  found on the Odesi website
+  (\url{https://search2.odesi.ca/\#/details?uri=\%2Fodesi\%2Fcchs-82M0013-E-2013-2014-Annual-component.xml})
+\end{itemize}
+
+\subsection{Sample Files}\label{sample-files}
+
+\begin{itemize}
+\tightlist
+\item
+  MockPUMF2013.csv is a subsample of the Public Use Microdata File from
+  the {[}2013 Canadian Community Health Survey{]}
+  (\url{https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X}). It
+  includes variables: age, sex, BMI, smoking habits, alcohol
+  consumption, diet components, physical activity levels, chronic
+  conditions, ethinicity, immigration status, and education.
+\end{itemize}
+
+\section{Multivariable predictive risk
+algorithms}\label{multivariable-predictive-risk-algorithms}
 
 Multivariable predictive risk algorithms predict the future risk of
 health outcomes (e.g.~Life Expectancy) for a population using routinely
@@ -513,13 +551,13 @@ and how they can be used can be found the journal article:
 \citep{PoRTover}
 
 \subsection{Development of multivariable predictive risk
-models}\label{development-of-multivariable-predictive-risk-models}
+algorithms}\label{development-of-multivariable-predictive-risk-algorithms}
 
 **\url{Data:**}
 
 \begin{itemize}
 \item
-  Multivariable predictive risk models are created using routinely
+  Multivariable predictive risk algorithms are created using routinely
   collected data that includes information about risk factors (exposure)
   and health events (outcomes).
 \item
@@ -545,32 +583,37 @@ models}\label{development-of-multivariable-predictive-risk-models}
   \end{itemize}
 \end{itemize}
 
-\textbf{Model Generation:}
+\textbf{Algorithm generation:}
 
 \begin{itemize}
 \item
-  Multivariable predictive risk models are developed and validated in 4
-  stages:
+  Multivariable predictive risk algorithms are cox porportional hazard
+  models that analyze time to health outcome (e.g.~death) \emph{Question
+  for Carol - The models are not cox-porportional hazard models but they
+  are similar?}
+\item
+  Multivariable predictive risk algorithms are developed and validated
+  in 4 stages:
 
   \begin{itemize}
   \tightlist
   \item
-    Model derivation: the predictive risk model is created using data
-    from the derivation cohort
+    Algorithm derivation: the predictive risk algorithm is created using
+    data from the derivation cohort
   \item
-    Model validation: the predictive risk model is applied to the
-    validation cohort
+    Algorithm validation: the predictive risk algorithm is applied to
+    the validation cohort
   \item
-    Final Model Generation: validation and derivation cohorts are
+    Final algorithm generation: validation and derivation cohorts are
     combined to estimate the final application of the predictive risk
-    model
+    algorithm
   \item
-    Derivation of the application model: creation of a parsimonous
-    (fewer predictors) model that maintained discrimination,
-    calibration, and overall model performance
+    Derivation of the application algorithm: creation of a parsimonous
+    (fewer predictors) algorithm that maintained discrimination,
+    calibration, and overall algorithm performance
   \end{itemize}
 \item
-  In each stage of the model development and validation, model
+  In each stage of the algorithm development and validation, algorithm
   performance is assessed using measures of discrimination and
   calibration.
 \end{itemize}
@@ -582,8 +625,8 @@ Tool}\label{multivariable-predictive-risk-algorithms-built-in-project-big-life-p
 \begin{itemize}
 \tightlist
 \item
-  There is currently 1 multivariable predictive risk model is built into
-  to Project Big Life planning tool.
+  There is currently 1 multivariable predictive risk algorithm is built
+  into to Project Big Life planning tool.
 \end{itemize}
 
 Title
@@ -600,78 +643,189 @@ Appendix A
 
 \section{Calculations}\label{calculations}
 
+\subsection{Risk of health outcome}\label{risk-of-health-outcome}
+
+Risk of the health outcome (e.g.~risk of dying) is the outcome of the
+multivariable predictive risk algorithm. An example of the mutlivariable
+risk algorithm is:
+
+\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  \]
+Where:
+
+\begin{itemize}
+\tightlist
+\item
+  \(t\) = survival time
+\item
+  \(h_0(t)\) = the baseline hazard
+\item
+  \(\beta_{pred}\) = predictive hazard ratios for the exposures
+\item
+  \(x\) = the exposure (e.g. \(x_{smoking}\) can have the value: current
+  smoker, former smoker \textless{}=5 years, former smoker
+  \textgreater{} 5 years, or never smoker).
+\end{itemize}
+
+\subsection{Number of health outcomes}\label{number-of-health-outcomes}
+
+The number of health outcomes (e.g.~Summary Deaths) is calculated
+through the following steps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Risk of the health outcome is calculated for each individual in the
+  dataset using the mutlivariable predictive risk algorithm.
+\item
+  The weighted mean of all the risks is calculated using individual risk
+  values and corresponding study weights (CCHS variable: WTS\_M).
+\item
+  The weighted mean is then multiplied with the total number of
+  individuals in the population to generate the number of health
+  outcomes (e.g.~number of deaths in 5 years).
+\end{enumerate}
+
 \subsection{Life expectancy
 calculation}\label{life-expectancy-calculation}
 
-Life expectancy is calculated using abridge life-tables.
-
-\emph{TO DO: further develop this section}
-
-\subsection{Cause-deleted and cause-deleted effect
-calculation}\label{cause-deleted-and-cause-deleted-effect-calculation}
-
-\textbf{Cause-deleted} : A cause-deleted health outcome is the estimated
-health outcome of a population if a specific cause (e.g.~smoking) did
-not exist in that population. - A cause-deleted health
-outcome is the estimated health outcome of a population if a specific
-cause (e.g.~smoking) did not exist in that population.
-
-\textbf{Cause-deleted effect}: The health outcome (e.g.~Life Expectancy)
-is calculated for both the: population with the current exposure status
-of the exposure (e.g.~smoking status and pack-years of smoking) and a
-counterfactual population where these the exposures are at their
-reference values (e.g.~smoking status = never smoker and pack-years of
-smoking = 0).
-
-The comparison of the health outcomes from the two populations are the
-cause-deleted effect or the health outcome attributable to that
-exposure.
-
-The following table describes the terminology used for each calculation:
-
-Original\_outcome
-
-Counterfactual\_outcome
-
-Difference\_in\_outcome
-
-Measure\_of\_difference
-
-Life expectancy
-
-Cause-deleted life expectancy
-
-Cause-deleted effect of life expectancy
-
-Life years lost
-
-Risk of mortality
-
-Cause-deleted mortality risk
-
-Cause-deleted effect of mortality risk
-
-TBD
-
-\emph{To Do: Generate a table of the reference categories for each of
-the variables that can be adjusted.}
-
-\textbf{Calculations}
+Life expectancy is calculated using abridge life tables:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi})}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  The 5-year risk of mortality of the population is calculated using
-  current health behaviour levels, e.g.~your population will have
-  individuals that never smoked, current smoker, former smoker who quit
-  \textless{} 5 years ago, and former smokers that quit \textgreater{}=
-  5 years ago.
+  The mortality risk for each individual is calculated using the
+  mutlivariable predictive risk algorithm for mortality (MPoRT
+  \ref{appedA}).
 \item
-  The ``cause-deleted 5-yr mortality risk'' is calculated by setting the
-  exposure of interest (e.g.~smoking status) to its reference level.
+  Mortality risks for each individual are weighted using the
+  corresponding survey weights (CCHS variable - WTS\_M).
 \item
-  \emph{To clarify: How these steps work}
+  Weighted mortality risks are then used in sex-specific 5-year abridge
+  period life tables.
+\item
+  Life expectancy was then calculated using these 5-year abridge period
+  life tables.
 \end{enumerate}
+
+\subsection{Cause-deletion
+calculations}\label{cause-deletion-calculations}
+
+What would be the life expectancy of a population if be no one in the
+population ever smoked? This scenario is a cause-deleted scenario.
+
+\emph{To Do: Insert video of cause deleted calculations that explains
+Method 1 vs.~Method 2}
+
+There are two parts to the cause-deleted calculations: (A) calculate the
+risk, and (B) calculate the health outcome: life expectancy or number of
+deaths.
+
+\textbf{Part A: Risk calculations}
+
+The original multivariable predictive risk algorithm is:
+
+\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  \]
+
+\textbf{Step 1.} Modify the original algorithm to include the external
+coefficient(s). This means replacing all predictive hazard ratios/betas
+related to the health behaviour to the causal hazard ratios/betas.
+
+\begin{itemize}
+\tightlist
+\item
+  Remove the original regression coefficient(s) for the health
+  behaviour.
+\item
+  Add the new external coefficient(s) to the algorithm. External
+  coefficients are generated from either: causal models, or from
+  systematic reviews or meta-analysis.
+\end{itemize}
+
+\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  \]
+
+\textbf{Step 2.} Risk is calculated using the modified algorithm created
+in Step 1 and the respondent's original profile (e.g.~current smoker).
+This is the ``external coefficient risk''.
+
+\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  \]
+
+\textbf{Step 3.} ``Cause-deleted risk''' is calculated by setting an
+exposure to a reference (non-exposed) value (all other risk exposures
+remain unchanged).
+
+\[ \text{Cause-deleted risk' } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  \]
+
+\textbf{Step 4.} The ``cause-deleted effect external'' is calculated as
+``external coefficient risk'' (Step 2) minus the ``cause-deleted
+risk'.''(Step 3).
+
+\[\text{Cause-deleted effect}_{external} = \text{External coefficient risk} - \text{Cause-deleted risk'}\]
+
+\textbf{Step 5.} Original risk is calculated using the original
+algorithm and the original respondent's profile.
+
+\[ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  \]
+
+\textbf{Step 6.} The ``cause-deleted risk external'' is calculated by
+``original risk'' (Step 5) minus the ``cause-deleted effect external''
+(Step 4).
+
+\[\text{Cause-deleted risk}_{ external} = \text{Original risk} - \text{Cause-deleted effect}_{external}\]
+
+\begin{figure}
+
+{\centering \includegraphics{Method2 only -cbf} 
+
+}
+
+\caption{Risk porportion of cause-deleted calculations}\label{fig:unnamed-chunk-5}
+\end{figure}
+
+\textbf{Part B: Health outcome calculations}
+
+Using risks generated above you can then calculate:
+
+\begin{itemize}
+\tightlist
+\item
+  cause-deleted life expectancy or life years lost attributable to a
+  health behaviour (exposure)
+\item
+  cause-deleted number of deaths or number of deaths attributable to a
+  health behaviour (exposure)
+\end{itemize}
+
+\textbf{Life expectancy calculations}
+
+Step I: Calculate the original life expectancy by using the original
+risk (Step 5 above) in the sex-specific 5-year abridge period life
+tables.
+
+Step II: Calculate the cause-deleted life expectancy by using the
+cause-deleted risk external (Step 6 above) in the sex-specific 5-year
+abridge period life tables.
+
+Step III: Calculate life years lost attributable to a health behaviour
+by: original life expectancy (Step I) minus cause-deleted life
+expectancy (Step II):
+
+\[ \text{Life years lost} = \text{Original life expectancy} - \text{Cause-deleted life expectancy}\]
+
+\textbf{Number of deaths calculations}
+
+Step I: Calculate the number of deaths that would occur using the
+original risk (Step 5 above).
+
+Step II: Calculate the number of deaths that would occur using the
+cause-deleted risk external (Step 6 above).
+
+Step III: Calculate the number of deaths that are attributable to a
+health behaviour (exposure) by: original number of deaths (Step I) minus
+cause-deleted number of deaths (Step II):
+
+\[\text{Deaths due to exposure} = \text{Original number of deaths} - \text{Cause-deleted number of deaths}\]
 
 \section{Health interventions
 scenarios}\label{health-interventions-scenarios}
@@ -716,7 +870,7 @@ An annual survey preformed by Statistics Canada that collects
 information related to health status, health care utilization and health
 determinants for the Canadian population. Details about the survey can
 be found on Statistic Canada website
-(\url{http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey\&Id=795204}).
+(\url{http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey\&Id=144170}).
 
 \textbf{Cause-deleted life expectancy}
 

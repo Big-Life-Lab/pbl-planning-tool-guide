@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Key Concepts | Planning Tool Guidance</title>
+  <title>4.2 Load Data | Planning Tool Guidance</title>
   <meta name="description" content="This html is to provide you with guidance on how to use the BATCH interface." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Key Concepts | Planning Tool Guidance" />
+  <meta property="og:title" content="4.2 Load Data | Planning Tool Guidance" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Key Concepts | Planning Tool Guidance" />
+  <meta name="twitter:title" content="4.2 Load Data | Planning Tool Guidance" />
   
   <meta name="twitter:description" content="This html is to provide you with guidance on how to use the BATCH interface." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="transportation.html">
-<link rel="next" href="data-and-sample-files.html">
+<link rel="prev" href="customize-data.html">
+<link rel="next" href="select-outcome.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -135,29 +135,36 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="keyconcepts" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Key Concepts</h1>
-<p>This section explains some key concepts in Project Big Life’s Planning Tool. This section will explain how it works rather then how to do things.</p>
+<div id="load-data" class="section level2">
+<h2><span class="header-section-number">4.2</span> Load Data</h2>
+<p>Data <em>loaded</em> to the Project Big Life Planning Tool remains on your computer and is not uploaded or sent anywhere.</p>
+<p><strong>Note</strong> The Project Big Life Planning Tool can currently only support .csv data files from the 2013/2014 Canadian Community Health Survey <em>TBD - whether it’s shared</em>.</p>
+<p>There are two options for your data: use a sample file or upload your own file.</p>
+<div id="use-a-sample-file" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Use a sample file</h3>
+<p>If you don’t have your own data or want to explore the platform capabilities prior to your data you can use the sample files already on the There are <strong>X</strong> sample files you may use to complete your calculations:</p>
 <ul>
-<li>Data and sample files</li>
-<li>Multivariable predictive risk algorithms</li>
-<li><p>Calculations</p>
+<li>MockPUMF2013.csv is a subsample of the Public Use Microdata File from the [2013 Canadian Community Health Survey] (<a href="https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X" class="uri">https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X</a>).</li>
+</ul>
+<p>Click on the file name under the <strong>Sample files</strong> to select it.</p>
+</div>
+<div id="load-your-own-file" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Load your own file</h3>
+<p>Click the browse button under <strong>Select a file to use in calculations</strong>. Locate the file on your computer, select, and open.</p>
+<p>If the loaded file has all of the variables required and recommended for calculation, you will be able to continue with the planning tool.</p>
 <ul>
-<li>Risk of health outcome</li>
-<li>Number of health outcomes</li>
-<li>Life expectancy</li>
-<li>Cause-deleted</li>
-</ul></li>
-<li><p>Health intervention scenarios</p></li>
-</ul> 
+<li><p>If the loaded file does <strong>not</strong> have all the variables <strong>required</strong> for the calculation you will not be able to continue with the planning tool.</p></li>
+<li><p>If the loaded file does <strong>not</strong> have all the variables <strong>recommended</strong> for calculation you will be able to continue with the planning tool, however the calculations may be less accurate.</p></li>
+</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="transportation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-and-sample-files.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="customize-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="select-outcome.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -187,7 +194,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-Key-Concepts.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-How-To.Rmd",
 "text": "Edit"
 },
 "history": {
