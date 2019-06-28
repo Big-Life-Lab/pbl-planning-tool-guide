@@ -2,15 +2,34 @@
 
 This section explains some key concepts in Project Big Life’s Planning Tool. This section will explain how it works rather then how to do things.
 
-- Multivariable Predictive Risk Algorithms
+- Data and sample files
+- Multivariable predictive risk algorithms
 - Calculations
 
-    - Life Expectancy
-    - Cause-Deleted
+    - Risk of health outcome
+    - Number of health outcomes
+    - Life expectancy
+    - Cause-deleted
     
-- Health Intervention Scenarios
+- Health intervention scenarios
 
-##Multivariable Predictive Risk Algorithms
+
+##Data and sample files
+
+The Project Big Life Planning Tool currently accepts **2013/2014 Public Use Microdata File and Shared File of the Canadian Community Health Survey (CCHS) in '.csv' format.**
+
+The CCHS is an annual cross-sectional survey preformed by Statistics Canada. The CCHS collects information related to health status, health care utilization, and health determinants for the Canadian population. Data is shared at the the sub-provincial geographic level (health region or combination of health regions).
+
+- Details about the survey and its design can be found on Statistic Canada website  (http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&Id=144170). 
+- Details and access to the Public Use Microdata file (PUMF) can be found on the Odesi website (https://search2.odesi.ca/#/details?uri=%2Fodesi%2Fcchs-82M0013-E-2013-2014-Annual-component.xml)
+
+###Sample Files
+
+- MockPUMF2013.csv is a subsample of the Public Use Microdata File from the [2013 Canadian Community Health Survey] (https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X). It includes variables: age, sex, BMI, smoking habits, alcohol consumption, diet components, physical activity levels, chronic conditions, ethinicity, immigration status, and education. 
+
+
+
+##Multivariable predictive risk algorithms
 
 Multivariable predictive risk algorithms predict the future risk of health outcomes (e.g. Life Expectancy) for a population using routinely collected health data.
 
@@ -25,31 +44,33 @@ Multivariable predictive risk algorithms are able to assess equity issues compar
 
 More information on what multivariable predictive risk algorithms are and how they can be used can be found the journal article: *Predictive risk algorithms in a population setting: an overview* [@PoRTover]
 
-###Development of  multivariable predictive risk models
+###Development of multivariable predictive risk algorithms
 
 **Data:**
 
--	Multivariable predictive risk models are created using routinely collected data that includes information about risk factors (exposure) and health events (outcomes).
+-	Multivariable predictive risk algorithms are created using routinely collected data that includes information about risk factors (exposure) and health events (outcomes).
 -	Data is collected at an individual level through population health surveys (e.g. Canadian Community Health Survey) and administrative databases (e.g. Vital Statistics). Data sources are linked together when the individual has given permission too.
 - Individuals are followed overtime until the health event (e.g. death or disease) occurs.
 - Separate data is collected to create a derivation cohort and validation cohort(s). 
 
     - Note: The risk factors that are collected are from population health surveys and are self-reported; no clinical data (e.g. blood pressure) is collected. Risk factors focus on health behaviours (e.g. smoking) and sociodemographic factors, commonly associated with health outcome.
 
-**Model Generation:**
+**Algorithm generation:**
 
-- Multivariable predictive risk models are developed and validated in 4 stages:
+- Multivariable predictive risk algorithms are cox porportional hazard models that analyze time to health outcome (e.g. death) *Question for Carol - The models are not cox-porportional hazard models but they are similar?*
 
-    - Model derivation: the predictive risk model is created using data from the derivation cohort
-    - Model validation: the predictive risk model is applied to the validation cohort
-    - Final Model Generation: validation and derivation cohorts are combined to estimate the final application of the predictive risk model 
-    - Derivation of the application model: creation of a parsimonous (fewer predictors) model that maintained discrimination, calibration, and overall model performance
+- Multivariable predictive risk algorithms are developed and validated in 4 stages:
+
+    - Algorithm derivation: the predictive risk algorithm is created using data from the derivation cohort
+    - Algorithm validation: the predictive risk algorithm is applied to the validation cohort
+    - Final algorithm generation: validation and derivation cohorts are combined to estimate the final application of the predictive risk algorithm 
+    - Derivation of the application algorithm: creation of a parsimonous (fewer predictors) algorithm that maintained discrimination, calibration, and overall algorithm performance
     
-- In each stage of the model development and validation, model performance is assessed using measures of discrimination and calibration.
+- In each stage of the algorithm development and validation, algorithm performance is assessed using measures of discrimination and calibration.
 
 ###Multivariable predictive risk algorithms built in Project Big Life Planning Tool
 
-- There is currently 1 multivariable predictive risk model is built into to Project Big Life planning tool.
+- There is currently 1 multivariable predictive risk algorithm is built into to Project Big Life planning tool.
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(knitr)
 library(kableExtra)
@@ -69,51 +90,120 @@ kable(PoRTs) %>%
 
 ##Calculations
 
+###Risk of health outcome
+
+Risk of the health outcome (e.g. risk of dying) is the outcome of the multivariable predictive risk algorithm. An example of the mutlivariable risk algorithm is:
+
+$$ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  $$
+Where:
+
+- $t$ = survival time
+- $h_0(t)$ = the baseline hazard
+- $\beta_{pred}$ = predictive hazard ratios for the exposures
+- $x$ = the exposure (e.g. $x_{smoking}$ can have the value: current smoker, former smoker <=5 years, former smoker > 5 years, or never smoker). 
+
+###Number of health outcomes
+
+The number of health outcomes (e.g. Summary Deaths) is calculated through the following steps:
+
+1. Risk of the health outcome is calculated for each individual in the dataset using the mutlivariable predictive risk algorithm.
+2. The weighted mean of all the risks is calculated using individual risk values and corresponding study weights (CCHS variable: WTS_M).
+3. The weighted mean is then multiplied with the total number of individuals in the population to generate the number of health outcomes (e.g. number of deaths in 5 years).
+
+
 ###Life expectancy calculation
 
-Life expectancy is calculated using abridge life-tables. 
+Life expectancy is calculated using abridge life tables:
 
-*TO DO: further develop this section*
+1. The mortality risk for each individual is calculated using the mutlivariable predictive risk algorithm for mortality (MPoRT \@ref(appedA)).
+2. Mortality risks for each individual are weighted using the corresponding survey weights (CCHS variable - WTS_M).
+3. Weighted mortality risks are then used in sex-specific 5-year abridge period life tables.
+4. Life expectancy was then calculated using these 5-year abridge period life tables. 
+
+
+###Cause-deletion calculations
+
+What would be the life expectancy of a population if be no one in the population ever smoked? This scenario is a cause-deleted scenario.
+
+
+*To Do: Insert video of cause deleted calculations that explains Method 1 vs. Method 2*
 
 
 
-###Cause-deleted and cause-deleted effect calculation
+There are two parts to the cause-deleted calculations: (A) calculate the risk, and (B) calculate the health outcome: life expectancy or number of deaths.
 
-**Cause-deleted** : (ref:causedeleted) - A cause-deleted health outcome is the estimated health outcome of a population if a specific cause (e.g. smoking) did not exist in that population. 
+**Part A: Risk calculations**
 
-**Cause-deleted effect**: The health outcome (e.g. Life Expectancy) is calculated for both the: population with the current exposure status of the exposure (e.g. smoking status and pack-years of smoking) and a counterfactual population where these the exposures are at their reference values (e.g. smoking status = never smoker and pack-years of smoking = 0). 
+The original multivariable predictive risk algorithm is: 
 
-The comparison of the health outcomes from the two populations are the cause-deleted effect or the health outcome attributable to that exposure.
+$$ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  $$
 
-The following table describes the terminology used for each calculation:
 
-```{r, echo=FALSE, results='hide', message=FALSE}
-library(knitr)
-library(kableExtra)
-#Replicated Table 1 from MPoRTv2 Figures - Predictor variables for the MPoRTv2
-(cause_deleted <- data.frame(
-    Original_outcome = c("Life expectancy", "Risk of mortality"),
-    Counterfactual_outcome = c("Cause-deleted life expectancy", "Cause-deleted mortality risk"),
-    Difference_in_outcome =c("Cause-deleted effect of life expectancy", "Cause-deleted effect of mortality risk"), 
-    Measure_of_difference = c("Life years lost", "TBD"))
-    )#closingbracket 
+**Step 1.** Modify the original algorithm to include the external coefficient(s). This means replacing all predictive hazard ratios/betas related to the health behaviour to the causal hazard ratios/betas. 
+
+- Remove the original regression coefficient(s) for the health behaviour.
+- Add the new external coefficient(s) to the algorithm. External coefficients are generated from either: causal models, or from systematic reviews or meta-analysis.
+
+$$ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  $$
+    
+
+**Step 2.**	Risk is calculated using the modified algorithm created in Step 1 and the respondent’s original profile (e.g. current smoker). This is the “external coefficient risk”. 
+
+$$ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  $$
+
+
+**Step 3.**	“Cause-deleted risk' " is calculated by setting an exposure to a reference (non-exposed) value (all other risk exposures remain unchanged).
+
+$$ \text{Cause-deleted risk' } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  $$
+
+
+**Step 4.**	The “cause-deleted effect external” is calculated as “external coefficient risk” (Step 2) minus the “cause-deleted risk’. ”(Step 3).
+
+$$\text{Cause-deleted effect}_{external} = \text{External coefficient risk} - \text{Cause-deleted risk'}$$
+
+
+**Step 5.**	Original risk is calculated using the original algorithm and the original respondent’s profile.
+
+$$ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  $$
+
+
+**Step 6.**	The “cause-deleted risk external” is calculated by “original risk” (Step 5) minus the “cause-deleted effect external” (Step 4).
+
+$$\text{Cause-deleted risk}_{ external} = \text{Original risk} - \text{Cause-deleted effect}_{external}$$
+
+```{r, echo=FALSE, fig.align='center', fig.cap= "Risk porportion of cause-deleted calculations"}
+knitr::include_graphics("Method2 only -cbf.jpg")
 ```
-```{r, echo=FALSE}
-#Creating the table
-kable(cause_deleted) %>%
-  kable_styling(full_width = T)
-```
 
-*To Do: Generate a table of the reference categories for each of the variables that can be adjusted.*
 
-**Calculations**
+**Part B: Health outcome calculations**
 
-1) The 5-year risk of mortality of the population is calculated using current health behaviour levels, e.g. your population will have individuals that never smoked, current smoker, former smoker who quit < 5 years ago, and former smokers that quit >= 5 years ago.
+Using risks generated above you can then calculate:
 
-2) The "cause-deleted 5-yr mortality risk" is calculated by setting the exposure of interest (e.g. smoking status) to its reference level.
+- cause-deleted life expectancy or life years lost attributable to a health behaviour (exposure)
+- cause-deleted number of deaths or number of deaths attributable to a health behaviour (exposure)
 
-3) *To clarify: How these steps work*
 
+**Life expectancy calculations**
+
+Step I: Calculate the original life expectancy by using the original risk (Step 5 above) in the sex-specific 5-year abridge period life tables.
+
+Step II: Calculate the cause-deleted life expectancy by using the cause-deleted risk external (Step 6 above) in the sex-specific 5-year abridge period life tables.
+
+Step III: Calculate life years lost attributable to a health behaviour by: original life expectancy (Step I) minus cause-deleted life expectancy (Step II):
+
+$$ \text{Life years lost} = \text{Original life expectancy} - \text{Cause-deleted life expectancy}$$
+
+
+**Number of deaths calculations**
+
+Step I: Calculate the number of deaths that would occur using the original risk (Step 5 above).
+
+Step II: Calculate the number of deaths that would occur using the cause-deleted risk external (Step 6 above).
+
+Step III: Calculate the number of deaths that are attributable to a health behaviour (exposure) by: original number of deaths (Step I) minus cause-deleted number of deaths (Step II):
+
+$$\text{Deaths due to exposure} = \text{Original number of deaths} - \text{Cause-deleted number of deaths}$$
 
 ## Health interventions scenarios
 
