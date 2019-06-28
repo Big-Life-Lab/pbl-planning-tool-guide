@@ -171,7 +171,7 @@ $$ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\te
 
 $$\text{Cause-deleted risk}_{ external} = \text{Original risk} - \text{Cause-deleted effect}_{external}$$
 
-```{r, echo=FALSE, fig.align='center', fig.cap= "Risk portion of cause-deleted calculations"}
+```{r, echo=FALSE, fig.align='center', fig.cap= "Risk part of the cause-deleted calculations"}
 knitr::include_graphics("Method2 only -cbf.jpg")
 ```
 
