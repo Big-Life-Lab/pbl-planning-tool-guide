@@ -12,7 +12,7 @@ For instance Project Big Life Planning Tool helps:
 The Project Big Life Planning Tool can answer the following types of questions: 
 
 - What is the burden of smoking on life expectancy?
-- How many deaths would be prevented if everyone met their daily excersize requirements?
+- How many deaths would be prevented if everyone met their daily exercise requirements?
 
 **How does it work?**
 
