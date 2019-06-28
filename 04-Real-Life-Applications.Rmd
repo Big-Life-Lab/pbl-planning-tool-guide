@@ -10,8 +10,6 @@ What would be the life expectancy of a population if be no one in the population
 
 **Cause-deleted effect of life expectancy** is calculated by comparing the population with the current exposure status of smoking status and pack-years of smoking to a counterfactual population where these two variables are: smoking status = never smoker, and pack-years of smoking = 0. It is measured in life years lost. This calculation can also be preformed with the health outcome: risk of mortality. Further explaination of cause-deleted risk and cause-deleted effect of a risk can be found in key concepts (Chapter \ref(keyconcepts)).
 
-*Cause-deleted effect of the risk for the probability of death % of risk that is due to smoking is the difference in the risk*
-
 Lets walk through this scenario step-by-step!
 
 
