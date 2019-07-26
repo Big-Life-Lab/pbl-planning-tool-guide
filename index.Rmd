@@ -32,11 +32,13 @@ knitr::write_bib(c(
 ), 'packages.bib')
 ```
 
-##What is the Project Big Life Planning Tool
+_TO DO: Insert the image for the PBL planning tool_
+
+###What is the Project Big Life Planning Tool
 
 *To do: Develop video showcasing the platform including what it is and why someone should use the platform*
 
-##Who made the Project Big Life Planning Tool?
+###Who made the Project Big Life Planning Tool?
 
 The Project Big Life Planning Tool was developed by the Project Big Life Team. The Project Big Life Team is part of the ICES. The below video explains what ICES is. 
 
