@@ -1,20 +1,72 @@
 # Applications
 
-This chapter provides you with examples of how Project Big Life's Planning Tool can be used in your day-to-day operations. The examples will cover: cause-deletion, generating a health status report and determining the impact of a local and national policy.
+This chapter provides you with examples of how Project Big Life's Planning Tool can be used in your day-to-day operations. The examples will cover:
 
-## Cause-deleted life expectancy
-
-What would be the life expectancy of a population if be no one in the population ever smoked? This scenario is a cause-deleted scenario.
-
-**Cause-deleted life expectancy** is the estimated life expectancy of a population if a specific cause (e.g. smoking) did not exist in that population. This population is known as the counterfactual population. 
-
-**Cause-deleted effect of life expectancy** is calculated by comparing the population with the current exposure status of smoking status and pack-years of smoking to a counterfactual population where these two variables are: smoking status = never smoker, and pack-years of smoking = 0. It is measured in life years lost. This calculation can also be preformed with the health outcome: risk of mortality. Further explaination of cause-deleted risk and cause-deleted effect of a risk can be found in key concepts (Chapter \ref(keyconcepts)).
-
-Lets walk through this scenario step-by-step!
-
+- analyses that can be included in a health status report,
+- a national policy: What if Canada biked like the Dutch?
+- a local policy: turning Ottawa into the healthiest Canadian region
+- a 
 
 ## Health Status Report
 
-## Diet
+In this example we will highlight statistics that could reported in health status reports. Health status reports are a way to report the health state for a population and the factors that influence the population’s health. Information from health status reports are used to inform policy, planning, and resource allocation.
+
+In this example we will calculate:
+
+- The predicted number of deaths by strata
+- The impact of eliminating unhealthy behaviours on life expectancy
+
+For this example we will focus on the population of Alberta.
+
+###Predicted number of deaths stratified by sex and level of education
+
+By showing the number of deaths by strata, the reader can see the distribution of deaths across specific population characteristics.  Any categorical variable can be used for stratification but in this example,  we will use sex and level of education.
+
+**Steps**
+
+1. Select the sample file XXXX under "Sample files". 
+
+2. Select the calculation: Summary Measure – Deaths (Five years)
+
+3. Add filter: GEOGPRV – 48, which is the corresponding code for Alberta.
+
+4. Add two stratifications: DDH_SEX and EDUDR04
+
+5. Title the calculation: Deaths by sex and education level
+
+6. Click the calculate button
+
+*7. To do: Results – walk through the results*
+
+
+###Impact of eliminating unhealthy behaviours: physical inactivity and poor diet, on life expectancy
+
+To show how much an unhealthy behaviour impacts life expectancy we use the scenario: cause-deleted. Cause-deleted scenarios can be used for the health behaviours: alcohol consumption, diet, physical activity, and smoking, individually or in any combination. In this example we will evaluate the impact of physical inactivity and poor diet, in combination, on life expectancy.
+
+**Steps**
+
+1. Select the sample file XXXX under "Sample files". 
+
+2. Select initial calculation: Summary Measure – Life Expectancy (Summary)
+
+3. Add filter: GEOGPRV – 48, which is the corresponding code for Alberta.
+
+4. Click the text: Scenario.
+
+5. Select Cause-deleted. 
+
+6. Select the causes to delete: physical activity and diet
+
+7. Title the calculation: Alberta: Cause-deleted - physical activity and diet
+
+8. Click the calculate button
+
+*9. To Do:	Walk through results*
+
+##Canada goes Dutch
+
+
+
+## Healthy Cities
 
 ## Transportation
