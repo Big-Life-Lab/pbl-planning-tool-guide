@@ -1,114 +1,264 @@
 #How To {#howto}
 
-These guides will cover similar topics as the tutorials but in greater detail.
+These guides will cover the topics covered in the tutorial but in greater detail.
 
-- Customize Data
-- Load Data
-- Select Outcome
-- Filter Data
-- Stratify Data
-- Calculate Outcomes
-- Generate Intervention Scenarios
-- Visualize Data
-- Export Data
-- Resolve Error Messages
+- Customize data
+- Load data
+- Select calculation
+- Filter data
+- Stratify data
+- Run scenarios: Intervention and Cause-deleted
+- Calculate results
+- Visualize data (TBD)
+- Export data (TBD)
+- Resolve error messages (TBD)
 
 
 ##Customize Data
 
-Prior to using the Project Big Life Planning Tool you may want to manipulate your dataset. Reasons for data manipulation may include: custom filter or custom stratification. 
+Prior to using the Project Big Life Planning Tool you may want to manipulate your data set. Reasons include: custom filter(s) and/or custom stratification(s). 
 
-Data manipulation can occur on any programming software: R, SAS, STATA, etc, provided you output your dataset as a .csv file. 
+Data manipulation can occur on any programming software: R, SAS, STATA, etc, as long as you output your data set as a '.csv' file. 
 
-The following table shows the example R, SAS, STATA code for the following:
+An example of customizing your data set is converting the variable: Body Mass Index (CCHS 2013 variable HWTGBMI) from a continuous variable into four distinct categories:
+    
+- Underweight: BMI less then 18.5
+- Normal or Healthy Weight: BMI of 18.5 to 24.9
+- Overweight: BMI of 25.0 to 29.9
+- Obese: BMI greater or equal to 30.0
 
-*Put example in to the Consult with Doug*
-*To clarify: Not sure whether to continue with this section, as there are multiple ways to manipulate the data. Could provide an example*
+**Steps**
+
+The following shows R code that would be used to create these stratifications:
+
+1. Convert observations "Not stated" from 999.99 to N/A
+```    
+    data[data == 999.99] <- NA
+```      
+2. Load the R package dpylr. This package is used for data manipulation.
+```
+    library(dpylr)
+```       
+3. Create a new column that contains four categories for BMI
+``` 
+    data$newcolumn <- cut(data$HWTGBMI, breaks = c(0,18.5,25,30,Inf),  labels=c("Underweight", "Healthy", "Overweight", "Obese")
+``` 
+4. The output will be your data set + a new column with the corresponding category ("Underweight", "Healthy", "Overweight", "Obese") for that individual.
+
+```
+    HWTGBMI   newcolumn
+  1   22.68     Healthy
+  2   26.99  Overweight
+  3      NA        <NA>
+  4   34.44       Obese
+  5   23.77     Healthy
+  6   17.23 Underweight
+```
+
+This new column can be used with the Project Big Life Planning Tool for filtering or stratification.
 
 
 
-##Load Data 
+##Load data 
 
-Data *loaded* to the Project Big Life Planning Tool remains on your computer and is not uploaded or sent anywhere. 
+Only one data set can be used on the platform for each calculation; a calculation cannot be preformed across multiple data sets.
 
-**Note** The Project Big Life Planning Tool can currently only support .csv data files from the 2013/2014 Canadian Community Health Survey *TBD - whether it's shared*.
+<div class="FOO">
+**Note:** Data sets loaded to the Project Big Life Planning Tool remains on your computer and is not uploaded or sent anywhere.
+</div>
 
-There are two options for your data: use a sample file or upload your own file. 
+There are two options for your data: use a sample file or load your own file. 
 
+<div class="FOO">
+**Note:** The Project Big Life Planning Tool can currently only support .csv data files from the 2013/2014 Canadian Community Health Survey. Both the PUMF and Shared 2013/2014 Canadian Community Health Survey files are accepted. _Need to confirm the geography variables_ 
+</div>
 
-###Use a sample file
+- More information on the Canadian Community Health Survey and the types of accepted data can be found in Key concepts (Chapter \@ref(keyconcepts)) - "Data and Sample Files".
+ 
 
-If you don't have your own data or want to explore the platform capabilities prior to your data you can use the sample files already on the There are **X** sample files you may use to complete your calculations:
+###Load sample files
 
-- MockPUMF2013.csv is a subsample of the Public Use Microdata File from the [2013 Canadian Community Health Survey] (https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X). 
+If you don't have your own data or want to explore the platform's capabilities before using your data, you can use the sample files on the Project Big Life Planning Tool. There are **X** sample files you may use:
 
+- MockPUMF2013.csv is a sub-sample of the Public Use Microdata File from the 2013 Canadian Community Health Survey. This file has all the required and recommended variables.
 
+- SmallMockPUMF2013.csv 
+_TO FIGURE OUT WHAT IT INCLUDES_ 
 
-Click on the file name under the **Sample files** to select it. 
+**Steps**
+
+1. Click on the file name under "Sample files" to select it. 
 
 
 ###Load your own file
 
-Click the browse button under **Select a file to use in calculations**. 
-Locate the file on your computer, select, and open. 
+**Steps**
 
-If the loaded file has all of the variables required and recommended for calculation, you will be able to continue with the planning tool. 
+1. Click the **Browse** button under "Select a file to use in calculations".
 
+2. Locate the file on your computer, select, and open. 
+
+- If the loaded file has all of the variables required and recommended for calculation, you will be able to continue with the planning tool. 
+  
 - If the loaded file does **not** have all the variables **required** for the calculation you will not be able to continue with the planning tool.
-
+  
 - If the loaded file does **not** have all the variables **recommended** for calculation you will be able to continue with the planning tool, however the calculations may be less accurate. 
 
 
-##Select Outcome
 
-Click on box beside the calculation name under **Select initial calculations**.
+##Select calculation
 
-*TO Do: add details about the calculations can be found in the glossary and key concepts*
+There are two general types of calculations: summary measures and by row measures.
+
+- **Summary measures:** (ref:Summarycalc)
+
+- **By row measures:** (ref:byrowcalc)
+
+Summary measures must be selected for calculations that have stratifications, intervention scenarios, and  cause-deleted scenario.
+
+**Steps**
+
+1. Check the box beside the calculation's name under "Calculations" to select it. A single calculation or multiple calculations may be selected.
+
+  - Once selected the name(s) of the calculation(s) will appear to the right of "Calculations".
+
+More details of what the calculations are and how they are preformed can be found in key concepts (Chapter \@ref(keyconcepts)) - "Calculations".
 
 
-##Filter Data
+##Filter data
 
-Click on the + Add filter button.
+Use filters when you want to analyze only a subset of your data.
 
-Select the variable that you want to filter on. 
+**Steps**
 
-*To Clarify: CAT vs. Continous - what are we letting them filter on*
-*Clarify with Luke if this is done, WKLY ALCOHOL Consumption**
+1. Click on the **+ New** button under "Filters".
 
-To add another filter repeat the steps above. A maximum of three filters are recommended to maintain statistical power (added filters reduce sample sizes and reduces statistical power). 
+2. Select the variable that you want to filter on by typing its variable name into the "search variables" text bar.
+
+3. Filter **in** the categories/levels within the variable by:
+
+  - **Categorical:** Clicking on the "Search categories"" text bar. Scroll and select the category you want to **keep** in your data. Repeat this step to add additional categories.
+
+  - **Continous:** Click the "cycle button" found under the variable you have selected. Two new boxes will appear. 
+    - Select the minimum value for your subset data in the box on the left by typing the values or using the arrows. 
+    - Select the maximum value for your subset data in the box on your right by typing the value or using the arrows.
+    
+4. To add another filter repeat the steps above. A maximum of three filters are recommended to maintain statistical power (added filters reduce sample sizes and reduces statistical power). 
+
+  - Once selected, the name(s) of the filtered variable(s) will appear to the right of "Filters".
 
 You are able to filter on all types of variables: required for calculation, recommended for calculation, and ignore variables (includes customized variables).
 
+
 ###Remove a filter
 
-To remove a filter entirely, click on the trash can beside the filter you want to delete.
+- To remove a filter entirely, click on the trash can beside the variable you want to delete.
 
-To remove a level within a filtered variable, click on the 'x' beside the variable level.
+- To remove a level within a filtered variable - categorical, click on the 'x' beside the variable level.
 
 
 ##Stratify data
 
-Select the variables you want to stratify on Under 'Stratifications'. A maximum of 3 stratifications are recommended to maintain statistical power (added strata reduce strata sample size and reduces statistical power).
+Use stratifications when you want to get a result for multiple strata (levels or classes). 
 
-You are able to stratify on categorical variables, but not continous.
+A summary measure must be selected for stratifications, as only a summary measure will be outputted for each strata. By row measurements may also be selected but they will not be stratified.
+
+**Steps**
+
+1. Click the box beside either "Life Expectancy (Summary)" or "Deaths (Five Years)" under the "Calculation" drop down.
+
+2. Select the variables you want to stratify on under the "Stratifications'. You are only able to stratify on categorical variables.
+
+3. To add another variable for stratification repeat the steps above. A maximum of 3 stratifications are recommended to maintain statistical power (added strata reduce strata sample size and reduces statistical power).
+
+- Once selected, the name(s) of the stratified variable(s) will appear to the right of "Stratifications".
 
 You are able to stratify on all types of categorical variables: required for calculation, recommended for calculation, and ignore variables (includes customized variables).
 
-*With Luke - prevent stratification of continous variables*
+###Remove a stratification
+
+- To remove a stratification variable click on the 'x' beside the variable level.
 
 
 
-##Calculate Outcomes
+##Run scenarios
 
-Name your calculation to quickly differentiate multiple calculations.
+Scenarios can be used to predict the health outcomes when unhealthy behaviours:
 
-**Note** the larger the data file is the longer the calculations will take. It may take a few minutes for the calculation to complete. *TBD: There has been discussion on changing the current method. Once a method has been selected then Indicate how they know that the calculation is being preformed.*
+- are modified in the population: **Intervention**, or
+- were never present in the population: **Cause-deleted**
+
+Scenarios can be used to inform potential health policies or programs.
+
+###Intervention scenarios
+
+Interventions provide you with the ability to customize the scenarios. For example you can answer the questions:
+
+- what if we only had 15% of the population smoked rather then the current 20%?
+- what if everyone increased their physical activity by 10%?
+- what if everyone ate 4 fruit servings each day?
+- what if everyone drank 2 fewer drinks per week?
+
+These intervention scenarios allow you to predict and compare the effectiveness of policies.
+
+There are 3 types of intervention scenarios that you can select:
+
+- **Absolute:** each individual in the population **changes** their health behaviour **by a value of x**. 
+- **Relative:** each individual in the population **changes** their health behaviour **by a ratio of y**.
+- **Target:** each individual in the population **has a set value of z.**
+
+More information on the specifics of each type of intervention scenario and how they are calculated can be found in Key Concepts (Chapter \@ref(keyconcepts)) - "Scenarios: Interventions".
+
+**Steps**
+
+1. Click the box beside either "Life Expectancy (Summary)" under the "Calculation" drop down.
+
+2. Check the button beside: "Intervention" under the "Scenario" drop down.
+
+3. Click on the health behaviour you want to modify: e.g. Diet.
+
+- A drop down menu of all the possible variables of that health behaviour you can modify will appear.
+
+4. Click the box beside the variable you want to modify: e.g. Daily consumption - fruit - (D).
+
+- A drop down menu of the scenario types: absolute, relative, and target, will appear.
+
+5. Check the button beside the type of intervention you want to modify: e.g. Target.
+
+6. Use the arrows beside the the text box: "Decrease by" or "Increase by" to add the value you are modifying: e.g. The value of 4 is used for the scenario what if everyone ate 4 fruit servings each day?
+
+Multiple health behaviours and variables within the health behaviours can be selected for a single calculation.
+
+- Once selected, the name(s) of the health behaviour(s) that have been selected for the intervention will appear to the right of "Scenario".
+
+###Cause-deleted scenarios
+
+Cause-deleted scenarios provide you with the ability to see the best case scenario for the population. For example:
+
+- what if no one in the population ever smoked?
+- what if everyone in the population met their recommended physical activity levels (3.00 METs/week)?
+
+More information on cause-deleted calculations and how they are calculated can be found in key concepts (_Chapter \@ref(keyconcepts)_) - "Scenarios: Cause-deleted".
+
+**Steps**
+
+1. Click the box beside either "Life Expectancy (Summary)" under the "Calculation" drop down.
+
+2. Check the button beside: "Cause-deleted" under the "Scenario" drop down.
+
+3. Check the box beside the health behaviour that you want to have a cause-deleted calculation.
+
+Multiple health behaviours can be selected for a single calculation. 
 
 
+##Calculate results
 
-##Generate Intervention Scenarios
+1. Name your calculation in the text box: Calculation name. 
+  - Be specific when naming the calculation as it will make it easier to distinguish after running multiple calculations.
 
-*TBD: How much of it will be included in the platform. Will inform how to write this section*
+<div class="FOO">
+**Note:** the larger the data set is the longer the calculations will take. Depending on the size of the data set and the type of calculation being preformed it could take an hour or more. 
+</div>
 
 
 ##Visualize Data
@@ -119,7 +269,7 @@ Name your calculation to quickly differentiate multiple calculations.
 
 
 
-##Export Data
+##Download results
 
 Click on the **Download results** button under the **Results** section.
 
@@ -129,12 +279,20 @@ Select which calculations you'd like to download.
 
 
 
-##Resolve Warning or Error Messages
+##Resolve warning or error messages
 
-*TO DO: confirm with Luke possible error messages and what they mean*
+There are different types of warning and error messages that may appear.
 
-- Invalid category
-- Out of range
-- Not a number
-- Sample Size is too small
+Below describes some of the messages that are likely to occur and steps to resolve them.
 
+###Invalid category
+
+
+###Out of range
+
+"Out of range" is when there are observation(s) in the data set that are not is beyond the limit of 
+
+###Not a number
+
+
+###Sample size is too small
