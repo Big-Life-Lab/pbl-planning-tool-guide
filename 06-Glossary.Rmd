@@ -17,7 +17,7 @@ The impact or size of a health problem in an area, measured by cost, mortality, 
 
 **By Row Measures**
 
-When selected, the output '.csv' file will include the result of the calculation for each row (e.g. individual) of the dataset.
+(ref:byrowcalc)
 
 
 **Calibration**
@@ -42,11 +42,7 @@ The ability of the model to differentiate between high risk individuals and low 
 
 **Error Message**
 
-Error messages will occur when variables that are **"Required for Calculation"** are missing in the data. If the entire column for the variable is missing then the calculation cannot be performed on the data. If there are missing row entries for the variable then the entire row will not be used in the calculation.
-
-**Exposure**
-
-In the risk algorithms the exposure refers to the level of the predictor varaible, e.g. for the predictor variable EDUDR04 there are four levels of exposure: (1) Post-Secondary, (2) Some Post-Secondary, (3) High School, (4) Less then High School.
+(ref:error)
 
 **Filter**
 
@@ -100,20 +96,37 @@ People in poorer socioeconomic circumstances generally have poorer health. Depri
 
 (ref:Strat)
 
+Stratification can only occur on categorical variables.
+
 
 **Summary Measures**
 
-When selected, the output .csv file will include the calculation result for the entire population of the dataset. 
+(ref:Summarycalc)
+
+(ref:Summarycalcstrat) 
 
 
 **Warning Message**
 
-Warning messages will occur when variables that are **"Recommended for Calculation"** are missing in the data. If the entire column for the variable is missing the calculation will still be performed on the data. If there are missing row entries for the variable the row will still be used in the calculation.
+(ref:warning) 
+
+
+
+
+(ref:byrowcalc) When selected, the result will be the measurement for each individual (e.g. row) in the dataset.
 
 (ref:causedeleted) A cause-deleted health outcome is the estimated health outcome of a population if a specific cause (e.g. smoking) did not exist in that population. 
 
-(ref:LE) Life expectancy is a calculation of how long a person or population would be expected to live, on average, given unchanging risk of death from a specific point in time.
+(ref:error) Error messages will occur when variables that are **"Required for Calculation"** are missing in the data. If the entire column for the variable is missing then the calculation cannot be performed on the data. If there are missing row entries for the variable then the entire row will not be used in the calculation.
 
 (ref:Filter) Chooses part of your dataset for analysis. If you filter on 'Sex' and then 'Male', calculations will only be performed on individuals that are 'Male' and 'Females' will be excluded. For example, when calculating Life Expectancy on the filter variable 'Sex' then 'Male' there will be a Life Expectancy estimate for 'Males' and *no* Life Expectancy estimate for 'Females'.
 
+(ref:LE) Life expectancy is a calculation of how long a person or population would be expected to live, on average, given unchanging risk of death from a specific point in time.
+
 (ref:Strat) The seperation of data into smaller strata (levels or classes which individuals are assigned too). If the variable 'Sex' is stratified it creates two strata: 'Male' and 'Female'. Calculations are performed on each strata (level or class) and the outcome will be specific to that strata. For example, when calculating Life Expectancy on the stratified variable 'Sex' there will be a Life Expectancy estimate for 'Males' and a different Life Expectancy estimate for 'Females'.
+
+(ref:Summarycalc) When selected, the result will be a single measure for the entire dataset. For instance when Summary Measure - Life Expectancy (Summary Measure) is selected the result is a single life expectancy for the given for the population. 
+
+(ref:Summarycalcstrat) When stratifications are selected, the summary measure will be given for each strata. For instance when Summary Measure - Life Expectancy and Stratification - Sex are selected, then two life expectancy measures will be given one for males and one for females. 
+
+(ref:warning) Warning messages will occur when variables that are **"Recommended for Calculation"** are missing in the data. If the entire column for the variable is missing the calculation will still be performed on the data. If there are missing row entries for the variable the row will still be used in the calculation
