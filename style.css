@@ -12,4 +12,6 @@ pre {
 pre code {
   white-space: inherit;
 }
-
+div.FOO {
+  background-color: #e6f2ff;
+}
