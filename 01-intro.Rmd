@@ -4,7 +4,7 @@ The Project Big Life Planning Tool was developed in order to support health prof
 
 For instance Project Big Life Planning Tool helps:
 
-- Public health professionals: assess the impact of a preventative intervention on a health behaviour
+- Public health professionals: assess the impact of preventative interventions that target health behaviours
 - Health planners: assess the need for palliative care
 
 **What types of questions can it answer?**
@@ -38,8 +38,8 @@ The Project Big Life Planning Tool can answer the following types of questions:
     - It can be used to accurately assess the risk of a health outcome in populations that were not used in its developement, and groups of people that account for only a fraction of the population. 
 
     
--	It is **Private**. 
+-	It is **private**. 
 
-    - Uploaded data remains on your computer and is not uploaded or sent anywhere.
+    - Loaded data remains on your computer and is not uploaded or sent anywhere.
 
 
