@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-06-28}
+    \date{2019-07-26}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -106,13 +106,15 @@
 \chapter{Welcome to Project Big Life's Planning
 Tool}\label{welcome-to-project-big-lifes-planning-tool}
 
-\section{What is the Project Big Life Planning
+\emph{TO DO: Insert the image for the PBL planning tool}
+
+\subsection{What is the Project Big Life Planning
 Tool}\label{what-is-the-project-big-life-planning-tool}
 
 \emph{To do: Develop video showcasing the platform including what it is
 and why someone should use the platform}
 
-\section{Who made the Project Big Life Planning
+\subsection{Who made the Project Big Life Planning
 Tool?}\label{who-made-the-project-big-life-planning-tool}
 
 The Project Big Life Planning Tool was developed by the Project Big Life
@@ -134,8 +136,8 @@ For instance Project Big Life Planning Tool helps:
 \begin{itemize}
 \tightlist
 \item
-  Public health professionals: assess the impact of a preventative
-  intervention on a health behaviour
+  Public health professionals: assess the impact of preventative
+  interventions that target health behaviours
 \item
   Health planners: assess the need for palliative care
 \end{itemize}
@@ -203,19 +205,19 @@ questions:
     people that account for only a fraction of the population.
   \end{itemize}
 \item
-  It is \textbf{Private}.
+  It is \textbf{private}.
 
   \begin{itemize}
   \tightlist
   \item
-    Uploaded data remains on your computer and is not uploaded or sent
+    Loaded data remains on your computer and is not uploaded or sent
     anywhere.
   \end{itemize}
 \end{itemize}
 
 \chapter{Getting Started}\label{getting-started}
 
-To help you get started with Project Big Life's Planning Tool quickly,
+To help you get started quickly with Project Big Life's Planning Tool,
 we built a Tutorial directly onto the platform.
 
 The tutorial takes you through step-by-step how to use Project Big
@@ -228,89 +230,173 @@ to use the Planning Tool!
 Tool (\url{http://policy.projectbiglife.ca/}) and click on the Tutorial
 button in the top right corner!
 
+\begin{center}\includegraphics{Tutorial Button} \end{center}
+
 \chapter{How To}\label{howto}
 
-These guides will cover similar topics as the tutorials but in greater
-detail.
+These guides will cover the topics covered in the tutorial but in
+greater detail.
 
 \begin{itemize}
 \tightlist
 \item
-  Customize Data
+  Customize data
 \item
-  Load Data
+  Load data
 \item
-  Select Outcome
+  Select calculation
 \item
-  Filter Data
+  Filter data
 \item
-  Stratify Data
+  Stratify data
 \item
-  Calculate Outcomes
+  Run scenarios: Intervention and Cause-deleted
 \item
-  Generate Intervention Scenarios
+  Calculate results
 \item
-  Visualize Data
+  Visualize data (TBD)
 \item
-  Export Data
+  Export data (TBD)
 \item
-  Resolve Error Messages
+  Resolve error messages (TBD)
 \end{itemize}
 
 \section{Customize Data}\label{customize-data}
 
 Prior to using the Project Big Life Planning Tool you may want to
-manipulate your dataset. Reasons for data manipulation may include:
-custom filter or custom stratification.
+manipulate your data set. Reasons include: custom filter(s) and/or
+custom stratification(s).
 
 Data manipulation can occur on any programming software: R, SAS, STATA,
-etc, provided you output your dataset as a .csv file.
+etc, as long as you output your data set as a `.csv' file.
 
-The following table shows the example R, SAS, STATA code for the
-following:
-
-\emph{Put example in to the Consult with Doug} \emph{To clarify: Not
-sure whether to continue with this section, as there are multiple ways
-to manipulate the data. Could provide an example}
-
-\section{Load Data}\label{load-data}
-
-Data \emph{loaded} to the Project Big Life Planning Tool remains on your
-computer and is not uploaded or sent anywhere.
-
-\textbf{Note} The Project Big Life Planning Tool can currently only
-support .csv data files from the 2013/2014 Canadian Community Health
-Survey \emph{TBD - whether it's shared}.
-
-There are two options for your data: use a sample file or upload your
-own file.
-
-\subsection{Use a sample file}\label{use-a-sample-file}
-
-If you don't have your own data or want to explore the platform
-capabilities prior to your data you can use the sample files already on
-the There are \textbf{X} sample files you may use to complete your
-calculations:
+An example of customizing your data set is converting the variable: Body
+Mass Index (CCHS 2013 variable HWTGBMI) from a continuous variable into
+four distinct categories:
 
 \begin{itemize}
 \tightlist
 \item
-  MockPUMF2013.csv is a subsample of the Public Use Microdata File from
-  the {[}2013 Canadian Community Health Survey{]}
-  (\url{https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X}).
+  Underweight: BMI less then 18.5
+\item
+  Normal or Healthy Weight: BMI of 18.5 to 24.9
+\item
+  Overweight: BMI of 25.0 to 29.9
+\item
+  Obese: BMI greater or equal to 30.0
 \end{itemize}
 
-Click on the file name under the \textbf{Sample files} to select it.
+\textbf{Steps}
+
+The following shows R code that would be used to create these
+stratifications:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Convert observations ``Not stated'' from 999.99 to N/A
+
+\begin{verbatim}
+data[data == 999.99] <- NA
+\end{verbatim}
+\item
+  Load the R package dpylr. This package is used for data manipulation.
+
+\begin{verbatim}
+library(dpylr)
+\end{verbatim}
+\item
+  Create a new column that contains four categories for BMI
+
+\begin{verbatim}
+data$newcolumn <- cut(data$HWTGBMI, breaks = c(0,18.5,25,30,Inf),  labels=c("Underweight", "Healthy", "Overweight", "Obese")
+\end{verbatim}
+\item
+  The output will be your data set + a new column with the corresponding
+  category (``Underweight'', ``Healthy'', ``Overweight'', ``Obese'') for
+  that individual.
+\end{enumerate}
+
+\begin{verbatim}
+    HWTGBMI   newcolumn
+  1   22.68     Healthy
+  2   26.99  Overweight
+  3      NA        <NA>
+  4   34.44       Obese
+  5   23.77     Healthy
+  6   17.23 Underweight
+\end{verbatim}
+
+This new column can be used with the Project Big Life Planning Tool for
+filtering or stratification.
+
+\section{Load data}\label{load-data}
+
+Only one data set can be used on the platform for each calculation; a
+calculation cannot be preformed across multiple data sets.
+
+\textbf{Note:} Data sets loaded to the Project Big Life Planning Tool
+remains on your computer and is not uploaded or sent anywhere.
+
+There are two options for your data: use a sample file or load your own
+file.
+
+\textbf{Note:} The Project Big Life Planning Tool can currently only
+support .csv data files from the 2013/2014 Canadian Community Health
+Survey. Both the PUMF and Shared 2013/2014 Canadian Community Health
+Survey files are accepted. \emph{Need to confirm the geography
+variables}
+
+\begin{itemize}
+\tightlist
+\item
+  More information on the Canadian Community Health Survey and the types
+  of accepted data can be found in Key concepts (Chapter
+  \ref{keyconcepts}) - ``Data and Sample Files''.
+\end{itemize}
+
+\subsection{Load sample files}\label{load-sample-files}
+
+If you don't have your own data or want to explore the platform's
+capabilities before using your data, you can use the sample files on the
+Project Big Life Planning Tool. There are \textbf{X} sample files you
+may use:
+
+\begin{itemize}
+\item
+  MockPUMF2013.csv is a sub-sample of the Public Use Microdata File from
+  the 2013 Canadian Community Health Survey. This file has all the
+  required and recommended variables.
+\item
+  SmallMockPUMF2013.csv \emph{TO FIGURE OUT WHAT IT INCLUDES}
+\end{itemize}
+
+\textbf{Steps}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Click on the file name under ``Sample files'' to select it.
+\end{enumerate}
 
 \subsection{Load your own file}\label{load-your-own-file}
 
-Click the browse button under \textbf{Select a file to use in
-calculations}. Locate the file on your computer, select, and open.
+\textbf{Steps}
 
-If the loaded file has all of the variables required and recommended for
-calculation, you will be able to continue with the planning tool.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Click the \textbf{Browse} button under ``Select a file to use in
+  calculations''.
+\item
+  Locate the file on your computer, select, and open.
+\end{enumerate}
 
 \begin{itemize}
+\item
+  If the loaded file has all of the variables required and recommended
+  for calculation, you will be able to continue with the planning tool.
 \item
   If the loaded file does \textbf{not} have all the variables
   \textbf{required} for the calculation you will not be able to continue
@@ -321,26 +407,99 @@ calculation, you will be able to continue with the planning tool.
   the planning tool, however the calculations may be less accurate.
 \end{itemize}
 
-\section{Select Outcome}\label{select-outcome}
+\section{Select calculation}\label{select-calculation}
 
-Click on box beside the calculation name under \textbf{Select initial
-calculations}.
+There are two general types of calculations: summary measures and by row
+measures.
 
-\emph{TO Do: add details about the calculations can be found in the
-glossary and key concepts}
+\begin{itemize}
+\item
+  \textbf{Summary measures:} When selected, the result will be a single measure for
+the entire dataset. For instance when Summary Measure - Life Expectancy
+(Summary Measure) is selected the result is a single life expectancy for
+the given for the population.
+\item
+  \textbf{By row measures:} When selected, the result will be the measurement for
+each individual (e.g.~row) in the dataset.
+\end{itemize}
 
-\section{Filter Data}\label{filter-data}
+Summary measures must be selected for calculations that have
+stratifications, intervention scenarios, and cause-deleted scenario.
 
-Click on the + Add filter button.
+\textbf{Steps}
 
-Select the variable that you want to filter on.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Check the box beside the calculation's name under ``Calculations'' to
+  select it. A single calculation or multiple calculations may be
+  selected.
+\end{enumerate}
 
-\emph{To Clarify: CAT vs.~Continous - what are we letting them filter
-on} *Clarify with Luke if this is done, WKLY ALCOHOL Consumption**
+\begin{itemize}
+\tightlist
+\item
+  Once selected the name(s) of the calculation(s) will appear to the
+  right of ``Calculations''.
+\end{itemize}
 
-To add another filter repeat the steps above. A maximum of three filters
-are recommended to maintain statistical power (added filters reduce
-sample sizes and reduces statistical power).
+More details of what the calculations are and how they are preformed can
+be found in key concepts (Chapter \ref{keyconcepts}) - ``Calculations''.
+
+\section{Filter data}\label{filter-data}
+
+Use filters when you want to analyze only a subset of your data.
+
+\textbf{Steps}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Click on the \textbf{+ New} button under ``Filters''.
+\item
+  Select the variable that you want to filter on by typing its variable
+  name into the ``search variables'' text bar.
+\item
+  Filter \textbf{in} the categories/levels within the variable by:
+\end{enumerate}
+
+\begin{itemize}
+\item
+  \textbf{Categorical:} Clicking on the ``Search categories''" text bar.
+  Scroll and select the category you want to \textbf{keep} in your data.
+  Repeat this step to add additional categories.
+\item
+  \textbf{Continous:} Click the ``cycle button'' found under the
+  variable you have selected. Two new boxes will appear.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Select the minimum value for your subset data in the box on the left
+    by typing the values or using the arrows.
+  \item
+    Select the maximum value for your subset data in the box on your
+    right by typing the value or using the arrows.
+  \end{itemize}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  To add another filter repeat the steps above. A maximum of three
+  filters are recommended to maintain statistical power (added filters
+  reduce sample sizes and reduces statistical power).
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Once selected, the name(s) of the filtered variable(s) will appear to
+  the right of ``Filters''.
+\end{itemize}
 
 You are able to filter on all types of variables: required for
 calculation, recommended for calculation, and ignore variables (includes
@@ -348,49 +507,238 @@ customized variables).
 
 \subsection{Remove a filter}\label{remove-a-filter}
 
-To remove a filter entirely, click on the trash can beside the filter
-you want to delete.
-
-To remove a level within a filtered variable, click on the `x' beside
-the variable level.
+\begin{itemize}
+\item
+  To remove a filter entirely, click on the trash can beside the
+  variable you want to delete.
+\item
+  To remove a level within a filtered variable - categorical, click on
+  the `x' beside the variable level.
+\end{itemize}
 
 \section{Stratify data}\label{stratify-data}
 
-Select the variables you want to stratify on Under `Stratifications'. A
-maximum of 3 stratifications are recommended to maintain statistical
-power (added strata reduce strata sample size and reduces statistical
-power).
+Use stratifications when you want to get a result for multiple strata
+(levels or classes).
 
-You are able to stratify on categorical variables, but not continous.
+A summary measure must be selected for stratifications, as only a
+summary measure will be outputted for each strata. By row measurements
+may also be selected but they will not be stratified.
+
+\textbf{Steps}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Click the box beside either ``Life Expectancy (Summary)'' or ``Deaths
+  (Five Years)'' under the ``Calculation'' drop down.
+\item
+  Select the variables you want to stratify on under the
+  ``Stratifications'. You are only able to stratify on categorical
+  variables.
+\item
+  To add another variable for stratification repeat the steps above. A
+  maximum of 3 stratifications are recommended to maintain statistical
+  power (added strata reduce strata sample size and reduces statistical
+  power).
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Once selected, the name(s) of the stratified variable(s) will appear
+  to the right of ``Stratifications''.
+\end{itemize}
 
 You are able to stratify on all types of categorical variables: required
 for calculation, recommended for calculation, and ignore variables
 (includes customized variables).
 
-\emph{With Luke - prevent stratification of continous variables}
+\subsection{Remove a stratification}\label{remove-a-stratification}
 
-\section{Calculate Outcomes}\label{calculate-outcomes}
+\begin{itemize}
+\tightlist
+\item
+  To remove a stratification variable click on the `x' beside the
+  variable level.
+\end{itemize}
 
-Name your calculation to quickly differentiate multiple calculations.
+\section{Run scenarios}\label{run-scenarios}
 
-\textbf{Note} the larger the data file is the longer the calculations
-will take. It may take a few minutes for the calculation to complete.
-\emph{TBD: There has been discussion on changing the current method.
-Once a method has been selected then Indicate how they know that the
-calculation is being preformed.}
+Scenarios can be used to predict the health outcomes when unhealthy
+behaviours:
 
-\section{Generate Intervention
-Scenarios}\label{generate-intervention-scenarios}
+\begin{itemize}
+\tightlist
+\item
+  are modified in the population: \textbf{Intervention}, or
+\item
+  were never present in the population: \textbf{Cause-deleted}
+\end{itemize}
 
-\emph{TBD: How much of it will be included in the platform. Will inform
-how to write this section}
+Scenarios can be used to inform potential health policies or programs.
+
+\subsection{Intervention scenarios}\label{intervention-scenarios}
+
+Interventions provide you with the ability to customize the scenarios.
+For example you can answer the questions:
+
+\begin{itemize}
+\tightlist
+\item
+  what if we only had 15\% of the population smoked rather then the
+  current 20\%?
+\item
+  what if everyone increased their physical activity by 10\%?
+\item
+  what if everyone ate 4 fruit servings each day?
+\item
+  what if everyone drank 2 fewer drinks per week?
+\end{itemize}
+
+These intervention scenarios allow you to predict and compare the
+effectiveness of policies.
+
+There are 3 types of intervention scenarios that you can select:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Absolute:} each individual in the population \textbf{changes}
+  their health behaviour \textbf{by a value of x}.
+\item
+  \textbf{Relative:} each individual in the population \textbf{changes}
+  their health behaviour \textbf{by a ratio of y}.
+\item
+  \textbf{Target:} each individual in the population \textbf{has a set
+  value of z.}
+\end{itemize}
+
+More information on the specifics of each type of intervention scenario
+and how they are calculated can be found in Key Concepts (Chapter
+\ref{keyconcepts}) - ``Scenarios: Interventions''.
+
+\textbf{Steps}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Click the box beside either ``Life Expectancy (Summary)'' under the
+  ``Calculation'' drop down.
+\item
+  Check the button beside: ``Intervention'' under the ``Scenario'' drop
+  down.
+\item
+  Click on the health behaviour you want to modify: e.g.~Diet.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  A drop down menu of all the possible variables of that health
+  behaviour you can modify will appear.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Click the box beside the variable you want to modify: e.g.~Daily
+  consumption - fruit - (D).
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  A drop down menu of the scenario types: absolute, relative, and
+  target, will appear.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  Check the button beside the type of intervention you want to modify:
+  e.g.~Target.
+\item
+  Use the arrows beside the the text box: ``Decrease by'' or ``Increase
+  by'' to add the value you are modifying: e.g.~The value of 4 is used
+  for the scenario what if everyone ate 4 fruit servings each day?
+\end{enumerate}
+
+Multiple health behaviours and variables within the health behaviours
+can be selected for a single calculation.
+
+\begin{itemize}
+\tightlist
+\item
+  Once selected, the name(s) of the health behaviour(s) that have been
+  selected for the intervention will appear to the right of
+  ``Scenario''.
+\end{itemize}
+
+\subsection{Cause-deleted scenarios}\label{cause-deleted-scenarios}
+
+Cause-deleted scenarios provide you with the ability to see the best
+case scenario for the population. For example:
+
+\begin{itemize}
+\tightlist
+\item
+  what if no one in the population ever smoked?
+\item
+  what if everyone in the population met their recommended physical
+  activity levels (3.00 METs/week)?
+\end{itemize}
+
+More information on cause-deleted calculations and how they are
+calculated can be found in key concepts (\emph{Chapter
+\ref{keyconcepts}}) - ``Scenarios: Cause-deleted''.
+
+\textbf{Steps}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Click the box beside either ``Life Expectancy (Summary)'' under the
+  ``Calculation'' drop down.
+\item
+  Check the button beside: ``Cause-deleted'' under the ``Scenario'' drop
+  down.
+\item
+  Check the box beside the health behaviour that you want to have a
+  cause-deleted calculation.
+\end{enumerate}
+
+Multiple health behaviours can be selected for a single calculation.
+
+\section{Calculate results}\label{calculate-results}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Name your calculation in the text box: Calculation name.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Be specific when naming the calculation as it will make it easier to
+  distinguish after running multiple calculations.
+\end{itemize}
+
+\textbf{Note:} the larger the data set is the longer the calculations
+will take. Depending on the size of the data set and the type of
+calculation being preformed it could take an hour or more.
 
 \section{Visualize Data}\label{visualize-data}
 
 \emph{TBD: Need plots on the platform to work through the steps below} -
 export - create your own(?)
 
-\section{Export Data}\label{export-data}
+\section{Download results}\label{download-results}
 
 Click on the \textbf{Download results} button under the \textbf{Results}
 section.
@@ -400,55 +748,133 @@ Select which calculations you'd like to download.
 \emph{To Do: Screenshot of all the calculation options once the platform
 is fixed.}
 
-\section{Resolve Warning or Error
-Messages}\label{resolve-warning-or-error-messages}
+\section{Resolve warning or error
+messages}\label{resolve-warning-or-error-messages}
 
-\emph{TO DO: confirm with Luke possible error messages and what they
-mean}
+There are different types of warning and error messages that may appear.
 
-\begin{itemize}
-\tightlist
-\item
-  Invalid category
-\item
-  Out of range
-\item
-  Not a number
-\item
-  Sample Size is too small
-\end{itemize}
+Below describes some of the messages that are likely to occur and steps
+to resolve them.
+
+\subsection{Invalid category}\label{invalid-category}
+
+\subsection{Out of range}\label{out-of-range}
+
+``Out of range'' is when there are observation(s) in the data set that
+are not is beyond the limit of
+
+\subsection{Not a number}\label{not-a-number}
+
+\subsection{Sample size is too small}\label{sample-size-is-too-small}
 
 \chapter{Applications}\label{applications}
 
 This chapter provides you with examples of how Project Big Life's
 Planning Tool can be used in your day-to-day operations. The examples
-will cover: cause-deletion, generating a health status report and
-determining the impact of a local and national policy.
+will cover:
 
-\section{Cause-deleted life
-expectancy}\label{cause-deleted-life-expectancy}
-
-What would be the life expectancy of a population if be no one in the
-population ever smoked? This scenario is a cause-deleted scenario.
-
-\textbf{Cause-deleted life expectancy} is the estimated life expectancy
-of a population if a specific cause (e.g.~smoking) did not exist in that
-population. This population is known as the counterfactual population.
-
-\textbf{Cause-deleted effect of life expectancy} is calculated by
-comparing the population with the current exposure status of smoking
-status and pack-years of smoking to a counterfactual population where
-these two variables are: smoking status = never smoker, and pack-years
-of smoking = 0. It is measured in life years lost. This calculation can
-also be preformed with the health outcome: risk of mortality. Further
-explaination of cause-deleted risk and cause-deleted effect of a risk
-can be found in key concepts (Chapter \ref(keyconcepts)).
-
-Lets walk through this scenario step-by-step!
+\begin{itemize}
+\tightlist
+\item
+  analyses that can be included in a health status report,
+\item
+  a national policy: What if Canada biked like the Dutch?
+\item
+  a local policy: turning Ottawa into the healthiest Canadian region
+\item
+  a
+\end{itemize}
 
 \section{Health Status Report}\label{health-status-report}
 
-\section{Diet}\label{diet}
+In this example we will highlight statistics that could reported in
+health status reports. Health status reports are a way to report the
+health state for a population and the factors that influence the
+population's health. Information from health status reports are used to
+inform policy, planning, and resource allocation.
+
+In this example we will calculate:
+
+\begin{itemize}
+\tightlist
+\item
+  The predicted number of deaths by strata
+\item
+  The impact of eliminating unhealthy behaviours on life expectancy
+\end{itemize}
+
+For this example we will focus on the population of Alberta.
+
+\subsection{Predicted number of deaths stratified by sex and level of
+education}\label{predicted-number-of-deaths-stratified-by-sex-and-level-of-education}
+
+By showing the number of deaths by strata, the reader can see the
+distribution of deaths across specific population characteristics. Any
+categorical variable can be used for stratification but in this example,
+we will use sex and level of education.
+
+\textbf{Steps}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Select the sample file XXXX under ``Sample files''.
+\item
+  Select the calculation: Summary Measure -- Deaths (Five years)
+\item
+  Add filter: GEOGPRV -- 48, which is the corresponding code for
+  Alberta.
+\item
+  Add two stratifications: DDH\_SEX and EDUDR04
+\item
+  Title the calculation: Deaths by sex and education level
+\item
+  Click the calculate button
+\end{enumerate}
+
+\emph{7. To do: Results -- walk through the results}
+
+\subsection{Impact of eliminating unhealthy behaviours: physical
+inactivity and poor diet, on life
+expectancy}\label{impact-of-eliminating-unhealthy-behaviours-physical-inactivity-and-poor-diet-on-life-expectancy}
+
+To show how much an unhealthy behaviour impacts life expectancy we use
+the scenario: cause-deleted. Cause-deleted scenarios can be used for the
+health behaviours: alcohol consumption, diet, physical activity, and
+smoking, individually or in any combination. In this example we will
+evaluate the impact of physical inactivity and poor diet, in
+combination, on life expectancy.
+
+\textbf{Steps}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Select the sample file XXXX under ``Sample files''.
+\item
+  Select initial calculation: Summary Measure -- Life Expectancy
+  (Summary)
+\item
+  Add filter: GEOGPRV -- 48, which is the corresponding code for
+  Alberta.
+\item
+  Click the text: Scenario.
+\item
+  Select Cause-deleted.
+\item
+  Select the causes to delete: physical activity and diet
+\item
+  Title the calculation: Alberta: Cause-deleted - physical activity and
+  diet
+\item
+  Click the calculate button
+\end{enumerate}
+
+\emph{9. To Do: Walk through results}
+
+\section{Canada goes Dutch}\label{canada-goes-dutch}
+
+\section{Healthy Cities}\label{healthy-cities}
 
 \section{Transportation}\label{transportation}
 
@@ -464,10 +890,12 @@ things.
 \item
   Multivariable predictive risk algorithms
 \item
-  Calculations
+  Calculations:
 
   \begin{itemize}
   \tightlist
+  \item
+    Summary vs.~By Row
   \item
     Risk of health outcome
   \item
@@ -487,6 +915,9 @@ The Project Big Life Planning Tool currently accepts \textbf{2013/2014
 Public Use Microdata File and Shared File of the Canadian Community
 Health Survey (CCHS) in `.csv' format.}
 
+\subsection{What is the Canadian Community Health
+Survey?}\label{what-is-the-canadian-community-health-survey}
+
 The CCHS is an annual cross-sectional survey preformed by Statistics
 Canada. The CCHS collects information related to health status, health
 care utilization, and health determinants for the Canadian population.
@@ -501,21 +932,35 @@ or combination of health regions).
   (\url{http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey\&Id=144170}).
 \item
   Details and access to the Public Use Microdata file (PUMF) can be
-  found on the Odesi website
+  found through the Odesi website
   (\url{https://search2.odesi.ca/\#/details?uri=\%2Fodesi\%2Fcchs-82M0013-E-2013-2014-Annual-component.xml})
 \end{itemize}
+
+\subsection{Why can I only use the 2013/2014 Canadian Community Health
+Survey
+data?}\label{why-can-i-only-use-the-20132014-canadian-community-health-survey-data}
+
+Each year the CCHS changes a few variables it captures. This makes CCHS
+datasets from every year other then 2013/2014 incompatiable with the
+algorithms used by the Project Big Life Planning Tool.
+
+The Project Big Life Planning Team is currently working to adjust the
+algorthims so that they accept other CCHS years, and we will update the
+guidance when we are done.
 
 \subsection{Sample Files}\label{sample-files}
 
 \begin{itemize}
-\tightlist
 \item
   MockPUMF2013.csv is a subsample of the Public Use Microdata File from
   the {[}2013 Canadian Community Health Survey{]}
   (\url{https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X}). It
-  includes variables: age, sex, BMI, smoking habits, alcohol
-  consumption, diet components, physical activity levels, chronic
-  conditions, ethinicity, immigration status, and education.
+  includes all required and recommended variables: age, sex, BMI,
+  smoking habits, alcohol consumption, diet components, daily physical
+  activity expenditure, chronic conditions, ethinicity, immigration
+  status, and education.
+\item
+  SmallMockPUMF2013.csv
 \end{itemize}
 
 \section{Multivariable predictive risk
@@ -553,7 +998,7 @@ and how they can be used can be found the journal article:
 \subsection{Development of multivariable predictive risk
 algorithms}\label{development-of-multivariable-predictive-risk-algorithms}
 
-**\url{Data:**}
+\_\_\url{Data:__}
 
 \begin{itemize}
 \item
@@ -643,13 +1088,28 @@ Appendix A
 
 \section{Calculations}\label{calculations}
 
+\subsection{Summary vs By Row}\label{summary-vs-by-row}
+
+There are two general types of calculations Summary Measures and By Row
+Measures.
+
+Summary measures: (ref:summarycalc)
+
+By row measures: When selected, the result will be the measurement for
+each individual (e.g.~row) in the dataset.
+
+\textbf{Note:} Summary Measures are not the same as averaging the By Row
+Measures. Summary measures account for the master weights in their
+calculations where as simply averaging the By Row Measures doesn't
+factor the weights.
+
 \subsection{Risk of health outcome}\label{risk-of-health-outcome}
 
 Risk of the health outcome (e.g.~risk of dying) is the outcome of the
 multivariable predictive risk algorithm. An example of the mutlivariable
 risk algorithm is:
 
-\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  \]
+\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
 Where:
 
 \begin{itemize}
@@ -661,9 +1121,13 @@ Where:
 \item
   \(\beta_{pred}\) = predictive hazard ratios for the exposures
 \item
-  \(x\) = the exposure (e.g. \(x_{smoking}\) can have the value: current
-  smoker, former smoker \textless{}=5 years, former smoker
-  \textgreater{} 5 years, or never smoker).
+  \(x\) = the exposure. The exposure can be continous (e.g.~age) or
+  categorical. Categorical exposures are represented by dummy/factor
+  variables e.g.~smoking status is categorical variable with categories:
+  current, former \textless{}= 5 years, former \textgreater{}5 years, or
+  never smoked. Each type of dummy variable with: \(x_current smoker\) =
+  1 if the individual currently smokes or 0 if the individual is another
+  type of smoker).
 \end{itemize}
 
 \subsection{Number of health outcomes}\label{number-of-health-outcomes}
@@ -679,7 +1143,8 @@ through the following steps:
   dataset using the mutlivariable predictive risk algorithm.
 \item
   The weighted mean of all the risks is calculated using individual risk
-  values and corresponding study weights (CCHS variable: WTS\_M).
+  values and corresponding study weights (CCHS variable: WTS\_M for the
+  Public Micro Use File or WTS\_S for the shared file).
 \item
   The weighted mean is then multiplied with the total number of
   individuals in the population to generate the number of health
@@ -709,24 +1174,183 @@ Life expectancy is calculated using abridge life tables:
   life tables.
 \end{enumerate}
 
-\subsection{Cause-deletion
-calculations}\label{cause-deletion-calculations}
+\section{Scenario: Intervention}\label{scenario-intervention}
+
+How would life expectancy change if everyone increased thier physical
+activity levels by 10\%?
+
+The health intervention scenario allows you to predict how changing the
+health behaviours: alcohol consumption, diet, physical activity, and
+smoking, of a population will affect the population health outcome
+(e.g.~life expectancy). This feature can be used to predict the
+effectiveness of proposed policies or programs.
+
+There are three types of scenarios: \textbf{absolute, relative,} and
+\textbf{target}.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Absolute:} each individual in the population \textbf{changes}
+  their health behaviour \textbf{by a value of x}.
+\item
+  \textbf{Relative:} each individual in the population \textbf{changes}
+  their health behaviour \textbf{by a ratio of y}.
+\item
+  \textbf{Target:} each individual in the population \textbf{has a set
+  value of z.}
+\end{itemize}
+
+For target scenarios if the indiviudal's value is already at the target
+value or beyond the target value then their value is not changed. E.g.
+If the target value for physical activity is 2.5 METs/week, then any
+individual that already has METs/week \textgreater{}= 2.5 METs/week then
+there value will not be adjusted.
+
+The changes for each type of scenario for \textbf{alcohol, physical
+activity,} and \textbf{diet} are described in the following table:
+
+Health.Behaviour
+
+Absolute.change
+
+Relative.change
+
+Target
+
+Each individual \ldots{}
+
+Each individual \ldots{}
+
+Each individual has the value \ldots{}
+
+Alcohol Consumption
+
+Decreases the number of drinks they have per week by x
+
+Decreases the number of drinks they have per week by y \%
+
+z drinks per week
+
+Physical Activity
+
+Increases their own physical activity levels by x METs per week
+
+Increases their own physical activity levels by y \% METs per week
+
+z METs per week
+
+Diet
+
+Increases the number of fruits they eat by x per week
+
+Increases the number of fruits they consume by y \% per week
+
+z fruits per week
+
+Increases the number of vegetables they eat by x per week
+
+Increases the number of vegetables they consume by y \% per week
+
+z vegetables per week
+
+Decreases the glasses of juice they drink by x per week
+
+Decreases the their glasses of juice by y \% per week
+
+z glasses of juice per week
+
+Decreases the number of potatoes the eat by x per week
+
+Decreases the number of potatoes they consume by y \% per week
+
+z potatoes per week
+
+The \textbf{smoking} health intervention scenario is different then the
+other types of health intervention scenarios as they adjust the
+prevalence of the health behaviour.
+
+Health.Behaviour
+
+Absolute.change
+
+Relative.change
+
+Target
+
+Smoking
+
+The prevalence of smokers decreases by x \%
+
+The prevalence of smokers decreases by y \%
+
+The prevalence of smokers is z \%
+
+Although each type of health intervention for smoking: absolute,
+relative and target, changes the prevalence of current smokers they are
+different. The following figure shows how each is different from one
+another.
+
+\begin{figure}
+
+{\centering \includegraphics{Scenario-Abs, Rel, Target cropped} 
+
+}
+
+\caption{Comparison of health intervention scenario types}\label{fig:unnamed-chunk-10}
+\end{figure}
+
+To adjust the prevalence of smokers, the change is applied to every
+current smoker in the population; individuals are not selected at
+random. \ldots{}.
+
+\section{Scenario: Cause-deleted}\label{scenario-cause-deleted}
 
 What would be the life expectancy of a population if be no one in the
 population ever smoked? This scenario is a cause-deleted scenario.
 
-\emph{To Do: Insert video of cause deleted calculations that explains
-Method 1 vs.~Method 2}
+There are two distinct terms in cause-deleted calculations:
 
-There are two parts to the cause-deleted calculations: (A) calculate the
-risk, and (B) calculate the health outcome: life expectancy or number of
-deaths.
+\begin{itemize}
+\item
+  \textbf{Cause-deleted life expectancy} is the estimated life
+  expectancy for the counterfactual population where a specific cause
+  (e.g.~smoking) never existed. E.g. the counterfactual population was
+  always never smokers.
+\item
+  \textbf{Cause-deleted effect of life expectancy} or \textbf{life years
+  lost due to the cause} is the full effect of the cause (e.g smoking)
+  in the population. E.g. In a population 3 years of life are lost due
+  to individuals in that population smoking: either currently or
+  previously.
+\end{itemize}
+
+If multiple causes are selected (e.g.~smoking and physical inactivity)
+the cause-deleted life expectancy calculated accounts for both of these
+effects and the cause-deleted effect of life expectancy (or life years
+lost) is calculated for each individual cause.
+
+\textbf{Note:}
+\(\text{Cause-deleted life expectancy of smoking and physical inactivity} \neq\)
+\(\text{Cause-deleted effect of smoking} + \text{Cause-deleted effect of physical inactivity}\)
+
+This is because individuals in the population may be both smokers and
+physically inactive.
+
+\emph{Insert table with the reference levels for each of the health
+behaviours}
+
+\subsection{Cause-deleted calculation}\label{cause-deleted-calculation}
+
+There are two parts to the calculations preformed in cause-deleted
+scenarios: (A) calculate the risk, and (B) calculate the health outcome:
+life expectancy or number of deaths.
 
 \textbf{Part A: Risk calculations}
 
 The original multivariable predictive risk algorithm is:
 
-\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  \]
+\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
 
 \textbf{Step 1.} Modify the original algorithm to include the external
 coefficient(s). This means replacing all predictive hazard ratios/betas
@@ -743,19 +1367,19 @@ related to the health behaviour to the causal hazard ratios/betas.
   systematic reviews or meta-analysis.
 \end{itemize}
 
-\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  \]
+\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
 
 \textbf{Step 2.} Risk is calculated using the modified algorithm created
 in Step 1 and the respondent's original profile (e.g.~current smoker).
 This is the ``external coefficient risk''.
 
-\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  \]
+\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
 
 \textbf{Step 3.} ``Cause-deleted risk''' is calculated by setting an
 exposure to a reference (non-exposed) value (all other risk exposures
 remain unchanged).
 
-\[ \text{Cause-deleted risk' } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  \]
+\[ \text{Cause-deleted risk' } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
 
 \textbf{Step 4.} The ``cause-deleted effect external'' is calculated as
 ``external coefficient risk'' (Step 2) minus the ``cause-deleted
@@ -766,7 +1390,7 @@ risk'.''(Step 3).
 \textbf{Step 5.} Original risk is calculated using the original
 algorithm and the original respondent's profile.
 
-\[ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.male}*x_{male} +...}  \]
+\[ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
 
 \textbf{Step 6.} The ``cause-deleted risk external'' is calculated by
 ``original risk'' (Step 5) minus the ``cause-deleted effect external''
@@ -780,7 +1404,7 @@ algorithm and the original respondent's profile.
 
 }
 
-\caption{Risk part of the cause-deleted calculations}\label{fig:unnamed-chunk-5}
+\caption{Risk portion of the cause-deleted calculations}\label{fig:unnamed-chunk-11}
 \end{figure}
 
 \textbf{Part B: Health outcome calculations}
@@ -807,11 +1431,13 @@ Step II: Calculate the cause-deleted life expectancy by using the
 cause-deleted risk external (Step 6 above) in the sex-specific 5-year
 abridge period life tables.
 
-Step III: Calculate life years lost attributable to a health behaviour
-by: original life expectancy (Step I) minus cause-deleted life
-expectancy (Step II):
+Step III: Calculate life years attributable to a health behaviour by:
+original life expectancy (Step I) minus cause-deleted life expectancy
+(Step II):
 
-\[ \text{Life years lost} = \text{Original life expectancy} - \text{Cause-deleted life expectancy}\]
+\[ \text{Life years due to exposure} = \text{Original life expectancy} - \text{Cause-deleted life expectancy}\]
+If the life years attributable to a health behaviour are negative then
+the value represents the life years lost due to smoking.
 
 \textbf{Number of deaths calculations}
 
@@ -827,12 +1453,7 @@ cause-deleted number of deaths (Step II):
 
 \[\text{Deaths due to exposure} = \text{Original number of deaths} - \text{Cause-deleted number of deaths}\]
 
-\section{Health interventions
-scenarios}\label{health-interventions-scenarios}
-
-\emph{TBD: whether this will be built into the platform or not.
-Depending on the outcome will dictate how I write the following section
-(e.g.~do they have to manipulate thier data)}
+\section{Limitations}\label{limitations}
 
 \chapter{Glossary}\label{glossary}
 
@@ -856,8 +1477,8 @@ relative to the healthy category.
 
 \textbf{By Row Measures}
 
-When selected, the output `.csv' file will include the result of the
-calculation for each row (e.g.~individual) of the dataset.
+When selected, the result will be the measurement for
+each individual (e.g.~row) in the dataset.
 
 \textbf{Calibration}
 
@@ -885,18 +1506,11 @@ and low risk individuals.
 
 \textbf{Error Message}
 
-Error messages will occur when variables that are \textbf{``Required for
-Calculation''} are missing in the data. If the entire column for the
-variable is missing then the calculation cannot be performed on the
-data. If there are missing row entries for the variable then the entire
-row will not be used in the calculation.
-
-\textbf{Exposure}
-
-In the risk algorithms the exposure refers to the level of the predictor
-varaible, e.g.~for the predictor variable EDUDR04 there are four levels
-of exposure: (1) Post-Secondary, (2) Some Post-Secondary, (3) High
-School, (4) Less then High School.
+Error messages will occur when variables that are
+\textbf{``Required for Calculation''} are missing in the data. If the
+entire column for the variable is missing then the calculation cannot be
+performed on the data. If there are missing row entries for the variable
+then the entire row will not be used in the calculation.
 
 \textbf{Filter}
 
@@ -986,10 +1600,19 @@ on the stratified variable `Sex' there will be a Life Expectancy
 estimate for `Males' and a different Life Expectancy estimate for
 `Females'.
 
+Stratification can only occur on categorical variables.
+
 \textbf{Summary Measures}
 
-When selected, the output .csv file will include the calculation result
-for the entire population of the dataset.
+When selected, the result will be a single measure for
+the entire dataset. For instance when Summary Measure - Life Expectancy
+(Summary Measure) is selected the result is a single life expectancy for
+the given for the population.
+
+When stratifications are selected, the summary
+measure will be given for each strata. For instance when Summary Measure
+- Life Expectancy and Stratification - Sex are selected, then two life
+expectancy measures will be given one for males and one for females.
 
 \textbf{Warning Message}
 
@@ -997,7 +1620,32 @@ Warning messages will occur when variables that are
 \textbf{``Recommended for Calculation''} are missing in the data. If the
 entire column for the variable is missing the calculation will still be
 performed on the data. If there are missing row entries for the variable
-the row will still be used in the calculation.
+the row will still be used in the calculation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

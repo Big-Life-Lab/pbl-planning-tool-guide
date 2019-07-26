@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.2 Multivariable predictive risk algorithms | Planning Tool Guidance</title>
+  <title>6.6 Limitations | Planning Tool Guidance</title>
   <meta name="description" content="This html is to provide you with guidance on how to use the BATCH interface." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.2 Multivariable predictive risk algorithms | Planning Tool Guidance" />
+  <meta property="og:title" content="6.6 Limitations | Planning Tool Guidance" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.2 Multivariable predictive risk algorithms | Planning Tool Guidance" />
+  <meta name="twitter:title" content="6.6 Limitations | Planning Tool Guidance" />
   
   <meta name="twitter:description" content="This html is to provide you with guidance on how to use the BATCH interface." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-and-sample-files.html">
-<link rel="next" href="calculations.html">
+<link rel="prev" href="scenario-cause-deleted.html">
+<link rel="next" href="glossary.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -154,91 +154,18 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multivariable-predictive-risk-algorithms" class="section level2">
-<h2><span class="header-section-number">6.2</span> Multivariable predictive risk algorithms</h2>
-<p>Multivariable predictive risk algorithms predict the future risk of health outcomes (e.g. Life Expectancy) for a population using routinely collected health data.</p>
-<p>Multivariable predictive risk algorithms can be used to:</p>
-<ul>
-<li>Project the number of new cases of the health outcome</li>
-<li>Estimate the contribution of specific risk factors of the health outcome</li>
-<li>Evaluate effectiveness of health interventions</li>
-<li>Describe the distribution of risk in the population (diffused or concentrated)</li>
-</ul>
-<p>Multivariable predictive risk algorithms are able to assess equity issues compared to competing population risk methods (e.g. World Health Organization Global Burden of Disease).</p>
-<p>More information on what multivariable predictive risk algorithms are and how they can be used can be found the journal article: <em>Predictive risk algorithms in a population setting: an overview</em> <span class="citation">(Manuel D <a href="#ref-PoRTover">2012</a>)</span></p>
-<div id="development-of-multivariable-predictive-risk-algorithms" class="section level3">
-<h3><span class="header-section-number">6.2.1</span> Development of multivariable predictive risk algorithms</h3>
-<p>__<a href="Data:__" class="uri">Data:__</a></p>
-<ul>
-<li>Multivariable predictive risk algorithms are created using routinely collected data that includes information about risk factors (exposure) and health events (outcomes).</li>
-<li>Data is collected at an individual level through population health surveys (e.g. Canadian Community Health Survey) and administrative databases (e.g. Vital Statistics). Data sources are linked together when the individual has given permission too.</li>
-<li>Individuals are followed overtime until the health event (e.g. death or disease) occurs.</li>
-<li><p>Separate data is collected to create a derivation cohort and validation cohort(s).</p>
-<ul>
-<li>Note: The risk factors that are collected are from population health surveys and are self-reported; no clinical data (e.g. blood pressure) is collected. Risk factors focus on health behaviours (e.g. smoking) and sociodemographic factors, commonly associated with health outcome.</li>
-</ul></li>
-</ul>
-<p><strong>Algorithm generation:</strong></p>
-<ul>
-<li><p>Multivariable predictive risk algorithms are cox porportional hazard models that analyze time to health outcome (e.g. death) <em>Question for Carol - The models are not cox-porportional hazard models but they are similar?</em></p></li>
-<li><p>Multivariable predictive risk algorithms are developed and validated in 4 stages:</p>
-<ul>
-<li>Algorithm derivation: the predictive risk algorithm is created using data from the derivation cohort</li>
-<li>Algorithm validation: the predictive risk algorithm is applied to the validation cohort</li>
-<li>Final algorithm generation: validation and derivation cohorts are combined to estimate the final application of the predictive risk algorithm</li>
-<li>Derivation of the application algorithm: creation of a parsimonous (fewer predictors) algorithm that maintained discrimination, calibration, and overall algorithm performance</li>
-</ul></li>
-<li><p>In each stage of the algorithm development and validation, algorithm performance is assessed using measures of discrimination and calibration.</p></li>
-</ul>
+<div id="limitations" class="section level2">
+<h2><span class="header-section-number">6.6</span> Limitations</h2>
+
 </div>
-<div id="multivariable-predictive-risk-algorithms-built-in-project-big-life-planning-tool" class="section level3">
-<h3><span class="header-section-number">6.2.2</span> Multivariable predictive risk algorithms built in Project Big Life Planning Tool</h3>
-<ul>
-<li>There is currently 1 multivariable predictive risk algorithm is built into to Project Big Life planning tool.</li>
-</ul>
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-Title
-</th>
-<th style="text-align:left;">
-Outcomes
-</th>
-<th style="text-align:left;">
-Information
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Mortality Population Risk Tool
-</td>
-<td style="text-align:left;">
-5 year risk of death, Life Expectancy, Cause deleted
-</td>
-<td style="text-align:left;">
-Appendix A
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-PoRTover">
-<p>Manuel D, et al. 2012. “Predictive Risk Algorithms in a Population Setting: An Overview.” <em>Journal of Epidemiology &amp; Community Health</em> 66 (10). BMJ Publishing Group Ltd: 859–65. doi:<a href="https://doi.org/10.1136/jech-2012-200971">10.1136/jech-2012-200971</a>.</p>
-</div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-and-sample-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="calculations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="scenario-cause-deleted.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="glossary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

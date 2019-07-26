@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.2 Multivariable predictive risk algorithms | Planning Tool Guidance</title>
+  <title>6.5 Scenario: Cause-deleted | Planning Tool Guidance</title>
   <meta name="description" content="This html is to provide you with guidance on how to use the BATCH interface." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.2 Multivariable predictive risk algorithms | Planning Tool Guidance" />
+  <meta property="og:title" content="6.5 Scenario: Cause-deleted | Planning Tool Guidance" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.2 Multivariable predictive risk algorithms | Planning Tool Guidance" />
+  <meta name="twitter:title" content="6.5 Scenario: Cause-deleted | Planning Tool Guidance" />
   
   <meta name="twitter:description" content="This html is to provide you with guidance on how to use the BATCH interface." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-and-sample-files.html">
-<link rel="next" href="calculations.html">
+<link rel="prev" href="scenario-intervention.html">
+<link rel="next" href="limitations.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -154,82 +154,66 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multivariable-predictive-risk-algorithms" class="section level2">
-<h2><span class="header-section-number">6.2</span> Multivariable predictive risk algorithms</h2>
-<p>Multivariable predictive risk algorithms predict the future risk of health outcomes (e.g. Life Expectancy) for a population using routinely collected health data.</p>
-<p>Multivariable predictive risk algorithms can be used to:</p>
+<div id="scenario-cause-deleted" class="section level2">
+<h2><span class="header-section-number">6.5</span> Scenario: Cause-deleted</h2>
+<p>What would be the life expectancy of a population if be no one in the population ever smoked? This scenario is a cause-deleted scenario.</p>
+<p>There are two distinct terms in cause-deleted calculations:</p>
 <ul>
-<li>Project the number of new cases of the health outcome</li>
-<li>Estimate the contribution of specific risk factors of the health outcome</li>
-<li>Evaluate effectiveness of health interventions</li>
-<li>Describe the distribution of risk in the population (diffused or concentrated)</li>
+<li><p><strong>Cause-deleted life expectancy</strong> is the estimated life expectancy for the counterfactual population where a specific cause (e.g. smoking) never existed. E.g. the counterfactual population was always never smokers.</p></li>
+<li><p><strong>Cause-deleted effect of life expectancy</strong> or <strong>life years lost due to the cause</strong> is the full effect of the cause (e.g smoking) in the population. E.g. In a population 3 years of life are lost due to individuals in that population smoking: either currently or previously.</p></li>
 </ul>
-<p>Multivariable predictive risk algorithms are able to assess equity issues compared to competing population risk methods (e.g. World Health Organization Global Burden of Disease).</p>
-<p>More information on what multivariable predictive risk algorithms are and how they can be used can be found the journal article: <em>Predictive risk algorithms in a population setting: an overview</em> <span class="citation">(Manuel D <a href="#ref-PoRTover">2012</a>)</span></p>
-<div id="development-of-multivariable-predictive-risk-algorithms" class="section level3">
-<h3><span class="header-section-number">6.2.1</span> Development of multivariable predictive risk algorithms</h3>
-<p>__<a href="Data:__" class="uri">Data:__</a></p>
-<ul>
-<li>Multivariable predictive risk algorithms are created using routinely collected data that includes information about risk factors (exposure) and health events (outcomes).</li>
-<li>Data is collected at an individual level through population health surveys (e.g. Canadian Community Health Survey) and administrative databases (e.g. Vital Statistics). Data sources are linked together when the individual has given permission too.</li>
-<li>Individuals are followed overtime until the health event (e.g. death or disease) occurs.</li>
-<li><p>Separate data is collected to create a derivation cohort and validation cohort(s).</p>
-<ul>
-<li>Note: The risk factors that are collected are from population health surveys and are self-reported; no clinical data (e.g. blood pressure) is collected. Risk factors focus on health behaviours (e.g. smoking) and sociodemographic factors, commonly associated with health outcome.</li>
-</ul></li>
-</ul>
-<p><strong>Algorithm generation:</strong></p>
-<ul>
-<li><p>Multivariable predictive risk algorithms are cox porportional hazard models that analyze time to health outcome (e.g. death) <em>Question for Carol - The models are not cox-porportional hazard models but they are similar?</em></p></li>
-<li><p>Multivariable predictive risk algorithms are developed and validated in 4 stages:</p>
-<ul>
-<li>Algorithm derivation: the predictive risk algorithm is created using data from the derivation cohort</li>
-<li>Algorithm validation: the predictive risk algorithm is applied to the validation cohort</li>
-<li>Final algorithm generation: validation and derivation cohorts are combined to estimate the final application of the predictive risk algorithm</li>
-<li>Derivation of the application algorithm: creation of a parsimonous (fewer predictors) algorithm that maintained discrimination, calibration, and overall algorithm performance</li>
-</ul></li>
-<li><p>In each stage of the algorithm development and validation, algorithm performance is assessed using measures of discrimination and calibration.</p></li>
-</ul>
+<p>If multiple causes are selected (e.g. smoking and physical inactivity) the cause-deleted life expectancy calculated accounts for both of these effects and the cause-deleted effect of life expectancy (or life years lost) is calculated for each individual cause.</p>
+<div class="FOO">
+<p><strong>Note:</strong> <span class="math inline">\(\text{Cause-deleted life expectancy of smoking and physical inactivity} \neq\)</span> <span class="math inline">\(\text{Cause-deleted effect of smoking} + \text{Cause-deleted effect of physical inactivity}\)</span></p>
+<p>This is because individuals in the population may be both smokers and physically inactive.</p>
 </div>
-<div id="multivariable-predictive-risk-algorithms-built-in-project-big-life-planning-tool" class="section level3">
-<h3><span class="header-section-number">6.2.2</span> Multivariable predictive risk algorithms built in Project Big Life Planning Tool</h3>
+<p><em>Insert table with the reference levels for each of the health behaviours</em></p>
+<div id="cause-deleted-calculation" class="section level3">
+<h3><span class="header-section-number">6.5.1</span> Cause-deleted calculation</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ysX3M0cMSXQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>There are two parts to the calculations preformed in cause-deleted scenarios: (A) calculate the risk, and (B) calculate the health outcome: life expectancy or number of deaths.</p>
+<p><strong>Part A: Risk calculations</strong></p>
+<p>The original multivariable predictive risk algorithm is:</p>
+<p><span class="math display">\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
+<p><strong>Step 1.</strong> Modify the original algorithm to include the external coefficient(s). This means replacing all predictive hazard ratios/betas related to the health behaviour to the causal hazard ratios/betas.</p>
 <ul>
-<li>There is currently 1 multivariable predictive risk algorithm is built into to Project Big Life planning tool.</li>
+<li>Remove the original regression coefficient(s) for the health behaviour.</li>
+<li>Add the new external coefficient(s) to the algorithm. External coefficients are generated from either: causal models, or from systematic reviews or meta-analysis.</li>
 </ul>
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-Title
-</th>
-<th style="text-align:left;">
-Outcomes
-</th>
-<th style="text-align:left;">
-Information
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Mortality Population Risk Tool
-</td>
-<td style="text-align:left;">
-5 year risk of death, Life Expectancy, Cause deleted
-</td>
-<td style="text-align:left;">
-Appendix A
-</td>
-</tr>
-</tbody>
-</table>
+<p><span class="math display">\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
+<p><strong>Step 2.</strong> Risk is calculated using the modified algorithm created in Step 1 and the respondent’s original profile (e.g. current smoker). This is the “external coefficient risk”.</p>
+<p><span class="math display">\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
+<p><strong>Step 3.</strong> “Cause-deleted risk’” is calculated by setting an exposure to a reference (non-exposed) value (all other risk exposures remain unchanged).</p>
+<p><span class="math display">\[ \text{Cause-deleted risk&#39; } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
+<p><strong>Step 4.</strong> The “cause-deleted effect external” is calculated as “external coefficient risk” (Step 2) minus the “cause-deleted risk’.”(Step 3).</p>
+<p><span class="math display">\[\text{Cause-deleted effect}_{external} = \text{External coefficient risk} - \text{Cause-deleted risk&#39;}\]</span></p>
+<p><strong>Step 5.</strong> Original risk is calculated using the original algorithm and the original respondent’s profile.</p>
+<p><span class="math display">\[ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
+<p><strong>Step 6.</strong> The “cause-deleted risk external” is calculated by “original risk” (Step 5) minus the “cause-deleted effect external” (Step 4).</p>
+<p><span class="math display">\[\text{Cause-deleted risk}_{ external} = \text{Original risk} - \text{Cause-deleted effect}_{external}\]</span></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<img src="Method2%20only%20-cbf.jpg" alt="Risk portion of the cause-deleted calculations"  />
+<p class="caption">
+Figure 6.2: Risk portion of the cause-deleted calculations
+</p>
 </div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-PoRTover">
-<p>Manuel D, et al. 2012. “Predictive Risk Algorithms in a Population Setting: An Overview.” <em>Journal of Epidemiology &amp; Community Health</em> 66 (10). BMJ Publishing Group Ltd: 859–65. doi:<a href="https://doi.org/10.1136/jech-2012-200971">10.1136/jech-2012-200971</a>.</p>
+<p><strong>Part B: Health outcome calculations</strong></p>
+<p>Using risks generated above you can then calculate:</p>
+<ul>
+<li>cause-deleted life expectancy or life years lost attributable to a health behaviour (exposure)</li>
+<li>cause-deleted number of deaths or number of deaths attributable to a health behaviour (exposure)</li>
+</ul>
+<p><strong>Life expectancy calculations</strong></p>
+<p>Step I: Calculate the original life expectancy by using the original risk (Step 5 above) in the sex-specific 5-year abridge period life tables.</p>
+<p>Step II: Calculate the cause-deleted life expectancy by using the cause-deleted risk external (Step 6 above) in the sex-specific 5-year abridge period life tables.</p>
+<p>Step III: Calculate life years attributable to a health behaviour by: original life expectancy (Step I) minus cause-deleted life expectancy (Step II):</p>
+<p><span class="math display">\[ \text{Life years due to exposure} = \text{Original life expectancy} - \text{Cause-deleted life expectancy}\]</span> If the life years attributable to a health behaviour are negative then the value represents the life years lost due to smoking.</p>
+<p><strong>Number of deaths calculations</strong></p>
+<p>Step I: Calculate the number of deaths that would occur using the original risk (Step 5 above).</p>
+<p>Step II: Calculate the number of deaths that would occur using the cause-deleted risk external (Step 6 above).</p>
+<p>Step III: Calculate the number of deaths that are attributable to a health behaviour (exposure) by: original number of deaths (Step I) minus cause-deleted number of deaths (Step II):</p>
+<p><span class="math display">\[\text{Deaths due to exposure} = \text{Original number of deaths} - \text{Cause-deleted number of deaths}\]</span></p>
 </div>
 </div>
             </section>
@@ -237,8 +221,8 @@ Appendix A
           </div>
         </div>
       </div>
-<a href="data-and-sample-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="calculations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="scenario-intervention.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="limitations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
