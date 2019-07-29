@@ -285,14 +285,14 @@ There are different types of warning and error messages that may appear.
 
 Below describes some of the messages that are likely to occur and steps to resolve them.
 
-###Invalid category
+*Waiting for the branch with the error messages to be finalized and merged*
 
+###Invalid category
 
 ###Out of range
 
 "Out of range" is when there are observation(s) in the data set that are not is beyond the limit of 
 
 ###Not a number
-
 
 ###Sample size is too small

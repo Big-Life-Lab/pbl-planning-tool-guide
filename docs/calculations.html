@@ -24,7 +24,7 @@
 <meta name="author" content="Project Big Life" />
 
 
-<meta name="date" content="2019-07-26" />
+<meta name="date" content="2019-07-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -123,7 +123,7 @@
 <li class="chapter" data-level="6.3.1" data-path="calculations.html"><a href="calculations.html#summary-vs-by-row"><i class="fa fa-check"></i><b>6.3.1</b> Summary vs By Row</a></li>
 <li class="chapter" data-level="6.3.2" data-path="calculations.html"><a href="calculations.html#risk-of-health-outcome"><i class="fa fa-check"></i><b>6.3.2</b> Risk of health outcome</a></li>
 <li class="chapter" data-level="6.3.3" data-path="calculations.html"><a href="calculations.html#number-of-health-outcomes"><i class="fa fa-check"></i><b>6.3.3</b> Number of health outcomes</a></li>
-<li class="chapter" data-level="6.3.4" data-path="calculations.html"><a href="calculations.html#life-expectancy-calculation"><i class="fa fa-check"></i><b>6.3.4</b> Life expectancy calculation</a></li>
+<li class="chapter" data-level="6.3.4" data-path="calculations.html"><a href="calculations.html#life-expectancy"><i class="fa fa-check"></i><b>6.3.4</b> Life expectancy</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="scenario-intervention.html"><a href="scenario-intervention.html"><i class="fa fa-check"></i><b>6.4</b> Scenario: Intervention</a></li>
 <li class="chapter" data-level="6.5" data-path="scenario-cause-deleted.html"><a href="scenario-cause-deleted.html"><i class="fa fa-check"></i><b>6.5</b> Scenario: Cause-deleted</a><ul>
@@ -162,38 +162,68 @@
 <p>Summary measures: (ref:summarycalc)</p>
 <p>By row measures: When selected, the result will be the measurement for each individual (e.g. row) in the dataset.</p>
 <div class="FOO">
-<p><strong>Note:</strong> Summary Measures are not the same as averaging the By Row Measures. Summary measures account for the master weights in their calculations where as simply averaging the By Row Measures doesn’t factor the weights.</p>
+<p><strong>Note:</strong> Summary Measures are not the same as taking the average of By Row Measures. Summary measures account for the master weights in their calculations where as simply averaging the By Row Measures doesn’t factor the weights.</p>
 </div>
 </div>
 <div id="risk-of-health-outcome" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> Risk of health outcome</h3>
-<p>Risk of the health outcome (e.g. risk of dying) is the outcome of the multivariable predictive risk algorithm. An example of the mutlivariable risk algorithm is:</p>
+<p>Risk of the health outcome (e.g. risk of dying) is the outcome of the multivariable predictive risk algorithm. Two mutlivariable risk algorithms are created for each health outcome: one algorithm for males, and one algorithm for females. An example of the mutlivariable risk algorithm is:</p>
 <p><span class="math display">\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span> Where:</p>
 <ul>
 <li><span class="math inline">\(t\)</span> = survival time</li>
 <li><span class="math inline">\(h_0(t)\)</span> = the baseline hazard</li>
 <li><span class="math inline">\(\beta_{pred}\)</span> = predictive hazard ratios for the exposures</li>
-<li><span class="math inline">\(x\)</span> = the exposure. The exposure can be continous (e.g. age) or categorical. Categorical exposures are represented by dummy/factor variables e.g. smoking status is categorical variable with categories: current, former &lt;= 5 years, former &gt;5 years, or never smoked. Each type of dummy variable with: <span class="math inline">\(x_current smoker\)</span> = 1 if the individual currently smokes or 0 if the individual is another type of smoker).</li>
+<li><p><span class="math inline">\(x\)</span> = the exposure. The exposure can be continuous (e.g. age) or categorical (e.g. smoking status).</p></li>
+<li><p>Categorical exposures are represented by dummy/factor variables e.g. smoking status is categorical variable with categories: current, former &lt;= 5 years, former &gt;5 years, or never smoked. Each type of dummy variable with: <span class="math inline">\(x_current smoker\)</span> = 1 if the individual currently smokes or 0 if the individual is another type of smoker).</p></li>
 </ul>
 </div>
 <div id="number-of-health-outcomes" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Number of health outcomes</h3>
 <p>The number of health outcomes (e.g. Summary Deaths) is calculated through the following steps:</p>
 <ol style="list-style-type: decimal">
-<li>Risk of the health outcome is calculated for each individual in the dataset using the mutlivariable predictive risk algorithm.</li>
+<li>Risk of the health outcome is calculated for each individual in the data set using the mutlivariable predictive risk algorithm.</li>
 <li>The weighted mean of all the risks is calculated using individual risk values and corresponding study weights (CCHS variable: WTS_M for the Public Micro Use File or WTS_S for the shared file).</li>
 <li>The weighted mean is then multiplied with the total number of individuals in the population to generate the number of health outcomes (e.g. number of deaths in 5 years).</li>
 </ol>
 </div>
-<div id="life-expectancy-calculation" class="section level3">
-<h3><span class="header-section-number">6.3.4</span> Life expectancy calculation</h3>
-<p>Life expectancy is calculated using abridge life tables:</p>
+<div id="life-expectancy" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> Life expectancy</h3>
+<p>Life expectancy is calculated using abridge life tables. Life expectancy is calculated by two methods: one for summary life expectancy, and a second for by row life expectancy.</p>
+<div id="summary-life-expectancy" class="section level4">
+<h4><span class="header-section-number">6.3.4.1</span> Summary Life Expectancy</h4>
+<p>Life expectancy is calculated separately for males and females.</p>
+<p><strong>Males:</strong></p>
 <ol style="list-style-type: decimal">
-<li>The mortality risk for each individual is calculated using the mutlivariable predictive risk algorithm for mortality (MPoRT - details can be found in Appendix A).</li>
-<li>Mortality risks for each individual are weighted using the corresponding survey weights (CCHS variable - WTS_M).</li>
-<li>Weighted mortality risks are then used in sex-specific 5-year abridge period life tables.</li>
-<li>Life expectancy was then calculated using these 5-year abridge period life tables.</li>
+<li><p>The mortality risk for each male individual is calculated using the male mortality mutlivariable predictive risk algorithm for mortality (MPoRT). Details about the MPoRT can be found in Appendix A.</p></li>
+<li><p>Male individuals are grouped into the 5-year age groups that are used in the 5-year abridge life tables (e.g. 40-44 years old).</p></li>
+<li><p>The weighted average risk of death for each age group is calculated.</p></li>
 </ol>
+<p><span class="math display">\[ \text{Weighted risk of death } = \sum(\text{Individual risk of death}*\text{Individual weight}) \\ \div \text{Number of individuals in age group}\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>A male 5-year abridge life table is created using the weighted average risks of death (q(x)) for each age group.</p></li>
+<li><p>The life expectancy for males is calculated using the weighted average risk of death (q(x)) and the median age for each of the age groups.</p></li>
+</ol>
+<p><strong>Females</strong></p>
+<p>Steps 1-5, used to calculate life expectancy for males, are repeated for females using the female MPoRT and a female 5-year abridge life table.</p>
+<p><strong>Summary life expectancy</strong></p>
+<ol start="6" style="list-style-type: decimal">
+<li>The summary life expectancy, or life expectancy of the entire population, is calculated by adding the male life expectancy with the female life expectancy, and taking its average.</li>
+</ol>
+<p><strong>Summary life expectancy by strata</strong></p>
+<p>Steps (1-5) are repeated for each strata. There will be strata specific weighted risk of death and strata specific life tables.</p>
+<p>Step 6 is repeated with the average life expectancy calculated across all strata.</p>
+</div>
+<div id="by-row-life-expectancy" class="section level4">
+<h4><span class="header-section-number">6.3.4.2</span> By row life expectancy</h4>
+<p>An individual’s life expectancy is calculated by creating new life table specific to that individual.</p>
+<p>These life tables are 1-year abridge life tables, and begin at the individual’s age (e.g. an individual that is 43 years old, will have the life table start at 43 years).</p>
+<p>The probability of death for each year/row of the life table (q(x)) is calculated using the respective MPoRT (male or female), and the individual’s health profile (e.g. never smoked, 15 drinks weekly, hypertension, Canadian Citizen, etc). The only factor that changes for each row is the age used in MPoRT (<span class="math inline">\(x_{age}\)</span>), and corresponds to the age of the row.</p>
+<div class="FOO">
+<strong>Note:</strong> By row life expectancy does not account for the individual’s weight, and therefore can not be used to estimate the summary life expectancy.
+<div>
+
+
+</div>
 </div>
 </div>
             </section>

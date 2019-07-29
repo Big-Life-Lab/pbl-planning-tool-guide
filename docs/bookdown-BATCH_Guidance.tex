@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-07-26}
+    \date{2019-07-29}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -756,6 +756,9 @@ There are different types of warning and error messages that may appear.
 Below describes some of the messages that are likely to occur and steps
 to resolve them.
 
+\emph{Waiting for the branch with the error messages to be finalized and
+merged}
+
 \subsection{Invalid category}\label{invalid-category}
 
 \subsection{Out of range}\label{out-of-range}
@@ -902,11 +905,13 @@ things.
     Number of health outcomes
   \item
     Life expectancy
-  \item
-    Cause-deleted
   \end{itemize}
 \item
-  Health intervention scenarios
+  Scenario: Intervention
+\item
+  Scenario: Cause-deleted
+\item
+  Limitations
 \end{itemize}
 
 \section{Data and sample files}\label{data-and-sample-files}
@@ -941,11 +946,11 @@ Survey
 data?}\label{why-can-i-only-use-the-20132014-canadian-community-health-survey-data}
 
 Each year the CCHS changes a few variables it captures. This makes CCHS
-datasets from every year other then 2013/2014 incompatiable with the
+data sets from every year other then 2013/2014 incompatible with the
 algorithms used by the Project Big Life Planning Tool.
 
 The Project Big Life Planning Team is currently working to adjust the
-algorthims so that they accept other CCHS years, and we will update the
+algorithms so that they accept other CCHS years, and we will update the
 guidance when we are done.
 
 \subsection{Sample Files}\label{sample-files}
@@ -957,7 +962,7 @@ guidance when we are done.
   (\url{https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X}). It
   includes all required and recommended variables: age, sex, BMI,
   smoking habits, alcohol consumption, diet components, daily physical
-  activity expenditure, chronic conditions, ethinicity, immigration
+  activity expenditure, chronic conditions, ethnicity, immigration
   status, and education.
 \item
   SmallMockPUMF2013.csv
@@ -998,7 +1003,7 @@ and how they can be used can be found the journal article:
 \subsection{Development of multivariable predictive risk
 algorithms}\label{development-of-multivariable-predictive-risk-algorithms}
 
-\_\_\url{Data:__}
+Data:
 
 \begin{itemize}
 \item
@@ -1032,7 +1037,7 @@ algorithms}\label{development-of-multivariable-predictive-risk-algorithms}
 
 \begin{itemize}
 \item
-  Multivariable predictive risk algorithms are cox porportional hazard
+  Multivariable predictive risk algorithms are cox proportional hazard
   models that analyze time to health outcome (e.g.~death) \emph{Question
   for Carol - The models are not cox-porportional hazard models but they
   are similar?}
@@ -1098,22 +1103,23 @@ Summary measures: (ref:summarycalc)
 By row measures: When selected, the result will be the measurement for
 each individual (e.g.~row) in the dataset.
 
-\textbf{Note:} Summary Measures are not the same as averaging the By Row
-Measures. Summary measures account for the master weights in their
-calculations where as simply averaging the By Row Measures doesn't
+\textbf{Note:} Summary Measures are not the same as taking the average
+of By Row Measures. Summary measures account for the master weights in
+their calculations where as simply averaging the By Row Measures doesn't
 factor the weights.
 
 \subsection{Risk of health outcome}\label{risk-of-health-outcome}
 
 Risk of the health outcome (e.g.~risk of dying) is the outcome of the
-multivariable predictive risk algorithm. An example of the mutlivariable
-risk algorithm is:
+multivariable predictive risk algorithm. Two mutlivariable risk
+algorithms are created for each health outcome: one algorithm for males,
+and one algorithm for females. An example of the mutlivariable risk
+algorithm is:
 
 \[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
 Where:
 
 \begin{itemize}
-\tightlist
 \item
   \(t\) = survival time
 \item
@@ -1121,13 +1127,15 @@ Where:
 \item
   \(\beta_{pred}\) = predictive hazard ratios for the exposures
 \item
-  \(x\) = the exposure. The exposure can be continous (e.g.~age) or
-  categorical. Categorical exposures are represented by dummy/factor
-  variables e.g.~smoking status is categorical variable with categories:
-  current, former \textless{}= 5 years, former \textgreater{}5 years, or
-  never smoked. Each type of dummy variable with: \(x_current smoker\) =
-  1 if the individual currently smokes or 0 if the individual is another
-  type of smoker).
+  \(x\) = the exposure. The exposure can be continuous (e.g.~age) or
+  categorical (e.g.~smoking status).
+\item
+  Categorical exposures are represented by dummy/factor variables
+  e.g.~smoking status is categorical variable with categories: current,
+  former \textless{}= 5 years, former \textgreater{}5 years, or never
+  smoked. Each type of dummy variable with: \(x_current smoker\) = 1 if
+  the individual currently smokes or 0 if the individual is another type
+  of smoker).
 \end{itemize}
 
 \subsection{Number of health outcomes}\label{number-of-health-outcomes}
@@ -1140,7 +1148,7 @@ through the following steps:
 \tightlist
 \item
   Risk of the health outcome is calculated for each individual in the
-  dataset using the mutlivariable predictive risk algorithm.
+  data set using the mutlivariable predictive risk algorithm.
 \item
   The weighted mean of all the risks is calculated using individual risk
   values and corresponding study weights (CCHS variable: WTS\_M for the
@@ -1151,32 +1159,92 @@ through the following steps:
   outcomes (e.g.~number of deaths in 5 years).
 \end{enumerate}
 
-\subsection{Life expectancy
-calculation}\label{life-expectancy-calculation}
+\subsection{Life expectancy}\label{life-expectancy}
 
-Life expectancy is calculated using abridge life tables:
+Life expectancy is calculated using abridge life tables. Life expectancy
+is calculated by two methods: one for summary life expectancy, and a
+second for by row life expectancy.
+
+\subsubsection{Summary Life Expectancy}\label{summary-life-expectancy}
+
+Life expectancy is calculated separately for males and females.
+
+\textbf{Males:}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\item
+  The mortality risk for each male individual is calculated using the
+  male mortality mutlivariable predictive risk algorithm for mortality
+  (MPoRT). Details about the MPoRT can be found in Appendix A.
+\item
+  Male individuals are grouped into the 5-year age groups that are used
+  in the 5-year abridge life tables (e.g.~40-44 years old).
+\item
+  The weighted average risk of death for each age group is calculated.
+\end{enumerate}
+
+\[ \text{Weighted risk of death } = \sum(\text{Individual risk of death}*\text{Individual weight}) \\ \div \text{Number of individuals in age group}\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  A male 5-year abridge life table is created using the weighted average
+  risks of death (q(x)) for each age group.
+\item
+  The life expectancy for males is calculated using the weighted average
+  risk of death (q(x)) and the median age for each of the age groups.
+\end{enumerate}
+
+\textbf{Females}
+
+Steps 1-5, used to calculate life expectancy for males, are repeated for
+females using the female MPoRT and a female 5-year abridge life table.
+
+\textbf{Summary life expectancy}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
 \tightlist
 \item
-  The mortality risk for each individual is calculated using the
-  mutlivariable predictive risk algorithm for mortality (MPoRT - details
-  can be found in Appendix A).
-\item
-  Mortality risks for each individual are weighted using the
-  corresponding survey weights (CCHS variable - WTS\_M).
-\item
-  Weighted mortality risks are then used in sex-specific 5-year abridge
-  period life tables.
-\item
-  Life expectancy was then calculated using these 5-year abridge period
-  life tables.
+  The summary life expectancy, or life expectancy of the entire
+  population, is calculated by adding the male life expectancy with the
+  female life expectancy, and taking its average.
 \end{enumerate}
+
+\textbf{Summary life expectancy by strata}
+
+Steps (1-5) are repeated for each strata. There will be strata specific
+weighted risk of death and strata specific life tables.
+
+Step 6 is repeated with the average life expectancy calculated across
+all strata.
+
+\subsubsection{By row life expectancy}\label{by-row-life-expectancy}
+
+An individual's life expectancy is calculated by creating new life table
+specific to that individual.
+
+These life tables are 1-year abridge life tables, and begin at the
+individual's age (e.g.~an individual that is 43 years old, will have the
+life table start at 43 years).
+
+The probability of death for each year/row of the life table (q(x)) is
+calculated using the respective MPoRT (male or female), and the
+individual's health profile (e.g.~never smoked, 15 drinks weekly,
+hypertension, Canadian Citizen, etc). The only factor that changes for
+each row is the age used in MPoRT (\(x_{age}\)), and corresponds to the
+age of the row.
+
+\textbf{Note:} By row life expectancy does not account for the
+individual's weight, and therefore can not be used to estimate the
+summary life expectancy.
 
 \section{Scenario: Intervention}\label{scenario-intervention}
 
-How would life expectancy change if everyone increased thier physical
+How would life expectancy change if everyone increased their physical
 activity levels by 10\%?
 
 The health intervention scenario allows you to predict how changing the
@@ -1201,7 +1269,7 @@ There are three types of scenarios: \textbf{absolute, relative,} and
   value of z.}
 \end{itemize}
 
-For target scenarios if the indiviudal's value is already at the target
+For target scenarios if the individual's value is already at the target
 value or beyond the target value then their value is not changed. E.g.
 If the target value for physical activity is 2.5 METs/week, then any
 individual that already has METs/week \textgreater{}= 2.5 METs/week then

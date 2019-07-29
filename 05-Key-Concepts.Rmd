@@ -10,10 +10,14 @@ This section explains some key concepts in Project Big Life’s Planning Tool. T
     - Risk of health outcome
     - Number of health outcomes
     - Life expectancy
-    - Cause-deleted
-    
-    
-- Health intervention scenarios
+
+
+- Scenario: Intervention
+- Scenario: Cause-deleted
+- Limitations
+
+
+
 
 
 ##Data and sample files
@@ -29,15 +33,17 @@ The CCHS is an annual cross-sectional survey preformed by Statistics Canada. The
 
 ###Why can I only use the 2013/2014 Canadian Community Health Survey data?
 
-Each year the CCHS changes a few variables it captures. This makes CCHS datasets from every year other then 2013/2014 incompatiable with the algorithms used by the Project Big Life Planning Tool.
+Each year the CCHS changes a few variables it captures. This makes CCHS data sets from every year other then 2013/2014 incompatible with the algorithms used by the Project Big Life Planning Tool.
 
-The Project Big Life Planning Team is currently working to adjust the algorthims so that they accept other CCHS years, and we will update the guidance when we are done.
+The Project Big Life Planning Team is currently working to adjust the algorithms so that they accept other CCHS years, and we will update the guidance when we are done.
 
 ###Sample Files
 
-- MockPUMF2013.csv is a subsample of the Public Use Microdata File from the [2013 Canadian Community Health Survey] (https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X). It includes all required and recommended variables: age, sex, BMI, smoking habits, alcohol consumption, diet components, daily physical activity expenditure, chronic conditions, ethinicity, immigration status, and education. 
+- MockPUMF2013.csv is a subsample of the Public Use Microdata File from the [2013 Canadian Community Health Survey] (https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X). It includes all required and recommended variables: age, sex, BMI, smoking habits, alcohol consumption, diet components, daily physical activity expenditure, chronic conditions, ethnicity, immigration status, and education. 
 
 - SmallMockPUMF2013.csv 
+
+
 
 
 
@@ -58,7 +64,7 @@ More information on what multivariable predictive risk algorithms are and how th
 
 ###Development of multivariable predictive risk algorithms
 
-__Data:__
+Data:
 
 -	Multivariable predictive risk algorithms are created using routinely collected data that includes information about risk factors (exposure) and health events (outcomes).
 -	Data is collected at an individual level through population health surveys (e.g. Canadian Community Health Survey) and administrative databases (e.g. Vital Statistics). Data sources are linked together when the individual has given permission too.
@@ -69,7 +75,7 @@ __Data:__
 
 **Algorithm generation:**
 
-- Multivariable predictive risk algorithms are cox porportional hazard models that analyze time to health outcome (e.g. death) *Question for Carol - The models are not cox-porportional hazard models but they are similar?*
+- Multivariable predictive risk algorithms are cox proportional hazard models that analyze time to health outcome (e.g. death) *Question for Carol - The models are not cox-porportional hazard models but they are similar?*
 
 - Multivariable predictive risk algorithms are developed and validated in 4 stages:
 
@@ -99,6 +105,10 @@ kable(PoRTs) %>%
   kable_styling(full_width = T)
 ```
 
+
+
+
+
 ##Calculations
 
 ###Summary vs By Row
@@ -110,13 +120,13 @@ Summary measures: (ref:summarycalc)
 By row measures: (ref:byrowcalc)
 
 <div class="FOO">
-**Note:** Summary Measures are not the same as averaging the By Row Measures. Summary measures account for the master weights in their calculations where as simply averaging the By Row Measures doesn't factor the weights. 
+**Note:** Summary Measures are not the same as taking the average of By Row Measures. Summary measures account for the master weights in their calculations where as simply averaging the By Row Measures doesn't factor the weights. 
 </div>
 
 
 ###Risk of health outcome
 
-Risk of the health outcome (e.g. risk of dying) is the outcome of the multivariable predictive risk algorithm. An example of the mutlivariable risk algorithm is:
+Risk of the health outcome (e.g. risk of dying) is the outcome of the multivariable predictive risk algorithm. Two mutlivariable risk algorithms are created for each health outcome: one algorithm for males, and one algorithm for females. An example of the mutlivariable risk algorithm is:
 
 $$ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
 Where:
@@ -124,30 +134,74 @@ Where:
 - $t$ = survival time
 - $h_0(t)$ = the baseline hazard
 - $\beta_{pred}$ = predictive hazard ratios for the exposures
-- $x$ = the exposure. The exposure can be continous (e.g. age) or categorical. Categorical exposures are represented by dummy/factor variables e.g. smoking status is categorical variable with categories: current, former <= 5 years, former >5 years, or never smoked. Each type of dummy variable with: $x_current smoker$ = 1 if the individual currently smokes or 0 if the individual is another type of smoker).
+- $x$ = the exposure. The exposure can be continuous (e.g. age) or categorical (e.g. smoking status). 
+
+
+  - Categorical exposures are represented by dummy/factor variables e.g. smoking status is categorical variable with categories: current, former <= 5 years, former >5 years, or never smoked. Each type of dummy variable with: $x_current smoker$ = 1 if the individual currently smokes or 0 if the individual is another type of smoker).
+
 
 ###Number of health outcomes
 
 The number of health outcomes (e.g. Summary Deaths) is calculated through the following steps:
 
-1. Risk of the health outcome is calculated for each individual in the dataset using the mutlivariable predictive risk algorithm.
+1. Risk of the health outcome is calculated for each individual in the data set using the mutlivariable predictive risk algorithm.
 2. The weighted mean of all the risks is calculated using individual risk values and corresponding study weights (CCHS variable: WTS_M for the Public Micro Use File or WTS_S for the shared file).
 3. The weighted mean is then multiplied with the total number of individuals in the population to generate the number of health outcomes (e.g. number of deaths in 5 years).
 
 
-###Life expectancy calculation
+###Life expectancy
 
-Life expectancy is calculated using abridge life tables:
+Life expectancy is calculated using abridge life tables. Life expectancy is calculated by two methods: one for summary life expectancy, and a second for by row life expectancy.
 
-1. The mortality risk for each individual is calculated using the mutlivariable predictive risk algorithm for mortality (MPoRT - details can be found in Appendix A).
-2. Mortality risks for each individual are weighted using the corresponding survey weights (CCHS variable - WTS_M).
-3. Weighted mortality risks are then used in sex-specific 5-year abridge period life tables.
-4. Life expectancy was then calculated using these 5-year abridge period life tables. 
+####Summary Life Expectancy
+
+Life expectancy is calculated separately for males and females.
+
+**Males:**
+
+1. The mortality risk for each male individual is calculated using the male mortality mutlivariable predictive risk algorithm for mortality (MPoRT). Details about the MPoRT can be found in Appendix A.
+
+2. Male individuals are grouped into the 5-year age groups that are used in the 5-year abridge life tables (e.g. 40-44 years old).
+
+3. The weighted average risk of death for each age group is calculated. 
+
+$$ \text{Weighted risk of death } = \sum(\text{Individual risk of death}*\text{Individual weight}) \\ \div \text{Number of individuals in age group}$$
+
+4. A male 5-year abridge life table is created using the weighted average risks of death (q(x)) for each age group. 
+
+5. The life expectancy for males is calculated using the weighted average risk of death (q(x)) and the median age for each of the age groups.
+
+**Females**
+
+Steps 1-5, used to calculate life expectancy for males, are repeated for females using the female MPoRT and a female 5-year abridge life table.
+
+**Summary life expectancy**
+
+6. The summary life expectancy, or life expectancy of the entire population, is calculated by adding the male life expectancy with the female life expectancy, and taking its average.
+
+**Summary life expectancy by strata**
+
+Steps (1-5) are repeated for each strata. There will be strata specific weighted risk of death and strata specific life tables. 
+
+Step 6 is repeated with the average life expectancy calculated across all strata.
+
+####By row life expectancy
+
+An individual's life expectancy is calculated by creating new life table specific to that individual. 
+
+These life tables are 1-year abridge life tables, and begin at the individual's age (e.g. an individual that is 43 years old, will have the life table start at 43 years). 
+
+The probability of death for each year/row of the life table (q(x)) is calculated using the respective MPoRT (male or female), and the individual's health profile (e.g. never smoked, 15 drinks weekly, hypertension, Canadian Citizen, etc). The only factor that changes for each row is the age used in MPoRT ($x_{age}$), and corresponds to the age of the row. 
+
+
+<div class="FOO">
+**Note:** By row life expectancy does not account for the individual's weight, and therefore can not be used to estimate the summary life expectancy. 
+<div>
 
 
 ##Scenario: Intervention
 
-How would life expectancy change if everyone increased thier physical activity levels by 10%?
+How would life expectancy change if everyone increased their physical activity levels by 10%?
 
 The health intervention scenario allows you to predict how changing the health behaviours: alcohol consumption, diet, physical activity, and smoking, of a population will affect the population health outcome (e.g. life expectancy). This feature can be used to predict the effectiveness of proposed policies or programs.
 
@@ -157,7 +211,7 @@ There are three types of scenarios: **absolute, relative,** and **target**.
 - **Relative:** each individual in the population **changes** their health behaviour **by a ratio of y**.
 - **Target:** each individual in the population **has a set value of z.**
 
-For target scenarios if the indiviudal's value is already at the target value or beyond the target value then their value is not changed. E.g. If the target value for physical activity is 2.5 METs/week, then any individual that already has METs/week >= 2.5 METs/week then there value will not be adjusted.
+For target scenarios if the individual's value is already at the target value or beyond the target value then their value is not changed. E.g. If the target value for physical activity is 2.5 METs/week, then any individual that already has METs/week >= 2.5 METs/week then there value will not be adjusted.
 
 The changes for each type of scenario for **alcohol, physical activity,** and **diet** are described in the following table:
 ```{r, echo=FALSE, results='hide', message=FALSE}
@@ -205,6 +259,8 @@ knitr::include_graphics("Scenario-Abs, Rel, Target cropped.jpg")
 ```
 
 To adjust the prevalence of smokers, the change is applied to every current smoker in the population; individuals are not selected at random. ....
+
+
 
 
 
