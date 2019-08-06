@@ -178,7 +178,7 @@
 <ol style="list-style-type: decimal">
 <li><p>Load the data file: sample.data.</p></li>
 <li><p>Select calculation: Summary Measure – Life Expectancy (Summary)</p></li>
-<li><p>Add Stratifications: GEODPMF. This variable represents the health regions in Canada</p></li>
+<li><p>Add Stratification: GEODPMF. This variable represents the health regions in Canada</p></li>
 <li><p>Title the calculation: Life expectancy by health region</p></li>
 <li><p>Click the calculate button</p></li>
 <li><p>Download the results - <em>TO DO</em></p></li>
@@ -207,7 +207,7 @@ XXX &lt;- data %&gt;%
 <li><p>Calculate the average/prevalence of each health behaviour for the XXX and Ottawa region.</p></li>
 </ol>
 <p><strong>Smoking</strong></p>
-<p>Calculate the prevalance of current smokers in the XXX and Ottawa region.</p>
+<p>Calculate the prevalence of current smokers in the XXX and Ottawa region.</p>
 <pre><code>  Ottawa.smokers &lt;- table(Ottawa$SMKDSTY)
   Ottawa.smokers.prev &lt;- round(prop.table(Ottawa.smokers),2)
   Ottawa.smokers.prev[1]
@@ -216,7 +216,7 @@ XXX &lt;- data %&gt;%
   XXX.smokers.prev &lt;- round(prop.table(XXX.smokers),2)
   XXX.smokers.prev[1]</code></pre>
 <p><strong>Physical Activity</strong></p>
-<p>Calculate the average of physical activity (varibale PACDEE) in the XXX and Ottawa region.</p>
+<p>Calculate the average of physical activity (variable PACDEE) in the XXX and Ottawa region.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Exclude the missing data: ‘not stated’.</li>
 </ol>
@@ -228,7 +228,7 @@ XXX &lt;- data %&gt;%
 <pre><code>  Ottawa.PA &lt;- mean(Ottawa$PACDEE, na.rm = TRUE)
   XXX.PA &lt;- mean(XXX$PACDEE, na.rm = TRUE)</code></pre>
 <p><strong>Alcohol</strong></p>
-<p>Calculate the average of weekly alcohol consumption (varibale ALWDWKY) in the XXX and Ottawa region.</p>
+<p>Calculate the average of weekly alcohol consumption (variable ALWDWKY) in the XXX and Ottawa region.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Exclude the missing data: ‘not stated’</li>
 </ol>
@@ -283,7 +283,7 @@ XXX &lt;- data %&gt;%
 <li><p>Select initial calculation: Summary Measure – Life Expectancy (Summary)</p></li>
 <li><p>Add Filter: GEODPMF – 35951 (the code for the Ottawa Health region)</p></li>
 <li><p>Click: Scenarios</p></li>
-<li><p>Click on each health behaviour where Ottawa is unhealthier then XXX and input XXX’s value in the target scenario for that heatlh behaviour</p></li>
+<li><p>Click on each health behaviour where Ottawa is unhealthier then XXX and input XXX’s value in the target scenario for that health behaviour</p></li>
 </ol>
 <ul>
 <li><em>TO DO: </em> Examples of where that is</li>

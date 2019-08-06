@@ -41,7 +41,7 @@ The Project Big Life Planning Team is currently working to adjust the algorithms
 
 ###Sample Files
 
-- data.sample.csv this is fabricated dataset that includes all variables required for calculation, recommend for calculation, and needed for the real life application examples (found in Chapter 5). It includes all required and recommended variables: age, sex, BMI, smoking habits, alcohol consumption, diet components, daily physical activity expenditure, chronic conditions, ethnicity, immigration status, and education. 
+- data.sample.csv this is fabricated data set that includes all variables required for calculation, recommend for calculation, and needed for the real life application examples (found in Chapter 5). It includes all required and recommended variables: age, sex, BMI, smoking habits, alcohol consumption, diet components, daily physical activity expenditure, chronic conditions, ethnicity, immigration status, and education. 
 
 <div class="FOO">
 **Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File from if was created only for example purposes and **cannot** be used for analysis.
