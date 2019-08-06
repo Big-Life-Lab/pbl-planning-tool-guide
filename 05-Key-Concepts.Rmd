@@ -22,7 +22,9 @@ This section explains some key concepts in Project Big Life’s Planning Tool. T
 
 ##Data and sample files
 
+<div class="FOO">
 The Project Big Life Planning Tool currently accepts **2013/2014 Public Use Microdata File and Shared File of the Canadian Community Health Survey (CCHS) in '.csv' format.**
+</div>
 
 ###What is the Canadian Community Health Survey?
 
@@ -39,9 +41,12 @@ The Project Big Life Planning Team is currently working to adjust the algorithms
 
 ###Sample Files
 
-- MockPUMF2013.csv is a subsample of the Public Use Microdata File from the [2013 Canadian Community Health Survey] (https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X). It includes all required and recommended variables: age, sex, BMI, smoking habits, alcohol consumption, diet components, daily physical activity expenditure, chronic conditions, ethnicity, immigration status, and education. 
+- data.sample.csv this is fabricated dataset that includes all variables required for calculation, recommend for calculation, and needed for the real life application examples (found in Chapter 5). It includes all required and recommended variables: age, sex, BMI, smoking habits, alcohol consumption, diet components, daily physical activity expenditure, chronic conditions, ethnicity, immigration status, and education. 
 
-- SmallMockPUMF2013.csv 
+<div class="FOO">
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File from if was created only for example purposes and **cannot** be used for analysis.
+</div>
+
 
 
 
@@ -115,7 +120,7 @@ kable(PoRTs) %>%
 
 There are two general types of calculations Summary Measures and By Row Measures.
 
-Summary measures: (ref:summarycalc)
+Summary measures: (ref:Summarycalc)
 
 By row measures: (ref:byrowcalc)
 

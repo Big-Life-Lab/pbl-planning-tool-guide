@@ -4,8 +4,8 @@ This chapter provides you with examples of how Project Big Life's Planning Tool 
 
 - analyses that can be included in a health status report,
 - a national scenario: What if Canada biked like the Dutch?
-- a local policy: turning Ottawa into the healthiest Canadian region
-- a 
+- a local scenario: turning Ottawa into the healthiest Canadian region
+
 
 ## Health Status Report
 
@@ -84,7 +84,7 @@ C. The difference in daily cycling levels for transportation of Canadians and Du
 
 D. Predict how Canadian life expectancy would change if Canadians biked like the Dutch.
 
-For this example we will use the sample data set **data.sample**, which can be downloaded at **https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes**. This link also contains all of the R code for this vignette. 
+For this example we will use the sample data set **data.sample**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes. This link also contains all of the R code for this vignette. 
 
 
 The following steps include the R coding for each of the steps but you can preform the steps in any other software program.
@@ -106,7 +106,7 @@ We will use 3 variables in our sample data set which are based off of the 2013/2
     PA.data <- read.csv("data.sample")
 ```   
 <div class="AOO">
-Assumption #1: we assume individuals 65 or older are retired and therefore not cycling to/from work/school. Therefore, we will only evaluate individuals that are < 65 years old.
+**Assumption #1:** we assume individuals 65 or older are retired and therefore not cycling to/from work/school. Therefore, we will only evaluate individuals that are < 65 years old.
 </div>
 
 **Step 2:** Filter the data: < 65. The CCHS data set has categories for age, therefore we will filter out all age categories that are >=65 years old.
@@ -234,7 +234,7 @@ Use the Project Big Life Planning Tool for the following steps:
 5. Click Physical Activity then Select “Average daily leisure time energy expenditure in METs”
 
 <div class="AOO">
-Assumption #2: ...
+Assumption #2: Although the scenario for physical activity is for liesure energy expenditure, we assume 1) individuals that are active in thier liesure time also use active transportation, and 2) cycling as a form of active transportation is minor part of their energy expenditure. Therefore we will adjust the average daily liesure time engery expenditure in METs.
 </div>
 
 6. Select Absolute
@@ -448,5 +448,3 @@ We’ll now run a scenario where the Ottawa region acts like XXX. Ottawa will no
 
 
 
-
-## Transportation

@@ -264,8 +264,8 @@ greater detail.
 \section{Customize Data}\label{customize-data}
 
 Prior to using the Project Big Life Planning Tool you may want to
-manipulate your data set. Reasons include: custom filter(s) and/or
-custom stratification(s).
+manipulate your data set. Reasons include: customized filter(s) and/or
+customized stratification(s).
 
 Data manipulation can occur on any programming software: R, SAS, STATA,
 etc, as long as you output your data set as a `.csv' file.
@@ -288,13 +288,13 @@ four distinct categories:
 
 \textbf{Steps}
 
-The following shows R code that would be used to create these
-stratifications:
+The following steps show the R code that would be used to create these
+strata:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Convert observations ``Not stated'' from 999.99 to N/A
+  Convert observations ``Not stated'' from 999.99 to NA
 
 \begin{verbatim}
 data[data == 999.99] <- NA
@@ -327,8 +327,8 @@ data$newcolumn <- cut(data$HWTGBMI, breaks = c(0,18.5,25,30,Inf),  labels=c("Und
   6   17.23 Underweight
 \end{verbatim}
 
-This new column can be used with the Project Big Life Planning Tool for
-filtering or stratification.
+This new column can be now be used with the Project Big Life Planning
+Tool for the purpose of filtering or stratification.
 
 \section{Load data}\label{load-data}
 
@@ -344,8 +344,7 @@ file.
 \textbf{Note:} The Project Big Life Planning Tool can currently only
 support .csv data files from the 2013/2014 Canadian Community Health
 Survey. Both the PUMF and Shared 2013/2014 Canadian Community Health
-Survey files are accepted. \emph{Need to confirm the geography
-variables}
+Survey files are accepted.
 
 \begin{itemize}
 \tightlist
@@ -363,12 +362,15 @@ Project Big Life Planning Tool. There are \textbf{X} sample files you
 may use:
 
 \begin{itemize}
+\tightlist
 \item
-  MockPUMF2013.csv is a sub-sample of the Public Use Microdata File from
-  the 2013 Canadian Community Health Survey. This file has all the
-  required and recommended variables.
-\item
-  SmallMockPUMF2013.csv \emph{TO FIGURE OUT WHAT IT INCLUDES}
+  \textbf{data.sample.csv} this is fabricated dataset that includes all
+  variables required for calculation, recommend for calculation, and
+  needed for the real life application examples (found in Chapter 5).
+  This data set is based on the 2013/2014 Canadian Community Health
+  Survey Public Use Microdata File from, however this data set was
+  created only for example purposes and \textbf{cannot} be used for
+  analysis.
 \end{itemize}
 
 \textbf{Steps}
@@ -783,9 +785,7 @@ will cover:
 \item
   a national scenario: What if Canada biked like the Dutch?
 \item
-  a local policy: turning Ottawa into the healthiest Canadian region
-\item
-  a
+  a local scenario: turning Ottawa into the healthiest Canadian region
 \end{itemize}
 
 \section{Health Status Report}\label{health-status-report}
@@ -899,7 +899,7 @@ like the Dutch.
 
 For this example we will use the sample data set \textbf{data.sample},
 which can be downloaded at
-**\url{https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes**}.
+\url{https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes}.
 This link also contains all of the R code for this vignette.
 
 The following steps include the R coding for each of the steps but you
@@ -934,8 +934,8 @@ transportation:
     PA.data <- read.csv("data.sample")
 \end{verbatim}
 
-Assumption \#1: we assume individuals 65 or older are retired and
-therefore not cycling to/from work/school. Therefore, we will only
+\textbf{Assumption \#1:} we assume individuals 65 or older are retired
+and therefore not cycling to/from work/school. Therefore, we will only
 evaluate individuals that are \textless{} 65 years old.
 
 \textbf{Step 2:} Filter the data: \textless{} 65. The CCHS data set has
@@ -1154,7 +1154,12 @@ Use the Project Big Life Planning Tool for the following steps:
   energy expenditure in METs''
 \end{enumerate}
 
-Assumption \#2: \ldots{}
+Assumption \#2: Although the scenario for physical activity is for
+liesure energy expenditure, we assume 1) individuals that are active in
+thier liesure time also use active transportation, and 2) cycling as a
+form of active transportation is minor part of their energy expenditure.
+Therefore we will adjust the average daily liesure time engery
+expenditure in METs.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1474,8 +1479,6 @@ XXX is healthier then Ottawa's.
   \emph{TO DO:} results
 \end{enumerate}
 
-\section{Transportation}\label{transportation}
-
 \chapter{Key Concepts}\label{keyconcepts}
 
 This section explains some key concepts in Project Big Life's Planning
@@ -1551,17 +1554,21 @@ guidance when we are done.
 \subsection{Sample Files}\label{sample-files}
 
 \begin{itemize}
+\tightlist
 \item
-  MockPUMF2013.csv is a subsample of the Public Use Microdata File from
-  the {[}2013 Canadian Community Health Survey{]}
-  (\url{https://www150.statcan.gc.ca/n1/en/catalogue/82M0013X}). It
-  includes all required and recommended variables: age, sex, BMI,
-  smoking habits, alcohol consumption, diet components, daily physical
-  activity expenditure, chronic conditions, ethnicity, immigration
-  status, and education.
-\item
-  SmallMockPUMF2013.csv
+  data.sample.csv this is fabricated dataset that includes all variables
+  required for calculation, recommend for calculation, and needed for
+  the real life application examples (found in Chapter 5). It includes
+  all required and recommended variables: age, sex, BMI, smoking habits,
+  alcohol consumption, diet components, daily physical activity
+  expenditure, chronic conditions, ethnicity, immigration status, and
+  education.
 \end{itemize}
+
+\textbf{Note:} Although the data.sample.csv is based on the 2013/2014
+Canadian Community Health Survey Public Use Microdata File from if was
+created only for example purposes and \textbf{cannot} be used for
+analysis.
 
 \section{Multivariable predictive risk
 algorithms}\label{multivariable-predictive-risk-algorithms}
@@ -1693,7 +1700,10 @@ Appendix A
 There are two general types of calculations Summary Measures and By Row
 Measures.
 
-Summary measures: (ref:summarycalc)
+Summary measures: When selected, the result will be a single measure for
+the entire dataset. For instance when Summary Measure - Life Expectancy
+(Summary Measure) is selected the result is a single life expectancy for
+the given for the population.
 
 By row measures: When selected, the result will be the measurement for
 each individual (e.g.~row) in the dataset.

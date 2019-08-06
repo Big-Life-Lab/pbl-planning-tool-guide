@@ -116,7 +116,6 @@
 <li class="chapter" data-level="5.3.2" data-path="healthy-cities.html"><a href="healthy-cities.html#part-b-determine-the-health-behaviours-of-the-healthiest-region-and-the-ottawa-region."><i class="fa fa-check"></i><b>5.3.2</b> Part B: Determine the health behaviours of the healthiest region and the Ottawa region.</a></li>
 <li class="chapter" data-level="5.3.3" data-path="healthy-cities.html"><a href="healthy-cities.html#part-c-what-if-ottawa-acted-like-xxx"><i class="fa fa-check"></i><b>5.3.3</b> Part C: What if Ottawa acted like XXX?</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="transportation.html"><a href="transportation.html"><i class="fa fa-check"></i><b>5.4</b> Transportation</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="keyconcepts.html"><a href="keyconcepts.html"><i class="fa fa-check"></i><b>6</b> Key Concepts</a><ul>
 <li class="chapter" data-level="6.1" data-path="data-and-sample-files.html"><a href="data-and-sample-files.html"><i class="fa fa-check"></i><b>6.1</b> Data and sample files</a><ul>
@@ -172,7 +171,7 @@
 <p>B. How much Dutch cycle per day for transportation purposes,</p>
 <p>C. The difference in daily cycling levels for transportation of Canadians and Dutch, and</p>
 <p>D. Predict how Canadian life expectancy would change if Canadians biked like the Dutch.</p>
-<p>For this example we will use the sample data set <strong>data.sample</strong>, which can be downloaded at **<a href="https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes**" class="uri">https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes**</a>. This link also contains all of the R code for this vignette.</p>
+<p>For this example we will use the sample data set <strong>data.sample</strong>, which can be downloaded at <a href="https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes" class="uri">https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes</a>. This link also contains all of the R code for this vignette.</p>
 <p>The following steps include the R coding for each of the steps but you can preform the steps in any other software program.</p>
 <div id="part-a-how-much-do-canadians-cycle-per-day-for-transportation-purposes" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> Part A: How much do Canadians cycle per day for transportation purposes</h3>
@@ -186,7 +185,7 @@
 <p><strong>Step 1:</strong> Import your data set to R.</p>
 <pre><code>    PA.data &lt;- read.csv(&quot;data.sample&quot;)</code></pre>
 <div class="AOO">
-<p>Assumption #1: we assume individuals 65 or older are retired and therefore not cycling to/from work/school. Therefore, we will only evaluate individuals that are &lt; 65 years old.</p>
+<p><strong>Assumption #1:</strong> we assume individuals 65 or older are retired and therefore not cycling to/from work/school. Therefore, we will only evaluate individuals that are &lt; 65 years old.</p>
 </div>
 <p><strong>Step 2:</strong> Filter the data: &lt; 65. The CCHS data set has categories for age, therefore we will filter out all age categories that are &gt;=65 years old.</p>
 <pre><code>    library(dplyr)
@@ -276,7 +275,7 @@ indiv.cycle &lt;- PA.table.cycle[1]/(sum(PA.table.cycle))</code></pre></li>
 <li><p>Click Physical Activity then Select “Average daily leisure time energy expenditure in METs”</p></li>
 </ol>
 <div class="AOO">
-<p>Assumption #2: …</p>
+<p>Assumption #2: Although the scenario for physical activity is for liesure energy expenditure, we assume 1) individuals that are active in thier liesure time also use active transportation, and 2) cycling as a form of active transportation is minor part of their energy expenditure. Therefore we will adjust the average daily liesure time engery expenditure in METs.</p>
 </div>
 <ol start="6" style="list-style-type: decimal">
 <li><p>Select Absolute</p></li>

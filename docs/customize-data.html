@@ -116,7 +116,6 @@
 <li class="chapter" data-level="5.3.2" data-path="healthy-cities.html"><a href="healthy-cities.html#part-b-determine-the-health-behaviours-of-the-healthiest-region-and-the-ottawa-region."><i class="fa fa-check"></i><b>5.3.2</b> Part B: Determine the health behaviours of the healthiest region and the Ottawa region.</a></li>
 <li class="chapter" data-level="5.3.3" data-path="healthy-cities.html"><a href="healthy-cities.html#part-c-what-if-ottawa-acted-like-xxx"><i class="fa fa-check"></i><b>5.3.3</b> Part C: What if Ottawa acted like XXX?</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="transportation.html"><a href="transportation.html"><i class="fa fa-check"></i><b>5.4</b> Transportation</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="keyconcepts.html"><a href="keyconcepts.html"><i class="fa fa-check"></i><b>6</b> Key Concepts</a><ul>
 <li class="chapter" data-level="6.1" data-path="data-and-sample-files.html"><a href="data-and-sample-files.html"><i class="fa fa-check"></i><b>6.1</b> Data and sample files</a><ul>
@@ -165,7 +164,7 @@
             <section class="normal" id="section-">
 <div id="customize-data" class="section level2">
 <h2><span class="header-section-number">4.1</span> Customize Data</h2>
-<p>Prior to using the Project Big Life Planning Tool you may want to manipulate your data set. Reasons include: custom filter(s) and/or custom stratification(s).</p>
+<p>Prior to using the Project Big Life Planning Tool you may want to manipulate your data set. Reasons include: customized filter(s) and/or customized stratification(s).</p>
 <p>Data manipulation can occur on any programming software: R, SAS, STATA, etc, as long as you output your data set as a ‘.csv’ file.</p>
 <p>An example of customizing your data set is converting the variable: Body Mass Index (CCHS 2013 variable HWTGBMI) from a continuous variable into four distinct categories:</p>
 <ul>
@@ -175,9 +174,9 @@
 <li>Obese: BMI greater or equal to 30.0</li>
 </ul>
 <p><strong>Steps</strong></p>
-<p>The following shows R code that would be used to create these stratifications:</p>
+<p>The following steps show the R code that would be used to create these strata:</p>
 <ol style="list-style-type: decimal">
-<li><p>Convert observations “Not stated” from 999.99 to N/A</p>
+<li><p>Convert observations “Not stated” from 999.99 to NA</p>
 <pre><code>data[data == 999.99] &lt;- NA</code></pre></li>
 <li><p>Load the R package dpylr. This package is used for data manipulation.</p>
 <pre><code>library(dpylr)</code></pre></li>
@@ -192,7 +191,7 @@
   4   34.44       Obese
   5   23.77     Healthy
   6   17.23 Underweight</code></pre>
-<p>This new column can be used with the Project Big Life Planning Tool for filtering or stratification.</p>
+<p>This new column can be now be used with the Project Big Life Planning Tool for the purpose of filtering or stratification.</p>
 </div>
             </section>
 

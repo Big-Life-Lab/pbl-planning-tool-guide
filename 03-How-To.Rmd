@@ -16,7 +16,7 @@ These guides will cover the topics covered in the tutorial but in greater detail
 
 ##Customize Data
 
-Prior to using the Project Big Life Planning Tool you may want to manipulate your data set. Reasons include: custom filter(s) and/or custom stratification(s). 
+Prior to using the Project Big Life Planning Tool you may want to manipulate your data set. Reasons include: customized filter(s) and/or customized stratification(s). 
 
 Data manipulation can occur on any programming software: R, SAS, STATA, etc, as long as you output your data set as a '.csv' file. 
 
@@ -29,9 +29,9 @@ An example of customizing your data set is converting the variable: Body Mass In
 
 **Steps**
 
-The following shows R code that would be used to create these stratifications:
+The following steps show the R code that would be used to create these strata:
 
-1. Convert observations "Not stated" from 999.99 to N/A
+1. Convert observations "Not stated" from 999.99 to NA
 ```    
     data[data == 999.99] <- NA
 ```      
@@ -55,7 +55,7 @@ The following shows R code that would be used to create these stratifications:
   6   17.23 Underweight
 ```
 
-This new column can be used with the Project Big Life Planning Tool for filtering or stratification.
+This new column can be now be used with the Project Big Life Planning Tool for the purpose of filtering or stratification.
 
 
 
@@ -70,7 +70,7 @@ Only one data set can be used on the platform for each calculation; a calculatio
 There are two options for your data: use a sample file or load your own file. 
 
 <div class="FOO">
-**Note:** The Project Big Life Planning Tool can currently only support .csv data files from the 2013/2014 Canadian Community Health Survey. Both the PUMF and Shared 2013/2014 Canadian Community Health Survey files are accepted. _Need to confirm the geography variables_ 
+**Note:** The Project Big Life Planning Tool can currently only support .csv data files from the 2013/2014 Canadian Community Health Survey. Both the PUMF and Shared 2013/2014 Canadian Community Health Survey files are accepted.
 </div>
 
 - More information on the Canadian Community Health Survey and the types of accepted data can be found in Key concepts (Chapter \@ref(keyconcepts)) - "Data and Sample Files".
@@ -80,10 +80,8 @@ There are two options for your data: use a sample file or load your own file.
 
 If you don't have your own data or want to explore the platform's capabilities before using your data, you can use the sample files on the Project Big Life Planning Tool. There are **X** sample files you may use:
 
-- MockPUMF2013.csv is a sub-sample of the Public Use Microdata File from the 2013 Canadian Community Health Survey. This file has all the required and recommended variables.
+- **data.sample.csv** this is fabricated dataset that includes all variables required for calculation, recommend for calculation, and needed for the real life application examples (found in Chapter 5). This data set is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File from, however this data set was created only for example purposes and **cannot** be used for analysis.
 
-- SmallMockPUMF2013.csv 
-_TO FIGURE OUT WHAT IT INCLUDES_ 
 
 **Steps**
 
