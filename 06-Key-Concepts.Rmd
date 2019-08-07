@@ -199,7 +199,7 @@ These life tables are 1-year abridge life tables, and begin at the individual's 
 
 1. The probability of death for a person's current age is calculated using the respective MPoRT (male or female), and the individual's health profile (e.g. never smoked, 15 drinks weekly, hypertension, Canadian Citizen, etc) (e.g. $q_x$, where $x=43$). 
 
-2. The probability of death is recalculated for additional rows (incremental older ages) up to age 90 years ( $q_{x+1}, q_x{x+2}, ..., q_90}$). For each life table row, age is the only variable that is changed for MPoRT risk calculation. 
+2. The probability of death is recalculated for additional rows (incremental older ages) up to age 90 years ( $q_{x+1}, q_x{x+2}, ..., q_{90}$). For each life table row, age is the only variable that is changed for MPoRT risk calculation. 
 
 <div class="FOO">
 **Note:** Life expectancy calculation is for the respondent's age (eg. 43). To calculate age of death, add the respondent's age to their life expectancy estimate.
