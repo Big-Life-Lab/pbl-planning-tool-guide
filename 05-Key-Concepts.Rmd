@@ -260,7 +260,7 @@ kable(scenarios.smoke) %>%
 Although each type of health intervention for smoking: absolute, relative and target, changes the prevalence of current smokers they are different. The following figure shows how each is different from one another. 
 
 ```{r, echo=FALSE, fig.align='center', fig.cap= "Comparison of health intervention scenario types"}
-knitr::include_graphics("Scenario-Abs, Rel, Target cropped.jpg")
+knitr::include_graphics("Images/Scenario-Abs, Rel, Target cropped.jpg")
 ```
 
 To adjust the prevalence of smokers, the change is applied to every current smoker in the population; individuals are not selected at random. ....
@@ -338,7 +338,7 @@ $$ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\te
 $$\text{Cause-deleted risk}_{ external} = \text{Original risk} - \text{Cause-deleted effect}_{external}$$
 
 ```{r, echo=FALSE, fig.align='center', fig.cap= "Risk portion of the cause-deleted calculations"}
-knitr::include_graphics("Method2 only -cbf.jpg")
+knitr::include_graphics("Images/Method2 only -cbf.jpg")
 ```
 
 

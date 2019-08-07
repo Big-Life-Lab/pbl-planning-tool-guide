@@ -7,5 +7,5 @@ The tutorial takes you through step-by-step how to use Project Big Life's Planni
 **To access the tutorial**, go onto Project Big Life's Planning Tool (http://policy.projectbiglife.ca/) and click on the Tutorial button in the top right corner!
 
 ```{r, echo=FALSE, fig.align='center'}
-knitr::include_graphics("Tutorial Button.jpg")
+knitr::include_graphics("Images/Tutorial Button.jpg")
 ```
