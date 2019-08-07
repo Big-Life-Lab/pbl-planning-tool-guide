@@ -10,7 +10,8 @@ Using MPoRT you are able to calculate:
 
 - 5 year mortality risk
 - Number of deaths
-- Life Expectancy
+- Life Expectancy (individual and population)
+
 - Cause-deleted deaths and life expectancy
 - Burden of health behaviour in deaths and on life expectancy
 
@@ -41,7 +42,19 @@ This version of MPoRT has not yet been published.
 
 *Validation*: This predictive risk model was validated using three different datasets: Ontario subset of the 2009 to 2012 CCHS, National dataset (except Ontario) of the 2003 to 2008 CCHS, and the National dataset of the 2000 and 2005 National Health Interview Survey in the United States of America. In all validation datasets individuals were linked to personal health records.
 
-*Parameters*: The parameters used in this predictive risk model are: 
+*Model*: Two MPoRTs have been created: one for males and one for females. Each model is a cox-porportional hazard model that looks similar to:
+
+$$ \text{Mortality risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
+
+Where:
+
+- $t$ = survival time
+- $h_0(t)$ = the baseline hazard
+- $\beta_{pred}$ = predictive hazard ratios for the exposures
+- $x$ = the exposure. The exposure can be continuous (e.g. age) or categorical (e.g. smoking status). 
+
+
+*Parameters*: The parameters (exposures) used in this multivariable predictive risk model are: 
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(knitr)
 library(kableExtra)

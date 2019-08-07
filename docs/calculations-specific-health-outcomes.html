@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.1 Health Status Report | Planning Tool Guidance</title>
+  <title>6.4 Calculations: specific health outcomes | Planning Tool Guidance</title>
   <meta name="description" content="Guidance on how to use the Project Big Life Planning Tool." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.1 Health Status Report | Planning Tool Guidance" />
+  <meta property="og:title" content="6.4 Calculations: specific health outcomes | Planning Tool Guidance" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="Big-Life-Lab/BATCH-Guidance" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.1 Health Status Report | Planning Tool Guidance" />
+  <meta name="twitter:title" content="6.4 Calculations: specific health outcomes | Planning Tool Guidance" />
   
   <meta name="twitter:description" content="Guidance on how to use the Project Big Life Planning Tool." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="applications.html">
-<link rel="next" href="canada-bikes-like-the-dutch.html">
+<link rel="prev" href="calculations.html">
+<link rel="next" href="scenario-intervention.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -165,44 +165,79 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="health-status-report" class="section level2">
-<h2><span class="header-section-number">5.1</span> Health Status Report</h2>
-<p>In this example we will highlight statistics that could reported in health status reports. Health status reports are a way to report the health state for a population and the factors that influence the population’s health. Information from health status reports are used to inform policy, planning, and resource allocation.</p>
-<p>In this example we will calculate:</p>
+<div id="calculations-specific-health-outcomes" class="section level2">
+<h2><span class="header-section-number">6.4</span> Calculations: specific health outcomes</h2>
+<div id="risk-of-health-outcome" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Risk of health outcome</h3>
+<p>Risk of the health outcome (e.g. risk of dying) is the outcome of a multivariable predictive risk algorithm. An example of the mutlivariable risk algorithm is:</p>
+<p><span class="math display">\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span> Where:</p>
 <ul>
-<li>The predicted number of deaths by strata</li>
-<li>The impact of eliminating unhealthy behaviours on life expectancy</li>
+<li><span class="math inline">\(t\)</span> = survival time</li>
+<li><span class="math inline">\(h_0(t)\)</span> = the baseline hazard</li>
+<li><span class="math inline">\(\beta_{pred}\)</span> = predictive hazard ratios for the exposures</li>
+<li><span class="math inline">\(x\)</span> = the exposure. The exposure can be continuous (e.g. age) or categorical (e.g. smoking status).</li>
 </ul>
-<p>For this example we will focus on the population of Alberta.</p>
-<div id="predicted-number-of-deaths-stratified-by-sex-and-level-of-education" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Predicted number of deaths stratified by sex and level of education</h3>
-<p>By showing the number of deaths by strata, the reader can see the distribution of deaths across specific population characteristics. Any categorical variable can be used for stratification but in this example, we will use sex and level of education.</p>
-<p><strong>Steps</strong></p>
-<ol style="list-style-type: decimal">
-<li><p>Select the sample file XXXX under “Sample files”.</p></li>
-<li><p>Select the calculation: Summary Measure – Deaths (Five years)</p></li>
-<li><p>Add filter: GEOGPRV – 48, which is the corresponding code for Alberta.</p></li>
-<li><p>Add two stratification: DDH_SEX and EDUDR04</p></li>
-<li><p>Title the calculation: Deaths by sex and education level</p></li>
-<li><p>Click the calculate button</p></li>
-</ol>
-<p><em>7. To do: Results – walk through the results</em></p>
+<p>Categorical exposures are represented by dummy/factor variables. Each category has its own beta and the exposure is binary. For example smoking status is categorical variable with categories: current, former &lt;= 5 years, former &gt;5 years, or never smoked. For <span class="math inline">\(\beta_{pred.current.smoker}\)</span> the exposure: <span class="math inline">\(x_{current.smoker}\)</span> = 1 if the individual currently smokes or 0 if the individual is another type of smoker.</p>
 </div>
-<div id="impact-of-eliminating-unhealthy-behaviours-physical-inactivity-and-poor-diet-on-life-expectancy" class="section level3">
-<h3><span class="header-section-number">5.1.2</span> Impact of eliminating unhealthy behaviours: physical inactivity and poor diet, on life expectancy</h3>
-<p>To show how much an unhealthy behaviour impacts life expectancy we use the scenario: cause-deleted. Cause-deleted scenarios can be used for the health behaviours: alcohol consumption, diet, physical activity, and smoking, individually or in any combination. In this example we will evaluate the impact of physical inactivity and poor diet, in combination, on life expectancy.</p>
-<p><strong>Steps</strong></p>
+<div id="number-of-health-outcomes" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Number of health outcomes</h3>
+<p>The number of health outcomes (e.g. summary - deaths) is calculated through the following steps:</p>
 <ol style="list-style-type: decimal">
-<li><p>Select the sample file XXXX under “Sample files”.</p></li>
-<li><p>Select initial calculation: Summary Measure – Life Expectancy (Summary)</p></li>
-<li><p>Add filter: GEOGPRV – 48, which is the corresponding code for Alberta.</p></li>
-<li><p>Click the text: Scenario.</p></li>
-<li><p>Select Cause-deleted.</p></li>
-<li><p>Select the causes to delete: physical activity and diet</p></li>
-<li><p>Title the calculation: Alberta: Cause-deleted - physical activity and diet</p></li>
-<li><p>Click the calculate button</p></li>
+<li>Risk of the health outcome is calculated for each individual (row) in the data set using the mutlivariable predictive risk algorithm.</li>
+<li>Each individual’s (row) risk is weighted with their corresponding survey weight (CCHS PUMF = WTS_M and CCHS shared file = WTS_S).</li>
 </ol>
-<p><em>9. To Do: Walk through results</em></p>
+<p><span class="math display">\[ \text{Weighted risk of death } = \text{Individual&#39;s risk of death}*\text{Individual&#39;s survey weight}\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>The weighted mean of the health outcome (e.g. mean risk of death) is calculated.</li>
+<li>The weighted mean is then multiplied with the total number of individuals in the population to generate the number of health outcomes (e.g. number of deaths in 5 years).</li>
+</ol>
+</div>
+<div id="life-expectancy" class="section level3">
+<h3><span class="header-section-number">6.4.3</span> Life expectancy</h3>
+<p>Life expectancy is calculated using abridge life tables <em>using a modified Chaing approach.(link to reference for Chiang and Hsieh and also one of our papers)</em>. Life expectancy is calculated by two methods: one for summary life expectancy, and a second for by row life expectancy.</p>
+<div id="summary-life-expectancy" class="section level4">
+<h4><span class="header-section-number">6.4.3.1</span> Summary Life Expectancy</h4>
+<p>Life expectancy is calculated separately for males and females.</p>
+<p><strong>Males:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>The mortality risk for each male individual is calculated using the male mortality mutlivariable predictive risk algorithm for mortality (MPoRT). Details about the MPoRT can be found in Appendix A.</p></li>
+<li><p>Male individuals are grouped into the 5-year age groups that are used in the 5-year abridge life tables (e.g. 40-44 years old).</p></li>
+<li><p>The weighted average risk of death for each age group is calculated.</p></li>
+</ol>
+<p>(Maybe modify this formula and put it in the number of health outcomes section?) <span class="math display">\[ \text{Weighted risk of death for age group} = \sum(\text{Weighted risk of deaths}) \div \text{Number of individuals in age group}\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>A male 5-year abridge life table is created using the weighted average risks of death (q(x)) for each age group and the median age for the age group.</li>
+</ol>
+<p><strong>Females</strong></p>
+<p>Steps 1-4 used to calculate life expectancy for males, are repeated for females using the female MPoRT and a female 5-year abridge life table.</p>
+<p><strong>Summary life expectancy</strong></p>
+<ol start="5" style="list-style-type: decimal">
+<li>The summary life expectancy, or life expectancy of the entire population, is calculated by adding the male life expectancy with the female life expectancy, and taking its average.</li>
+</ol>
+<p><strong>Summary life expectancy by strata</strong></p>
+<p>Steps (1-4) are repeated for each strata. There will be strata specific weighted risk of death and strata specific life tables.</p>
+<p>Step 5 is repeated with the average life expectancy calculated across all strata.</p>
+</div>
+<div id="by-row-life-expectancy" class="section level4">
+<h4><span class="header-section-number">6.4.3.2</span> By row life expectancy</h4>
+<p>An individual’s life expectancy is calculated by creating a new life table specific to that individual.</p>
+<p>These life tables are 1-year abridge life tables, and begin at the individual’s age (e.g. an individual that is 43 years old, will have the life table start at 43 years).</p>
+<ol style="list-style-type: decimal">
+<li><p>The probability of death for a person’s current age is calculated using the respective MPoRT (male or female), and the individual’s health profile (e.g. never smoked, 15 drinks weekly, has hypertension, is a Canadian Citizen, etc) (e.g. <span class="math inline">\(q_x\)</span>, where <span class="math inline">\(x=43\)</span>).</p></li>
+<li><p>The probability of death is recalculated for incremental older ages (additional rows of the life table) up to age 90 years ( <span class="math inline">\(q_\text{(x+1)}, q_\text{(x+2)}...q_{90}\)</span>). For each life table row, age is the only variable that is changed for MPoRT risk calculation.</p></li>
+</ol>
+<em>Not sure what Doug is trying to get at here…</em>
+<div class="FOO">
+<strong>Note:</strong> Life expectancy calculation is for the respondent’s age (eg. 43). To calculate age of death, add the respondent’s age to their life expectancy estimate.
+<div>
+
+<div class="FOO">
+<strong>Note:</strong> By row life expectancy does not account for the individual’s weight, and therefore can not be used to estimate the summary life expectancy.
+<div>
+
+
+
+</div>
 </div>
 </div>
             </section>
@@ -210,8 +245,8 @@
           </div>
         </div>
       </div>
-<a href="applications.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="canada-bikes-like-the-dutch.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="calculations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scenario-intervention.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -241,7 +276,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-Real-Life-Applications.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-Key-Concepts.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A Mortality Population Risk Tool (MPoRT) | Planning Tool Guidance</title>
-  <meta name="description" content="This html is to provide you with guidance on how to use the BATCH interface." />
+  <meta name="description" content="Guidance on how to use the Project Big Life Planning Tool." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A Mortality Population Risk Tool (MPoRT) | Planning Tool Guidance" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This html is to provide you with guidance on how to use the BATCH interface." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta property="og:description" content="Guidance on how to use the Project Big Life Planning Tool." />
+  <meta name="github-repo" content="Big-Life-Lab/BATCH-Guidance" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="A Mortality Population Risk Tool (MPoRT) | Planning Tool Guidance" />
   
-  <meta name="twitter:description" content="This html is to provide you with guidance on how to use the BATCH interface." />
+  <meta name="twitter:description" content="Guidance on how to use the Project Big Life Planning Tool." />
   
 
 <meta name="author" content="Project Big Life" />
@@ -129,15 +129,18 @@
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="calculations.html"><a href="calculations.html"><i class="fa fa-check"></i><b>6.3</b> Calculations</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="calculations.html"><a href="calculations.html#summary-vs-by-row"><i class="fa fa-check"></i><b>6.3.1</b> Summary vs By Row</a></li>
-<li class="chapter" data-level="6.3.2" data-path="calculations.html"><a href="calculations.html#risk-of-health-outcome"><i class="fa fa-check"></i><b>6.3.2</b> Risk of health outcome</a></li>
-<li class="chapter" data-level="6.3.3" data-path="calculations.html"><a href="calculations.html#number-of-health-outcomes"><i class="fa fa-check"></i><b>6.3.3</b> Number of health outcomes</a></li>
-<li class="chapter" data-level="6.3.4" data-path="calculations.html"><a href="calculations.html#life-expectancy"><i class="fa fa-check"></i><b>6.3.4</b> Life expectancy</a></li>
+<li class="chapter" data-level="6.3.2" data-path="calculations.html"><a href="calculations.html#weighted-vs-unweighted"><i class="fa fa-check"></i><b>6.3.2</b> Weighted vs unweighted</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="scenario-intervention.html"><a href="scenario-intervention.html"><i class="fa fa-check"></i><b>6.4</b> Scenario: Intervention</a></li>
-<li class="chapter" data-level="6.5" data-path="scenario-cause-deleted.html"><a href="scenario-cause-deleted.html"><i class="fa fa-check"></i><b>6.5</b> Scenario: Cause-deleted</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="scenario-cause-deleted.html"><a href="scenario-cause-deleted.html#cause-deleted-calculation"><i class="fa fa-check"></i><b>6.5.1</b> Cause-deleted calculation</a></li>
+<li class="chapter" data-level="6.4" data-path="calculations-specific-health-outcomes.html"><a href="calculations-specific-health-outcomes.html"><i class="fa fa-check"></i><b>6.4</b> Calculations: specific health outcomes</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="calculations-specific-health-outcomes.html"><a href="calculations-specific-health-outcomes.html#risk-of-health-outcome"><i class="fa fa-check"></i><b>6.4.1</b> Risk of health outcome</a></li>
+<li class="chapter" data-level="6.4.2" data-path="calculations-specific-health-outcomes.html"><a href="calculations-specific-health-outcomes.html#number-of-health-outcomes"><i class="fa fa-check"></i><b>6.4.2</b> Number of health outcomes</a></li>
+<li class="chapter" data-level="6.4.3" data-path="calculations-specific-health-outcomes.html"><a href="calculations-specific-health-outcomes.html#life-expectancy"><i class="fa fa-check"></i><b>6.4.3</b> Life expectancy</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>6.6</b> Limitations</a></li>
+<li class="chapter" data-level="6.5" data-path="scenario-intervention.html"><a href="scenario-intervention.html"><i class="fa fa-check"></i><b>6.5</b> Scenario: Intervention</a></li>
+<li class="chapter" data-level="6.6" data-path="scenario-cause-deleted.html"><a href="scenario-cause-deleted.html"><i class="fa fa-check"></i><b>6.6</b> Scenario: Cause-deleted</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="scenario-cause-deleted.html"><a href="scenario-cause-deleted.html#cause-deleted-calculation"><i class="fa fa-check"></i><b>6.6.1</b> Cause-deleted calculation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>6.7</b> Limitations</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>7</b> Glossary</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
@@ -170,9 +173,9 @@
 <ul>
 <li>5 year mortality risk</li>
 <li>Number of deaths</li>
-<li>Life Expectancy</li>
+<li><p>Life Expectancy (individual and population)</p></li>
 <li>Cause-deleted deaths and life expectancy</li>
-<li>Burden of health behaviour in deaths and on life expectancy</li>
+<li><p>Burden of health behaviour in deaths and on life expectancy</p></li>
 </ul>
 <p><strong>Types of Questions</strong></p>
 <ul>
@@ -186,7 +189,16 @@
 <p><strong>MPoRTv2.0 - The version used in Project Big Life’s Planning Tool</strong> This version of MPoRT has not yet been published.</p>
 <p><em>Development</em>: This predictive risk model was developed using Ontario subsets of the 2001 to 2008 CCHS and participants were linked to personal health records. There were approximately 1.3 million person-years of follow-up and over 15,000 deaths in the developmental dataset.</p>
 <p><em>Validation</em>: This predictive risk model was validated using three different datasets: Ontario subset of the 2009 to 2012 CCHS, National dataset (except Ontario) of the 2003 to 2008 CCHS, and the National dataset of the 2000 and 2005 National Health Interview Survey in the United States of America. In all validation datasets individuals were linked to personal health records.</p>
-<p><em>Parameters</em>: The parameters used in this predictive risk model are:</p>
+<p><em>Model</em>: Two MPoRTs have been created: one for males and one for females. Each model is a cox-porportional hazard model that looks similar to:</p>
+<p><span class="math display">\[ \text{Mortality risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(t\)</span> = survival time</li>
+<li><span class="math inline">\(h_0(t)\)</span> = the baseline hazard</li>
+<li><span class="math inline">\(\beta_{pred}\)</span> = predictive hazard ratios for the exposures</li>
+<li><span class="math inline">\(x\)</span> = the exposure. The exposure can be continuous (e.g. age) or categorical (e.g. smoking status).</li>
+</ul>
+<p><em>Parameters</em>: The parameters (exposures) used in this multivariable predictive risk model are:</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -621,7 +633,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-Appendix_1.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-Appendix_1.Rmd",
 "text": "Edit"
 },
 "history": {

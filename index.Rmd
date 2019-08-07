@@ -9,8 +9,8 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 always_allow_html: yes
-github-repo: rstudio/bookdown-demo
-description: "This html is to provide you with guidance on how to use the BATCH interface."
+github-repo: Big-Life-Lab/BATCH-Guidance
+description: "Guidance on how to use the Project Big Life Planning Tool."
 ---
 
 # Welcome to Project Big Life's Planning Tool

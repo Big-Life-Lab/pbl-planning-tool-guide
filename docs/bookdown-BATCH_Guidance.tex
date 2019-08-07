@@ -418,8 +418,8 @@ measures.
 \item
   \textbf{Summary measures:} When selected, the result will be a single measure for
 the entire dataset. For instance when Summary Measure - Life Expectancy
-(Summary Measure) is selected the result is a single life expectancy for
-the given for the population.
+(Summary Measure) is selected the result is a single life expectancy at
+birth for the given for the population.
 \item
   \textbf{By row measures:} When selected, the result will be the measurement for
 each individual (e.g.~row) in the dataset.
@@ -1491,12 +1491,20 @@ things.
 \item
   Multivariable predictive risk algorithms
 \item
-  Calculations:
+  Calculations: general
 
   \begin{itemize}
   \tightlist
   \item
     Summary vs.~By Row
+  \item
+    Weighted vs.~unweighted
+  \end{itemize}
+\item
+  Calculations: specific health outcomes
+
+  \begin{itemize}
+  \tightlist
   \item
     Risk of health outcome
   \item
@@ -1702,29 +1710,33 @@ Measures.
 
 Summary measures: When selected, the result will be a single measure for
 the entire dataset. For instance when Summary Measure - Life Expectancy
-(Summary Measure) is selected the result is a single life expectancy for
-the given for the population.
+(Summary Measure) is selected the result is a single life expectancy at
+birth for the given for the population.
 
 By row measures: When selected, the result will be the measurement for
 each individual (e.g.~row) in the dataset.
 
 \textbf{Note:} Summary Measures are not the same as taking the average
-of By Row Measures. Summary measures account for the master weights in
-their calculations where as simply averaging the By Row Measures doesn't
-factor the weights.
+of By Row Measures. Summary measures account for the survey weights in
+their calculations. Only averaging the By Row Measures does not account
+for the survey weights and will result in an incorrect outcome.
+
+\subsection{Weighted vs unweighted}\label{weighted-vs-unweighted}
+
+\section{Calculations: specific health
+outcomes}\label{calculations-specific-health-outcomes}
 
 \subsection{Risk of health outcome}\label{risk-of-health-outcome}
 
-Risk of the health outcome (e.g.~risk of dying) is the outcome of the
-multivariable predictive risk algorithm. Two mutlivariable risk
-algorithms are created for each health outcome: one algorithm for males,
-and one algorithm for females. An example of the mutlivariable risk
-algorithm is:
+Risk of the health outcome (e.g.~risk of dying) is the outcome of a
+multivariable predictive risk algorithm. An example of the mutlivariable
+risk algorithm is:
 
 \[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
 Where:
 
 \begin{itemize}
+\tightlist
 \item
   \(t\) = survival time
 \item
@@ -1734,30 +1746,41 @@ Where:
 \item
   \(x\) = the exposure. The exposure can be continuous (e.g.~age) or
   categorical (e.g.~smoking status).
-\item
-  Categorical exposures are represented by dummy/factor variables
-  e.g.~smoking status is categorical variable with categories: current,
-  former \textless{}= 5 years, former \textgreater{}5 years, or never
-  smoked. Each type of dummy variable with: \(x_current smoker\) = 1 if
-  the individual currently smokes or 0 if the individual is another type
-  of smoker).
 \end{itemize}
+
+Categorical exposures are represented by dummy/factor variables. Each
+category has its own beta and the exposure is binary. For example
+smoking status is categorical variable with categories: current, former
+\textless{}= 5 years, former \textgreater{}5 years, or never smoked. For
+\(\beta_{pred.current.smoker}\) the exposure: \(x_{current.smoker}\) = 1
+if the individual currently smokes or 0 if the individual is another
+type of smoker.
 
 \subsection{Number of health outcomes}\label{number-of-health-outcomes}
 
-The number of health outcomes (e.g.~Summary Deaths) is calculated
+The number of health outcomes (e.g.~summary - deaths) is calculated
 through the following steps:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Risk of the health outcome is calculated for each individual in the
-  data set using the mutlivariable predictive risk algorithm.
+  Risk of the health outcome is calculated for each individual (row) in
+  the data set using the mutlivariable predictive risk algorithm.
 \item
-  The weighted mean of all the risks is calculated using individual risk
-  values and corresponding study weights (CCHS variable: WTS\_M for the
-  Public Micro Use File or WTS\_S for the shared file).
+  Each individual's (row) risk is weighted with their corresponding
+  survey weight (CCHS PUMF = WTS\_M and CCHS shared file = WTS\_S).
+\end{enumerate}
+
+\[ \text{Weighted risk of death } = \text{Individual's risk of death}*\text{Individual's survey weight}\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  The weighted mean of the health outcome (e.g.~mean risk of death) is
+  calculated.
 \item
   The weighted mean is then multiplied with the total number of
   individuals in the population to generate the number of health
@@ -1766,9 +1789,11 @@ through the following steps:
 
 \subsection{Life expectancy}\label{life-expectancy}
 
-Life expectancy is calculated using abridge life tables. Life expectancy
-is calculated by two methods: one for summary life expectancy, and a
-second for by row life expectancy.
+Life expectancy is calculated using abridge life tables \emph{using a
+modified Chaing approach.(link to reference for Chiang and Hsieh and
+also one of our papers)}. Life expectancy is calculated by two methods:
+one for summary life expectancy, and a second for by row life
+expectancy.
 
 \subsubsection{Summary Life Expectancy}\label{summary-life-expectancy}
 
@@ -1789,29 +1814,30 @@ Life expectancy is calculated separately for males and females.
   The weighted average risk of death for each age group is calculated.
 \end{enumerate}
 
-\[ \text{Weighted risk of death } = \sum(\text{Individual risk of death}*\text{Individual weight}) \\ \div \text{Number of individuals in age group}\]
+(Maybe modify this formula and put it in the number of health outcomes
+section?)
+\[ \text{Weighted risk of death for age group} = \sum(\text{Weighted risk of deaths}) \div \text{Number of individuals in age group}\]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{3}
+\tightlist
 \item
   A male 5-year abridge life table is created using the weighted average
-  risks of death (q(x)) for each age group.
-\item
-  The life expectancy for males is calculated using the weighted average
-  risk of death (q(x)) and the median age for each of the age groups.
+  risks of death (q(x)) for each age group and the median age for the
+  age group.
 \end{enumerate}
 
 \textbf{Females}
 
-Steps 1-5, used to calculate life expectancy for males, are repeated for
+Steps 1-4 used to calculate life expectancy for males, are repeated for
 females using the female MPoRT and a female 5-year abridge life table.
 
 \textbf{Summary life expectancy}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{5}
+\setcounter{enumi}{4}
 \tightlist
 \item
   The summary life expectancy, or life expectancy of the entire
@@ -1821,27 +1847,40 @@ females using the female MPoRT and a female 5-year abridge life table.
 
 \textbf{Summary life expectancy by strata}
 
-Steps (1-5) are repeated for each strata. There will be strata specific
+Steps (1-4) are repeated for each strata. There will be strata specific
 weighted risk of death and strata specific life tables.
 
-Step 6 is repeated with the average life expectancy calculated across
+Step 5 is repeated with the average life expectancy calculated across
 all strata.
 
 \subsubsection{By row life expectancy}\label{by-row-life-expectancy}
 
-An individual's life expectancy is calculated by creating new life table
-specific to that individual.
+An individual's life expectancy is calculated by creating a new life
+table specific to that individual.
 
 These life tables are 1-year abridge life tables, and begin at the
 individual's age (e.g.~an individual that is 43 years old, will have the
 life table start at 43 years).
 
-The probability of death for each year/row of the life table (q(x)) is
-calculated using the respective MPoRT (male or female), and the
-individual's health profile (e.g.~never smoked, 15 drinks weekly,
-hypertension, Canadian Citizen, etc). The only factor that changes for
-each row is the age used in MPoRT (\(x_{age}\)), and corresponds to the
-age of the row.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The probability of death for a person's current age is calculated
+  using the respective MPoRT (male or female), and the individual's
+  health profile (e.g.~never smoked, 15 drinks weekly, has hypertension,
+  is a Canadian Citizen, etc) (e.g. \(q_x\), where \(x=43\)).
+\item
+  The probability of death is recalculated for incremental older ages
+  (additional rows of the life table) up to age 90 years (
+  \(q_\text{(x+1)}, q_\text{(x+2)}...q_{90}\)). For each life table row,
+  age is the only variable that is changed for MPoRT risk calculation.
+\end{enumerate}
+
+\emph{Not sure what Doug is trying to get at here\ldots{}}
+
+\textbf{Note:} Life expectancy calculation is for the respondent's age
+(eg. 43). To calculate age of death, add the respondent's age to their
+life expectancy estimate.
 
 \textbf{Note:} By row life expectancy does not account for the
 individual's weight, and therefore can not be used to estimate the
@@ -1876,8 +1915,8 @@ There are three types of scenarios: \textbf{absolute, relative,} and
 
 For target scenarios if the individual's value is already at the target
 value or beyond the target value then their value is not changed. E.g.
-If the target value for physical activity is 2.5 METs/week, then any
-individual that already has METs/week \textgreater{}= 2.5 METs/week then
+If the target value for physical activity is 2.5 METs/day, then any
+individual that already has METs/day \textgreater{}= 2.5 METs/week then
 there value will not be adjusted.
 
 The changes for each type of scenario for \textbf{alcohol, physical
@@ -1891,53 +1930,47 @@ Relative.change
 
 Target
 
-Each individual \ldots{}
+Each individual changes \ldots{}
 
-Each individual \ldots{}
+Each individual changes \ldots{}
 
 Each individual has the value \ldots{}
 
 Alcohol Consumption
 
-Decreases the number of drinks they have per week by x
+the number of drinks they have per week by x
 
-Decreases the number of drinks they have per week by y \%
+the number of drinks they have per week by y \%
 
 z drinks per week
 
 Physical Activity
 
-Increases their own physical activity levels by x METs per week
+their physical activity level by x METs per day
 
-Increases their own physical activity levels by y \% METs per week
+their physical activity level by y \% METs per day
 
-z METs per week
+z METs per day
 
 Diet
 
-Increases the number of fruits they eat by x per week
+the number of servings of fruits and vegetables they eat by x per day
 
-Increases the number of fruits they consume by y \% per week
+the number servings of fruits and vegetables they eat by y \% per day
 
-z fruits per week
+z fruits and vegetables per day
 
-Increases the number of vegetables they eat by x per week
+the number of glasses of juice they drink by x per week
 
-Increases the number of vegetables they consume by y \% per week
+the number of glasses of juice by y \% per day
 
-z vegetables per week
+z glasses of juice per day
 
-Decreases the glasses of juice they drink by x per week
+the number of servings of potatoes the eat by x per week
 
-Decreases the their glasses of juice by y \% per week
+the number of potatoes they eat by y \% per day
 
-z glasses of juice per week
-
-Decreases the number of potatoes the eat by x per week
-
-Decreases the number of potatoes they consume by y \% per week
-
-z potatoes per week
+z potatoes per day
 
 The \textbf{smoking} health intervention scenario is different then the
 other types of health intervention scenarios as they adjust the
@@ -2279,8 +2312,8 @@ Stratification can only occur on categorical variables.
 
 When selected, the result will be a single measure for
 the entire dataset. For instance when Summary Measure - Life Expectancy
-(Summary Measure) is selected the result is a single life expectancy for
-the given for the population.
+(Summary Measure) is selected the result is a single life expectancy at
+birth for the given for the population.
 
 When stratifications are selected, the summary
 measure will be given for each strata. For instance when Summary Measure
@@ -2358,13 +2391,12 @@ Life Expectancy}
 Using MPoRT you are able to calculate:
 
 \begin{itemize}
-\tightlist
 \item
   5 year mortality risk
 \item
   Number of deaths
 \item
-  Life Expectancy
+  Life Expectancy (individual and population)
 \item
   Cause-deleted deaths and life expectancy
 \item
@@ -2433,8 +2465,29 @@ dataset of the 2000 and 2005 National Health Interview Survey in the
 United States of America. In all validation datasets individuals were
 linked to personal health records.
 
-\emph{Parameters}: The parameters used in this predictive risk model
-are:
+\emph{Model}: Two MPoRTs have been created: one for males and one for
+females. Each model is a cox-porportional hazard model that looks
+similar to:
+
+\[ \text{Mortality risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
+
+Where:
+
+\begin{itemize}
+\tightlist
+\item
+  \(t\) = survival time
+\item
+  \(h_0(t)\) = the baseline hazard
+\item
+  \(\beta_{pred}\) = predictive hazard ratios for the exposures
+\item
+  \(x\) = the exposure. The exposure can be continuous (e.g.~age) or
+  categorical (e.g.~smoking status).
+\end{itemize}
+
+\emph{Parameters}: The parameters (exposures) used in this multivariable
+predictive risk model are:
 
 Category
 

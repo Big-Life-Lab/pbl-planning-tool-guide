@@ -4,13 +4,16 @@ This section explains some key concepts in Project Big Life’s Planning Tool. T
 
 - Data and sample files
 - Multivariable predictive risk algorithms
-- Calculations:
+- Calculations: general
 
     - Summary vs. By Row
+    - Weighted vs. unweighted
+
+- Calculations: specific health outcomes
+
     - Risk of health outcome
     - Number of health outcomes
     - Life expectancy
-
 
 - Scenario: Intervention
 - Scenario: Cause-deleted
@@ -125,13 +128,19 @@ Summary measures: (ref:Summarycalc)
 By row measures: (ref:byrowcalc)
 
 <div class="FOO">
-**Note:** Summary Measures are not the same as taking the average of By Row Measures. Summary measures account for the master weights in their calculations where as simply averaging the By Row Measures doesn't factor the weights. 
+**Note:** Summary Measures are not the same as taking the average of By Row Measures. Summary measures account for the survey weights in their calculations. Only averaging the By Row Measures does not account for the survey weights and will result in an incorrect outcome. 
 </div>
+
+###Weighted vs unweighted
+
+
+
+##Calculations: specific health outcomes
 
 
 ###Risk of health outcome
 
-Risk of the health outcome (e.g. risk of dying) is the outcome of the multivariable predictive risk algorithm. Mutlivariable risk algorithms may be separately created for strata. MPoRT (internal link), for example, has one algorithm for males, and one algorithm for females. An example of the mutlivariable risk algorithm is MPoRT, a cox-proportional hazard model:
+Risk of the health outcome (e.g. risk of dying) is the outcome of a multivariable predictive risk algorithm. An example of the mutlivariable risk algorithm is:
 
 $$ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
 Where:
@@ -141,23 +150,25 @@ Where:
 - $\beta_{pred}$ = predictive hazard ratios for the exposures
 - $x$ = the exposure. The exposure can be continuous (e.g. age) or categorical (e.g. smoking status). 
 
-
-  - Categorical exposures are represented by dummy/factor variables e.g. smoking status is categorical variable with categories: current, former <= 5 years, former >5 years, or never smoked. Each type of dummy variable with: $x_current smoker$ = 1 if the individual currently smokes or 0 if the individual is another type of smoker).
+Categorical exposures are represented by dummy/factor variables. Each category has its own beta and the exposure is binary. For example smoking status is categorical variable with categories: current, former <= 5 years, former >5 years, or never smoked. For $\beta_{pred.current.smoker}$ the exposure: $x_{current.smoker}$ = 1 if the individual currently smokes or 0 if the individual is another type of smoker.
 
 
 ###Number of health outcomes
 
-The number of health outcomes (e.g. Summary Deaths) is calculated through the following steps:
+The number of health outcomes (e.g. summary - deaths) is calculated through the following steps:
 
-1. Risk of the health outcome is calculated for each respondent (row) in the data set using the mutlivariable predictive risk algorithm.
-2. If the data has a study weight, the each row calculation is weighted by multiplying the health outcome by the survey weight. For example, all CCHS surveys are have weigh variables (WTS_M for the Public Micro Use File or WTS_S for the shared file).
-3. The health outcome weighted mean is calculated.
+1. Risk of the health outcome is calculated for each individual (row) in the data set using the mutlivariable predictive risk algorithm.
+2. Each individual's (row) risk is weighted with their corresponding survey weight (CCHS PUMF = WTS_M and CCHS shared file = WTS_S).
+
+$$ \text{Weighted risk of death } = \text{Individual's risk of death}*\text{Individual's survey weight}$$
+
+3. The weighted mean of the health outcome (e.g. mean risk of death) is calculated.
 4. The weighted mean is then multiplied with the total number of individuals in the population to generate the number of health outcomes (e.g. number of deaths in 5 years).
 
 
 ###Life expectancy
 
-Life expectancy is calculated using abridge life tables using a modified Chaing approach.(link to reference for Chiang and Hsieh and also one of our papers) Life expectancy is calculated by two methods: one for summary life expectancy, and a second for by row life expectancy.
+Life expectancy is calculated using abridge life tables *using a modified Chaing approach.(link to reference for Chiang and Hsieh and also one of our papers)*. Life expectancy is calculated by two methods: one for summary life expectancy, and a second for by row life expectancy.
 
 ####Summary Life Expectancy
 
@@ -171,36 +182,37 @@ Life expectancy is calculated separately for males and females.
 
 3. The weighted average risk of death for each age group is calculated. 
 
-(Maybe modify this formulat and put it in the number of health outcomes section?)
-$$ \text{Weighted risk of death } = \sum(\text{Individual risk of death}*\text{Individual weight}) \\ \div \text{Number of individuals in age group}$$
+(Maybe modify this formula and put it in the number of health outcomes section?)
+$$ \text{Weighted risk of death for age group} = \sum(\text{Weighted risk of deaths}) \div \text{Number of individuals in age group}$$
 
-4. A male 5-year abridge life table is created using the weighted average risks of death (q(x)) for each age group. 
+4. A male 5-year abridge life table is created using the weighted average risks of death (q(x)) for each age group and the median age for the age group. 
 
 
 **Females**
 
-Steps 1-5, used to calculate life expectancy for males, are repeated for females using the female MPoRT and a female 5-year abridge life table. 
+Steps 1-4 used to calculate life expectancy for males, are repeated for females using the female MPoRT and a female 5-year abridge life table. 
 
 **Summary life expectancy**
 
-6. The summary life expectancy, or life expectancy of the entire population, is calculated by adding the male life expectancy with the female life expectancy, and taking its average.
+5. The summary life expectancy, or life expectancy of the entire population, is calculated by adding the male life expectancy with the female life expectancy, and taking its average.
 
 **Summary life expectancy by strata**
 
-Steps (1-5) are repeated for each strata. There will be strata specific weighted risk of death and strata specific life tables. 
+Steps (1-4) are repeated for each strata. There will be strata specific weighted risk of death and strata specific life tables. 
 
-Step 6 is repeated with the average life expectancy calculated across all strata.
+Step 5 is repeated with the average life expectancy calculated across all strata.
 
 ####By row life expectancy
 
-An individual's life expectancy is calculated by creating new life table specific to that individual. 
+An individual's life expectancy is calculated by creating a new life table specific to that individual. 
 
 These life tables are 1-year abridge life tables, and begin at the individual's age (e.g. an individual that is 43 years old, will have the life table start at 43 years). 
 
-1. The probability of death for a person's current age is calculated using the respective MPoRT (male or female), and the individual's health profile (e.g. never smoked, 15 drinks weekly, hypertension, Canadian Citizen, etc) (e.g. $q_x$, where $x=43$). 
+1. The probability of death for a person's current age is calculated using the respective MPoRT (male or female), and the individual's health profile (e.g. never smoked, 15 drinks weekly, has hypertension, is a Canadian Citizen, etc) (e.g. $q_x$, where $x=43$). 
 
-2. The probability of death is recalculated for additional rows (incremental older ages) up to age 90 years ( $q_{x+1}, q_x{x+2}, ..., q_{90}$). For each life table row, age is the only variable that is changed for MPoRT risk calculation. 
+2. The probability of death is recalculated for incremental older ages (additional rows of the life table) up to age 90 years ( $q_\text{(x+1)}, q_\text{(x+2)}...q_{90}$). For each life table row, age is the only variable that is changed for MPoRT risk calculation.
 
+_Not sure what Doug is trying to get at here..._
 <div class="FOO">
 **Note:** Life expectancy calculation is for the respondent's age (eg. 43). To calculate age of death, add the respondent's age to their life expectancy estimate.
 <div>
@@ -223,17 +235,17 @@ There are three types of scenarios: **absolute, relative,** and **target**.
 - **Relative:** each individual in the population **changes** their health behaviour **by a ratio of y**.
 - **Target:** each individual in the population **has a set value of z.**
 
-For target scenarios if the individual's value is already at the target value or beyond the target value then their value is not changed. E.g. If the target value for physical activity is 2.5 METs/week, then any individual that already has METs/week >= 2.5 METs/week then there value will not be adjusted.
+For target scenarios if the individual's value is already at the target value or beyond the target value then their value is not changed. E.g. If the target value for physical activity is 2.5 METs/day, then any individual that already has METs/day >= 2.5 METs/week then there value will not be adjusted.
 
 The changes for each type of scenario for **alcohol, physical activity,** and **diet** are described in the following table:
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(knitr)
 library(kableExtra)
 (scenarios <- data.frame(
-    Health.Behaviour = c(" ", "Alcohol Consumption", "Physical Activity", rep("Diet",4)),
-    Absolute.change = c("Each individual ...", "Decreases the number of drinks they have per week by x", "Increases their own physical activity levels by x METs per week", "Increases the number of fruits they eat by x per week", "Increases the number of vegetables they eat by x per week", "Decreases the glasses of juice they drink by x per week", "Decreases the number of potatoes the eat by x per week"),
-    Relative.change =c("Each individual ...", "Decreases the number of drinks they have per week by y %", "Increases their own physical activity levels by y % METs per week", "Increases the number of fruits they consume by y % per week", "Increases the number of vegetables they consume by y % per week", "Decreases the their glasses of juice by y % per week", "Decreases the number of potatoes they consume by y % per week"), 
-    Target = c("Each individual has the value ...", "z drinks per week", "z METs per week", "z fruits per week", "z vegetables per week", "z glasses of juice per week", "z potatoes per week")
+    Health.Behaviour = c(" ", "Alcohol Consumption", "Physical Activity", rep("Diet",3)),
+    Absolute.change = c("Each individual changes ...", "the number of drinks they have per week by x", "their physical activity level by x METs per day", "the number of servings of fruits and vegetables they eat by x per day", "the number of glasses of juice they drink by x per week", "the number of servings of potatoes the eat by x per week"),
+    Relative.change =c("Each individual changes ...", "the number of drinks they have per week by y %", "their physical activity level by y % METs per day", "the number servings of fruits and vegetables they eat by y % per day", "the number of glasses of juice by y % per day", "the number of potatoes they eat by y % per day"), 
+    Target = c("Each individual has the value ...", "z drinks per week", "z METs per day", "z fruits and vegetables per day", "z glasses of juice per day", "z potatoes per day")
     ))#closingbracket 
 
 ```
