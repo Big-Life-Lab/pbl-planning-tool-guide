@@ -252,7 +252,7 @@ Assumption #2: Although the scenario for physical activity is for leisure energy
 
 ## Healthy Cities
 
-What if the Ottawa region acted like the healthiest region in Canada?
+What would be Ottawa's life expectancy, if the region had the same health behaviours as the healthiest region in Canada?
 
 In this example, we will determine:
 
@@ -260,9 +260,9 @@ A. who is the healthiest region in Canada,
 
 B. what are the health behaviours of Ottawa vs the healthiest region, and
 
-C. what would the health impact be if Ottawa acted like the healthiest region. 
+C. what would be the mortality outcomes be if Ottawa's health behaviours were the same asthe healthiest region. 
 
-Here we will use the average life expectancy to determine the health of regions: the older the average life expectancy for the region the healthier that region is.
+Here we will use the average life expectancy to determine the health of regions: the higher the life expectancy for the region the healthier that region is.
 
 For this example we will use the sample data set **data.sample**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes. This link also contains all of the R code for this vignette. 
 
@@ -270,7 +270,7 @@ The following steps include the R coding for each of the steps but you can prefo
 
 ###Part A: Find the healthiest region in Canada
 
-Using the Project Bid Life Planning Tool, we will find the healthiest region in Canada: the region with the oldest life expectancy. 
+Using the Project Bid Life Planning Tool, we will find the healthiest region in Canada: the region with the highest life expectancy. 
 
 1. Load the data file: sample.data. 
 
