@@ -2,6 +2,8 @@
 
 #Mortality Population Risk Tool (MPoRT) 
 
+##Overview
+
 **Outcomes: 5-yr risk of death, Life Expectancy, Cause-deleted Life Expectancy**
 
 **Calculations**
@@ -18,31 +20,37 @@ Using MPoRT you are able to calculate:
 **Types of Questions**
 
 - What is the burden of smoking on life expectancy?
-- How many deaths would be prevented if everyone met their daily excercise requirements?
+- How many deaths would be prevented if everyone met their daily exercise requirements?
+
+**Description**
+
+A multivariable predictive risk model that estimates the future risk of all-cause death in Canada. It adjusts for health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity, and a wide range of other risk factors. 
 
 
+##MPoRT version description
 
-**Description**: A multivariable predictive risk model that estimates the future risk of all-cause death in Canada. It adjusts for health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity, and a wide range of other risk factors. 
-
-Versions of MPoRT have been developed since 2012 and used in various studies. Each version of MPoRT (v1.0, v1.2, v2.0) used the Ontario subset of the Canadian Community Health Survey (CCHS) for development and the survey respondents were linked to personal death records. In later versions of MPoRT (v1.2, v2.0) the following changes were made:, (a) algorithm variables were adjusted to improve predictions, and (b) the algorithms were validated using: the Ontario subset of CCHS of the years that were not used in development and the National CCHS dataset (excluding Ontario).
+Versions of MPoRT have been developed since 2012 and used in various studies. Each version of MPoRT (v1.0, v1.2, v2.0) used the Ontario subset of the Canadian Community Health Survey (CCHS) for development and the survey respondents were linked to personal death records. In later versions of MPoRT (v1.2, v2.0) the following changes were made:, (a) algorithm variables were adjusted to improve predictions, and (b) the algorithms were validated using: the Ontario subset of CCHS of the years that were not used in development and the National CCHS data set (excluding Ontario).
 
 
 **MPoRTv1.0**
+
 Was used in the "Seven More Years" report, a joint report with Public Health Ontario and IC/ES (https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years). 
-In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, physical inactivity and stress. There were approximately 550,000 person-years of follow up and over 6000 deaths in the development dataset. The algorthim used categorical predictor variables for health behaviours and sociodemographic factors.
+In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, physical inactivity and stress. There were approximately 550,000 person-years of follow up and over 6000 deaths in the development data set. The algorithm used categorical predictor variables for health behaviours and sociodemographic factors.
 
 **MPoRTv1.2**
-Was published in PLoS (https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002082).
-In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity (stress was removed due to its low prediction ability).  There were approximately 1 million person-years of follow up and over 9000 deaths in the development and validation datasets. The algorithm used multiple continous predictor variables, and added chronic disease predictor variables and interaction terms.
 
-**MPoRTv2.0 - The version used in Project Big Life's Planning Tool**
+Was published in PLoS (https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002082).
+In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity (stress was removed due to its low prediction ability).  There were approximately 1 million person-years of follow up and over 9000 deaths in the development and validation data sets. The algorithm used multiple continuous predictor variables, and added chronic disease predictor variables and interaction terms.
+
+**MPoRTv2.0 - Version in Project Big Life's Planning Tool**
+
 This version of MPoRT has not yet been published.
 
-*Development*: This predictive risk model was developed using Ontario subsets of the 2001 to 2008 CCHS and participants were linked to personal health records. There were approximately 1.3 million person-years of follow-up and over 15,000 deaths in the developmental dataset.
+*Development*: This predictive risk model was developed using Ontario subsets of the 2001 to 2008 CCHS and participants were linked to personal health records. There were approximately 1.3 million person-years of follow-up and over 15,000 deaths in the developmental data set.
 
-*Validation*: This predictive risk model was validated using three different datasets: Ontario subset of the 2009 to 2012 CCHS, National dataset (except Ontario) of the 2003 to 2008 CCHS, and the National dataset of the 2000 and 2005 National Health Interview Survey in the United States of America. In all validation datasets individuals were linked to personal health records.
+*Validation*: This predictive risk model was validated using three different data sets: Ontario subset of the 2009 to 2012 CCHS, National data set (except Ontario) of the 2003 to 2008 CCHS, and the National data set of the 2000 and 2005 National Health Interview Survey in the United States of America. In all validation data sets individuals were linked to personal health records.
 
-*Model*: Two MPoRTs have been created: one for males and one for females. Each model is a cox-porportional hazard model that looks similar to:
+*Model*: Two MPoRTs have been created: one for males and one for females. Each model is a cox-proportional hazard model that looks similar to:
 
 $$ \text{Mortality risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
 
@@ -54,7 +62,7 @@ Where:
 - $x$ = the exposure. The exposure can be continuous (e.g. age) or categorical (e.g. smoking status). 
 
 
-*Parameters*: The parameters (exposures) used in this multivariable predictive risk model are: 
+*Parameters*: The parameters (betas and exposures) used in this multivariable predictive risk model are: 
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(knitr)
 library(kableExtra)
@@ -103,3 +111,139 @@ kable(pred.MPoRT2) %>%
 #Adding the footnote 
   footnote(symbol = c("Age interaction included for all variables exept immigrant, fraction of time in Canada, and ethnicity", "Excluded in the male model, remains in the female model", "Excluded in the female model, remains in the male model"), footnote_as_chunk = TRUE)
 ```
+
+###Derived parameters
+
+In MPoRTv2 there are some parameters that are derived from varialbes within the data set. These include: pack-years of smoking, and the simplified diet score. 
+
+**Pack-years of smoking**
+
+Pack-years of smoking is generated from the CCHS smoking variables for: the type of smoker, age in which they started and (if applicable) stopped smoking daily, and how many cigarettes they smoke daily. It also considers their lifetime of smoking (100+ cigarettes), thier age, and the age of thier first cigarette. The more an individual smokes or the longer they smoke, the larger their pack-years will be.
+
+
+**Simplified Diet Score**
+
+The simplified diet score essentially adds the healthy diet variables together (daily servings of carrots, fruit, salad, vegetables) and subtracts the unhealthy diet variables (daily servings of juice and potato). 
+
+
+
+#Cause-deleted calculations
+
+This section will explain the math behind the Project Big Life Planning Tool cause-deleted calculations and additional considerations. 
+
+
+##Calculation
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ysX3M0cMSXQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+There are two parts to the calculations preformed in cause-deleted scenarios: (A) calculate the risk, and (B) calculate the health outcome: life expectancy or number of deaths.
+
+###Part A: Risk calculations
+
+The original multivariable predictive risk algorithm is: 
+
+$$ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
+
+
+**Step 1.** Modify the original algorithm to include the external coefficient(s). This means replacing all predictive hazard ratios/betas related to the health behaviour to the causal hazard ratios/betas. 
+
+- Remove the original regression coefficient(s) for the health behaviour.
+- Add the new external coefficient(s) to the algorithm. External coefficients are generated from either: causal models, or from systematic reviews or meta-analysis.
+
+$$ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
+    
+
+**Step 2.**	Risk is calculated using the modified algorithm created in Step 1 and the respondent’s original profile (e.g. current smoker). This is the “external coefficient risk”. 
+
+$$ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
+
+
+**Step 3.**	“Cause-deleted risk' " is calculated by setting an exposure to a reference (non-exposed) value (all other risk exposures remain unchanged).
+
+$$ \text{Cause-deleted risk' } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
+
+
+**Step 4.**	The “cause-deleted effect external” is calculated as “external coefficient risk” (Step 2) minus the “cause-deleted risk’. ”(Step 3).
+
+$$\text{Cause-deleted effect}_{external} = \text{External coefficient risk} - \text{Cause-deleted risk'}$$
+
+
+**Step 5.**	Original risk is calculated using the original algorithm and the original respondent’s profile.
+
+$$ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
+
+
+**Step 6.**	The “cause-deleted risk external” is calculated by “original risk” (Step 5) minus the “cause-deleted effect external” (Step 4).
+
+$$\text{Cause-deleted risk}_{ external} = \text{Original risk} - \text{Cause-deleted effect}_{external}$$
+
+```{r, echo=FALSE, fig.align='center', fig.cap= "Risk portion of the cause-deleted calculations"}
+knitr::include_graphics("Images/Method2 only -cbf.jpg")
+```
+
+
+###Part B: Health outcome calculations
+
+Using risks generated above you can then calculate:
+
+- cause-deleted life expectancy or life years lost attributable to a health behaviour (exposure)
+- cause-deleted number of deaths or number of deaths attributable to a health behaviour (exposure)
+
+
+**Life expectancy calculations**
+
+Step I: Calculate the original life expectancy by using the original risk (Step 5 above) in the sex-specific 5-year abridge period life tables.
+
+Step II: Calculate the cause-deleted life expectancy by using the cause-deleted risk external (Step 6 above) in the sex-specific 5-year abridge period life tables.
+
+Step III: Calculate life years attributable to a health behaviour by: original life expectancy (Step I) minus cause-deleted life expectancy (Step II):
+
+$$ \text{Life years due to exposure} = \text{Original life expectancy} - \text{Cause-deleted life expectancy}$$
+If the life years attributable to a health behaviour are negative then the value represents the life years lost due to smoking. 
+
+**Number of deaths calculations**
+
+Step I: Calculate the number of deaths that would occur using the original risk (Step 5 above).
+
+Step II: Calculate the number of deaths that would occur using the cause-deleted risk external (Step 6 above).
+
+Step III: Calculate the number of deaths that are attributable to a health behaviour (exposure) by: original number of deaths (Step I) minus cause-deleted number of deaths (Step II):
+
+$$\text{Deaths due to exposure} = \text{Original number of deaths} - \text{Cause-deleted number of deaths}$$
+
+
+
+##Additional considerations
+
+###Exposures with non-monotonic relationships
+
+Exposures (risk factors) with relationships that are non-monotonic (always increasing or always decreasing) can be used in cause-deleted calculations but special consideration may be warranted for both policy and analytic reasons.
+
+An example of exposure with a non-monotonic relationship is alcohol. Some studies suggest that there is a "J" shaped risk relationship for outcomes such as cardiovascular disease. 
+
+_Is this still a consideration if we are using 0 as the reference value?_
+_Need to complete the thought at the end of the paragraph_
+Alcohol drinking guidelines usually do not recommend people: non-drinkers or former-drinkers, initiate drinking. In this situation, the target population for cause-deleted calculations can be restricted to for respondents with moderate or higher drinking, or multiple reference exposures could be created…
+
+
+
+###Exposures with interactions or multiple coefficients
+
+The and cause-effect and cause-deleted risk estimates can be calculated for risk factors with interaction terms, including complex interactions or multiple coefficients. Examples include:
+
+-	risk factors with age interaction; 
+-	spline functions with terms for each knot point; or, 
+-	composite risks such as smoking which may coefficients for smoking status (current, former, never) and pack-years.
+
+All coefficients that related to a common risk factor should be simultaneously considered.
+
+## Exposures not in the original algorithm
+
+_Need to edit the text_
+The cause-effect and cause-deleted risk estimates can be calculated for risk factors that are not in the original algorithm. Method 2 must be used. Coefficient(s) are added to the model. Following cause-effect is calculated in the same way as other external risk factors. 
+There is an assumption that external risks do not change or influence the risk estimate when cause-effect and cause-deleted risk estimates are calculated using the approach. This means that there is no expectation that the external risk changes discrimination or calibration. 
+If external risk is expected to change risk prediction, then the external coefficient can first be added to the algorithm. Following and Method 1 is used to estimate cause-effect and cause-deleted risk. If possible, the new coefficient should be centered when adding to the algorithm to reduce the likelihood of poor calibration (bias or prediction that over estimates risk). 
+ This approach can be considered when the external risk in an independent risk with effect that is not correlated with other coefficients.
+
+

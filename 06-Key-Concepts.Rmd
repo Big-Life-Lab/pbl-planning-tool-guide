@@ -294,108 +294,46 @@ What would be the life expectancy of a population if be no one in the population
 
 There are two distinct terms in cause-deleted calculations:
 
-- **Cause-deleted life expectancy** is the estimated life expectancy for the counterfactual population where a specific cause (e.g. smoking) never existed. E.g. the counterfactual population was always never smokers.
+- **Cause-deleted life expectancy** is the estimated life expectancy for the counterfactual population where a specific cause (e.g. smoking) never existed. For instance, everyone in the counterfactual population were always never smokers.
 
-- **Cause-deleted effect of life expectancy** or **life years lost due to the cause** is the full effect of the cause (e.g smoking) in the population. E.g. In a population 3 years of life are lost due to individuals in that population smoking: either currently or previously.
+- **Cause-deleted effect on life expectancy** or **life years lost due to the cause** is the full effect of the cause (e.g. smoking) in the population. For instance, 3 years of life are lost in a population due to individuals smoking: either currently or previously.
 
-If multiple causes are selected (e.g. smoking and physical inactivity) the cause-deleted life expectancy calculated accounts for both of these effects and the cause-deleted effect of life expectancy (or life years lost) is calculated for each individual cause.
+If multiple causes are selected (e.g. smoking and physical inactivity) the:
 
+ - cause-deleted life expectancy calculated accounts for both of these effects 
+ - cause-deleted effect on life expectancy (or life years lost due to the cause) is calculated for each individual cause. There will be both the cause-deleted effect of smoking on life expectancy and cause-deleted effect of physical inactivity on life expectancy.
+ 
 <div class="FOO">
 **Note:** $\text{Cause-deleted life expectancy of smoking and physical inactivity} \neq$
 $\text{Cause-deleted effect of smoking} + \text{Cause-deleted effect of physical inactivity}$
 
 This is because individuals in the population may be both smokers and physically inactive. 
-
 </div>
 
-_Insert table with the reference levels for each of the health behaviours_
+###Cause-deleted references
 
-###Cause-deleted calculation
+The following table describes the reference exposures that are used for each of the cause-deleted scenarios:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ysX3M0cMSXQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+(cause.del.ref <- data.frame(
+    Health.Behaviour = c("Smoking", "Alcohol Consumption", "Physical Activity", "Diet"),
+    Reference = c("Never smoker", "0 drinks/week", "3.0 METs/day", "A total of: 5 fruit and vegetables, 0 juice, and 0 potato, servings/day")
+    ))#closingbracket 
 
-
-There are two parts to the calculations preformed in cause-deleted scenarios: (A) calculate the risk, and (B) calculate the health outcome: life expectancy or number of deaths.
-
-**Part A: Risk calculations**
-
-The original multivariable predictive risk algorithm is: 
-
-$$ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
-
-
-**Step 1.** Modify the original algorithm to include the external coefficient(s). This means replacing all predictive hazard ratios/betas related to the health behaviour to the causal hazard ratios/betas. 
-
-- Remove the original regression coefficient(s) for the health behaviour.
-- Add the new external coefficient(s) to the algorithm. External coefficients are generated from either: causal models, or from systematic reviews or meta-analysis.
-
-$$ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
-    
-
-**Step 2.**	Risk is calculated using the modified algorithm created in Step 1 and the respondent’s original profile (e.g. current smoker). This is the “external coefficient risk”. 
-
-$$ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
-
-
-**Step 3.**	“Cause-deleted risk' " is calculated by setting an exposure to a reference (non-exposed) value (all other risk exposures remain unchanged).
-
-$$ \text{Cause-deleted risk' } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
-
-
-**Step 4.**	The “cause-deleted effect external” is calculated as “external coefficient risk” (Step 2) minus the “cause-deleted risk’. ”(Step 3).
-
-$$\text{Cause-deleted effect}_{external} = \text{External coefficient risk} - \text{Cause-deleted risk'}$$
-
-
-**Step 5.**	Original risk is calculated using the original algorithm and the original respondent’s profile.
-
-$$ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
-
-
-**Step 6.**	The “cause-deleted risk external” is calculated by “original risk” (Step 5) minus the “cause-deleted effect external” (Step 4).
-
-$$\text{Cause-deleted risk}_{ external} = \text{Original risk} - \text{Cause-deleted effect}_{external}$$
-
-```{r, echo=FALSE, fig.align='center', fig.cap= "Risk portion of the cause-deleted calculations"}
-knitr::include_graphics("Images/Method2 only -cbf.jpg")
+```
+```{r, echo=FALSE}
+#Creating the table
+kable(cause.del.ref) %>%
+  kable_styling(full_width = T)
 ```
 
 
-**Part B: Health outcome calculations**
+###Cause-deleted calculation overview
 
-Using risks generated above you can then calculate:
-
-- cause-deleted life expectancy or life years lost attributable to a health behaviour (exposure)
-- cause-deleted number of deaths or number of deaths attributable to a health behaviour (exposure)
-
-
-**Life expectancy calculations**
-
-Step I: Calculate the original life expectancy by using the original risk (Step 5 above) in the sex-specific 5-year abridge period life tables.
-
-Step II: Calculate the cause-deleted life expectancy by using the cause-deleted risk external (Step 6 above) in the sex-specific 5-year abridge period life tables.
-
-Step III: Calculate life years attributable to a health behaviour by: original life expectancy (Step I) minus cause-deleted life expectancy (Step II):
-
-$$ \text{Life years due to exposure} = \text{Original life expectancy} - \text{Cause-deleted life expectancy}$$
-If the life years attributable to a health behaviour are negative then the value represents the life years lost due to smoking. 
-
-**Number of deaths calculations**
-
-Step I: Calculate the number of deaths that would occur using the original risk (Step 5 above).
-
-Step II: Calculate the number of deaths that would occur using the cause-deleted risk external (Step 6 above).
-
-Step III: Calculate the number of deaths that are attributable to a health behaviour (exposure) by: original number of deaths (Step I) minus cause-deleted number of deaths (Step II):
-
-$$\text{Deaths due to exposure} = \text{Original number of deaths} - \text{Cause-deleted number of deaths}$$
-
+The cause-deleted 
 
 
 
 ##Limitations
-
-
-
-
-
