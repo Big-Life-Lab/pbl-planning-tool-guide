@@ -1,4 +1,5 @@
 book_filename: "bookdown-BATCH_Guidance"
+rmd_subdir: ["Rmd/"]
 language:
   ui:
     chapter_name: "Chapter "
