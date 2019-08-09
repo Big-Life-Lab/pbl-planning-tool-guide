@@ -1,6 +1,8 @@
 book_filename: "bookdown-BATCH_Guidance"
+rmd_subdir: ["Rmd/"]
 language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
 output_dir: "docs"
+clean: ["./packages.bib"]
