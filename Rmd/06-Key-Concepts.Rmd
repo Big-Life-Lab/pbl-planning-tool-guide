@@ -44,13 +44,7 @@ The Project Big Life Planning Team is currently working to adjust the algorithms
 
 ###Sample Files
 
-- data.sample.csv this is fabricated data set that includes all variables required for calculation, recommend for calculation, and needed for the real life application examples (found in Chapter 5). It includes all required and recommended variables: age, sex, BMI, smoking habits, alcohol consumption, diet components, daily physical activity expenditure, chronic conditions, ethnicity, immigration status, and education. 
-
-<div class="FOO">
-**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File from if was created only for example purposes and **cannot** be used for analysis.
-</div>
-
-
+- data.sample.csv this is fabricated data set that includes all variables required for calculation, recommend for calculation, and needed for the real life application examples (found in Chapter 5). While this data set was model on the response rates of the 2013/2014 CCHS PUMF (e.g. approximately 80% of responders did not have high blood pressure (CCC_071)), the data is fabricated and random. It **cannot be used for real analysis**.
 
 
 
@@ -133,10 +127,17 @@ By row measures: (ref:byrowcalc)
 
 ###Weighted vs unweighted
 
+Weights are used in complex surveys like the Canadian Community Healthy Survey (CCHS). A weight is given to each respondent in the survey and the weight corresponds to the number of individuals in the population the respondent represents. 
+
+When a data set has weights, like the CCHS PUMF data set, the weights are used to calculate the population's outcome e.g. number of deaths. 
+
+When a survey does not have weights, the the population's outcome is not calculated with weights. 
+
+In either case, weights are not used in the calculation of an individual's outcome (e.g. an individual's 5 year risk of mortality). 
+
 
 
 ##Calculations: specific health outcomes
-
 
 ###Risk of health outcome
 
@@ -158,11 +159,11 @@ Categorical exposures are represented by dummy/factor variables. Each category h
 The number of health outcomes (e.g. summary - deaths) is calculated through the following steps:
 
 1. Risk of the health outcome is calculated for each individual (row) in the data set using the mutlivariable predictive risk algorithm.
+
 2. Each individual's (row) risk is weighted with their corresponding survey weight (CCHS PUMF = WTS_M and CCHS shared file = WTS_S).
 
-$$ \text{Weighted risk of death } = \text{Individual's risk of death}*\text{Individual's survey weight}$$
-
 3. The weighted mean of the health outcome (e.g. mean risk of death) is calculated.
+
 4. The weighted mean is then multiplied with the total number of individuals in the population to generate the number of health outcomes (e.g. number of deaths in 5 years).
 
 
@@ -181,9 +182,6 @@ Life expectancy is calculated separately for males and females.
 2. Male individuals are grouped into the 5-year age groups that are used in the 5-year abridge life tables (e.g. 40-44 years old).
 
 3. The weighted average risk of death for each age group is calculated. 
-
-(Maybe modify this formula and put it in the number of health outcomes section?)
-$$ \text{Weighted risk of death for age group} = \sum(\text{Weighted risk of deaths}) \div \text{Number of individuals in age group}$$
 
 4. A male 5-year abridge life table is created using the weighted average risks of death (q(x)) for each age group and the median age for the age group. 
 
@@ -312,7 +310,7 @@ This is because individuals in the population may be both smokers and physically
 
 ###Cause-deleted references
 
-The following table describes the reference exposures that are used for each of the cause-deleted scenarios:
+The following table describes the reference exposures used in the counterfactual populations for each of the health behaviours in the cause-deleted calculations:
 
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(knitr)
@@ -336,4 +334,22 @@ The cause-deleted
 
 
 
-##Limitations
+##Assumptions and Limitations
+
+###Limitation: Included population
+
+The CCHS survey used to develop the mortality algorithm in the Project Big Life Planning Tool, include only individuals living in the community setting. Therefore individuals that live: in long-term care facilities, First Nations reserves, and full-time members of the Canadian Forces were excluded. 
+
+###Limitation: Under-reporting of health behaviours
+
+The algorithms used in the Project Big Life Planning Tool use population healht surveys with self-reported data to predict risk and health outcomes. With self-reported surveys there is the possiblitiy of social desirability bias, where respondents over-report what they percieve to be healthy behaviours and under-report what they percieve to be unhealthy behaviours.
+
+This is particularly the case with alcohol, where there is a consistent under-reporting of alcohol consumption in most population health surveys. In Ontario, the sum of self-reported alcohol consumption is about half the volume of alcohol sold {@ONalcohol}.
+
+In addition the full spectrum of the behaviour has not been captured due to limited questions about the health behaviour in surveys. With diet there were few questions on the CCHS survey and the questions did not capture diet other diet factors like sodium intake, trans fat, or other healthy/unhealthy behaviours. It is likely that the burden of poor diet is under-estimated.
+
+
+###Limitation: Use of the tool
+
+_Can the tool be used for historic analysis e.g. OPH proposed scenario #2_
+

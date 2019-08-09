@@ -110,7 +110,9 @@ Stratification can only occur on categorical variables.
 
 (ref:warning) 
 
+**Weights**
 
+A weight is given to each respondent in the survey and the weight corresponds to the number of individuals in the population the respondent represents. 
 
 
 (ref:byrowcalc) When selected, the result will be the measurement for each individual (e.g. row) in the dataset.

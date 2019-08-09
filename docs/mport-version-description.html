@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.9 Download results | Planning Tool Guidance</title>
+  <title>A.2 MPoRT version description | Planning Tool Guidance</title>
   <meta name="description" content="Guidance on how to use the Project Big Life Planning Tool." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.9 Download results | Planning Tool Guidance" />
+  <meta property="og:title" content="A.2 MPoRT version description | Planning Tool Guidance" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="Big-Life-Lab/BATCH-Guidance" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.9 Download results | Planning Tool Guidance" />
+  <meta name="twitter:title" content="A.2 MPoRT version description | Planning Tool Guidance" />
   
   <meta name="twitter:description" content="Guidance on how to use the Project Big Life Planning Tool." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="visualize-data.html">
-<link rel="next" href="resolve-warning-or-error-messages.html">
+<link rel="prev" href="overview.html">
+<link rel="next" href="cause-deleted-calculations.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -186,19 +186,430 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="download-results" class="section level2">
-<h2><span class="header-section-number">4.9</span> Download results</h2>
-<p>Click on the <strong>Download results</strong> button under the <strong>Results</strong> section.</p>
-<p>Select which calculations you’d like to download.</p>
-<p><em>To Do: Screenshot of all the calculation options once the platform is fixed.</em></p>
+<div id="mport-version-description" class="section level2">
+<h2><span class="header-section-number">A.2</span> MPoRT version description</h2>
+<p>Versions of MPoRT have been developed since 2012 and used in various studies. Each version of MPoRT (v1.0, v1.2, v2.0) used the Ontario subset of the Canadian Community Health Survey (CCHS) for development and the survey respondents were linked to personal death records. In later versions of MPoRT (v1.2, v2.0) the following changes were made:, (a) algorithm variables were adjusted to improve predictions, and (b) the algorithms were validated using: the Ontario subset of CCHS of the years that were not used in development and the National CCHS data set (excluding Ontario).</p>
+<p><strong>MPoRTv1.0</strong></p>
+<p>Was used in the “Seven More Years” report, a joint report with Public Health Ontario and IC/ES (<a href="https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years" class="uri">https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years</a>). In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, physical inactivity and stress. There were approximately 550,000 person-years of follow up and over 6000 deaths in the development data set. The algorithm used categorical predictor variables for health behaviours and sociodemographic factors.</p>
+<p><strong>MPoRTv1.2</strong></p>
+<p>Was published in PLoS (<a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002082" class="uri">https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002082</a>). In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity (stress was removed due to its low prediction ability). There were approximately 1 million person-years of follow up and over 9000 deaths in the development and validation data sets. The algorithm used multiple continuous predictor variables, and added chronic disease predictor variables and interaction terms.</p>
+<p><strong>MPoRTv2.0 - Version in Project Big Life’s Planning Tool</strong></p>
+<p>This version of MPoRT has not yet been published.</p>
+<p><em>Development</em>: This predictive risk model was developed using Ontario subsets of the 2001 to 2008 CCHS and participants were linked to personal health records. There were approximately 1.3 million person-years of follow-up and over 15,000 deaths in the developmental data set.</p>
+<p><em>Validation</em>: This predictive risk model was validated using three different data sets: Ontario subset of the 2009 to 2012 CCHS, National data set (except Ontario) of the 2003 to 2008 CCHS, and the National data set of the 2000 and 2005 National Health Interview Survey in the United States of America. In all validation data sets individuals were linked to personal health records.</p>
+<p><em>Model</em>: Two MPoRTs have been created: one for males and one for females. Each model is a cox-proportional hazard model that looks similar to:</p>
+<p><span class="math display">\[ \text{Mortality risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(t\)</span> = survival time</li>
+<li><span class="math inline">\(h_0(t)\)</span> = the baseline hazard</li>
+<li><span class="math inline">\(\beta_{pred}\)</span> = predictive hazard ratios for the exposures</li>
+<li><span class="math inline">\(x\)</span> = the exposure. The exposure can be continuous (e.g. age) or categorical (e.g. smoking status).</li>
+</ul>
+<p><em>Parameters</em>: The parameters (betas and exposures) used in this multivariable predictive risk model are:</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Category
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Variable
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Scale
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="2">
+Demographic
+</td>
+<td style="text-align:left;">
+Age*
+</td>
+<td style="text-align:left;">
+Continous
+</td>
+<td style="text-align:left;">
+5 knot spline. Valid range 20 to 102
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex
+</td>
+<td style="text-align:left;">
+Dichotomous
+</td>
+<td style="text-align:left;">
+Stratified Female/Male
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="9">
+Health Behaviour
+</td>
+<td style="text-align:left;">
+Pack years of smoking
+</td>
+<td style="text-align:left;">
+Continous
+</td>
+<td style="text-align:left;">
+3 knot spline. Valid range: 0 to 78 (Female), 0 to 112.5 (Male)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="4">
+Smoking Status
+</td>
+<td style="text-align:left;">
+Categorical
+</td>
+<td style="text-align:left;">
+Non-smoker
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Current Smoker
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Former Smoker &lt;= 5 years
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Former &gt; 5 years
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Alcohol (number of drinks per week)
+</td>
+<td style="text-align:left;">
+Continous
+</td>
+<td style="text-align:left;">
+4 knot spline (Females) and 3 knot spline (Males). Valid range: 0 to 25 (Female), 0 to 50 (Male)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Former/non-drinker
+</td>
+<td style="text-align:left;">
+Dichotomous
+</td>
+<td style="text-align:left;">
+Yes/No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Simplified diet score
+</td>
+<td style="text-align:left;">
+Continous
+</td>
+<td style="text-align:left;">
+3 knot spline. Valid range: -18.9 to 20.7 (Female), -16.8 to 18.4 (Male)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Leisure physical activity (MET)
+</td>
+<td style="text-align:left;">
+Continous
+</td>
+<td style="text-align:left;">
+3 knot spline. Valid range: 0 to 12.4 (Female), 0 to 16 (Male)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="15">
+Socio-demographic
+</td>
+<td style="text-align:left;vertical-align: top !important;" rowspan="6">
+Ethnicity
+</td>
+<td style="text-align:left;">
+Categorical
+</td>
+<td style="text-align:left;">
+White
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Black
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Chinese
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Arab; South Asian; West Asian
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Filipino; Japanese; Korean; Southeach Asian
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Other; Indigenous; Latin American; Multiple origin; unknown
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Immigrant
+</td>
+<td style="text-align:left;">
+Dichotomous
+</td>
+<td style="text-align:left;">
+Yes/No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fraction of lifetime in Canada
+</td>
+<td style="text-align:left;">
+Continous
+</td>
+<td style="text-align:left;">
+3 knot spline<sup>†</sup>. Valid range: 0 to 1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="4">
+Education
+</td>
+<td style="text-align:left;">
+Categorical
+</td>
+<td style="text-align:left;">
+Less than secondary
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Secondary School Graduation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Some Post-Secondary
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Post-Secondary Graduation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="3">
+Neighbourhood social and material deprivation
+</td>
+<td style="text-align:left;">
+Ordinal
+</td>
+<td style="text-align:left;">
+Low (1st or 2nd quantile
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+High (4th or 5th quantile)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Moderate (all others)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="10">
+Chronic Conditions
+</td>
+<td style="text-align:left;">
+Diabetes
+</td>
+<td style="text-align:left;">
+Dichotomous
+</td>
+<td style="text-align:left;">
+Yes/No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+High Blood Pressure
+</td>
+<td style="text-align:left;">
+Dichotomous
+</td>
+<td style="text-align:left;">
+Yes/No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chronic Respiratory Disease
+</td>
+<td style="text-align:left;">
+Dichotomous
+</td>
+<td style="text-align:left;">
+Yes/No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mood Disorder
+</td>
+<td style="text-align:left;">
+Dichotomous
+</td>
+<td style="text-align:left;">
+Yes/No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cancer
+</td>
+<td style="text-align:left;">
+Dichotomous
+</td>
+<td style="text-align:left;">
+Yes/No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dementia
+</td>
+<td style="text-align:left;">
+Dichotomous
+</td>
+<td style="text-align:left;">
+Yes/No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Heart Disease
+</td>
+<td style="text-align:left;">
+Dichotomous
+</td>
+<td style="text-align:left;">
+Yes/No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Stroke
+</td>
+<td style="text-align:left;">
+Dichotomous
+</td>
+<td style="text-align:left;">
+Yes/No
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Epilepsy
+</td>
+<td style="text-align:left;">
+Dichotomous
+</td>
+<td style="text-align:left;">
+Yes/No<sup>‡</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI
+</td>
+<td style="text-align:left;">
+Continous
+</td>
+<td style="text-align:left;">
+3 knot spline. Valid range: 8.9 to 47.2 (Female), 8.6 to 43.7 (Male)
+</td>
+</tr>
+</tbody>
+</table>
+<tfoot>
+<tr>
+<td style="padding: 0; border: 0;" colspan="100%">
+<sup>*</sup> Age interaction included for all variables exept immigrant, fraction of time in Canada, and ethnicity <sup>†</sup> Excluded in the male model, remains in the female model <sup>‡</sup> Excluded in the female model, remains in the male model
+</td>
+</tr>
+</tfoot>
 </div>
+<div id="derived-parameters" class="section level3">
+<h3><span class="header-section-number">A.2.1</span> Derived parameters</h3>
+<p>In MPoRTv2 there are some parameters that are derived from varialbes within the data set. These include: pack-years of smoking, and the simplified diet score.</p>
+<p><strong>Pack-years of smoking</strong></p>
+<p>Pack-years of smoking is generated from: the type of smoker, age in which they started smoking daily, how many cigarettes they smoke daily, and if applicable the age in which they stopped smoking daily. Pack-years of smoking also includes: their age, the age of thier first cigarette, and whether throughout thier life they have smoked 100+ cigarettes.</p>
+<p>In summary, the more an individual smokes or the longer they smoke, the greater the pack-years of smoking.</p>
+<p><strong>Simplified Diet Score</strong></p>
+<p>The simplified diet score essentially adds the healthy diet variables together (daily servings of carrots, fruit, salad, vegetables) and subtracts the unhealthy diet variables (daily servings of juice and potato).</p>
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="visualize-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="resolve-warning-or-error-messages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cause-deleted-calculations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -228,7 +639,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/Rmd/04-How-To.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/Rmd/08-Appendix_1.Rmd",
 "text": "Edit"
 },
 "history": {

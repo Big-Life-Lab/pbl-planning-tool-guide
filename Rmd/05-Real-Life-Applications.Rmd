@@ -24,7 +24,11 @@ By showing the number of deaths by strata, the reader can see the distribution o
 
 **Steps**
 
-1. Select the sample file XXXX under "Sample files". 
+1. Select the sample file data.sample.csv under "Sample files". 
+
+<div class="FOO">
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely fabricated data set and can only be used for examplary purposes.
+</div>
 
 2. Select the calculation: Summary Measure – Deaths (Five years)
 
@@ -45,7 +49,11 @@ To show how much an unhealthy behaviour impacts life expectancy we use the scena
 
 **Steps**
 
-1. Select the sample file XXXX under "Sample files". 
+1. Select the sample file data.sample.csv under "Sample files". 
+
+<div class="FOO">
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely fabricated data set and can only be used for examplary purposes.
+</div>
 
 2. Select initial calculation: Summary Measure – Life Expectancy (Summary)
 
@@ -84,7 +92,7 @@ C. The difference in daily cycling levels for transportation of Canadians and Du
 
 D. Predict how Canadian life expectancy would change if Canadians biked like the Dutch.
 
-For this example we will use the sample data set **data.sample**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes. This link also contains all of the R code for this vignette. 
+For this example we will use the sample data set **data.sample.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes. This link also contains all of the R code for this vignette. 
 
 
 The following steps include the R coding for each of the steps but you can preform the steps in any other software program.
@@ -103,8 +111,12 @@ We will use 3 variables in our sample data set which are based off of the 2013/2
 
 **Step 1:** Import your data set to R. 
 ```{}
-    PA.data <- read.csv("data.sample")
+    PA.data <- read.csv("data.sample.csv")
 ```   
+<div class="FOO">
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely fabricated data set and can only be used for examplary purposes.
+</div>
+
 <div class="AOO">
 **Assumption #1:** we assume individuals 65 or older are retired and therefore not cycling to/from work/school. Therefore, we will only evaluate individuals that are < 65 years old.
 </div>
@@ -223,7 +235,7 @@ Canadians need to increase their daily energy expenditure from cycling from 0.07
 
 Use the Project Big Life Planning Tool for the following steps:
 
-1. Load your data file: XXXX to the Project Big Life Planning Tool. 
+1. Load your data file: data.sample.csv to the Project Big Life Planning Tool. 
 
 2. Select initial calculation: Summary Measure – Life Expectancy (Summary)
 
@@ -264,7 +276,7 @@ C. what would be the mortality outcomes be if Ottawa's health behaviours were th
 
 Here we will use the average life expectancy to determine the health of regions: the higher the life expectancy for the region the healthier that region is.
 
-For this example we will use the sample data set **data.sample**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes. This link also contains all of the R code for this vignette. 
+For this example we will use the sample data set **data.sample.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes. This link also contains all of the R code for this vignette. 
 
 The following steps include the R coding for each of the steps but you can preform the steps in any other software program.
 
@@ -272,7 +284,11 @@ The following steps include the R coding for each of the steps but you can prefo
 
 Using the Project Bid Life Planning Tool, we will find the healthiest region in Canada: the region with the highest life expectancy. 
 
-1. Load the data file: sample.data. 
+1. Load the data file: data.sample.csv. 
+
+<div class="FOO">
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely fabricated data set and can only be used for examplary purposes.
+</div>
 
 2. Select calculation: Summary Measure – Life Expectancy (Summary)
 
@@ -424,7 +440,7 @@ b. Calculate the average of each diet component for XXX and the Ottawa region.
 
 We’ll now run a scenario where the Ottawa region acts like XXX. Ottawa will now have the health behaviours of XXX, when the health behaviour of XXX is healthier then Ottawa's. 
 
-1.	Load your data file: data.sample. 
+1.	Load your data file: data.sample.csv 
 
 2.	Select initial calculation: Summary Measure – Life Expectancy (Summary)
 

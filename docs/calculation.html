@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.9 Download results | Planning Tool Guidance</title>
+  <title>B.1 Calculation | Planning Tool Guidance</title>
   <meta name="description" content="Guidance on how to use the Project Big Life Planning Tool." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.9 Download results | Planning Tool Guidance" />
+  <meta property="og:title" content="B.1 Calculation | Planning Tool Guidance" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="Big-Life-Lab/BATCH-Guidance" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.9 Download results | Planning Tool Guidance" />
+  <meta name="twitter:title" content="B.1 Calculation | Planning Tool Guidance" />
   
   <meta name="twitter:description" content="Guidance on how to use the Project Big Life Planning Tool." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="visualize-data.html">
-<link rel="next" href="resolve-warning-or-error-messages.html">
+<link rel="prev" href="cause-deleted-calculations.html">
+<link rel="next" href="additional-considerations.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -186,19 +186,64 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="download-results" class="section level2">
-<h2><span class="header-section-number">4.9</span> Download results</h2>
-<p>Click on the <strong>Download results</strong> button under the <strong>Results</strong> section.</p>
-<p>Select which calculations you’d like to download.</p>
-<p><em>To Do: Screenshot of all the calculation options once the platform is fixed.</em></p>
+<div id="calculation" class="section level2">
+<h2><span class="header-section-number">B.1</span> Calculation</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ysX3M0cMSXQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>There are two parts to the calculations preformed in cause-deleted scenarios: (A) calculate the risk, and (B) calculate the health outcome: life expectancy or number of deaths.</p>
+<div id="part-a-risk-calculations" class="section level3">
+<h3><span class="header-section-number">B.1.1</span> Part A: Risk calculations</h3>
+<p>The original multivariable predictive risk algorithm is:</p>
+<p><span class="math display">\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
+<p><strong>Step 1.</strong> Modify the original algorithm to include the external coefficient(s). This means replacing all predictive hazard ratios/betas related to the health behaviour to the causal hazard ratios/betas.</p>
+<ul>
+<li>Remove the original regression coefficient(s) for the health behaviour.</li>
+<li>Add the new external coefficient(s) to the algorithm. External coefficients are generated from either: causal models, or from systematic reviews or meta-analysis.</li>
+</ul>
+<p><span class="math display">\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
+<p><strong>Step 2.</strong> Risk is calculated using the modified algorithm created in Step 1 and the respondent’s original profile (e.g. current smoker). This is the “external coefficient risk”.</p>
+<p><span class="math display">\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
+<p><strong>Step 3.</strong> “Cause-deleted risk’” is calculated by setting an exposure to a reference (non-exposed) value (all other risk exposures remain unchanged).</p>
+<p><span class="math display">\[ \text{Cause-deleted risk&#39; } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
+<p><strong>Step 4.</strong> The “cause-deleted effect external” is calculated as “external coefficient risk” (Step 2) minus the “cause-deleted risk’.”(Step 3).</p>
+<p><span class="math display">\[\text{Cause-deleted effect}_{external} = \text{External coefficient risk} - \text{Cause-deleted risk&#39;}\]</span></p>
+<p><strong>Step 5.</strong> Original risk is calculated using the original algorithm and the original respondent’s profile.</p>
+<p><span class="math display">\[ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
+<p><strong>Step 6.</strong> The “cause-deleted risk external” is calculated by “original risk” (Step 5) minus the “cause-deleted effect external” (Step 4).</p>
+<p><span class="math display">\[\text{Cause-deleted risk}_{ external} = \text{Original risk} - \text{Cause-deleted effect}_{external}\]</span></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
+<img src="Images/Method2%20only%20-cbf.jpg" alt="Risk portion of the cause-deleted calculations"  />
+<p class="caption">
+Figure B.1: Risk portion of the cause-deleted calculations
+</p>
+</div>
+</div>
+<div id="part-b-health-outcome-calculations" class="section level3">
+<h3><span class="header-section-number">B.1.2</span> Part B: Health outcome calculations</h3>
+<p>Using risks generated above you can then calculate:</p>
+<ul>
+<li>cause-deleted life expectancy or life years lost attributable to a health behaviour (exposure)</li>
+<li>cause-deleted number of deaths or number of deaths attributable to a health behaviour (exposure)</li>
+</ul>
+<p><strong>Life expectancy calculations</strong></p>
+<p>Step I: Calculate the original life expectancy by using the original risk (Step 5 above) in the sex-specific 5-year abridge period life tables.</p>
+<p>Step II: Calculate the cause-deleted life expectancy by using the cause-deleted risk external (Step 6 above) in the sex-specific 5-year abridge period life tables.</p>
+<p>Step III: Calculate life years attributable to a health behaviour by: original life expectancy (Step I) minus cause-deleted life expectancy (Step II):</p>
+<p><span class="math display">\[ \text{Life years due to exposure} = \text{Original life expectancy} - \text{Cause-deleted life expectancy}\]</span> If the life years attributable to a health behaviour are negative then the value represents the life years lost due to smoking.</p>
+<p><strong>Number of deaths calculations</strong></p>
+<p>Step I: Calculate the number of deaths that would occur using the original risk (Step 5 above).</p>
+<p>Step II: Calculate the number of deaths that would occur using the cause-deleted risk external (Step 6 above).</p>
+<p>Step III: Calculate the number of deaths that are attributable to a health behaviour (exposure) by: original number of deaths (Step I) minus cause-deleted number of deaths (Step II):</p>
+<p><span class="math display">\[\text{Deaths due to exposure} = \text{Original number of deaths} - \text{Cause-deleted number of deaths}\]</span></p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="visualize-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="resolve-warning-or-error-messages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="cause-deleted-calculations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="additional-considerations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -228,7 +273,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/Rmd/04-How-To.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/Rmd/08-Appendix_1.Rmd",
 "text": "Edit"
 },
 "history": {

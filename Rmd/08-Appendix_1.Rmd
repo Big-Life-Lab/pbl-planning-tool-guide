@@ -118,7 +118,9 @@ In MPoRTv2 there are some parameters that are derived from varialbes within the 
 
 **Pack-years of smoking**
 
-Pack-years of smoking is generated from the CCHS smoking variables for: the type of smoker, age in which they started and (if applicable) stopped smoking daily, and how many cigarettes they smoke daily. It also considers their lifetime of smoking (100+ cigarettes), thier age, and the age of thier first cigarette. The more an individual smokes or the longer they smoke, the larger their pack-years will be.
+Pack-years of smoking is generated from: the type of smoker, age in which they started smoking daily, how many cigarettes they smoke daily, and if applicable the age in which they stopped smoking daily. Pack-years of smoking also includes: their age, the age of thier first cigarette, and whether throughout thier life they have smoked 100+ cigarettes.
+
+In summary, the more an individual smokes or the longer they smoke, the greater the pack-years of smoking.
 
 
 **Simplified Diet Score**
