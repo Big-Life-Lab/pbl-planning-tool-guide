@@ -40,7 +40,7 @@ _TO DO: Insert the image for the PBL planning tool_
 
 ###Who made the Project Big Life Planning Tool?
 
-The Project Big Life Planning Tool was developed by the Project Big Life Team. The Project Big Life Team is part of the ICES. The below video explains what ICES is. 
+The Project Big Life Planning Tool was developed by the [Project Big Life](https://www.projectbiglife.ca) Team based at the [Ottawa Hospital](http://www.ohri.ca/home.asp) and the [Bruyère Research Institute](https://www.bruyere.org/en/bruyere-research-institute). The planning tool was made in collaboration with [Public Health Ontario](https://www.publichealthontario.ca/), the [Population Helath Analytics Lab](https://pophealthanalytics.com/) at the University of Toronto and [Ottawa Public Health](http://www.ottawapublichealth.ca/en/index.aspx). The tool supports the [Seven More Years](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) report, a study that examined the health behaviour attributale mortality in Ontario. Algorithms used in the planning tool were developed using linked population data housed at [ICES](https://www.ices.on.ca/) and validated at Statistics Canada. All algorithms have been published in peer-review journals. See [Project Big Life](https://www.projectbiglife.ca/science) or [references](#mport) to the specific algorithms.
 
 ```{r embed2, out.extra='style="border: none;"', out.width='99%', echo=FALSE}
 knitr::include_url('https://www.youtube.com/embed/5pZhRSM1cyk')
