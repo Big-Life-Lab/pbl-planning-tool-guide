@@ -16,7 +16,9 @@ These guides will cover the topics covered in the tutorial but in greater detail
 
 ##Customize Data
 
-Prior to using the Project Big Life Planning Tool you may want to manipulate your data set. Reasons include: customized filter(s) and/or customized stratification(s). 
+The planning tool requires the CCHS 2013/14 PUMF or Shared version as a csv format. Other population health surveys can be used if the required variables are transformed to the specificationso fo the CCHS 2013/14. There are planx to support the CCHS versions from 2001 to 2013. 
+
+Prior to using the Project Big Life Planning Tool you may want to transform your data set. Reasons include: customized filter(s) and/or customized stratification(s). Any variable that you create can be selected within the planning tool in the filter and/or stratify options.
 
 Data manipulation can occur on any programming software: R, SAS, STATA, etc, as long as you output your data set as a '.csv' file. 
 
@@ -57,11 +59,9 @@ The following steps show the R code that would be used to create these strata:
 
 This new column can be now be used with the Project Big Life Planning Tool for the purpose of filtering or stratification.
 
-
-
 ##Load data 
 
-Only one data set can be used on the platform for each calculation; a calculation cannot be preformed across multiple data sets.
+Only one data set can be used on the platform for each calculation; a calculation cannot be preformed across multiple data sets. However, prior to using the planning tool, you can merge multiple datasets to the CCHS 2013/14 format.
 
 <div class="FOO">
 **Note:** Data sets loaded to the Project Big Life Planning Tool remains on your computer and is not uploaded or sent anywhere.

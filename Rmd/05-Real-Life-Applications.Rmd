@@ -9,11 +9,11 @@ This chapter provides you with examples of how Project Big Life's Planning Tool 
 
 ## Health Status Report
 
-In this example we will highlight statistics that could reported in health status reports. Health status reports are a way to report the health state for a population and the factors that influence the population’s health. Information from health status reports are used to inform policy, planning, and resource allocation.
+In this example, we will highlight statistics that could reported in health status reports. Health status reports are a way to report the health state for a population and the factors that influence the population’s health. Information from health status reports are used to inform policy, planning, and resource allocation.
 
 In this example we will calculate:
 
-- The predicted number of deaths by strata
+- The predicted number of deaths by strata (e.g. by sex [males and females])
 - The impact of eliminating unhealthy behaviours on life expectancy
 
 For this example we will focus on the population of Alberta.
