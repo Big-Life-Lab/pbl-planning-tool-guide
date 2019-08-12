@@ -1,6 +1,6 @@
-# Applications
+# Case examples {#caseexamples}
 
-This chapter provides you with examples of how Project Big Life's Planning Tool can be used in your day-to-day operations. The examples will cover:
+This chapter provides you with examples of how Project Big Life's Planning Tool can be used in your day-to-day operations. The case examples will cover:
 
 - analyses that can be included in a health status report,
 - a national scenario: What if Canada biked like the Dutch?
@@ -9,9 +9,11 @@ This chapter provides you with examples of how Project Big Life's Planning Tool 
 
 ## Health Status Report
 
-In this example, we will highlight statistics that could reported in health status reports. Health status reports are a way to report the health state for a population and the factors that influence the population’s health. Information from health status reports are used to inform policy, planning, and resource allocation.
+Health status reports are a way to report the health state for a population and the factors that influence a population’s health. Information from health status reports are used to inform policy, planning, and resource allocation.
 
-In this example we will calculate:
+Using the Project Big Life Planning Tool you can replicate or update existing health status reports e.g. Public Health Ontario's: Seven More Years Report or generate a new health status report. 
+
+In this example we will show you how to create some health statistics to include in your health report. We will calculate:
 
 - The predicted number of deaths by strata (e.g. by sex [males and females])
 - The impact of eliminating unhealthy behaviours on life expectancy
@@ -20,14 +22,14 @@ For this example we will focus on the population of Alberta.
 
 ###Predicted number of deaths stratified by sex and level of education
 
-By showing the number of deaths by strata, the reader can see the distribution of deaths across specific population characteristics.  Any categorical variable can be used for stratification but in this example,  we will use sex and level of education.
+By showing the number of deaths by strata, the reader can see the distribution of deaths across specific population characteristics.  Any categorical variable can be used for stratification but in this example we will use sex and level of education.
 
 **Steps**
 
 1. Select the sample file data.sample.csv under "Sample files". 
 
 <div class="FOO">
-**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely fabricated data set and can only be used for examplary purposes.
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely synthetic data set and can only be used for examplary purposes.
 </div>
 
 2. Select the calculation: Summary Measure – Deaths (Five years)
@@ -52,7 +54,7 @@ To show how much an unhealthy behaviour impacts life expectancy we use the scena
 1. Select the sample file data.sample.csv under "Sample files". 
 
 <div class="FOO">
-**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely fabricated data set and can only be used for examplary purposes.
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely synthetic data set and can only be used for examplary purposes.
 </div>
 
 2. Select initial calculation: Summary Measure – Life Expectancy (Summary)
@@ -71,7 +73,12 @@ To show how much an unhealthy behaviour impacts life expectancy we use the scena
 
 *9. To Do:	Walk through results*
 
+<div class="FOO">
+**Note:** $\text{Cause-deleted life expectancy of physical inactivity and poor diet} \neq$
+$\text{Cause-deleted effect of physical inactivity} + \text{Cause-deleted effect of poor diet}$
 
+This is because individuals in the population may be both physically inactive and have a poor diet. 
+</div>
 
 
 
@@ -92,7 +99,11 @@ C. The difference in daily cycling levels for transportation of Canadians and Du
 
 D. Predict how Canadian life expectancy would change if Canadians biked like the Dutch.
 
-For this example we will use the sample data set **data.sample.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes. This link also contains all of the R code for this vignette. 
+For this example we will use the sample data set **data.sample.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples. This link also contains all of the R code for this case example. 
+
+<div class="FOO">
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely synthetic data set and can only be used for examplary purposes.
+</div>
 
 
 The following steps include the R coding for each of the steps but you can preform the steps in any other software program.
@@ -111,7 +122,7 @@ We will use 3 variables in our sample data set which are based off of the 2013/2
 
 **Step 1:** Import your data set to R. 
 ```{}
-    PA.data <- read.csv("data.sample.csv")
+    paData <- read.csv("data.sample.csv")
 ```   
 <div class="FOO">
 **Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely fabricated data set and can only be used for examplary purposes.
@@ -124,7 +135,7 @@ We will use 3 variables in our sample data set which are based off of the 2013/2
 **Step 2:** Filter the data: < 65. The CCHS data set has categories for age, therefore we will filter out all age categories that are >=65 years old.
 ```{}
     library(dplyr)
-    PA.data <- PA.data %>%
+    paData <- paData %>%
       filter(DHHGAGE <= 12)
 ```      
 
@@ -135,15 +146,15 @@ We will first evaluate the data for individuals that cycle to/from work/school (
 a. Exclude the missing data - all individuals that did not cycle in the past 3 months: do not cycle to/from work school, do not know, refused to answer, or did not answer
 
 ```{}
-    PA.data$PAC_8A[PA.data$PAC_8A == 996] <- NA
-    PA.data$PAC_8A[PA.data$PAC_8A == 997] <- NA
-    PA.data$PAC_8A[PA.data$PAC_8A == 998] <- NA
-    PA.data$PAC_8A[PA.data$PAC_8A == 999] <- NA
+    paData$PAC_8A[paData$PAC_8A == 996] <- NA
+    paData$PAC_8A[paData$PAC_8A == 997] <- NA
+    paData$PAC_8A[paData$PAC_8A == 998] <- NA
+    paData$PAC_8A[paData$PAC_8A == 999] <- NA
 ```
 
 b.	Calculate the average number of times that an individual cycled to/from work/school (mean of PAC_8A)
 ```{}
-    freq.cycle <- mean(PA.data$PAC_8A, na.rm = TRUE)
+    freqCycle <- mean(paData$PAC_8A, na.rm = TRUE)
 ```
 
 **Step 4:** Find the average time spent cycling to/from work/school, in the past 3 months
@@ -151,10 +162,10 @@ b.	Calculate the average number of times that an individual cycled to/from work/
 a.	Exclude the missing data - all individuals that did not cycle in the past 3 months: do not cycle to/from work school, do not know, refused to answer, or did not answer
 
 ```{}
-    PA.data$PAC_8B[PA.data$PAC_8B == 6] <- NA
-    PA.data$PAC_8B[PA.data$PAC_8B == 7] <- NA
-    PA.data$PAC_8B[PA.data$PAC_8B == 8] <- NA
-    PA.data$PAC_8B[PA.data$PAC_8B == 9] <- NA
+    paData$PAC_8B[paData$PAC_8B == 6] <- NA
+    paData$PAC_8B[paData$PAC_8B == 7] <- NA
+    paData$PAC_8B[paData$PAC_8B == 8] <- NA
+    paData$PAC_8B[paData$PAC_8B == 9] <- NA
 ```
 
 b.	Calculate the mean time spent cycling (mean of PAC_8B). 
@@ -164,14 +175,14 @@ b.	Calculate the mean time spent cycling (mean of PAC_8B).
 </div> 
 
 ```{}
-    time.cycle <- 15 * mean(PA.data$PAC_8B, na.rm = TRUE)
+    timeCycle <- 15 * mean(paData$PAC_8B, na.rm = TRUE)
 ```
 
 There are other ways you can do this step. You can take the average of the medians for each time period or use both the minimum and maximum for each time period.
 
 c.	Convert the mean time spent cycling to/from work/school from minutes to hours.
 ```{}
-    time.hour.cycle <- time.cycle/60
+    timeHourCycle <- timeCycle/60
 ```
 
 **Step 5:**	Calculate the average duration of cycling. Duration is calculated with the following formula:
@@ -179,7 +190,7 @@ c.	Convert the mean time spent cycling to/from work/school from minutes to hours
 $\text{Duration} = [\text{(Frequency/3 months)}*\text{(Time/trip)}] / \text{(Days/3 months)}$
 
 ```{}
-    duration.cycle <- (time.hour.cycle*freq.cycle)/(30.42*3)
+    durationCycle <- (timeHourCycle*freqCycle)/(30.42*3)
 ```   
 
 **Step 6:** Calculate the average daily energy expenditure (MET-hours) for cycling to/from work/school
@@ -190,7 +201,7 @@ $\text{MET-hours} = \text{Duration}*\text{MET value for walking}$
 **Note:** For Canadians to cycle like the Dutch, we need to use the Dutch MET cycling value of 5.8 and not the Canadian MET cycling value of 4.0. The Dutch MET value accounts for the speed of cycling of the Dutch. 
 </div>
 ```{}
-    MET.hours.cycle <- (duration.cycle*5.8)
+    metHoursCycle <- (durationCycle*5.8)
 ```
 
 
@@ -205,14 +216,14 @@ a.	Calculate the proportion of individuals that cycled to/from work/school in th
   - Numerator: all individuals that answer Yes to they walked to/from work/school (1 for PAC_7)
   - Denominator: total population
 ```{}
-    PA.table.cycle <- table(PA.data$PAC_8)
-    indiv.cycle <- PA.table.cycle[1]/(sum(PA.table.cycle))
+    paTableCycle <- table(paData$PAC_8)
+    indivCycle <- paTableCycle[1]/(sum(paTableCycle))
 ```
 b.	Calculate the average daily energy expenditure from cycling to/from work/school (MET-hours) for the entire population
   
   - Multiply the average daily energy expenditure for those that did cycle to/from work/school with the proportion of individuals that did cycle to/from work/school
 ```{}
-    MET.hours.cycle.all <- MET.hours.cycle*indiv.cycle
+    metHoursCycleAll <- metHoursCycle*indivCycle
 ```   
 On average a Canadian only gets 0.024 MET-hours/day from cycling to/from work/school.
 
@@ -228,7 +239,7 @@ The average Dutch daily energy expenditure from cycling as a form of transportat
 
 Canadians need to increase their daily energy expenditure from cycling from 0.07 MET-hours to 1.35 MET-hours, in order to be like the Dutch.
 ```{}
-    Abs.change <- 1.35 - MET.hours.cycle.all
+    absChange <- 1.35 - metHoursCycleAll
 ```
 
 ###Part D: Predict how Canadian life expectancy would change if Canadians biked like the Dutch.
@@ -276,7 +287,7 @@ C. what would be the mortality outcomes be if Ottawa's health behaviours were th
 
 Here we will use the average life expectancy to determine the health of regions: the higher the life expectancy for the region the healthier that region is.
 
-For this example we will use the sample data set **data.sample.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes. This link also contains all of the R code for this vignette. 
+For this example we will use the sample data set **data.sample.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples. This link also contains all of the R code for this case example. 
 
 The following steps include the R coding for each of the steps but you can preform the steps in any other software program.
 
@@ -304,13 +315,13 @@ Using your preferred statistic software (Excel, SAS, STATA, R Studio, etc) ident
 
 7. Import the data that you just downloaded to R. 
 ```{}
-    data.summary <- read.csv("data.sample_Life_expectancy_by_health_region.csv")
+    summaryData <- read.csv("data.sample_Life_expectancy_by_health_region.csv")
 ```  
 
 8. Sort the data in descending order to find the healthiest region.
 
 ```{}
-  data.summary[data.summary$SummaryLE == max(data.summary$SummaryLE),]
+  summaryData[summaryData$SummaryLE == max(summaryData$SummaryLE),]
 ```
 
 The healthiest region is XXX.
@@ -341,13 +352,13 @@ Calculate the average of each health behaviour in the healthiest region: XXX and
 
 Calculate the prevalence of current smokers in the XXX and Ottawa region.
 ```{}
-  Ottawa.smokers <- table(Ottawa$SMKDSTY)
-  Ottawa.smokers.prev <- round(prop.table(Ottawa.smokers),2)
-  Ottawa.smokers.prev[1]
+  smokersOttawa <- table(Ottawa$SMKDSTY)
+  prevSmokersOttawa <- round(prop.table(smokersOttawa),2)
+  prevSmokersOttawa[1]
   
-  XXX.smokers <- table(XXX$SMKDSTY)
-  XXX.smokers.prev <- round(prop.table(XXX.smokers),2)
-  XXX.smokers.prev[1]
+  smokersXXX <- table(XXX$SMKDSTY)
+  prevSmokersXXX <- round(prop.table(smokersXXX),2)
+  prevSmokersXXX[1]
 ```
 
 
@@ -365,8 +376,8 @@ a. Exclude the missing data: 'not stated'.
 b. Calculate the average daily energy expenditure for individuals in each region who do have a value for PACDEE
 
 ```{}
-  Ottawa.PA <- mean(Ottawa$PACDEE, na.rm = TRUE)
-  XXX.PA <- mean(XXX$PACDEE, na.rm = TRUE)
+  paOttawa <- mean(Ottawa$PACDEE, na.rm = TRUE)
+  paXXX <- mean(XXX$PACDEE, na.rm = TRUE)
 ```  
 
 
@@ -392,8 +403,8 @@ These are individuals who did not drink alcohol in the past year (represented by
 c. Calculate the average alcohol consumption for individuals in each region
 
 ```{}
-  Ottawa.Alcohol <- mean(Ottawa$ALWDWKY, na.rm = TRUE)
-  XXX.Alcohol <- mean(XXX$ALWDWKY, na.rm = TRUE)
+  alcoholOttawa <- mean(Ottawa$ALWDWKY, na.rm = TRUE)
+  alcoholXXX <- mean(XXX$ALWDWKY, na.rm = TRUE)
 ```  
 
 
@@ -416,19 +427,19 @@ Calculate the average of each diet component for the XXX and Ottawa region.
 a. Eliminate observations: not stated. To reduce the number of coding steps, we will create a data set with only the diet variables.
 
 ```{}
-  Ottawa.diet <- Ottawa %>%
+  dietOttawa <- Ottawa %>%
     select(FVCDCAR, FVCDFRU, FVCDJUI, FVCDPOT, FVCDSAL, FVCDVEG)
-  Ottawa.diet[Ottawa.diet == 999.9] <- NA
+  dietOttawa[dietOttawa == 999.9] <- NA
 
-  XXX.diet <- XXX %>%
+  dietXXX <- XXX %>%
     select(FVCDCAR, FVCDFRU, FVCDJUI, FVCDPOT, FVCDSAL, FVCDVEG)
-  XXX.diet[XXX.diet == 999.9] <- NA
+  dietXXX[dietXXX == 999.9] <- NA
 ```
 
 b. Calculate the average of each diet component for XXX and the Ottawa region.
 ```{}
-  summary(Ottawa.diet)
-  summary(XXX.diet)
+  summary(dietOttawa)
+  summary(dietXXX)
 ```
 
 **Comparing health behaviours**
