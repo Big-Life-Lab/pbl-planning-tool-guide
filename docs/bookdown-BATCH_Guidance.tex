@@ -31,6 +31,46 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -85,7 +125,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-08-09}
+    \date{2019-08-12}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -111,19 +151,51 @@ Tool}\label{welcome-to-project-big-lifes-planning-tool}
 \subsection{What is the Project Big Life Planning
 Tool}\label{what-is-the-project-big-life-planning-tool}
 
-\emph{To do: Develop video showcasing the platform including what it is
-and why someone should use the platform}
+The Project Big Life Planning Tool supports public health professionals
+research, plan, develop, and evaluate evidence-based health
+interventions in just a few steps.
+
+The tool can help you:
+
+\begin{itemize}
+\tightlist
+\item
+  Determine who in the population is at risk
+\item
+  Predict number of new cases of the disease for a population
+\item
+  Determine how much a risk factor contributes to a health outcome
+\item
+  Assess health benefits of potential interventions
+\end{itemize}
+
+The tool is accessible to everyone and easy to use.
 
 \subsection{Who made the Project Big Life Planning
 Tool?}\label{who-made-the-project-big-life-planning-tool}
 
-The Project Big Life Planning Tool was developed by the Project Big Life
-Team. The Project Big Life Team is part of the ICES. The below video
-explains what ICES is.
+The Project Big Life Planning Tool was developed by the
+\href{https://www.projectbiglife.ca}{Project Big Life} Team based at the
+\href{http://www.ohri.ca/home.asp}{Ottawa Hospital} and the
+\href{https://www.bruyere.org/en/bruyere-research-institute}{Bruyère
+Research Institute}.
 
-\begin{verbatim}
-## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
-\end{verbatim}
+The planning tool was made in collaboration with
+\href{https://www.publichealthontario.ca/}{Public Health Ontario}, the
+\href{https://pophealthanalytics.com/}{Population Health Analytics Lab}
+at the University of Toronto and
+\href{http://www.ottawapublichealth.ca/en/index.aspx}{Ottawa Public
+Health}.
+
+The tool supports the
+\href{https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years}{Seven
+More Years} report, a study that examined the health behaviour
+attributale mortality in Ontario. Algorithms used in the planning tool
+were developed using linked population data housed at
+\href{https://www.ices.on.ca/}{ICES} and validated at Statistics Canada.
+All algorithms have been published in peer-review journals. See
+\href{https://www.projectbiglife.ca/science}{Project Big Life} or
+\protect\hyperlink{mport}{appendices} to the specific algorithms.
 
 \chapter{Introduction}\label{introduction}
 
@@ -263,12 +335,27 @@ greater detail.
 
 \section{Customize Data}\label{customize-data}
 
+\textbf{Note:} The Project Big Life Planning Tool can only be used with
+the 2013/2014 Canadian Community Health Survey (CCHS) Public Use
+Microdata File (PUMF) or Shared versions in `.csv' format.
+
+Other population health surveys can be used only if the required
+variables are transformed to the specifications of the 2013/2014 CCHS
+data. Please note that the Project Big Life team is in the process of
+supporting CCHS versions from 2001 to 2013.
+
 Prior to using the Project Big Life Planning Tool you may want to
-manipulate your data set. Reasons include: customized filter(s) and/or
-customized stratification(s).
+transform your data set. Reasons include: customized filter(s) and/or
+customized stratification(s), and transforming variables from other
+population health surveys to the 2013/2014 Canadian Community Health
+Survey (CCHS) format. Any variable that you create can be selected
+within the planning tool in the filter and/or stratify options.
 
 Data manipulation can occur on any programming software: R, SAS, STATA,
 etc, as long as you output your data set as a `.csv' file.
+
+\subsection{Customize filter and/or
+stratification}\label{customize-filter-andor-stratification}
 
 An example of customizing your data set is converting the variable: Body
 Mass Index (CCHS 2013 variable HWTGBMI) from a continuous variable into
@@ -330,47 +417,83 @@ data$newcolumn <- cut(data$HWTGBMI, breaks = c(0,18.5,25,30,Inf),  labels=c("Und
 This new column can be now be used with the Project Big Life Planning
 Tool for the purpose of filtering or stratification.
 
+\subsection{Transforming variables to 2013/2014 CCHS
+format}\label{transforming-variables-to-20132014-cchs-format}
+
+Population health surveys other then the 2013/2014 CCHS PUMF or Shared
+files can be used if the variables: sex, age and survey weight (required
+variables) are transformed to the 2013/2014 CCHS format.
+
+For example the 2005/2006 CCHS data the age variable is titled
+DHH\textbf{E}GAGE and in the 2013/2014 CCHS data it is DHHGAGE. Although
+the variable's name changes the data is captured identically in the
+2005/2006 and 2013/2014 surveys. Therefore you can use the 2005/2006
+CCHS data if you transform this variable to the 2013/2014 format.
+
+\begin{verbatim}
+library(dpylr)
+
+CCHSdata.2005.2006 <- CCHSdata.2005.2006 %>% 
+  rename(DHHGAGE = DHHEGAGE)
+\end{verbatim}
+
+All required variables \textbf{must} be transformed to the 2013/2014
+CCHS format. It is also recommended that you transform the recommend
+variables as well to increase the accuracy of the prediction(s).
+
+When transforming required or recommended variables pay attention to how
+the variables are captured. There may be differences limit the ability
+to use the data set or that will affect your results. For instance from
+the 2001-2004 CCHS survey there are 15 age categories but from 2005-2013
+there are 16 age categories.
+
 \section{Load data}\label{load-data}
-
-Only one data set can be used on the platform for each calculation; a
-calculation cannot be preformed across multiple data sets.
-
-\textbf{Note:} Data sets loaded to the Project Big Life Planning Tool
-remains on your computer and is not uploaded or sent anywhere.
-
-There are two options for your data: use a sample file or load your own
-file.
 
 \textbf{Note:} The Project Big Life Planning Tool can currently only
 support .csv data files from the 2013/2014 Canadian Community Health
-Survey. Both the PUMF and Shared 2013/2014 Canadian Community Health
-Survey files are accepted.
+Survey (CCHS). Both the 2013/2014 CCHS PUMF and Shared file are
+accepted.
+
+Data loaded to the Project Big Life Planning Tool:
 
 \begin{itemize}
-\tightlist
 \item
-  More information on the Canadian Community Health Survey and the types
-  of accepted data can be found in Key concepts (Chapter
-  \ref{keyconcepts}) - ``Data and Sample Files''.
+  \textbf{Must include} the \textbf{required} variables: DDH\_SEX (sex),
+  DHHGAGE (age), and WTS\_M (survey weight).
+\item
+  \textbf{Should include} some or all of the \textbf{recommended}
+  variables. Recommended variables aren't required for calculations but
+  will increase the accuracy of the predicted health outcome.
 \end{itemize}
+
+Only \textbf{one data file} can be used on the planning tool at a time;
+the planning tool cannot preform a calculation across multiple data
+files. If you wish to use data from different data sets, you first merge
+the data sets together and use the 2013/14 CCHS format (e.g.~variable
+names). Once data sets are merged into one data file you can load your
+data on to the Planning Tool.
+
+\textbf{Note:} Data you load to the Project Big Life Planning Tool
+remains on your computer and is not uploaded or sent anywhere.
+
+There are two options of data files: a sample file or your own file.
 
 \subsection{Load sample files}\label{load-sample-files}
 
 If you don't have your own data or want to explore the platform's
-capabilities before using your data, you can use the sample files on the
-Project Big Life Planning Tool. There are \textbf{X} sample files you
-may use:
+capabilities before using your data, you can use the sample file on the
+Project Big Life Planning Tool. There is one sample file included on the
+planning tool:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{data.sample.csv} this is fabricated dataset that includes all
+  \textbf{data.sample.csv} this is fabricated data set that includes all
   variables required for calculation, recommend for calculation, and
-  needed for the real life application examples (found in Chapter 5).
-  This data set is based on the 2013/2014 Canadian Community Health
-  Survey Public Use Microdata File from, however this data set was
-  created only for example purposes and \textbf{cannot} be used for
-  analysis.
+  needed for the case examples (found in Chapter \ref{caseexamples}).
+  This data set is based on the 2013/2014 CCHS PUMF but it is
+  \textbf{entirely fabricated and can only be used for examplary
+  purposes.}
 \end{itemize}
 
 \textbf{Steps}
@@ -772,11 +895,11 @@ are not is beyond the limit of
 
 \subsection{Sample size is too small}\label{sample-size-is-too-small}
 
-\chapter{Applications}\label{applications}
+\chapter{Case examples}\label{caseexamples}
 
 This chapter provides you with examples of how Project Big Life's
-Planning Tool can be used in your day-to-day operations. The examples
-will cover:
+Planning Tool can be used in your day-to-day operations. The case
+examples will cover:
 
 \begin{itemize}
 \tightlist
@@ -790,18 +913,23 @@ will cover:
 
 \section{Health Status Report}\label{health-status-report}
 
-In this example we will highlight statistics that could reported in
-health status reports. Health status reports are a way to report the
-health state for a population and the factors that influence the
-population's health. Information from health status reports are used to
-inform policy, planning, and resource allocation.
+Health status reports are a way to report the health state for a
+population and the factors that influence a population's health.
+Information from health status reports are used to inform policy,
+planning, and resource allocation.
 
-In this example we will calculate:
+Using the Project Big Life Planning Tool you can replicate or update
+existing health status reports e.g.~Public Health Ontario's: Seven More
+Years Report or generate a new health status report.
+
+In this example we will show you how to create some health statistics to
+include in your health report. We will calculate:
 
 \begin{itemize}
 \tightlist
 \item
-  The predicted number of deaths by strata
+  The predicted number of deaths by strata (e.g.~by sex {[}males and
+  females{]})
 \item
   The impact of eliminating unhealthy behaviours on life expectancy
 \end{itemize}
@@ -813,7 +941,7 @@ education}\label{predicted-number-of-deaths-stratified-by-sex-and-level-of-educa
 
 By showing the number of deaths by strata, the reader can see the
 distribution of deaths across specific population characteristics. Any
-categorical variable can be used for stratification but in this example,
+categorical variable can be used for stratification but in this example
 we will use sex and level of education.
 
 \textbf{Steps}
@@ -827,7 +955,7 @@ we will use sex and level of education.
 
 \textbf{Note:} Although the data.sample.csv is based on the 2013/2014
 Canadian Community Health Survey Public Use Microdata File,
-data.sample.csv is a completely fabricated data set and can only be used
+data.sample.csv is a completely synthetic data set and can only be used
 for examplary purposes.
 
 \begin{enumerate}
@@ -870,7 +998,7 @@ combination, on life expectancy.
 
 \textbf{Note:} Although the data.sample.csv is based on the 2013/2014
 Canadian Community Health Survey Public Use Microdata File,
-data.sample.csv is a completely fabricated data set and can only be used
+data.sample.csv is a completely synthetic data set and can only be used
 for examplary purposes.
 
 \begin{enumerate}
@@ -897,6 +1025,13 @@ for examplary purposes.
 
 \emph{9. To Do: Walk through results}
 
+\textbf{Note:}
+\(\text{Cause-deleted life expectancy of physical inactivity and poor diet} \neq\)
+\(\text{Cause-deleted effect of physical inactivity} + \text{Cause-deleted effect of poor diet}\)
+
+This is because individuals in the population may be both physically
+inactive and have a poor diet.
+
 \section{Canada bikes like the Dutch}\label{canada-bikes-like-the-dutch}
 
 Cycling as a form of transportation, is an effective way of increasing
@@ -921,8 +1056,13 @@ like the Dutch.
 
 For this example we will use the sample data set
 \textbf{data.sample.csv}, which can be downloaded at
-\url{https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes}.
-This link also contains all of the R code for this vignette.
+\url{https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples}.
+This link also contains all of the R code for this case example.
+
+\textbf{Note:} Although the data.sample.csv is based on the 2013/2014
+Canadian Community Health Survey Public Use Microdata File,
+data.sample.csv is a completely synthetic data set and can only be used
+for examplary purposes.
 
 The following steps include the R coding for each of the steps but you
 can preform the steps in any other software program.
@@ -953,7 +1093,7 @@ transportation:
 \textbf{Step 1:} Import your data set to R.
 
 \begin{verbatim}
-    PA.data <- read.csv("data.sample.csv")
+    paData <- read.csv("data.sample.csv")
 \end{verbatim}
 
 \textbf{Note:} Although the data.sample.csv is based on the 2013/2014
@@ -971,7 +1111,7 @@ are \textgreater{}=65 years old.
 
 \begin{verbatim}
     library(dplyr)
-    PA.data <- PA.data %>%
+    paData <- paData %>%
       filter(DHHGAGE <= 12)
 \end{verbatim}
 
@@ -991,10 +1131,10 @@ cycled to/from work/school in the past 3 months
 \end{enumerate}
 
 \begin{verbatim}
-    PA.data$PAC_8A[PA.data$PAC_8A == 996] <- NA
-    PA.data$PAC_8A[PA.data$PAC_8A == 997] <- NA
-    PA.data$PAC_8A[PA.data$PAC_8A == 998] <- NA
-    PA.data$PAC_8A[PA.data$PAC_8A == 999] <- NA
+    paData$PAC_8A[paData$PAC_8A == 996] <- NA
+    paData$PAC_8A[paData$PAC_8A == 997] <- NA
+    paData$PAC_8A[paData$PAC_8A == 998] <- NA
+    paData$PAC_8A[paData$PAC_8A == 999] <- NA
 \end{verbatim}
 
 \begin{enumerate}
@@ -1005,7 +1145,7 @@ cycled to/from work/school in the past 3 months
   to/from work/school (mean of PAC\_8A)
 
 \begin{verbatim}
-freq.cycle <- mean(PA.data$PAC_8A, na.rm = TRUE)
+freqCycle <- mean(paData$PAC_8A, na.rm = TRUE)
 \end{verbatim}
 \end{enumerate}
 
@@ -1022,10 +1162,10 @@ work/school, in the past 3 months
 \end{enumerate}
 
 \begin{verbatim}
-    PA.data$PAC_8B[PA.data$PAC_8B == 6] <- NA
-    PA.data$PAC_8B[PA.data$PAC_8B == 7] <- NA
-    PA.data$PAC_8B[PA.data$PAC_8B == 8] <- NA
-    PA.data$PAC_8B[PA.data$PAC_8B == 9] <- NA
+    paData$PAC_8B[paData$PAC_8B == 6] <- NA
+    paData$PAC_8B[paData$PAC_8B == 7] <- NA
+    paData$PAC_8B[paData$PAC_8B == 8] <- NA
+    paData$PAC_8B[paData$PAC_8B == 9] <- NA
 \end{verbatim}
 
 \begin{enumerate}
@@ -1041,7 +1181,7 @@ work/school, in the past 3 months
 minutes by multiplying the mean of PAC\_8A with 15.
 
 \begin{verbatim}
-    time.cycle <- 15 * mean(PA.data$PAC_8B, na.rm = TRUE)
+    timeCycle <- 15 * mean(paData$PAC_8B, na.rm = TRUE)
 \end{verbatim}
 
 There are other ways you can do this step. You can take the average of
@@ -1056,7 +1196,7 @@ each time period.
   to hours.
 
 \begin{verbatim}
-time.hour.cycle <- time.cycle/60
+timeHourCycle <- timeCycle/60
 \end{verbatim}
 \end{enumerate}
 
@@ -1066,7 +1206,7 @@ calculated with the following formula:
 \(\text{Duration} = [\text{(Frequency/3 months)}*\text{(Time/trip)}] / \text{(Days/3 months)}\)
 
 \begin{verbatim}
-    duration.cycle <- (time.hour.cycle*freq.cycle)/(30.42*3)
+    durationCycle <- (timeHourCycle*freqCycle)/(30.42*3)
 \end{verbatim}
 
 \textbf{Step 6:} Calculate the average daily energy expenditure
@@ -1079,7 +1219,7 @@ Dutch MET cycling value of 5.8 and not the Canadian MET cycling value of
 4.0. The Dutch MET value accounts for the speed of cycling of the Dutch.
 
 \begin{verbatim}
-    MET.hours.cycle <- (duration.cycle*5.8)
+    metHoursCycle <- (durationCycle*5.8)
 \end{verbatim}
 
 We now have our average daily energy expenditure (MET-hours) for
@@ -1108,8 +1248,8 @@ work/school
   Denominator: total population
 
 \begin{verbatim}
-PA.table.cycle <- table(PA.data$PAC_8)
-indiv.cycle <- PA.table.cycle[1]/(sum(PA.table.cycle))
+paTableCycle <- table(paData$PAC_8)
+indivCycle <- paTableCycle[1]/(sum(paTableCycle))
 \end{verbatim}
 \end{itemize}
 
@@ -1129,7 +1269,7 @@ indiv.cycle <- PA.table.cycle[1]/(sum(PA.table.cycle))
   to/from work/school
 
 \begin{verbatim}
-MET.hours.cycle.all <- MET.hours.cycle*indiv.cycle
+metHoursCycleAll <- metHoursCycle*indivCycle
 \end{verbatim}
 
   On average a Canadian only gets 0.024 MET-hours/day from cycling
@@ -1156,7 +1296,7 @@ Canadians need to increase their daily energy expenditure from cycling
 from 0.07 MET-hours to 1.35 MET-hours, in order to be like the Dutch.
 
 \begin{verbatim}
-    Abs.change <- 1.35 - MET.hours.cycle.all
+    absChange <- 1.35 - metHoursCycleAll
 \end{verbatim}
 
 \subsection{Part D: Predict how Canadian life expectancy would change if
@@ -1225,8 +1365,8 @@ that region is.
 
 For this example we will use the sample data set
 \textbf{data.sample.csv}, which can be downloaded at
-\url{https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes}.
-This link also contains all of the R code for this vignette.
+\url{https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples}.
+This link also contains all of the R code for this case example.
 
 The following steps include the R coding for each of the steps but you
 can preform the steps in any other software program.
@@ -1276,14 +1416,14 @@ region. The following code is for R.
   Import the data that you just downloaded to R.
 
 \begin{verbatim}
-data.summary <- read.csv("data.sample_Life_expectancy_by_health_region.csv")
+summaryData <- read.csv("data.sample_Life_expectancy_by_health_region.csv")
 \end{verbatim}
 \item
   Sort the data in descending order to find the healthiest region.
 \end{enumerate}
 
 \begin{verbatim}
-  data.summary[data.summary$SummaryLE == max(data.summary$SummaryLE),]
+  summaryData[summaryData$SummaryLE == max(summaryData$SummaryLE),]
 \end{verbatim}
 
 The healthiest region is XXX.
@@ -1324,13 +1464,13 @@ Calculate the prevalence of current smokers in the XXX and Ottawa
 region.
 
 \begin{verbatim}
-  Ottawa.smokers <- table(Ottawa$SMKDSTY)
-  Ottawa.smokers.prev <- round(prop.table(Ottawa.smokers),2)
-  Ottawa.smokers.prev[1]
+  smokersOttawa <- table(Ottawa$SMKDSTY)
+  prevSmokersOttawa <- round(prop.table(smokersOttawa),2)
+  prevSmokersOttawa[1]
   
-  XXX.smokers <- table(XXX$SMKDSTY)
-  XXX.smokers.prev <- round(prop.table(XXX.smokers),2)
-  XXX.smokers.prev[1]
+  smokersXXX <- table(XXX$SMKDSTY)
+  prevSmokersXXX <- round(prop.table(smokersXXX),2)
+  prevSmokersXXX[1]
 \end{verbatim}
 
 \textbf{Physical Activity}
@@ -1360,8 +1500,8 @@ and Ottawa region.
 \end{enumerate}
 
 \begin{verbatim}
-  Ottawa.PA <- mean(Ottawa$PACDEE, na.rm = TRUE)
-  XXX.PA <- mean(XXX$PACDEE, na.rm = TRUE)
+  paOttawa <- mean(Ottawa$PACDEE, na.rm = TRUE)
+  paXXX <- mean(XXX$PACDEE, na.rm = TRUE)
 \end{verbatim}
 
 \textbf{Alcohol}
@@ -1406,8 +1546,8 @@ in the XXX and Ottawa region.
 \end{enumerate}
 
 \begin{verbatim}
-  Ottawa.Alcohol <- mean(Ottawa$ALWDWKY, na.rm = TRUE)
-  XXX.Alcohol <- mean(XXX$ALWDWKY, na.rm = TRUE)
+  alcoholOttawa <- mean(Ottawa$ALWDWKY, na.rm = TRUE)
+  alcoholXXX <- mean(XXX$ALWDWKY, na.rm = TRUE)
 \end{verbatim}
 
 \textbf{Diet}
@@ -1445,13 +1585,13 @@ region.
 \end{enumerate}
 
 \begin{verbatim}
-  Ottawa.diet <- Ottawa %>%
+  dietOttawa <- Ottawa %>%
     select(FVCDCAR, FVCDFRU, FVCDJUI, FVCDPOT, FVCDSAL, FVCDVEG)
-  Ottawa.diet[Ottawa.diet == 999.9] <- NA
+  dietOttawa[dietOttawa == 999.9] <- NA
 
-  XXX.diet <- XXX %>%
+  dietXXX <- XXX %>%
     select(FVCDCAR, FVCDFRU, FVCDJUI, FVCDPOT, FVCDSAL, FVCDVEG)
-  XXX.diet[XXX.diet == 999.9] <- NA
+  dietXXX[dietXXX == 999.9] <- NA
 \end{verbatim}
 
 \begin{enumerate}
@@ -1462,8 +1602,8 @@ region.
   region.
 
 \begin{verbatim}
-  summary(Ottawa.diet)
-  summary(XXX.diet)
+  summary(dietOttawa)
+  summary(dietXXX)
 \end{verbatim}
 \end{enumerate}
 
@@ -1587,30 +1727,36 @@ or combination of health regions).
   (\url{https://search2.odesi.ca/\#/details?uri=\%2Fodesi\%2Fcchs-82M0013-E-2013-2014-Annual-component.xml})
 \end{itemize}
 
-\subsection{Why can I only use the 2013/2014 Canadian Community Health
-Survey
-data?}\label{why-can-i-only-use-the-20132014-canadian-community-health-survey-data}
+\subsection{Why can the Project Big Life Planning Tool only accept the
+2013/2014 Canadian Community Health Survey
+data?}\label{why-can-the-project-big-life-planning-tool-only-accept-the-20132014-canadian-community-health-survey-data}
 
 Each year the CCHS changes a few variables it captures. This makes CCHS
-data sets from every year other then 2013/2014 incompatible with the
-algorithms used by the Project Big Life Planning Tool.
+data sets from every year other then 2013/2014 partly incompatible with
+the algorithms used by the Project Big Life Planning Tool.
 
 The Project Big Life Planning Team is currently working to adjust the
-algorithms so that they accept other CCHS years, and we will update the
-guidance when we are done.
+algorithms so that they accept CCHS year: 2001 to 2014, and will update
+this guidance.
+
+\subsection{Can I use other population health survey data
+sets?}\label{can-i-use-other-population-health-survey-data-sets}
+
+Yes you can use other population health survey data sets but you have to
+transform these data set to the 2013/2014 CCHS format.
 
 \subsection{Sample Files}\label{sample-files}
 
 \begin{itemize}
 \tightlist
 \item
-  data.sample.csv this is fabricated data set that includes all
-  variables required for calculation, recommend for calculation, and
-  needed for the real life application examples (found in Chapter 5).
-  While this data set was model on the response rates of the 2013/2014
-  CCHS PUMF (e.g.~approximately 80\% of responders did not have high
-  blood pressure (CCC\_071)), the data is fabricated and random. It
-  \textbf{cannot be used for real analysis}.
+  data.sample.csv this is synthetic data set that includes all variables
+  required for calculation, recommend for calculation, and needed for
+  the case examples (found in Chapter \ref{caseexamples}). While this
+  data set was model on the response rates of the 2013/2014 CCHS PUMF
+  (e.g.~approximately 80\% of respondents did not have high blood
+  pressure (CCC\_071)), the data is fabricated. \textbf{This data set
+  cannot be used for real analysis}.
 \end{itemize}
 
 \section{Multivariable predictive risk
@@ -1906,11 +2052,10 @@ life table start at 43 years).
   age is the only variable that is changed for MPoRT risk calculation.
 \end{enumerate}
 
-\emph{Not sure what Doug is trying to get at here\ldots{}}
-
-\textbf{Note:} Life expectancy calculation is for the respondent's age
-(eg. 43). To calculate age of death, add the respondent's age to their
-life expectancy estimate.
+\textbf{Note:} The result for By Row Life Expectancy are the predicted
+years of life that the individual still has left to live based on thier
+age (e.g.~43). To calculate age of death, add the respondent's age to
+their by row life expectancy estimate.
 
 \textbf{Note:} By row life expectancy does not account for the
 individual's weight, and therefore can not be used to estimate the
@@ -2050,13 +2195,13 @@ There are two distinct terms in cause-deleted calculations:
 \begin{itemize}
 \item
   \textbf{Cause-deleted life expectancy} is the estimated life
-  expectancy for the counterfactual population where a specific cause
+  expectancy for the counter-factual population where a specific cause
   (e.g.~smoking) never existed. For instance, everyone in the
-  counterfactual population were always never smokers.
+  counter-factual population were always never smokers.
 \item
-  \textbf{Cause-deleted effect on life expectancy} or \textbf{life years
-  lost due to the cause} is the full effect of the cause (e.g.~smoking)
-  in the population. For instance, 3 years of life are lost in a
+  \textbf{Cause-deleted effect on life expectancy} or \textbf{life
+  expectancy lost} is the full effect of the cause (e.g.~smoking) in the
+  population. For instance, 3 years of life expectancy are lost in a
   population due to individuals smoking: either currently or previously.
 \end{itemize}
 
@@ -2069,10 +2214,10 @@ the:
   cause-deleted life expectancy calculated accounts for both of these
   effects
 \item
-  cause-deleted effect on life expectancy (or life years lost due to the
-  cause) is calculated for each individual cause. There will be both the
-  cause-deleted effect of smoking on life expectancy and cause-deleted
-  effect of physical inactivity on life expectancy.
+  cause-deleted effect on life expectancy (or life expectancy lost due
+  to the cause) is calculated for each individual cause. There will be
+  both the cause-deleted effect of smoking on life expectancy and
+  cause-deleted effect of physical inactivity on life expectancy.
 \end{itemize}
 
 \textbf{Note:}
@@ -2085,7 +2230,7 @@ physically inactive.
 \subsection{Cause-deleted references}\label{cause-deleted-references}
 
 The following table describes the reference exposures used in the
-counterfactual populations for each of the health behaviours in the
+counter-factual populations for each of the health behaviours in the
 cause-deleted calculations:
 
 Health.Behaviour
@@ -2111,7 +2256,11 @@ A total of: 5 fruit and vegetables, 0 juice, and 0 potato, servings/day
 \subsection{Cause-deleted calculation
 overview}\label{cause-deleted-calculation-overview}
 
-The cause-deleted
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#To create a graph tomorrow}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Assumptions and Limitations}\label{assumptions-and-limitations}
 
@@ -2128,10 +2277,10 @@ were excluded.
 behaviours}\label{limitation-under-reporting-of-health-behaviours}
 
 The algorithms used in the Project Big Life Planning Tool use population
-healht surveys with self-reported data to predict risk and health
-outcomes. With self-reported surveys there is the possiblitiy of social
-desirability bias, where respondents over-report what they percieve to
-be healthy behaviours and under-report what they percieve to be
+health surveys with self-reported data to predict risk and health
+outcomes. With self-reported surveys there is the possibility of social
+desirability bias, where respondents over-report what they perceive to
+be healthy behaviours and under-report what they perceive to be
 unhealthy behaviours.
 
 This is particularly the case with alcohol, where there is a consistent
@@ -2377,8 +2526,8 @@ respondent represents.
 \appendix
 
 
-\chapter{Mortality Population Risk Tool
-(MPoRT)}\label{mortality-population-risk-tool-mport}
+\hypertarget{mport}{\chapter{Mortality Population Risk Tool
+(MPoRT)}\label{mport}}
 
 \section{Overview}\label{overview}
 
@@ -2777,7 +2926,7 @@ algorithm and the original respondent's profile.
 
 }
 
-\caption{Risk portion of the cause-deleted calculations}\label{fig:unnamed-chunk-15}
+\caption{Risk portion of the cause-deleted calculations}\label{fig:unnamed-chunk-17}
 \end{figure}
 
 \subsection{Part B: Health outcome
