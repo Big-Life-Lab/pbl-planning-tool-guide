@@ -16,11 +16,17 @@ These guides will cover the topics covered in the tutorial but in greater detail
 
 ##Customize Data
 
-The planning tool requires the CCHS 2013/14 PUMF or Shared version as a csv format. Other population health surveys can be used if the required variables are transformed to the specificationso fo the CCHS 2013/14. There are planx to support the CCHS versions from 2001 to 2013. 
+<div class="FOO">
+**Note:** The Project Big Life Planning Tool can only be used with the 2013/2014 Canadian Community Health Survey (CCHS) Public Use Microdata File (PUMF) or Shared versions in '.csv' format. 
 
-Prior to using the Project Big Life Planning Tool you may want to transform your data set. Reasons include: customized filter(s) and/or customized stratification(s). Any variable that you create can be selected within the planning tool in the filter and/or stratify options.
+Other population health surveys can be used only if the required variables are transformed to the specifications of the 2013/2014 CCHS data. Please note that the Project Big Life team is in the process of supporting CCHS versions from 2001 to 2013. 
+</div>
+
+Prior to using the Project Big Life Planning Tool you may want to transform your data set. Reasons include: customized filter(s) and/or customized stratification(s), and transforming variables from other population health surveys to the 2013/2014 Canadian Community Health Survey (CCHS) format. Any variable that you create can be selected within the planning tool in the filter and/or stratify options.
 
 Data manipulation can occur on any programming software: R, SAS, STATA, etc, as long as you output your data set as a '.csv' file. 
+
+###Customize filter and/or stratification
 
 An example of customizing your data set is converting the variable: Body Mass Index (CCHS 2013 variable HWTGBMI) from a continuous variable into four distinct categories:
     
@@ -59,29 +65,50 @@ The following steps show the R code that would be used to create these strata:
 
 This new column can be now be used with the Project Big Life Planning Tool for the purpose of filtering or stratification.
 
+###Transforming variables to 2013/2014 CCHS format
+
+Population health surveys other then the 2013/2014 CCHS PUMF or Shared files can be used if the variables: sex, age and survey weight (required variables) are transformed to the 2013/2014 CCHS format. 
+
+For example the 2005/2006 CCHS data the age variable is titled DHH**E**GAGE and in the 2013/2014 CCHS data it is DHHGAGE. Although the variable's name changes the data is captured identically in the 2005/2006 and 2013/2014 surveys. Therefore you can use the 2005/2006 CCHS data if you transform this variable to the 2013/2014 format. 
+
+```{}
+library(dpylr)
+
+CCHSdata.2005.2006 <- CCHSdata.2005.2006 %>% 
+  rename(DHHGAGE = DHHEGAGE)
+```
+
+All required variables **must** be transformed to the 2013/2014 CCHS format. It is also recommended that you transform the recommend variables as well to increase the accuracy of the prediction(s).
+
+When transforming required or recommended variables pay attention to how the variables are captured. There may be differences limit the ability to use the data set or that will affect your results. For instance from the 2001-2004 CCHS survey there are 15 age categories but from 2005-2013 there are 16 age categories. 
+
+
 ##Load data 
 
-Only one data set can be used on the platform for each calculation; a calculation cannot be preformed across multiple data sets. However, prior to using the planning tool, you can merge multiple datasets to the CCHS 2013/14 format.
-
 <div class="FOO">
-**Note:** Data sets loaded to the Project Big Life Planning Tool remains on your computer and is not uploaded or sent anywhere.
+**Note:** The Project Big Life Planning Tool can currently only support .csv data files from the 2013/2014 Canadian Community Health Survey (CCHS). Both the 2013/2014 CCHS PUMF and Shared file are accepted.
 </div>
 
-There are two options for your data: use a sample file or load your own file. 
+Data loaded to the Project Big Life Planning Tool:
+
+- **Must include** the **required** variables: DDH_SEX (sex), DHHGAGE (age), and WTS_M (survey weight).
+
+- **Should include** some or all of the **recommended** variables. Recommended variables aren't required for calculations but will increase the accuracy of the predicted health outcome. 
+
+Only **one data file** can be used on the planning tool at a time; the planning tool cannot preform a calculation across multiple data files. If you wish to use data from different data sets, you first merge the data sets together and use the 2013/14 CCHS format (e.g. variable names). Once data sets are merged into one data file you can load your data on to the Planning Tool. 
 
 <div class="FOO">
-**Note:** The Project Big Life Planning Tool can currently only support .csv data files from the 2013/2014 Canadian Community Health Survey. Both the PUMF and Shared 2013/2014 Canadian Community Health Survey files are accepted.
+**Note:** Data you load to the Project Big Life Planning Tool remains on your computer and is not uploaded or sent anywhere.
 </div>
 
-- More information on the Canadian Community Health Survey and the types of accepted data can be found in Key concepts (Chapter \@ref(keyconcepts)) - "Data and Sample Files".
- 
+There are two options of data files: a sample file or your own file. 
+
 
 ###Load sample files
 
-If you don't have your own data or want to explore the platform's capabilities before using your data, you can use the sample files on the Project Big Life Planning Tool. There are **X** sample files you may use:
+If you don't have your own data or want to explore the platform's capabilities before using your data, you can use the sample file on the Project Big Life Planning Tool. There is one sample file included on the planning tool:
 
-- **data.sample.csv** this is fabricated dataset that includes all variables required for calculation, recommend for calculation, and needed for the real life application examples (found in Chapter 5). This data set is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File from, however this data set was created only for example purposes and **cannot** be used for analysis.
-
+- **data.sample.csv** this is fabricated data set that includes all variables required for calculation, recommend for calculation, and needed for the case examples (found in Chapter \@ref(caseexamples)). This data set is based on the 2013/2014 CCHS PUMF but it is **entirely fabricated and can only be used for examplary purposes.**
 
 **Steps**
 
