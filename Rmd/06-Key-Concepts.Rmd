@@ -36,15 +36,19 @@ The CCHS is an annual cross-sectional survey preformed by Statistics Canada. The
 - Details about the survey and its design can be found on Statistic Canada website  (http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&Id=144170). 
 - Details and access to the Public Use Microdata file (PUMF) can be found through the Odesi website (https://search2.odesi.ca/#/details?uri=%2Fodesi%2Fcchs-82M0013-E-2013-2014-Annual-component.xml)
 
-###Why can I only use the 2013/2014 Canadian Community Health Survey data?
+###Why can the Project Big Life Planning Tool only accept the 2013/2014 Canadian Community Health Survey data?
 
-Each year the CCHS changes a few variables it captures. This makes CCHS data sets from every year other then 2013/2014 incompatible with the algorithms used by the Project Big Life Planning Tool.
+Each year the CCHS changes a few variables it captures. This makes CCHS data sets from every year other then 2013/2014 partly incompatible with the algorithms used by the Project Big Life Planning Tool.
 
-The Project Big Life Planning Team is currently working to adjust the algorithms so that they accept other CCHS years, and we will update the guidance when we are done.
+The Project Big Life Planning Team is currently working to adjust the algorithms so that they accept CCHS year: 2001 to 2014, and will update this guidance.
+
+###Can I use other population health survey data sets?
+
+Yes you can use other population health survey data sets but you have to transform these data set to the 2013/2014 CCHS format.
 
 ###Sample Files
 
-- data.sample.csv this is fabricated data set that includes all variables required for calculation, recommend for calculation, and needed for the real life application examples (found in Chapter 5). While this data set was model on the response rates of the 2013/2014 CCHS PUMF (e.g. approximately 80% of responders did not have high blood pressure (CCC_071)), the data is fabricated and random. It **cannot be used for real analysis**.
+- data.sample.csv this is synthetic data set that includes all variables required for calculation, recommend for calculation, and needed for the case examples (found in Chapter \@ref(caseexamples)). While this data set was model on the response rates of the 2013/2014 CCHS PUMF (e.g. approximately 80% of respondents did not have high blood pressure (CCC_071)), the data is fabricated. **This data set cannot be used for real analysis**.
 
 
 
@@ -210,9 +214,8 @@ These life tables are 1-year abridge life tables, and begin at the individual's 
 
 2. The probability of death is recalculated for incremental older ages (additional rows of the life table) up to age 90 years ( $q_\text{(x+1)}, q_\text{(x+2)}...q_{90}$). For each life table row, age is the only variable that is changed for MPoRT risk calculation.
 
-_Not sure what Doug is trying to get at here..._
 <div class="FOO">
-**Note:** Life expectancy calculation is for the respondent's age (eg. 43). To calculate age of death, add the respondent's age to their life expectancy estimate.
+**Note:** The result for By Row Life Expectancy are the predicted years of life that the individual still has left to live based on thier age (e.g. 43). To calculate age of death, add the respondent's age to their by row life expectancy estimate.
 <div>
 
 <div class="FOO">
@@ -292,14 +295,14 @@ What would be the life expectancy of a population if be no one in the population
 
 There are two distinct terms in cause-deleted calculations:
 
-- **Cause-deleted life expectancy** is the estimated life expectancy for the counterfactual population where a specific cause (e.g. smoking) never existed. For instance, everyone in the counterfactual population were always never smokers.
+- **Cause-deleted life expectancy** is the estimated life expectancy for the counter-factual population where a specific cause (e.g. smoking) never existed. For instance, everyone in the counter-factual population were always never smokers.
 
-- **Cause-deleted effect on life expectancy** or **life years lost due to the cause** is the full effect of the cause (e.g. smoking) in the population. For instance, 3 years of life are lost in a population due to individuals smoking: either currently or previously.
+- **Cause-deleted effect on life expectancy** or **life expectancy lost** is the full effect of the cause (e.g. smoking) in the population. For instance, 3 years of life expectancy are lost in a population due to individuals smoking: either currently or previously.
 
 If multiple causes are selected (e.g. smoking and physical inactivity) the:
 
  - cause-deleted life expectancy calculated accounts for both of these effects 
- - cause-deleted effect on life expectancy (or life years lost due to the cause) is calculated for each individual cause. There will be both the cause-deleted effect of smoking on life expectancy and cause-deleted effect of physical inactivity on life expectancy.
+ - cause-deleted effect on life expectancy (or life expectancy lost due to the cause) is calculated for each individual cause. There will be both the cause-deleted effect of smoking on life expectancy and cause-deleted effect of physical inactivity on life expectancy.
  
 <div class="FOO">
 **Note:** $\text{Cause-deleted life expectancy of smoking and physical inactivity} \neq$
@@ -308,9 +311,10 @@ $\text{Cause-deleted effect of smoking} + \text{Cause-deleted effect of physical
 This is because individuals in the population may be both smokers and physically inactive. 
 </div>
 
+
 ###Cause-deleted references
 
-The following table describes the reference exposures used in the counterfactual populations for each of the health behaviours in the cause-deleted calculations:
+The following table describes the reference exposures used in the counter-factual populations for each of the health behaviours in the cause-deleted calculations:
 
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(knitr)
@@ -330,8 +334,13 @@ kable(cause.del.ref) %>%
 
 ###Cause-deleted calculation overview
 
-The cause-deleted 
-
+```{r, echo=FALSE, results='hide', message=FALSE}
+LEdata <- data.frame(year=c("2009", "2010", "2011", "2012", "2013", "2014"), LifeExpectancy = c(81, 81.5, 82, 82.7, 83, 83.2, 83, 83.7, 84, 84.2, 85, 85.8), measure = c(rep("baseline",6), rep("CauseDeleted",6)))
+library(ggplot2)
+```
+```{r}
+#To create a graph tomorrow
+```
 
 
 ##Assumptions and Limitations
@@ -342,7 +351,7 @@ The CCHS survey used to develop the mortality algorithm in the Project Big Life 
 
 ###Limitation: Under-reporting of health behaviours
 
-The algorithms used in the Project Big Life Planning Tool use population healht surveys with self-reported data to predict risk and health outcomes. With self-reported surveys there is the possiblitiy of social desirability bias, where respondents over-report what they percieve to be healthy behaviours and under-report what they percieve to be unhealthy behaviours.
+The algorithms used in the Project Big Life Planning Tool use population health surveys with self-reported data to predict risk and health outcomes. With self-reported surveys there is the possibility of social desirability bias, where respondents over-report what they perceive to be healthy behaviours and under-report what they perceive to be unhealthy behaviours.
 
 This is particularly the case with alcohol, where there is a consistent under-reporting of alcohol consumption in most population health surveys. In Ontario, the sum of self-reported alcohol consumption is about half the volume of alcohol sold {@ONalcohol}.
 
