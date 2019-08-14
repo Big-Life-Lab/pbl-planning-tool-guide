@@ -91,9 +91,12 @@ When transforming required or recommended variables pay attention to how the var
 
 Data loaded to the Project Big Life Planning Tool:
 
-- **Must include** the **required** variables: DDH_SEX (sex), DHHGAGE (age), and WTS_M (survey weight).
+- **Must include all** the **required** variables: DDH_SEX (sex), DHHGAGE (age), and WTS_M (survey weight).
 
 - **Should include** some or all of the **recommended** variables. Recommended variables aren't required for calculations but will increase the accuracy of the predicted health outcome. 
+
+More information on the required and recommended variables can be found Appendix {#mport}.
+
 
 Only **one data file** can be used on the planning tool at a time; the planning tool cannot preform a calculation across multiple data files. If you wish to use data from different data sets, you first merge the data sets together and use the 2013/14 CCHS format (e.g. variable names). Once data sets are merged into one data file you can load your data on to the Planning Tool. 
 
