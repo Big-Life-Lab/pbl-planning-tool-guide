@@ -11,7 +11,7 @@ This chapter provides you with examples of how Project Big Life's Planning Tool 
 
 Health status reports are a way to report the health state for a population and the factors that influence a population’s health. Information from health status reports are used to inform policy, planning, and resource allocation.
 
-Using the Project Big Life Planning Tool you can replicate or update existing health status reports e.g. Public Health Ontario's: Seven More Years Report or generate a new health status report. 
+Using the Project Big Life Planning Tool you can replicate or update existing health status reports e.g. Public Health Ontario's: [Seven More Years Report](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) or generate a new health status report. 
 
 In this example we will show you how to create some health statistics to include in your health report. We will calculate:
 
@@ -85,31 +85,29 @@ This is because individuals in the population may be both physically inactive an
 
 ##Canada bikes like the Dutch
 
-Cycling as a form of transportation, is an effective way of increasing individuals' daily physical activity levels which leads to a decrease in the risk of disease and death.
+Cycling as a form of transportation, is an effective way of increasing individuals' daily physical activity levels and can lead to a decrease in the risk of disease and death.
 
-In this example we will determine the impact on life expectancy if Canadians were to cycle like the Dutch, who are world-renowned for their cycling. 
+In this example we will determine the impact on life expectancy if Canadians were to cycle like the cycling enthusiasts the Dutch! 
 
 In this example we determine:
 
-A. How much Canadians cycle per day for transportation purposes,
+A. How much Canadians cycle per day for transportation purposes on average?
 
-B. How much Dutch cycle per day for transportation purposes,
+B. How much Dutch cycle per day for transportation purposes on average?
 
-C. The difference in daily cycling levels for transportation of Canadians and Dutch, and
+C. What is the average difference in daily cycling transporation for Canadians and the Dutch?
 
 D. Predict how Canadian life expectancy would change if Canadians biked like the Dutch.
 
-For this example we will use the sample data set **data.sample.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples. This link also contains all of the R code for this case example. 
+For this example we will use the sample data set **data.sample.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples. This link also contains all of the R code for this case example. Although we have included the Rcode other statistics software (SAS, STATA, etc) can be used to complete this case example.
 
 <div class="FOO">
 **Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely synthetic data set and can only be used for examplary purposes.
 </div>
 
 
-The following steps include the R coding for each of the steps but you can preform the steps in any other software program.
 
-
-###Part A: How much do Canadians cycle per day for transportation purposes
+###Part A: How much do Canadians cycle per day for transportation purposes on average?
 
 We will determine how much Canadians cycle per day by calculating the average daily energy expenditure from cycling in the current Canadian population.
 
@@ -119,128 +117,43 @@ We will use 3 variables in our sample data set which are based off of the 2013/2
 - PAC_8A: How many times did you cycle to and from work or school, in the past 3 months?
 - PAC_8B:	How much time did you spend on each occasion?
 
-
-**Step 1:** Import your data set to R. 
-```{}
-    paData <- read.csv("data.sample.csv")
-```   
-<div class="FOO">
-**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely fabricated data set and can only be used for examplary purposes.
-</div>
-
 <div class="AOO">
 **Assumption #1:** we assume individuals 65 or older are retired and therefore not cycling to/from work/school. Therefore, we will only evaluate individuals that are < 65 years old.
 </div>
 
-**Step 2:** Filter the data: < 65. The CCHS data set has categories for age, therefore we will filter out all age categories that are >=65 years old.
-```{}
-    library(dplyr)
-    paData <- paData %>%
-      filter(DHHGAGE <= 12)
-```      
+In order to calculate the average Canadian daily energy expenditure from cycling for transportation, you will need to: 
 
-We will first evaluate the data for individuals that cycle to/from work/school (PAC_8, answer 1) only:
+- Find the average number of times, that an individual cycled to/from work/school in the past 3 months (mean PAC_8A)
 
-**Step 3:** Find the average number of times, that an individual cycled to/from work/school in the past 3 months
+- Find the average number of hours spent cycling to/from work/school, in the past 3 month (mean of PAC_8B)
 
-a. Exclude the missing data - all individuals that did not cycle in the past 3 months: do not cycle to/from work school, do not know, refused to answer, or did not answer
+- Calculate the average duration of cycling: $\text{Duration} = [\text{(Frequency/3 months)}*\text{(Time/trip)}] / \text{(Days/3 months)}$
 
-```{}
-    paData$PAC_8A[paData$PAC_8A == 996] <- NA
-    paData$PAC_8A[paData$PAC_8A == 997] <- NA
-    paData$PAC_8A[paData$PAC_8A == 998] <- NA
-    paData$PAC_8A[paData$PAC_8A == 999] <- NA
-```
-
-b.	Calculate the average number of times that an individual cycled to/from work/school (mean of PAC_8A)
-```{}
-    freqCycle <- mean(paData$PAC_8A, na.rm = TRUE)
-```
-
-**Step 4:** Find the average time spent cycling to/from work/school, in the past 3 months
-
-a.	Exclude the missing data - all individuals that did not cycle in the past 3 months: do not cycle to/from work school, do not know, refused to answer, or did not answer
-
-```{}
-    paData$PAC_8B[paData$PAC_8B == 6] <- NA
-    paData$PAC_8B[paData$PAC_8B == 7] <- NA
-    paData$PAC_8B[paData$PAC_8B == 8] <- NA
-    paData$PAC_8B[paData$PAC_8B == 9] <- NA
-```
-
-b.	Calculate the mean time spent cycling (mean of PAC_8B). 
-
-<div class="FOO">
-**Note:** Since the PAC_8B variable has 15 minute time periods (1 = 1 to 15 minutes, 2 = 16 to 30 minutes), we will convert the mean into minutes by multiplying the mean of PAC_8A with 15.
-</div> 
-
-```{}
-    timeCycle <- 15 * mean(paData$PAC_8B, na.rm = TRUE)
-```
-
-There are other ways you can do this step. You can take the average of the medians for each time period or use both the minimum and maximum for each time period.
-
-c.	Convert the mean time spent cycling to/from work/school from minutes to hours.
-```{}
-    timeHourCycle <- timeCycle/60
-```
-
-**Step 5:**	Calculate the average duration of cycling. Duration is calculated with the following formula:
-
-$\text{Duration} = [\text{(Frequency/3 months)}*\text{(Time/trip)}] / \text{(Days/3 months)}$
-
-```{}
-    durationCycle <- (timeHourCycle*freqCycle)/(30.42*3)
-```   
-
-**Step 6:** Calculate the average daily energy expenditure (MET-hours) for cycling to/from work/school
-
-$\text{MET-hours} = \text{Duration}*\text{MET value for walking}$
+- Calculate the average daily energy expenditure (MET-hours) for cycling to/from work/school: $\text{MET-hours} = \text{Duration}*\text{MET value for walking}$
 
 <div class="FOO">
 **Note:** For Canadians to cycle like the Dutch, we need to use the Dutch MET cycling value of 5.8 and not the Canadian MET cycling value of 4.0. The Dutch MET value accounts for the speed of cycling of the Dutch. 
 </div>
-```{}
-    metHoursCycle <- (durationCycle*5.8)
-```
 
+- Calculation the average daily expenditure from cycling for transportation for all individuals in the population not only those that cycled to/from work/school
 
-We now have our average daily energy expenditure (MET-hours) for Canadians that **DO** cycle to/from work/school.
-
-Now we need to account for the rest of the population that does not cycle to/from work school.
-
-**Step 7:**	Determine the average daily expenditure for all individuals in the population not only those that cycled to/from work/school
-
-a.	Calculate the proportion of individuals that cycled to/from work/school in the total population
-  
-  - Numerator: all individuals that answer Yes to they walked to/from work/school (1 for PAC_7)
-  - Denominator: total population
-```{}
-    paTableCycle <- table(paData$PAC_8)
-    indivCycle <- paTableCycle[1]/(sum(paTableCycle))
-```
-b.	Calculate the average daily energy expenditure from cycling to/from work/school (MET-hours) for the entire population
-  
-  - Multiply the average daily energy expenditure for those that did cycle to/from work/school with the proportion of individuals that did cycle to/from work/school
-```{}
-    metHoursCycleAll <- metHoursCycle*indivCycle
-```   
 On average a Canadian only gets 0.024 MET-hours/day from cycling to/from work/school.
 
 
-###Part B: How much do the Dutch cycle/day for transportation purposes
+###Part B: How much do the Dutch cycle/day for transportation purposes on average?
 
 Using data collected as part of the Dutch National Travel Survey (2010 – 2012), Fisherman, 2015 (doi:10.1371/journal.pone.0121871 - Table S1) reported the average additional daily energy expenditure from cycling as a form of transportation for the Dutch: males: 1.3 MET-hours, and females: 1.4 MET-hours. 
 
 The average Dutch daily energy expenditure from cycling as a form of transportation for both sexes is then 1.35 MET-hours.
 
 
-###Part C: Calculate the difference between Dutch and Canadian daily cycling levels
+###Part C: What is the average difference in daily cycling transporation for Canadians and the Dutch?
 
-Canadians need to increase their daily energy expenditure from cycling from 0.07 MET-hours to 1.35 MET-hours, in order to be like the Dutch.
-```{}
-    absChange <- 1.35 - metHoursCycleAll
-```
+Canadians need to increase their average daily energy expenditure from cycling from 0.07 MET-hours to 1.35 MET-hours, in order to be like the Dutch.
+
+<div class="FOO">
+**Note:** Since the physical activity intervention scenario on the Project Big Life Planning Tool is for daily leisure energery expenditure and not daily active transportation, we will use the 'absolute' scenario for this example. We will increase each individual's daily liesure energy expenditure by 1.28 MET-hours (1.35 MET-hours - 0.07 MET-hours).
+</div>
 
 ###Part D: Predict how Canadian life expectancy would change if Canadians biked like the Dutch.
 
@@ -287,7 +200,7 @@ C. what would be the mortality outcomes be if Ottawa's health behaviours were th
 
 Here we will use the average life expectancy to determine the health of regions: the higher the life expectancy for the region the healthier that region is.
 
-For this example we will use the sample data set **data.sample.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples. This link also contains all of the R code for this case example. 
+For this example we will use the sample data set **data.sample.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples. This link also contains all of the R code for this case example. Although we have included the R code any other statistics software (SAS, STATA, etc) can be used to complete this case example.
 
 The following steps include the R coding for each of the steps but you can preform the steps in any other software program.
 
@@ -311,18 +224,7 @@ Using the Project Bid Life Planning Tool, we will find the healthiest region in 
 
 6. Download the results - _TO DO_
 
-Using your preferred statistic software (Excel, SAS, STATA, R Studio, etc) identify the healthiest region and the health of the Ottawa health region. The following code is for R.
-
-7. Import the data that you just downloaded to R. 
-```{}
-    summaryData <- read.csv("data.sample_Life_expectancy_by_health_region.csv")
-```  
-
-8. Sort the data in descending order to find the healthiest region.
-
-```{}
-  summaryData[summaryData$SummaryLE == max(summaryData$SummaryLE),]
-```
+Using your preferred statistic software (Excel, SAS, STATA, R Studio, etc) identify the healthiest region and the health of the Ottawa health region. 
 
 The healthiest region is XXX.
 
@@ -332,119 +234,22 @@ The healthiest region is XXX.
 
 Calculate the average of each health behaviour in the healthiest region: XXX and the Ottawa region.
 
-1. Import your original data set to R. 
-```{}
-    data <- read.csv("data.sample.csv")
-```
+- **Smoking**: Calculate the prevalence of current smokers in the XXX and Ottawa region.
+- **Physical Activity**: Calculate the average of physical activity (variable PACDEE) in the XXX and Ottawa region.
+- **Alcohol**: Calculate the average of weekly alcohol consumption (variable ALWDWKY) in the XXX and Ottawa region.
+- **Diet**: Calculate the average daily consumption of each diet componet (variables: FVCDCAR, FVCDFRU, FVCDJUI, FVCDPOT, FVCDSAL, and FVCDVEG) in the XXX and Ottawa region. 
 
-2. Subset your data for the healthiest region XXX and the Ottawa region. 
-```{}
-    Ottawa <- data %>%
-      filter(GEODPMF == 35951)
-    
-    XXX <- data %>%
-      filter(GEODPMF == XXXXX)
-```
+  - The more daily servings an individual has of:
 
-3. Calculate the average/prevalence of each health behaviour for the XXX and Ottawa region.
+    - carrots, fruits, salad, and vegetables =  the more healthy the individual, 
+    - juice = the less healthy the individual,
+    - potato < 1 = the more healthy the individual,  and
+    - potato > 1 = the less healthy the individual. 
 
-**Smoking**
-
-Calculate the prevalence of current smokers in the XXX and Ottawa region.
-```{}
-  smokersOttawa <- table(Ottawa$SMKDSTY)
-  prevSmokersOttawa <- round(prop.table(smokersOttawa),2)
-  prevSmokersOttawa[1]
-  
-  smokersXXX <- table(XXX$SMKDSTY)
-  prevSmokersXXX <- round(prop.table(smokersXXX),2)
-  prevSmokersXXX[1]
-```
-
-
-**Physical Activity**
-
-Calculate the average of physical activity (variable PACDEE) in the XXX and Ottawa region.
-
-a. Exclude the missing data: 'not stated'.
-
-```{}
-  Ottawa$PACDEE[Ottawa$PACDEE == 99.9] <- NA
-  XXX$PACDEE[XXX$PACDEE == 99.9] <- NA
-```
-
-b. Calculate the average daily energy expenditure for individuals in each region who do have a value for PACDEE
-
-```{}
-  paOttawa <- mean(Ottawa$PACDEE, na.rm = TRUE)
-  paXXX <- mean(XXX$PACDEE, na.rm = TRUE)
-```  
-
-
-**Alcohol**
-
-Calculate the average of weekly alcohol consumption (variable ALWDWKY) in the XXX and Ottawa region.
-
-a. Exclude the missing data: 'not stated'
-
-```{}
-  Ottawa$ALWDWKY[Ottawa$ALWDWKY == 999] <- NA
-  XXX$ALWDWKY[XXX$ALWDWKY == 999] <- NA
-```
-
-b. Change observations: not applicable to 0. 
-These are individuals who did not drink alcohol in the past year (represented by observations coded as 996 - NA).
-
-```{}
-  Ottawa$ALWDWKY[Ottawa$ALWDWKY == 996] <- 0
-  XXX$ALWDWKY[XXX$ALWDWKY == 996] <- 0
-```
-
-c. Calculate the average alcohol consumption for individuals in each region
-
-```{}
-  alcoholOttawa <- mean(Ottawa$ALWDWKY, na.rm = TRUE)
-  alcoholXXX <- mean(XXX$ALWDWKY, na.rm = TRUE)
-```  
-
-
-**Diet**
-
-An individual's diet is composed of multiple components including the number of daily servings of: carrot, fruit, juice, potato, salad, and vegetable. 
-
-The more daily servings an individual has of:
-
-- carrots, fruits, salad, and vegetables =  the more healthy the individual, 
-- juice = the less healthy the individual,
-- potato < 1 = the more healthy the individual,  and
-- potato > 1 = the less healthy the individual. 
-
-To compare the average diet of each region
-
-
-Calculate the average of each diet component for the XXX and Ottawa region.
-
-a. Eliminate observations: not stated. To reduce the number of coding steps, we will create a data set with only the diet variables.
-
-```{}
-  dietOttawa <- Ottawa %>%
-    select(FVCDCAR, FVCDFRU, FVCDJUI, FVCDPOT, FVCDSAL, FVCDVEG)
-  dietOttawa[dietOttawa == 999.9] <- NA
-
-  dietXXX <- XXX %>%
-    select(FVCDCAR, FVCDFRU, FVCDJUI, FVCDPOT, FVCDSAL, FVCDVEG)
-  dietXXX[dietXXX == 999.9] <- NA
-```
-
-b. Calculate the average of each diet component for XXX and the Ottawa region.
-```{}
-  summary(dietOttawa)
-  summary(dietXXX)
-```
 
 **Comparing health behaviours**
 
-4. Compare the averages of all health behaviours in the Ottawa region to the XXX. When the health behaviour for Ottawa is unhealthier then XXX, record the avg/prevalence of that health behaviour for XXX.
+Compare the averages of all health behaviours in the Ottawa region to the XXX. When the health behaviour for Ottawa is unhealthier then XXX, record the avg/prevalence of that health behaviour for XXX.
 
 
 ###Part C: What if Ottawa acted like XXX?
