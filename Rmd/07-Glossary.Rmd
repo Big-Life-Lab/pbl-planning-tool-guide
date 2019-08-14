@@ -68,6 +68,7 @@ Are not included in the calculation. It does not matter if your dataset includes
 
 The metabolic equivalent of task (MET) is a measure of the rate of energy expenditure from an activity; a measure of calories burned by type, duration and frequency of physical activity. The reference value of 1 MET is defined as the energy expediture rate at rest which is equal to 1kcal/kg/day.
 
+
 **Predictor**
 
 A variable that is used in the algorithm to predict the outcome.
@@ -81,6 +82,7 @@ Variables that are included in the calculation but not necessary for the calcula
 **Required for calculation**
 
 Variables that are included in the calculations and are necessary for the calculation to run. If a dataset does not have these variables then the calculation will not run.
+
 
 **Risk**
 
@@ -109,6 +111,7 @@ Stratification can only occur on categorical variables.
 **Warning Message**
 
 (ref:warning) 
+
 
 **Weights**
 
