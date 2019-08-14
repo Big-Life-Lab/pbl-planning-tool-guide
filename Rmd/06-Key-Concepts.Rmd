@@ -17,7 +17,7 @@ This section explains some key concepts in Project Big Life’s Planning Tool. T
 
 - Scenario: Intervention
 - Scenario: Cause-deleted
-- Limitations
+- Assumptions and limitations
 
 
 
@@ -173,7 +173,7 @@ The number of health outcomes (e.g. summary - deaths) is calculated through the 
 
 ###Life expectancy
 
-Life expectancy is calculated using abridge life tables *using a modified Chaing approach.(link to reference for Chiang and Hsieh and also one of our papers)*. Life expectancy is calculated by two methods: one for summary life expectancy, and a second for by row life expectancy.
+Life expectancy is calculated using abridge life tables using a modified Chaing approach [@Chiang] [@Hsieh]. *(link to reference for Chiang and Hsieh and also one of our papers)*. Life expectancy is calculated by two methods: one for summary life expectancy, and a second for by row life expectancy.
 
 ####Summary Life Expectancy
 
@@ -283,7 +283,7 @@ Although each type of health intervention for smoking: absolute, relative and ta
 knitr::include_graphics("Images/Scenario-Abs, Rel, Target cropped.jpg")
 ```
 
-To adjust the prevalence of smokers, the change is applied to every current smoker in the population; individuals are not selected at random. ....
+To adjust the prevalence of smokers, note that the change is applied to every current smoker in the population; individuals are not selected at random. 
 
 
 
@@ -345,20 +345,41 @@ library(ggplot2)
 
 ##Assumptions and Limitations
 
-###Limitation: Included population
+###Limitation: Data source: Canadian Community Health Survey
 
-The CCHS survey used to develop the mortality algorithm in the Project Big Life Planning Tool, include only individuals living in the community setting. Therefore individuals that live: in long-term care facilities, First Nations reserves, and full-time members of the Canadian Forces were excluded. 
+####Included population
 
-###Limitation: Under-reporting of health behaviours
+The CCHS survey used to develop the mortality algorithm in the Project Big Life Planning Tool, include only individuals living in the community setting 20 years of age or older. Therefore individuals that live: in long-term care facilities, First Nations reserves, incarcerated populations, and full-time members of the Canadian Forces were excluded. 
 
-The algorithms used in the Project Big Life Planning Tool use population health surveys with self-reported data to predict risk and health outcomes. With self-reported surveys there is the possibility of social desirability bias, where respondents over-report what they perceive to be healthy behaviours and under-report what they perceive to be unhealthy behaviours.
+The exclusion of these individuals is likely to lead to a small under-estimation of the burden of a health behaviour on a health outcome. Excluded populations have higher prevalence of unhealthy behaviours like smoking: incarerated and First Nations have higher prevelance of current smoking and individuals in long-term care facilities are more likely to be former smokers then the general population. However this under-estimation is small as the excluded population only accounts for < 3% of the Canadian population. 
+
+####Reporting of health behaviours
+
+Self-reported data is used to  health surveys use self-reported data to predict risk and health outcomes. With self-reported surveys there is the possibility of social desirability bias, where respondents tend to over-report what they perceive to be healthy behaviours and under-report what they perceive to be unhealthy behaviours.
 
 This is particularly the case with alcohol, where there is a consistent under-reporting of alcohol consumption in most population health surveys. In Ontario, the sum of self-reported alcohol consumption is about half the volume of alcohol sold {@ONalcohol}.
 
-In addition the full spectrum of the behaviour has not been captured due to limited questions about the health behaviour in surveys. With diet there were few questions on the CCHS survey and the questions did not capture diet other diet factors like sodium intake, trans fat, or other healthy/unhealthy behaviours. It is likely that the burden of poor diet is under-estimated.
+In addition the full spectrum of the behaviour has not been captured due to limited questions about the health behaviour in surveys. With diet there were few questions on the CCHS survey and these questions only asked about frequency of diet components. Information on diet factors like quantity, sodium intake, trans fat, or other healthy/unhealthy behaviours were not captured. It is likely that the burden of poor diet is under-estimated.
+
+Although more accurate risk factor ascertainment could improve discriminiation and calibration of the algorithms used in the Project Big Life Planning Tool, these algorithms already have high discrimination and calibration. 
 
 
-###Limitation: Use of the tool
+####Limitation: Multivariable predictive risk algorithms
 
-_Can the tool be used for historic analysis e.g. OPH proposed scenario #2_
+###Hazard ratios and exposures are assumed constant
+
+The hazard ratios in the algorithms of the Project Big Life Planning Tool, and an individual's exposures are assumed to be constant. 
+
+Constant hazard ratios do not account for period effect which could lead to an over-estimation of the burden of a health behaviour e.g. the differential mortality between smokers and non-smokers may have been greater for older periods, Therefore the algorithms do not account for any period effects,  
+
+Wil l
+
+###Limitation: Calculations
+
+####Attributable risk calculations
+
+
+###Limitation: Using the Project Big Life Planning Tool
+
+
 
