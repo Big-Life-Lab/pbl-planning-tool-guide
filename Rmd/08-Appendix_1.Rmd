@@ -4,18 +4,24 @@
 
 ##Overview
 
-**Outcomes: 5-yr risk of death, Life Expectancy, Cause-deleted Life Expectancy**
+***Outcomes: Life Expectancy, Number of deaths, 5-year mortality risk**
 
 **Calculations**
  
 Using MPoRT you are able to calculate:
 
-- 5 year mortality risk
-- Number of deaths
-- Life Expectancy (individual and population)
+- For each individual (By row)
 
-- Cause-deleted deaths and life expectancy
-- Burden of health behaviour in deaths and on life expectancy
+  - 5 year mortality risk
+  - Life Expectancy
+  
+- For the population (Summary)
+
+  - Number of deaths
+  - Life Expectancy
+  - Cause-deleted life expectancy
+  - Health behaviour attributable life expectancy 
+  - Health behaviour attributable number of deaths
 
 **Types of Questions**
 
@@ -25,6 +31,44 @@ Using MPoRT you are able to calculate:
 **Description**
 
 A multivariable predictive risk model that estimates the future risk of all-cause death in Canada. It adjusts for health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity, and a wide range of other risk factors. 
+
+##Data requirements for MPoRT
+
+In order to use the MPoRT algorithm on the Project Big Life Tool your data set **must include** the following CCHS 2013/2014 variables:
+
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+
+(reqVariableMPoRT <- data.frame(
+    CCHS_variable = c("DDH_SEX", "DHHGAGE", "WTS_M"),
+    Description = c("Sex", "Age", "Survey weight") ) 
+    )#closingbracket 
+```
+```{r, echo=FALSE}
+#Creating the table
+kable(reqVariableMPoRT) %>%
+  kable_styling(full_width = T) 
+```
+
+
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+
+(recVariableMPoRT <- data.frame(
+    CCHS_variable = c("ALWDWKY", "CCC_071", "CCC_091", "CCC_101", "CCC_121", "CCC_131", "CCC_151", "CCC_280", "EDUDR04", "FVCDCAR", "FVCDFRU", "FVCDJUI", "FVCDPOT", "FVCDSAL", "FVCDVEG", "HWTGBMI", "PACDEE", "SDCFIMM", "SDCGCGT", "SDCGRES", "SMK_01A", "SMK_05B", "SMK_05C", "SMK_09A", "SMK_204", "SMK_208", "SMKDSTY", "SMKG01C", "SMKG09C", "SMKG203"),
+    Description = c("Weekly alcohol consumption", "Do you have high blood pressure", "Do you have chronic obstructive pulmonary disease", "Do you have diabetes", "Do you have heart disease", "Do you have active cancer", "Do you suffer from effects of stroke", "Do you have a mood disorder", "Highest level/education of respondent", "Daily consumption - carrot", "Daily consumption - fruit", "Daily consumption - juice", "Daily consumption - potatoes", "Daily consumption - green salad", "Daily consumption - vegetables", "BMI self reported", "Daily energy expenditure", "Immigrant", "Cultural or racial origin", "Length/time in Canada since immigration", "In lifetime, smoked 100 or more cigarettes", "# of cigarettes smoked daily - occasional smoker", "Past month, smoked 1+ cigarettes daily - occasional smoker", "When did you stop smoking daily - occasional smoker", "# of cigarettes smoked daily - daily smoker", "# of cigarettes smoke each day - occasional smoker", "Type of smoker", "Age smoked first whole cigarette", "Years since stopped smoking daily - occasional smoker", "Age started to smoke daily" )) 
+    
+    )#closingbracket 
+```
+```{r, echo=FALSE}
+#Creating the table
+kable(recVariableMPoRT) %>%
+  kable_styling(full_width = T)  %>%
+  scroll_box(height = "400px")
+```
+
 
 
 ##MPoRT version description
@@ -122,10 +166,13 @@ Pack-years of smoking is generated from: the type of smoker, age in which they s
 
 In summary, the more an individual smokes or the longer they smoke, the greater the pack-years of smoking.
 
-
 **Simplified Diet Score**
 
 The simplified diet score essentially adds the healthy diet variables together (daily servings of carrots, fruit, salad, vegetables) and subtracts the unhealthy diet variables (daily servings of juice and potato). 
+
+
+
+
 
 
 
