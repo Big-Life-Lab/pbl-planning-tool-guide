@@ -2,9 +2,23 @@
 
 This chapter provides you with examples of how Project Big Life's Planning Tool can be used in your day-to-day operations. The case examples will cover:
 
-- analyses that can be included in a health status report,
-- a national scenario: What if Canada biked like the Dutch?
-- a local scenario: turning Ottawa into the healthiest Canadian region
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+
+(caseExamples <- data.frame(
+    Name = c("Health status report", "Canada bikes like the Dutch", "Healthy cities", "Adjusting gears"),
+    Type = c("Filter, Stratification, Scenario - Health behaviour attributable", "Filter, Scenario - Intervention: Absolute", "Filter, Stratification, Scenario - Intervention: Target", "Filter, Scenarion - Intervention: Absolute"),
+    Description = c("Generate statistic for a health status report", "Impact on life expectancy by increasing cycling rates", "Impact on life expectancy by modifying all health behaviours", "Impact on life expectancy from increasing cycling infrastructure")) 
+    )#closingbracket 
+```
+```{r, echo=FALSE}
+#Creating the table
+kable(caseExamples) %>%
+  kable_styling(full_width = T)  %>%
+  scroll_box(height = "400px")
+```
+
 
 
 ## Health Status Report
@@ -47,7 +61,7 @@ By showing the number of deaths by strata, the reader can see the distribution o
 
 ###Impact of eliminating unhealthy behaviours: physical inactivity and poor diet, on life expectancy
 
-To show how much an unhealthy behaviour impacts life expectancy we use the scenario: cause-deleted. Cause-deleted scenarios can be used for the health behaviours: alcohol consumption, diet, physical activity, and smoking, individually or in any combination. In this example we will evaluate the impact of physical inactivity and poor diet, in combination, on life expectancy.
+To show how much an unhealthy behaviour impacts life expectancy we use the scenario: health behaviour attributable. Health behaviour attributable scenarios can be used for the health behaviours: alcohol consumption, diet, physical activity, and smoking, individually or in any combination. In this example we will evaluate the impact of physical inactivity and poor diet, in combination, on life expectancy.
 
 **Steps**
 
@@ -63,21 +77,21 @@ To show how much an unhealthy behaviour impacts life expectancy we use the scena
 
 4. Click the text: Scenario.
 
-5. Select Cause-deleted. 
+5. Select health behaviour attribution. 
 
-6. Select the causes to delete: physical activity and diet
+6. Select the health behaviours: physical activity and diet
 
-7. Title the calculation: Alberta: Cause-deleted - physical activity and diet
+7. Title the calculation: Alberta: Physical activity and diet attributable life expectancy
 
 8. Click the calculate button
 
 *9. To Do:	Walk through results*
 
 <div class="FOO">
-**Note:** $\text{Cause-deleted life expectancy of physical inactivity and poor diet} \neq$
-$\text{Cause-deleted effect of physical inactivity} + \text{Cause-deleted effect of poor diet}$
+**Note:** $\text{Physical inactivity and poor diet attributable life expectancy lost} \neq$
+$\text{Physical inactivity-deleted life expectacny} + \text{Poor diet-deleted life expectancy}$
 
-This is because individuals in the population may be both physically inactive and have a poor diet. 
+as individuals in the population may be both physically inactive and have a poor diet. 
 </div>
 
 
@@ -129,7 +143,7 @@ In order to calculate the average Canadian daily energy expenditure from cycling
 
 - Calculate the average duration of cycling: $\text{Duration} = [\text{(Frequency/3 months)}*\text{(Time/trip)}] / \text{(Days/3 months)}$
 
-- Calculate the average daily energy expenditure (MET-hours) for cycling to/from work/school: $\text{MET-hours} = \text{Duration}*\text{MET value for walking}$
+- Calculate the average daily energy expenditure (MET-hours) for cycling to/from work/school: $\text{MET-hours} = \text{Duration}*\text{MET value for cycling}$
 
 <div class="FOO">
 **Note:** For Canadians to cycle like the Dutch, we need to use the Dutch MET cycling value of 5.8 and not the Canadian MET cycling value of 4.0. The Dutch MET value accounts for the speed of cycling of the Dutch. 
@@ -276,6 +290,51 @@ We’ll now run a scenario where the Ottawa region acts like XXX. Ottawa will no
 
 
 
+##Adjusting gears
+
+
+The City of Hamilton has decided to implement a new initiative *Adjusting Gears* which will increase cycling infrastructure in Hamilton. As part of the plan they have decide to develop 100 km of new cycling infrastructure in the next 3 years (2019-2021). 
+
+The city has asked you to evaluate the health impact of this initiative.
+
+You want to determine the impact of the 100km of new cycling infrastructure on Hamilton’s life expectancy.
+
+###Part A: Determine the how much a Hamiltonian will increase their physical activity by using these new cycling tracks
+
+<div class="AOO">
+Assumption #1: After having done your research, you assume that with the new tracks the average person in Hamilton will cycle an additional 10 minutes/day (duration).
+</div>
+
+1. Convert the increased duration of cycling into daily energy expenditure (MET-hours): $\text{MET-hours} = \text{Duration}*\text{MET value for cycling}$ 
+
+- The MET value for cycling in Canada is 4.0
+
+
+###Part B: Determine the impact on life expectancy
+
+Use the Project Big Life Planning Tool for the following steps:
+
+1. Load your data file: data.sample.csv to the Project Big Life Planning Tool. 
+
+2. Select initial calculation: Summary Measure – Life Expectancy (Summary)
+
+3. Add Filter: GEODPMF - 35937
+
+4. Click: Scenarios, and select Intervention
+
+5. Click Physical Activity then Select “Average daily leisure time energy expenditure in METs”
+
+<div class="AOO">
+Assumption #2: Although the scenario for physical activity is for leisure energy expenditure, we assume 1) individuals that are active in their leisure time also use active transportation, and 2) cycling as a form of active transportation is minor part of their energy expenditure. Therefore we will adjust the average daily leisure time energy expenditure in METs.
+</div>
+
+6. Select Absolute
+
+7. Type in the absolute change calculated in Part 1, into the text box.
+
+8. Name your calculation: Adjusting gears - Hamilton life expectancy
+
+9. Click Calculate
 
 
 
