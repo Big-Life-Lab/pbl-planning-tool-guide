@@ -242,12 +242,12 @@ The changes for each type of scenario for **alcohol, physical activity,** and **
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(knitr)
 library(kableExtra)
-(scenarios <- data.frame(
+scenarios <- data.frame(
     Health.Behaviour = c(" ", "Alcohol Consumption", "Physical Activity", rep("Diet",3)),
     Absolute.change = c("Each individual changes ...", "the number of drinks they have per week by x", "their physical activity level by x METs per day", "the number of servings of fruits and vegetables they eat by x per day", "the number of glasses of juice they drink by x per week", "the number of servings of potatoes the eat by x per week"),
     Relative.change =c("Each individual changes ...", "the number of drinks they have per week by y %", "their physical activity level by y % METs per day", "the number servings of fruits and vegetables they eat by y % per day", "the number of glasses of juice by y % per day", "the number of potatoes they eat by y % per day"), 
     Target = c("Each individual has the value ...", "z drinks per week", "z METs per day", "z fruits and vegetables per day", "z glasses of juice per day", "z potatoes per day")
-    ))#closingbracket 
+    )#closingbracket 
 
 ```
 ```{r, echo=FALSE}
@@ -283,43 +283,93 @@ Although each type of health intervention for smoking: absolute, relative and ta
 knitr::include_graphics("Images/Scenario-Abs, Rel, Target cropped.jpg")
 ```
 
-To adjust the prevalence of smokers, note that the change is applied to every current smoker in the population; individuals are not selected at random. 
+To adjust the prevalence of smokers, the change is applied to every current smoker in the population; individuals are not selected at random.
 
 
 
 
 
-##Scenario: Cause-deleted
+##Scenario: Health behaviour attribution
 
-What would be the life expectancy of a population if be no one in the population ever smoked? This scenario is a cause-deleted scenario.
+What would be the life expectancy of a population if be no one in the population ever smoked? This scenario is a health behaviour attribution scenario.
 
-There are two distinct terms in cause-deleted calculations:
+A health behaviour attribution scenario:
 
-- **Cause-deleted life expectancy** is the estimated life expectancy for the counter-factual population where a specific cause (e.g. smoking) never existed. For instance, everyone in the counter-factual population were always never smokers.
+- predicts the health outcome if no one was exposed to the health behaviour = **health behaviour-deleted outcome**, and
 
-- **Cause-deleted effect on life expectancy** or **life expectancy lost** is the full effect of the cause (e.g. smoking) in the population. For instance, 3 years of life expectancy are lost in a population due to individuals smoking: either currently or previously.
+- estimates the effect the health behaviour has on the health outcome for the population = **health behaviour attributable outcome**
 
-If multiple causes are selected (e.g. smoking and physical inactivity) the:
+To understand health behaviour attribution scenarios lets use the example of smoking and deaths for a population. 
 
- - cause-deleted life expectancy calculated accounts for both of these effects 
- - cause-deleted effect on life expectancy (or life expectancy lost due to the cause) is calculated for each individual cause. There will be both the cause-deleted effect of smoking on life expectancy and cause-deleted effect of physical inactivity on life expectancy.
+The number of deaths for a population is calculated twice: 
+
+- with the population that has all smokers = **baseline deaths**,  and
+- with a counterfactual scenario where everyone in the population is non-smokers = **smoking-deleted deaths**
+
+The difference between the number of deaths for of the two populations is the **smoking attributable deaths**.
+
+```{r, echo=FALSE, fig.align='center', fig.cap= "Health behaviour attributable scenario - Deaths"}
+knitr::include_graphics("Images/HB attributable number of deaths.jpg")
+```
+
+In this example smoking attributes approximately 15,000 deaths in the population. 
+
+This can also be done with life expectancy. Life expectancy is calculated: 
+
+- with the population that has all smokers = **baseline life expectancy**,  and
+- with the counterfactual population where there are no smokers = **smoking-deleted life expectancy**.
+
+The difference between the life expectancy of the two populations is the **life expectancy lost due to smoking**.
+
+```{r, echo=FALSE, fig.align='center', fig.cap= "Health behaviour attributable scenario - Life expectancy"}
+knitr::include_graphics("Images/HB attributable LE.jpg")
+```
+
+###Multiple selected health behaviours
+
+If multiple health behaviours are selected the:
+
+ - **health behaviour-deleted outcome** calculated accounts for **both** of these health behaviours, and 
+ - **health behaviour attributable outcome** is calculated **seperately** for each health behaviour. 
+
+We will use smoking (SMK) and physical inactivity (inPA) to demonstrate what happens when multiple behaviours are selected for health behaviour attribution scenario:
+ 
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+HBAO <- data.frame(
+    Baseline = c("Deaths", "150,000", "Life expectancy",  "75"),
+    Counterfactual = c("SMK and inPA - deleted deaths", "100,000", "SMK and inPA - deleted  life expectancy", "80 "), 
+    Difference = c("SMK and inPA attributable deaths", "50,000", "Life expectancy lost due SMK and inPA", "5"),
+    HealthBehaviour1 = c("SMK attributable deaths", "40,000", "inPA attributable life expectancy lost", "2"), 
+    HealthBehaviour2 = c("SMK attributable deaths", "15,000", "inPA attributable life expectancy lost", "4")
+)#closingbracket 
+
+```
+```{r, echo=FALSE, fig.align='center', fig.cap= "Outcomes for multiple health behaviours attribution scenario"}
+#Creating the table
+kable(HBAO[1:4,1:5]) %>%
+  kable_styling("striped", full_width = F) %>%
+  pack_rows("Number of deaths", 1, 2, label_row_css = "background-color: #888; color: #fff;") %>%
+  pack_rows("Life expectancy", 3, 4, label_row_css = "background-color: #888; color: #fff;")
+```
  
 <div class="FOO">
-**Note:** $\text{Cause-deleted life expectancy of smoking and physical inactivity} \neq$
-$\text{Cause-deleted effect of smoking} + \text{Cause-deleted effect of physical inactivity}$
+**Note:** $\text{SMK and inPA - deleted outcome} \neq$
+$\text{SMK attributable outcome} + \text{inPA attributable outcome}$
 
-This is because individuals in the population may be both smokers and physically inactive. 
+as individuals in the population may be both smokers and physically inactive. 
 </div>
 
 
-###Cause-deleted references
+###Reference health behaviours
 
-The following table describes the reference exposures used in the counter-factual populations for each of the health behaviours in the cause-deleted calculations:
+The health behaviours (references) used to calculate the health behaviour deleted outcomes are:
 
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(knitr)
 library(kableExtra)
-(cause.del.ref <- data.frame(
+(HBAref <- data.frame(
     Health.Behaviour = c("Smoking", "Alcohol Consumption", "Physical Activity", "Diet"),
     Reference = c("Never smoker", "0 drinks/week", "3.0 METs/day", "A total of: 5 fruit and vegetables, 0 juice, and 0 potato, servings/day")
     ))#closingbracket 
@@ -327,20 +377,11 @@ library(kableExtra)
 ```
 ```{r, echo=FALSE}
 #Creating the table
-kable(cause.del.ref) %>%
+kable(HBAref) %>%
   kable_styling(full_width = T)
 ```
 
 
-###Cause-deleted calculation overview
-
-```{r, echo=FALSE, results='hide', message=FALSE}
-LEdata <- data.frame(year=c("2009", "2010", "2011", "2012", "2013", "2014"), LifeExpectancy = c(81, 81.5, 82, 82.7, 83, 83.2, 83, 83.7, 84, 84.2, 85, 85.8), measure = c(rep("baseline",6), rep("CauseDeleted",6)))
-library(ggplot2)
-```
-```{r}
-#To create a graph tomorrow
-```
 
 
 ##Assumptions and Limitations
@@ -366,17 +407,22 @@ Although more accurate risk factor ascertainment could improve discriminiation a
 
 ####Limitation: Multivariable predictive risk algorithms
 
-###Hazard ratios and exposures are assumed constant
+####Hazard ratios and exposures are assumed constant
 
 The hazard ratios in the algorithms of the Project Big Life Planning Tool, and an individual's exposures are assumed to be constant. 
 
-Constant hazard ratios do not account for period effect which could lead to an over-estimation of the burden of a health behaviour e.g. the differential mortality between smokers and non-smokers may have been greater for older periods, Therefore the algorithms do not account for any period effects,  
+Constant hazard ratios do not account for period effect which could lead to an over-estimation of the burden of a health behaviour e.g. the differential mortality between smokers and non-smokers may have been greater for older periods, Therefore the algorithms do not account for any period effects.
 
-Wil l
 
 ###Limitation: Calculations
 
+####Uncertainty
+
+
+
 ####Attributable risk calculations
+
+
 
 
 ###Limitation: Using the Project Big Life Planning Tool
