@@ -36,7 +36,11 @@ _TO DO: Insert the image for the PBL planning tool_
 
 ###What is the Project Big Life Planning Tool
 
-The Project Big Life Planning Tool supports public health professionals research, plan, develop, and evaluate evidence-based health interventions in just a few steps. 
+The Project Big Life Team received numerous requests to generate, replicate, and updated health status reports such as Public Health Ontario's [Seven More Years](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) which examined the impact of health behaviours on health outcomes: mortality and life expectancy. 
+
+To address these requests and better support public health professionals the Project Big Life Team decided to create [Project Big Life Planning Tool](http://policy.projectbiglife.ca/).
+
+The Project Big Life Planning Tool gives public health professionals access to the algorithms used by the Project Big Life Team, and can be used to support your research, planning, development, and evaluation of health interventions. 
 
 The tool can help you:
 
@@ -45,7 +49,6 @@ The tool can help you:
 - Determine how much a risk factor contributes to a health outcome
 - Assess health benefits of potential interventions
 
-The tool is accessible to everyone and easy to use.
 
 
 ###Who made the Project Big Life Planning Tool?
@@ -54,5 +57,5 @@ The Project Big Life Planning Tool was developed by the [Project Big Life](https
 
 The planning tool was made in collaboration with [Public Health Ontario](https://www.publichealthontario.ca/), the [Population Health Analytics Lab](https://pophealthanalytics.com/) at the University of Toronto and [Ottawa Public Health](http://www.ottawapublichealth.ca/en/index.aspx). 
 
-The tool supports the [Seven More Years](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) report, a study that examined the health behaviour attributale mortality in Ontario. Algorithms used in the planning tool were developed using linked population data housed at [ICES](https://www.ices.on.ca/) and validated at Statistics Canada. All algorithms have been published in peer-review journals. See [Project Big Life](https://www.projectbiglife.ca/science) or [appendices](#mport) to the specific algorithms.
+Algorithms used in the planning tool were developed using linked population data housed at [ICES](https://www.ices.on.ca/) and validated at Statistics Canada. All algorithms have been published in peer-review journals. To learn more about the specific algorithms used in the Project Big Life Planning Tool see our [appendices](#mport) to the specific algorithms or [Project Big Life](https://www.projectbiglife.ca/science) website.
 
