@@ -31,11 +31,6 @@ The agreement between predicted risk generated from the model and observed risk 
 An annual survey preformed by Statistics Canada that collects information related to health status, health care utilization and health determinants for the Canadian population. Details about the survey can be found on Statistic Canada website  (http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&Id=144170). 
 
 
-**Cause-deleted life expectancy**
-
-(ref:causedeleted)
-
-
 **Discrimination**
 
 The ability of the model to differentiate between high risk individuals and low risk individuals.
@@ -128,8 +123,6 @@ A weight is given to each respondent in the survey and the weight corresponds to
 
 
 (ref:byrowcalc) When selected, the result will be the measurement for each individual (e.g. row) in the dataset.
-
-(ref:causedeleted) A cause-deleted health outcome is the estimated health outcome of a population if a specific cause (e.g. smoking) did not exist in that population. 
 
 (ref:error) Error messages will occur when variables that are **"Required for Calculation"** are missing in the data. If the entire column for the variable is missing then the calculation cannot be performed on the data. If there are missing row entries for the variable then the entire row will not be used in the calculation.
 
