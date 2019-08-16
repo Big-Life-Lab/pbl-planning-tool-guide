@@ -2,8 +2,6 @@
 
 #Mortality Population Risk Tool (MPoRT){#mport} 
 
-##Overview
-
 ***Outcomes: Life Expectancy, Number of deaths, 5-year mortality risk**
 
 **Calculations**
@@ -19,7 +17,8 @@ Using MPoRT you are able to calculate:
 
   - Number of deaths
   - Life Expectancy
-  - Cause-deleted life expectancy
+  - Health behaviour-deleted life expectancy
+  - Health behaviour-deleted number of deaths
   - Health behaviour attributable life expectancy 
   - Health behaviour attributable number of deaths
 
@@ -232,7 +231,7 @@ $$ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\te
 
 $$\text{Health behaviour-deleted risk}_{ external} = \text{Original risk} - \text{Health behaviour attributable risk}_{external}$$
 
-```{r, echo=FALSE, fig.align='center', fig.cap= "Risk portion of the cause-deleted calculations"}
+```{r, echo=FALSE, fig.align='center', fig.cap= "Risk portion of the health behaviour attribution calculations"}
 knitr::include_graphics("Images/Method2 only -cbf.jpg")
 ```
 
@@ -264,7 +263,7 @@ Step II: Calculate the number of deaths that would occur using the health behavi
 
 Step III: Calculate the health behaviour attributable deaths by: original number of deaths (Step I) minus health behaviour-deleted number of deaths (Step II):
 
-$$\text{health behaviour attributable deaths} = \text{Original number of deaths} - \text{Health behaviour-deleted number of deaths}$$
+$$\text{Health behaviour attributable deaths} = \text{Original number of deaths} - \text{Health behaviour-deleted number of deaths}$$
 
 
 
@@ -278,7 +277,7 @@ An example of a health behaviour with a non-monotonic relationship is alcohol. S
 
 _Is this still a consideration if we are using 0 as the reference value?_
 _Need to complete the thought at the end of the paragraph_
-Alcohol drinking guidelines usually do not recommend people: non-drinkers or former-drinkers, initiate drinking. In this situation, the target population for cause-deleted calculations can be restricted to for respondents with moderate or higher drinking, or multiple reference exposures could be created…
+Alcohol drinking guidelines usually do not recommend people: non-drinkers or former-drinkers, initiate drinking. In this situation, the target population for health behaviour attribution calculations can be restricted to for respondents with moderate or higher drinking, or multiple reference exposures could be created.
 
 
 
@@ -293,12 +292,8 @@ The health behaviour attributable risk and the health behaviour-deleted risk est
 All coefficients that related to a common risk factor should be simultaneously considered.
 
 
-## Exposures not in the original algorithm
-
-_Need to edit the text_
-The cause-effect and cause-deleted risk estimates can be calculated for risk factors that are not in the original algorithm. Method 2 must be used. Coefficient(s) are added to the model. Following cause-effect is calculated in the same way as other external risk factors. 
-There is an assumption that external risks do not change or influence the risk estimate when cause-effect and cause-deleted risk estimates are calculated using the approach. This means that there is no expectation that the external risk changes discrimination or calibration. 
-If external risk is expected to change risk prediction, then the external coefficient can first be added to the algorithm. Following and Method 1 is used to estimate cause-effect and cause-deleted risk. If possible, the new coefficient should be centered when adding to the algorithm to reduce the likelihood of poor calibration (bias or prediction that over estimates risk). 
- This approach can be considered when the external risk in an independent risk with effect that is not correlated with other coefficients.
+###Exposures not in the original algorithm
 
 
+
+#Bibilography
