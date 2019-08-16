@@ -7,9 +7,8 @@ These guides will cover the topics covered in the tutorial but in greater detail
 - Select calculation
 - Filter data
 - Stratify data
-- Run scenarios: Intervention and Cause-deleted
+- Run scenarios: Intervention and Health behaviour attribution
 - Calculate results
-- Visualize data (TBD)
 - Export data (TBD)
 - Resolve error messages (TBD)
 
@@ -142,7 +141,7 @@ There are two general types of calculations: summary measures and by row measure
 
 - **By row measures:** (ref:byrowcalc)
 
-Summary measures must be selected for calculations that have stratifications, intervention scenarios, and  cause-deleted scenario.
+Summary measures must be selected for calculations that have stratifications, intervention scenarios, and  health behaviour attribution scenario.
 
 **Steps**
 
@@ -214,7 +213,7 @@ You are able to stratify on all types of categorical variables: required for cal
 Scenarios can be used to predict the health outcomes when unhealthy behaviours:
 
 - are modified in the population: **Intervention**, or
-- were never present in the population: **Cause-deleted**
+- were never present in the population: **health behaviour attribution**
 
 Scenarios can be used to inform potential health policies or programs.
 
@@ -259,22 +258,22 @@ Multiple health behaviours and variables within the health behaviours can be sel
 
 - Once selected, the name(s) of the health behaviour(s) that have been selected for the intervention will appear to the right of "Scenario".
 
-###Cause-deleted scenarios
+###Health behaviour attribution scenarios
 
-Cause-deleted scenarios provide you with the ability to see the best case scenario for the population. For example:
+Health behaviour attribution scenarios provide you with the ability to see the best case scenario for the population. For example:
 
 - what if no one in the population ever smoked?
 - what if everyone in the population met their recommended physical activity levels (3.00 METs/week)?
 
-More information on cause-deleted calculations and how they are calculated can be found in key concepts (_Chapter \@ref(keyconcepts)_) - "Scenarios: Cause-deleted".
+More information on health behaviour attribution calculations and how they are calculated can be found in key concepts (_Chapter \@ref(keyconcepts)_) - "Scenarios: Health behaviour attribution".
 
 **Steps**
 
 1. Click the box beside either "Life Expectancy (Summary)" under the "Calculation" drop down.
 
-2. Check the button beside: "Cause-deleted" under the "Scenario" drop down.
+2. Check the button beside: "Health behaviour attribution" under the "Scenario" drop down.
 
-3. Check the box beside the health behaviour that you want to have a cause-deleted calculation.
+3. Check the box beside the health behaviour that you want to have a health behaviour attribution calculation.
 
 Multiple health behaviours can be selected for a single calculation. 
 
@@ -289,15 +288,7 @@ Multiple health behaviours can be selected for a single calculation.
 </div>
 
 
-##Visualize Data
-
-*TBD: Need plots on the platform to work through the steps below*
-- export
-- create your own(?)
-
-
-
-##Download results
+##Download results (TBD)
 
 Click on the **Download results** button under the **Results** section.
 
@@ -307,7 +298,7 @@ Select which calculations you'd like to download.
 
 
 
-##Resolve warning or error messages
+##Resolve warning or error messages (TBD)
 
 There are different types of warning and error messages that may appear.
 
