@@ -16,7 +16,7 @@ This section explains some key concepts in Project Big Life’s Planning Tool. T
     - Life expectancy
 
 - Scenario: Intervention
-- Scenario: Cause-deleted
+- Scenario: Health behaviour attribution
 - Assumptions and limitations
 
 
@@ -405,7 +405,7 @@ In addition the full spectrum of the behaviour has not been captured due to limi
 Although more accurate risk factor ascertainment could improve discriminiation and calibration of the algorithms used in the Project Big Life Planning Tool, these algorithms already have high discrimination and calibration. 
 
 
-####Limitation: Multivariable predictive risk algorithms
+###Limitation: Multivariable predictive risk algorithms
 
 ####Hazard ratios and exposures are assumed constant
 
