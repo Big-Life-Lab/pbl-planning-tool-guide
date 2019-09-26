@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-08-16}
+    \date{2019-09-26}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -106,8 +106,6 @@
 \chapter{Welcome to Project Big Life's Planning
 Tool}\label{welcome-to-project-big-lifes-planning-tool}
 
-\emph{TO DO: Insert the image for the PBL planning tool}
-
 \subsection{What is the Project Big Life Planning
 Tool}\label{what-is-the-project-big-life-planning-tool}
 
@@ -120,7 +118,8 @@ outcomes: mortality and life expectancy.
 
 To address these requests and better support public health professionals
 the Project Big Life Team decided to create
-\href{http://policy.projectbiglife.ca/}{Project Big Life Planning Tool}.
+\href{http://planning.projectbiglife.ca/}{Project Big Life Planning
+Tool}.
 
 The Project Big Life Planning Tool gives public health professionals
 access to the algorithms used by the Project Big Life Team, and can be
@@ -263,18 +262,19 @@ To help you get started quickly with Project Big Life's Planning Tool,
 we built a Tutorial directly onto the platform.
 
 The tutorial takes you through step-by-step how to use Project Big
-Life's Planning Tool. The tutorial will not explain the steps in detail
-(Chapter \ref{howto}) nor will it provide reference material (Chapter
-\ref{glossary}), but it will give you an understanding of how easy it is
-to use the Planning Tool!
+Life's Planning Tool. The tutorial will not explain the
+\protect\hyperlink{howto}{steps in detail}) nor will it provide
+terminology \protect\hyperlink{glossary}{glossary} or how the
+\protect\hyperlink{mport}{tool operates}, but it will give you an
+understanding of how easy it is to use the Planning Tool!
 
-\textbf{To access the tutorial}, go onto Project Big Life's Planning
-Tool (\url{http://policy.projectbiglife.ca/}) and click on the Tutorial
-button in the top right corner!
+\textbf{To access the tutorial}, go onto
+\href{http://planning.projectbiglife.ca/}{Project Big Life's Planning
+Tool} and click on the Tutorial button in the top right corner!
 
 \begin{center}\includegraphics{Images/Tutorial Button} \end{center}
 
-\chapter{How To}\label{howto}
+\hypertarget{howto}{\chapter{How To}\label{howto}}
 
 These guides will cover the topics covered in the tutorial but in
 greater detail.
@@ -286,7 +286,7 @@ greater detail.
 \item
   Load data
 \item
-  Select calculation
+  Select measure (calculation)
 \item
   Filter data
 \item
@@ -296,9 +296,9 @@ greater detail.
 \item
   Calculate results
 \item
-  Export data (TBD)
+  Download results (To be developed)
 \item
-  Resolve error messages (TBD)
+  Resolve error messages (To be developed)
 \end{itemize}
 
 \section{Customize Data}\label{customize-data}
@@ -326,8 +326,8 @@ etc, as long as you output your data set as a `.csv' file.
 stratification}\label{customize-filter-andor-stratification}
 
 An example of customizing your data set is converting the variable: Body
-Mass Index (CCHS 2013 variable HWTGBMI) from a continuous variable into
-four distinct categories:
+Mass Index (CCHS 2013/2014 variable HWTGBMI) from a continuous variable
+into four distinct categories:
 
 \begin{itemize}
 \tightlist
@@ -435,12 +435,12 @@ Data loaded to the Project Big Life Planning Tool:
 \end{itemize}
 
 More information on the required and recommended variables can be found
-Appendix \{\#mport\}.
+\protect\hyperlink{mport}{Appendix}.
 
 Only \textbf{one data file} can be used on the planning tool at a time;
 the planning tool cannot preform a calculation across multiple data
 files. If you wish to use data from different data sets, you first merge
-the data sets together and use the 2013/14 CCHS format (e.g.~variable
+the data sets together and use the 2013/2014 CCHS format (e.g.~variable
 names). Once data sets are merged into one data file you can load your
 data on to the Planning Tool.
 
@@ -453,18 +453,22 @@ There are two options of data files: a sample file or your own file.
 
 If you don't have your own data or want to explore the platform's
 capabilities before using your data, you can use the sample file on the
-Project Big Life Planning Tool. There is one sample file included on the
-planning tool:
+Project Big Life Planning Tool. There are two sample files included on
+the planning tool:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{data.sample.csv} this is fabricated data set that includes all
-  variables required for calculation, recommend for calculation, and
-  needed for the case examples (found in Chapter \ref{caseexamples}).
-  This data set is based on the 2013/2014 CCHS PUMF but it is
+  \textbf{sample.csv (Sample)} this is fabricated data set that includes
+  all variables required for calculation, recommend for calculation, and
+  needed for the \protect\hyperlink{caseexamples}{case examples}. This
+  data set is based on the 2013/2014 CCHS PUMF but it is
   \textbf{entirely fabricated and can only be used for examplary
   purposes.}
+\item
+  \textbf{sample\_small.csv (Sample)} is the same data set as above but
+  has fewer observations. Use this data set if you are testing out the
+  platform as it will take less time to compute.
 \end{itemize}
 
 \textbf{Steps}
@@ -473,7 +477,7 @@ planning tool:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Click on the file name under ``Sample files'' to select it.
+  Click on the checkmark beside the ``Sample file'' to select it.
 \end{enumerate}
 
 \subsection{Load your own file}\label{load-your-own-file}
@@ -487,7 +491,12 @@ planning tool:
   calculations''.
 \item
   Locate the file on your computer, select, and open.
+\item
+  Choose the file type (2013/2014 PUMF or 2013/2014 Shared) for your
+  uploaded file, in the table that showcases all of the files.
 \end{enumerate}
+
+Note:
 
 \begin{itemize}
 \item
@@ -503,7 +512,7 @@ planning tool:
   the planning tool, however the calculations may be less accurate.
 \end{itemize}
 
-\section{Select calculation}\label{select-calculation}
+\section{Select measure (calculation)}\label{select-measure-calculation}
 
 There are two general types of calculations: summary measures and by row
 measures.
@@ -542,7 +551,8 @@ attribution scenario.
 \end{itemize}
 
 More details of what the calculations are and how they are preformed can
-be found in key concepts (Chapter \ref{keyconcepts}) - ``Calculations''.
+be found in \protect\hyperlink{keyconcepts}{key concepts} -
+``Calculations''.
 
 \section{Filter data}\label{filter-data}
 
@@ -713,8 +723,9 @@ There are 3 types of intervention scenarios that you can select:
 \end{itemize}
 
 More information on the specifics of each type of intervention scenario
-and how they are calculated can be found in Key Concepts (Chapter
-\ref{keyconcepts}) - ``Scenarios: Interventions''.
+and how they are calculated can be found in
+\protect\hyperlink{keyconcepts}{key concepts} - ``Scenarios:
+Interventions''.
 
 \textbf{Steps}
 
@@ -792,8 +803,8 @@ see the best case scenario for the population. For example:
 \end{itemize}
 
 More information on health behaviour attribution calculations and how
-they are calculated can be found in key concepts (\emph{Chapter
-\ref{keyconcepts}}) - ``Scenarios: Health behaviour attribution''.
+they are calculated can be found in key concepts{]}(\#keyconcepts) -
+``Scenarios: Health behaviour attribution''.
 
 \textbf{Steps}
 
@@ -832,39 +843,100 @@ Multiple health behaviours can be selected for a single calculation.
 will take. Depending on the size of the data set and the type of
 calculation being preformed it could take an hour or more.
 
-\section{Download results (TBD)}\label{download-results-tbd}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Click the ``calculate'' button.
+\item
+  A new table will appear under the calculate button. The table includes
+  the status of the calculation, the calculation: name, measures,
+  filters and stratifications that were select.
+\end{enumerate}
+
+A green check mark will appear in the status column.
+
+\section{View Results}\label{view-results}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Click on the calculation name, in the table under the green
+  calculation button.
+\item
+  There are three tabs for the results:
+\end{enumerate}
+
+\begin{itemize}
+\item
+  \textbf{Overview:} provides a summary of the calculation that was
+  preformed including: measure, filters used, errors, and warnings.
+\item
+  \textbf{Stratifications:} This will show the results for the
+  measurement you choose to calculate. This screen will either have:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{a table} when you stratifications are selected.
+  \item
+    \textbf{a graph} when stratification are selected. The graph is
+    further described below.
+  \end{itemize}
+\item
+  \textbf{Log:} will give you a summary of the warnings and errors that
+  occurred during the calculation.
+\end{itemize}
+
+\subsection{Graph}\label{graph}
+
+The graph produce through plotly is interactive. Hover over the graph to
+see the results for each strata, exclude strata, download a .png of the
+graph, and much more.
+
+\section{Download results}\label{download-results}
 
 Click on the \textbf{Download results} button under the \textbf{Results}
 section.
 
+A pop-up will appear.
+
+Select which measures you would like to download.
+
 Select which calculations you'd like to download.
 
-\emph{To Do: Screenshot of all the calculation options once the platform
-is fixed.}
+Scroll down in the pop up window and select ``Download File:
+Your\_file\_and\_calculation\_name''.
 
-\section{Resolve warning or error messages
-(TBD)}\label{resolve-warning-or-error-messages-tbd}
+Two files will be downloaded.
+
+\begin{itemize}
+\tightlist
+\item
+  **Text \url{file:**} will give you a summary of the calculation
+  preformed.
+\item
+  **CSV \url{file:**} will provide you a table with the measures you
+  preformed.
+\end{itemize}
+
+\section{Resolve warning or error messages (To be
+developed)}\label{resolve-warning-or-error-messages-to-be-developed}
 
 There are different types of warning and error messages that may appear.
 
 Below describes some of the messages that are likely to occur and steps
 to resolve them.
 
-\emph{Waiting for the branch with the error messages to be finalized and
-merged}
-
 \subsection{Invalid category}\label{invalid-category}
 
 \subsection{Out of range}\label{out-of-range}
-
-``Out of range'' is when there are observation(s) in the data set that
-are not is beyond the limit of
 
 \subsection{Not a number}\label{not-a-number}
 
 \subsection{Sample size is too small}\label{sample-size-is-too-small}
 
-\chapter{Case examples}\label{caseexamples}
+\hypertarget{caseexamples}{\chapter{Case examples}\label{caseexamples}}
 
 This chapter provides you with examples of how Project Big Life's
 Planning Tool can be used in your day-to-day operations. The case
@@ -1591,6 +1663,14 @@ things.
 \item
   Scenario: Health behaviour attribution
 \item
+  Results
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Why are there more deaths for the healthy behaviour?
+  \end{itemize}
+\item
   Assumptions and limitations
 \end{itemize}
 
@@ -2257,6 +2337,20 @@ Diet
 
 A total of: 5 fruit and vegetables, 0 juice, and 0 potato, servings/day
 
+\section{Results}\label{results}
+
+\subsection{Why are there more deaths for the healthy
+behaviour?}\label{why-are-there-more-deaths-for-the-healthy-behaviour}
+
+You may get a result where there are more deaths for the ``healthier''
+exposure rather then an ``unhealthier'' exposure, for instance:
+
+\begin{center}\includegraphics{Images/Graph-hypertension-diabetes} \end{center}
+
+This result occurs as there are more people in the population that do
+not have diabetes. You can standarized your data set prior to the
+calculation to get a differnt result.
+
 \section{Assumptions and Limitations}\label{assumptions-and-limitations}
 
 \subsection{Limitation: Data source: Canadian Community Health
@@ -2331,7 +2425,7 @@ calculations}\label{attributable-risk-calculations}
 \subsection{Limitation: Using the Project Big Life Planning
 Tool}\label{limitation-using-the-project-big-life-planning-tool}
 
-\chapter{Glossary}\label{glossary}
+\hypertarget{glossary}{\chapter{Glossary}\label{glossary}}
 
 \textbf{5-year mortality risk}
 
@@ -2342,14 +2436,6 @@ The probability that an individual will die in the next 5 years.
 A weight-to-height ratio used as an indicator of obesity and
 underweight. BMI is calculated by dividing an individual's body weight
 in kilograms by the square of height in metres (kg/m2).
-
-\textbf{Burden}
-
-The impact or size of a health problem in an area, measured by cost,
-mortality, morbidity or other indicators. The burden of unhealthy
-behaviour is calculated by the differences in life expectancy based on
-individuals' exposure to four health behavioural risks for poor health
-relative to the healthy category.
 
 \textbf{By Row Measures}
 
@@ -2848,9 +2934,9 @@ years that were not used in development and the National CCHS data set
 
 \textbf{MPoRTv1.0}
 
-Was used in the ``Seven More Years'' report, a joint report with Public
-Health Ontario and ICES
-(\url{https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years}).
+Was used in the
+\href{https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years}{Seven
+More Years} report, a joint report with Public Health Ontario and ICES .
 In summary, the algorithm estimated the risk of death associated with
 health behaviours: smoking, unhealthy alcohol consumption, poor diet,
 physical inactivity and stress. There were approximately 550,000
@@ -3193,7 +3279,7 @@ behaviour-deleted effect external'' (Step 4).
 
 }
 
-\caption{Risk portion of the health behaviour attribution calculations}\label{fig:unnamed-chunk-25}
+\caption{Risk portion of the health behaviour attribution calculations}\label{fig:unnamed-chunk-26}
 \end{figure}
 
 \subsection{Part B: Health outcome

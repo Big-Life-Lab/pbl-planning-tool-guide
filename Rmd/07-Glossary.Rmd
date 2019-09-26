@@ -11,11 +11,6 @@ The probability that an individual will die in the next 5 years.
 A weight-to-height ratio used as an indicator of obesity and underweight. BMI is calculated by dividing an individual’s body weight in kilograms by the square of height in metres (kg/m2).
 
 
-**Burden** 
-
-The impact or size of a health problem in an area, measured by cost, mortality, morbidity or other indicators. The burden of unhealthy behaviour is calculated by the differences in life expectancy based on individuals’ exposure to four health behavioural risks for poor health relative to the healthy category.
-
-
 **By Row Measures**
 
 (ref:byrowcalc)

@@ -82,7 +82,7 @@ Versions of MPoRT have been developed since 2012 and used in various studies. Ea
 
 **MPoRTv1.0**
 
-Was used in the "Seven More Years" report, a joint report with Public Health Ontario and ICES (https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years). 
+Was used in the [Seven More Years](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) report, a joint report with Public Health Ontario and ICES . 
 In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, physical inactivity and stress. There were approximately 550,000 person-years of follow up and over 6000 deaths in the development data set. The algorithm used categorical predictor variables for health behaviours and sociodemographic factors.
 
 **MPoRTv1.2**

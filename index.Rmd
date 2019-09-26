@@ -32,13 +32,12 @@ knitr::write_bib(c(
 ), 'packages.bib')
 ```
 
-_TO DO: Insert the image for the PBL planning tool_
 
 ###What is the Project Big Life Planning Tool
 
 The Project Big Life Team received numerous requests to generate, replicate, and updated health status reports such as Public Health Ontario's [Seven More Years](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) which examined the impact of health behaviours on health outcomes: mortality and life expectancy. 
 
-To address these requests and better support public health professionals the Project Big Life Team decided to create [Project Big Life Planning Tool](http://policy.projectbiglife.ca/).
+To address these requests and better support public health professionals the Project Big Life Team decided to create [Project Big Life Planning Tool](http://planning.projectbiglife.ca/).
 
 The Project Big Life Planning Tool gives public health professionals access to the algorithms used by the Project Big Life Team, and can be used to support your research, planning, development, and evaluation of health interventions. 
 

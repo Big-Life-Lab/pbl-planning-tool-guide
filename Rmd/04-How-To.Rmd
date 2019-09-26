@@ -4,13 +4,13 @@ These guides will cover the topics covered in the tutorial but in greater detail
 
 - Customize data
 - Load data
-- Select calculation
+- Select measure (calculation)
 - Filter data
 - Stratify data
 - Run scenarios: Intervention and Health behaviour attribution
 - Calculate results
-- Export data (TBD)
-- Resolve error messages (TBD)
+- Download results (To be developed)
+- Resolve error messages (To be developed)
 
 
 ##Customize Data
@@ -27,7 +27,7 @@ Data manipulation can occur on any programming software: R, SAS, STATA, etc, as 
 
 ###Customize filter and/or stratification
 
-An example of customizing your data set is converting the variable: Body Mass Index (CCHS 2013 variable HWTGBMI) from a continuous variable into four distinct categories:
+An example of customizing your data set is converting the variable: Body Mass Index (CCHS 2013/2014 variable HWTGBMI) from a continuous variable into four distinct categories:
     
 - Underweight: BMI less then 18.5
 - Normal or Healthy Weight: BMI of 18.5 to 24.9
@@ -94,10 +94,10 @@ Data loaded to the Project Big Life Planning Tool:
 
 - **Should include** some or all of the **recommended** variables. Recommended variables aren't required for calculations but will increase the accuracy of the predicted health outcome. 
 
-More information on the required and recommended variables can be found Appendix {#mport}.
+More information on the required and recommended variables can be found [Appendix](#mport).
 
 
-Only **one data file** can be used on the planning tool at a time; the planning tool cannot preform a calculation across multiple data files. If you wish to use data from different data sets, you first merge the data sets together and use the 2013/14 CCHS format (e.g. variable names). Once data sets are merged into one data file you can load your data on to the Planning Tool. 
+Only **one data file** can be used on the planning tool at a time; the planning tool cannot preform a calculation across multiple data files. If you wish to use data from different data sets, you first merge the data sets together and use the 2013/2014 CCHS format (e.g. variable names). Once data sets are merged into one data file you can load your data on to the Planning Tool. 
 
 <div class="FOO">
 **Note:** Data you load to the Project Big Life Planning Tool remains on your computer and is not uploaded or sent anywhere.
@@ -108,13 +108,15 @@ There are two options of data files: a sample file or your own file.
 
 ###Load sample files
 
-If you don't have your own data or want to explore the platform's capabilities before using your data, you can use the sample file on the Project Big Life Planning Tool. There is one sample file included on the planning tool:
+If you don't have your own data or want to explore the platform's capabilities before using your data, you can use the sample file on the Project Big Life Planning Tool. There are two sample files included on the planning tool:
 
-- **data.sample.csv** this is fabricated data set that includes all variables required for calculation, recommend for calculation, and needed for the case examples (found in Chapter \@ref(caseexamples)). This data set is based on the 2013/2014 CCHS PUMF but it is **entirely fabricated and can only be used for examplary purposes.**
+- **sample.csv (Sample)** this is fabricated data set that includes all variables required for calculation, recommend for calculation, and needed for the [case examples](#caseexamples). This data set is based on the 2013/2014 CCHS PUMF but it is **entirely fabricated and can only be used for examplary purposes.**
+- **sample_small.csv (Sample)** is the same data set as above but has fewer observations. Use this data set if you are testing out the platform as it will take less time to compute. 
+
 
 **Steps**
 
-1. Click on the file name under "Sample files" to select it. 
+1. Click on the checkmark beside the "Sample file" to select it. 
 
 
 ###Load your own file
@@ -125,6 +127,10 @@ If you don't have your own data or want to explore the platform's capabilities b
 
 2. Locate the file on your computer, select, and open. 
 
+3. Choose the file type (2013/2014 PUMF or 2013/2014 Shared) for your uploaded file, in the table that showcases all of the files.
+
+Note:
+
 - If the loaded file has all of the variables required and recommended for calculation, you will be able to continue with the planning tool. 
   
 - If the loaded file does **not** have all the variables **required** for the calculation you will not be able to continue with the planning tool.
@@ -133,7 +139,7 @@ If you don't have your own data or want to explore the platform's capabilities b
 
 
 
-##Select calculation
+##Select measure (calculation)
 
 There are two general types of calculations: summary measures and by row measures.
 
@@ -149,7 +155,7 @@ Summary measures must be selected for calculations that have stratifications, in
 
   - Once selected the name(s) of the calculation(s) will appear to the right of "Calculations".
 
-More details of what the calculations are and how they are preformed can be found in key concepts (Chapter \@ref(keyconcepts)) - "Calculations".
+More details of what the calculations are and how they are preformed can be found in [key concepts](#keyconcepts) - "Calculations".
 
 
 ##Filter data
@@ -234,7 +240,7 @@ There are 3 types of intervention scenarios that you can select:
 - **Relative:** each individual in the population **changes** their health behaviour **by a ratio of y**.
 - **Target:** each individual in the population **has a set value of z.**
 
-More information on the specifics of each type of intervention scenario and how they are calculated can be found in Key Concepts (Chapter \@ref(keyconcepts)) - "Scenarios: Interventions".
+More information on the specifics of each type of intervention scenario and how they are calculated can be found in [key concepts](#keyconcepts) - "Scenarios: Interventions".
 
 **Steps**
 
@@ -265,7 +271,7 @@ Health behaviour attribution scenarios provide you with the ability to see the b
 - what if no one in the population ever smoked?
 - what if everyone in the population met their recommended physical activity levels (3.00 METs/week)?
 
-More information on health behaviour attribution calculations and how they are calculated can be found in key concepts (_Chapter \@ref(keyconcepts)_) - "Scenarios: Health behaviour attribution".
+More information on health behaviour attribution calculations and how they are calculated can be found in key concepts](#keyconcepts) - "Scenarios: Health behaviour attribution".
 
 **Steps**
 
@@ -287,30 +293,59 @@ Multiple health behaviours can be selected for a single calculation.
 **Note:** the larger the data set is the longer the calculations will take. Depending on the size of the data set and the type of calculation being preformed it could take an hour or more. 
 </div>
 
+2. Click the "calculate" button.
 
-##Download results (TBD)
+3. A new table will appear under the calculate button. The table includes the status of the calculation, the calculation: name, measures, filters and stratifications that were select. 
+
+A green check mark will appear in the status column.
+
+
+##View Results
+
+1. Click on the calculation name, in the table under the green calculation button. 
+
+2. There are three tabs for the results:
+
+- **Overview:** provides a summary of the calculation that was preformed including: measure, filters used, errors, and warnings.
+
+- **Stratifications:** This will show the results for the measurement you choose to calculate. This screen will either have:
+    - **a table** when you stratifications are selected.
+    - **a graph** when stratification are selected. The graph is further described below.
+
+- **Log:** will give you a summary of the warnings and errors that occurred during the calculation.
+    
+###Graph
+
+The graph produce through plotly is interactive. Hover over the graph to see the results for each strata, exclude strata, download a .png of the graph, and much more.
+
+##Download results
 
 Click on the **Download results** button under the **Results** section.
 
+A pop-up will appear. 
+
+Select which measures you would like to download. 
+
 Select which calculations you'd like to download. 
 
-*To Do: Screenshot of all the calculation options once the platform is fixed.*
+Scroll down in the pop up window and select "Download File: Your_file_and_calculation_name".
+
+Two files will be downloaded. 
+
+- **Text file:** will give you a summary of the calculation preformed.
+- **CSV file:** will provide you a table with the measures you preformed.
 
 
 
-##Resolve warning or error messages (TBD)
+##Resolve warning or error messages (To be developed)
 
 There are different types of warning and error messages that may appear.
 
 Below describes some of the messages that are likely to occur and steps to resolve them.
 
-*Waiting for the branch with the error messages to be finalized and merged*
-
 ###Invalid category
 
 ###Out of range
-
-"Out of range" is when there are observation(s) in the data set that are not is beyond the limit of 
 
 ###Not a number
 

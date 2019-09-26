@@ -17,6 +17,10 @@ This section explains some key concepts in Project Big Life’s Planning Tool. T
 
 - Scenario: Intervention
 - Scenario: Health behaviour attribution
+- Results
+
+    - Why are there more deaths for the healthy behaviour?
+    
 - Assumptions and limitations
 
 
@@ -381,8 +385,16 @@ kable(HBAref) %>%
   kable_styling(full_width = T)
 ```
 
+##Results
 
+###Why are there more deaths for the healthy behaviour?
 
+You may get a result where there are more deaths for the "healthier" exposure rather then an "unhealthier" exposure, for instance:
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("Images/Graph-hypertension-diabetes.jpg")
+```
+
+This result occurs as there are more people in the population that do not have diabetes. You can standarized your data set prior to the calculation to get a differnt result.
 
 ##Assumptions and Limitations
 
