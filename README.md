@@ -1,6 +1,6 @@
-#Guidance for the Project Big Life Planning Tool 
+# Guidance for the Project Big Life Planning Tool 
 
-The Project Big Life Planning Tool (http://policy.projectbiglife.ca/) was developed in order to support health professionals: research, plan, develop, and evaluate evidence-based health interventions.
+The Project Big Life Planning Tool (http://policy.projectbiglife.ca/) was developed in order to support health professionals to perform research, plan, develop, and evaluate evidence-based public health interventions in Canada.
 
 This guidance document outlines **what the tool is**, **how it to use it**, and **how it operates**. The guidance includes the following sections:
 
@@ -11,12 +11,11 @@ This guidance document outlines **what the tool is**, **how it to use it**, and 
 - **Key concepts:** understand how the tool works
 - **Glossary:** reference terms used in the tool and guidance
 
-This guidance document was created using RStudio and the bookdown package.
+## Contributing to the documentation
+We welcome suggestions and additions to the Project Big Life Planning Tool documentation. Please follow [this guide](CONTRIBUTING.MD) if you would like contribute.
 
-
-##Downloading the Project Big Life Planning Tool guidance repository
-
-You may want make modifications to the Project Big Life Planning Tool repository or use it as a starting point for your own guidance document. In these cases you will have to download the Project Big Life Planning Tool repository and open it on your computer. To do so, complete the following steps. (These steps have been adapted from Yihui Xie's "Bookdown: Authoring Books and Technical Documents with R Markdown" https://bookdown.org/yihui/bookdown/.)
+## Downloading the Project Big Life Planning Tool guidance repository
+Feel free to copy this repository. To do so, complete the following steps. (These steps have been adapted from Yihui Xie's "Bookdown: Authoring Books and Technical Documents with R Markdown" https://bookdown.org/yihui/bookdown/.)
 
 1) Download the latest version of R if your version is lower then 1.0.0.
 
