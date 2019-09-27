@@ -1,4 +1,4 @@
-# Guidance for the Project Big Life Planning Tool 
+# Project Big Life Planning Tool guidance document
 
 The Project Big Life Planning Tool (http://policy.projectbiglife.ca/) was developed in order to support health professionals to perform research, plan, develop, and evaluate evidence-based public health interventions in Canada.
 
