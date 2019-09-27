@@ -1,6 +1,6 @@
 # (APPENDIX) Appendix {-} 
 
-#Mortality Population Risk Tool (MPoRT){#mport} 
+# Mortality Population Risk Tool (MPoRT){#mport} 
 
 ***Outcomes: Life Expectancy, Number of deaths, 5-year mortality risk**
 
@@ -31,7 +31,7 @@ Using MPoRT you are able to calculate:
 
 A multivariable predictive risk model that estimates the future risk of all-cause death in Canada. It adjusts for health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity, and a wide range of other risk factors. 
 
-##Data requirements for MPoRT
+## Data requirements for MPoRT
 
 In order to use the MPoRT algorithm on the Project Big Life Tool your data set **must include** the following CCHS 2013/2014 variables:
 
@@ -75,7 +75,7 @@ kable(recVariableMPoRT) %>%
 
 
 
-##Descriptions of MPoRT versions
+## Descriptions of MPoRT versions
 
 Versions of MPoRT have been developed since 2012 and used in various studies. Each version of MPoRT (v1.0, v1.2, v2.0) used the Ontario subset of the Canadian Community Health Survey (CCHS) for development and the survey respondents were linked to personal death records. In later versions of MPoRT (v1.2, v2.0) the following changes were made:, (a) algorithm variables were adjusted to improve predictions, and (b) the algorithms were validated using: the Ontario subset of CCHS of the years that were not used in development and the National CCHS data set (excluding Ontario).
 
@@ -160,7 +160,7 @@ kable(pred.MPoRT2) %>%
   footnote(symbol = c("Age interaction included for all variables exept immigrant, fraction of time in Canada, and ethnicity", "Excluded in the male model, remains in the female model", "Excluded in the female model, remains in the male model"), footnote_as_chunk = TRUE)
 ```
 
-###Derived parameters
+### Derived parameters
 
 In MPoRTv2 there are some parameters that are derived from variables within the data set. These include: pack-years of smoking, and the simplified diet score. 
 
@@ -180,19 +180,19 @@ The simplified diet score essentially adds the healthy diet variables together (
 
 
 
-#Health behaviour attributable calculations
+# Health behaviour attributable calculations
 
 Here we will explain the details behind Project Big Life Planning Tool health behaviour attributable scenarios including: the calculations and additional considerations. 
 
 
-##Calculation
+## Calculation
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ysX3M0cMSXQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 There are two parts to the calculations preformed in health behaviour attributable scenarios: (A) calculate the risk, and (B) calculate the health outcome: life expectancy or number of deaths.
 
-###Part A: Risk calculations
+### Part A: Risk calculations
 
 The original multivariable predictive risk algorithm is: 
 
@@ -236,7 +236,7 @@ knitr::include_graphics("Images/Method2 only -cbf.jpg")
 ```
 
 
-###Part B: Health outcome calculations
+### Part B: Health outcome calculations
 
 Using risks generated above you can then calculate:
 
@@ -267,9 +267,9 @@ $$\text{Health behaviour attributable deaths} = \text{Original number of deaths}
 
 
 
-##Additional considerations
+## Additional considerations
 
-###Health behaviours with non-monotonic relationships
+### Health behaviours with non-monotonic relationships
 
 Health behaviours with relationships that are non-monotonic (always increasing or always decreasing) can be used in health behaviour attributable calculations but special consideration may be warranted for both policy and analytic reasons.
 
@@ -281,7 +281,7 @@ Alcohol drinking guidelines usually do not recommend people: non-drinkers or for
 
 
 
-###Health behaviours with interactions or multiple coefficients
+### Health behaviours with interactions or multiple coefficients
 
 The health behaviour attributable risk and the health behaviour-deleted risk estimates can be calculated for health behaviours with interaction terms, including complex interactions or multiple coefficients. Examples include:
 
@@ -292,8 +292,8 @@ The health behaviour attributable risk and the health behaviour-deleted risk est
 All coefficients that related to a common risk factor should be simultaneously considered.
 
 
-###Exposures not in the original algorithm
+### Exposures not in the original algorithm
 
 
 
-#Bibilography
+# Bibilography

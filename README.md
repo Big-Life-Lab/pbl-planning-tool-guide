@@ -12,7 +12,7 @@ This guidance document outlines **what the tool is**, **how it to use it**, and 
 - **Glossary:** reference terms used in the tool and guidance
 
 ## Contributing to the documentation
-We welcome suggestions and additions to the Project Big Life Planning Tool documentation. Please follow [this guide](CONTRIBUTING.MD) if you would like contribute.
+We welcome suggestions and additions to the Project Big Life Planning Tool documentation. Please follow [this guide](contributing/CONTRIBUTING.MD) if you would like contribute.
 
 ## Do you have a senerio or use of the planninng tool that you would like to share with others?
 

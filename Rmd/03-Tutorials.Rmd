@@ -1,4 +1,4 @@
-#Getting Started
+# Getting Started
 
 To help you get started quickly with Project Big Life's Planning Tool, we built a Tutorial directly onto the platform.
 

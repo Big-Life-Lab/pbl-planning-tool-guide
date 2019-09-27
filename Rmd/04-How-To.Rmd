@@ -1,4 +1,4 @@
-#How To {#howto}
+# How To {#howto}
 
 These guides will cover the topics covered in the tutorial but in greater detail.
 
@@ -13,7 +13,7 @@ These guides will cover the topics covered in the tutorial but in greater detail
 - Resolve error messages (To be developed)
 
 
-##Customize Data
+## Customize Data
 
 <div class="FOO">
 **Note:** The Project Big Life Planning Tool can only be used with the 2013/2014 Canadian Community Health Survey (CCHS) Public Use Microdata File (PUMF) or Shared versions in '.csv' format. 
@@ -25,7 +25,7 @@ Prior to using the Project Big Life Planning Tool you may want to transform your
 
 Data manipulation can occur on any programming software: R, SAS, STATA, etc, as long as you output your data set as a '.csv' file. 
 
-###Customize filter and/or stratification
+### Customize filter and/or stratification
 
 An example of customizing your data set is converting the variable: Body Mass Index (CCHS 2013/2014 variable HWTGBMI) from a continuous variable into four distinct categories:
     
@@ -82,7 +82,7 @@ All required variables **must** be transformed to the 2013/2014 CCHS format. It 
 When transforming required or recommended variables pay attention to how the variables are captured. There may be differences limit the ability to use the data set or that will affect your results. For instance from the 2001-2004 CCHS survey there are 15 age categories but from 2005-2013 there are 16 age categories. 
 
 
-##Load data 
+## Load data 
 
 <div class="FOO">
 **Note:** The Project Big Life Planning Tool can currently only support .csv data files from the 2013/2014 Canadian Community Health Survey (CCHS). Both the 2013/2014 CCHS PUMF and Shared file are accepted.
@@ -106,7 +106,7 @@ Only **one data file** can be used on the planning tool at a time; the planning 
 There are two options of data files: a sample file or your own file. 
 
 
-###Load sample files
+### Load sample files
 
 If you don't have your own data or want to explore the platform's capabilities before using your data, you can use the sample file on the Project Big Life Planning Tool. There are two sample files included on the planning tool:
 
@@ -119,7 +119,7 @@ If you don't have your own data or want to explore the platform's capabilities b
 1. Click on the checkmark beside the "Sample file" to select it. 
 
 
-###Load your own file
+### Load your own file
 
 **Steps**
 
@@ -139,7 +139,7 @@ Note:
 
 
 
-##Select measure (calculation)
+## Select measure (calculation)
 
 There are two general types of calculations: summary measures and by row measures.
 
@@ -158,7 +158,7 @@ Summary measures must be selected for calculations that have stratifications, in
 More details of what the calculations are and how they are preformed can be found in [key concepts](#keyconcepts) - "Calculations".
 
 
-##Filter data
+## Filter data
 
 Use filters when you want to analyze only a subset of your data.
 
@@ -183,14 +183,14 @@ Use filters when you want to analyze only a subset of your data.
 You are able to filter on all types of variables: required for calculation, recommended for calculation, and ignore variables (includes customized variables).
 
 
-###Remove a filter
+### Remove a filter
 
 - To remove a filter entirely, click on the trash can beside the variable you want to delete.
 
 - To remove a level within a filtered variable - categorical, click on the 'x' beside the variable level.
 
 
-##Stratify data
+## Stratify data
 
 Use stratifications when you want to get a result for multiple strata (levels or classes). 
 
@@ -208,13 +208,13 @@ A summary measure must be selected for stratifications, as only a summary measur
 
 You are able to stratify on all types of categorical variables: required for calculation, recommended for calculation, and ignore variables (includes customized variables).
 
-###Remove a stratification
+### Remove a stratification
 
 - To remove a stratification variable click on the 'x' beside the variable level.
 
 
 
-##Run scenarios
+## Run scenarios
 
 Scenarios can be used to predict the health outcomes when unhealthy behaviours:
 
@@ -223,7 +223,7 @@ Scenarios can be used to predict the health outcomes when unhealthy behaviours:
 
 Scenarios can be used to inform potential health policies or programs.
 
-###Intervention scenarios
+### Intervention scenarios
 
 Interventions provide you with the ability to customize the scenarios. For example you can answer the questions:
 
