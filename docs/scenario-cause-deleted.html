@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.6 Scenario: Cause-deleted | Planning Tool Guidance</title>
   <meta name="description" content="Guidance on how to use the Project Big Life Planning Tool." />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.6 Scenario: Cause-deleted | Planning Tool Guidance" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Project Big Life" />
 
 
-<meta name="date" content="2019-08-09" />
+<meta name="date" content="2019-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="scenario-intervention.html">
-<link rel="next" href="limitations.html">
+<link rel="next" href="assumptions-and-limitations.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,8 +50,45 @@
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
-<link rel="stylesheet" href="styling/html/style.css" type="text/css" />
+<link rel="stylesheet" href="styling\html\style.css" type="text/css" />
 </head>
 
 <body>
@@ -74,7 +111,10 @@
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 <li class="chapter" data-level="3" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>3</b> Getting Started</a></li>
 <li class="chapter" data-level="4" data-path="howto.html"><a href="howto.html"><i class="fa fa-check"></i><b>4</b> How To</a><ul>
-<li class="chapter" data-level="4.1" data-path="customize-data.html"><a href="customize-data.html"><i class="fa fa-check"></i><b>4.1</b> Customize Data</a></li>
+<li class="chapter" data-level="4.1" data-path="customize-data.html"><a href="customize-data.html"><i class="fa fa-check"></i><b>4.1</b> Customize Data</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="customize-data.html"><a href="customize-data.html#customize-filter-andor-stratification"><i class="fa fa-check"></i><b>4.1.1</b> Customize filter and/or stratification</a></li>
+<li class="chapter" data-level="4.1.2" data-path="customize-data.html"><a href="customize-data.html#transforming-variables-to-20132014-cchs-format"><i class="fa fa-check"></i><b>4.1.2</b> Transforming variables to 2013/2014 CCHS format</a></li>
+</ul></li>
 <li class="chapter" data-level="4.2" data-path="load-data.html"><a href="load-data.html"><i class="fa fa-check"></i><b>4.2</b> Load data</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="load-data.html"><a href="load-data.html#load-sample-files"><i class="fa fa-check"></i><b>4.2.1</b> Load sample files</a></li>
 <li class="chapter" data-level="4.2.2" data-path="load-data.html"><a href="load-data.html#load-your-own-file"><i class="fa fa-check"></i><b>4.2.2</b> Load your own file</a></li>
@@ -100,15 +140,15 @@
 <li class="chapter" data-level="4.10.4" data-path="resolve-warning-or-error-messages.html"><a href="resolve-warning-or-error-messages.html#sample-size-is-too-small"><i class="fa fa-check"></i><b>4.10.4</b> Sample size is too small</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5" data-path="caseexamples.html"><a href="caseexamples.html"><i class="fa fa-check"></i><b>5</b> Case examples</a><ul>
 <li class="chapter" data-level="5.1" data-path="health-status-report.html"><a href="health-status-report.html"><i class="fa fa-check"></i><b>5.1</b> Health Status Report</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="health-status-report.html"><a href="health-status-report.html#predicted-number-of-deaths-stratified-by-sex-and-level-of-education"><i class="fa fa-check"></i><b>5.1.1</b> Predicted number of deaths stratified by sex and level of education</a></li>
 <li class="chapter" data-level="5.1.2" data-path="health-status-report.html"><a href="health-status-report.html#impact-of-eliminating-unhealthy-behaviours-physical-inactivity-and-poor-diet-on-life-expectancy"><i class="fa fa-check"></i><b>5.1.2</b> Impact of eliminating unhealthy behaviours: physical inactivity and poor diet, on life expectancy</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="canada-bikes-like-the-dutch.html"><a href="canada-bikes-like-the-dutch.html"><i class="fa fa-check"></i><b>5.2</b> Canada bikes like the Dutch</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="canada-bikes-like-the-dutch.html"><a href="canada-bikes-like-the-dutch.html#part-a-how-much-do-canadians-cycle-per-day-for-transportation-purposes"><i class="fa fa-check"></i><b>5.2.1</b> Part A: How much do Canadians cycle per day for transportation purposes</a></li>
-<li class="chapter" data-level="5.2.2" data-path="canada-bikes-like-the-dutch.html"><a href="canada-bikes-like-the-dutch.html#part-b-how-much-do-the-dutch-cycleday-for-transportation-purposes"><i class="fa fa-check"></i><b>5.2.2</b> Part B: How much do the Dutch cycle/day for transportation purposes</a></li>
-<li class="chapter" data-level="5.2.3" data-path="canada-bikes-like-the-dutch.html"><a href="canada-bikes-like-the-dutch.html#part-c-calculate-the-difference-between-dutch-and-canadian-daily-cycling-levels"><i class="fa fa-check"></i><b>5.2.3</b> Part C: Calculate the difference between Dutch and Canadian daily cycling levels</a></li>
+<li class="chapter" data-level="5.2.1" data-path="canada-bikes-like-the-dutch.html"><a href="canada-bikes-like-the-dutch.html#part-a-how-much-do-canadians-cycle-per-day-for-transportation-purposes-on-average"><i class="fa fa-check"></i><b>5.2.1</b> Part A: How much do Canadians cycle per day for transportation purposes on average?</a></li>
+<li class="chapter" data-level="5.2.2" data-path="canada-bikes-like-the-dutch.html"><a href="canada-bikes-like-the-dutch.html#part-b-how-much-do-the-dutch-cycleday-for-transportation-purposes-on-average"><i class="fa fa-check"></i><b>5.2.2</b> Part B: How much do the Dutch cycle/day for transportation purposes on average?</a></li>
+<li class="chapter" data-level="5.2.3" data-path="canada-bikes-like-the-dutch.html"><a href="canada-bikes-like-the-dutch.html#part-c-what-is-the-average-difference-in-daily-cycling-transporation-for-canadians-and-the-dutch"><i class="fa fa-check"></i><b>5.2.3</b> Part C: What is the average difference in daily cycling transporation for Canadians and the Dutch?</a></li>
 <li class="chapter" data-level="5.2.4" data-path="canada-bikes-like-the-dutch.html"><a href="canada-bikes-like-the-dutch.html#part-d-predict-how-canadian-life-expectancy-would-change-if-canadians-biked-like-the-dutch."><i class="fa fa-check"></i><b>5.2.4</b> Part D: Predict how Canadian life expectancy would change if Canadians biked like the Dutch.</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="healthy-cities.html"><a href="healthy-cities.html"><i class="fa fa-check"></i><b>5.3</b> Healthy Cities</a><ul>
@@ -120,8 +160,9 @@
 <li class="chapter" data-level="6" data-path="keyconcepts.html"><a href="keyconcepts.html"><i class="fa fa-check"></i><b>6</b> Key Concepts</a><ul>
 <li class="chapter" data-level="6.1" data-path="data-and-sample-files.html"><a href="data-and-sample-files.html"><i class="fa fa-check"></i><b>6.1</b> Data and sample files</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="data-and-sample-files.html"><a href="data-and-sample-files.html#what-is-the-canadian-community-health-survey"><i class="fa fa-check"></i><b>6.1.1</b> What is the Canadian Community Health Survey?</a></li>
-<li class="chapter" data-level="6.1.2" data-path="data-and-sample-files.html"><a href="data-and-sample-files.html#why-can-i-only-use-the-20132014-canadian-community-health-survey-data"><i class="fa fa-check"></i><b>6.1.2</b> Why can I only use the 2013/2014 Canadian Community Health Survey data?</a></li>
-<li class="chapter" data-level="6.1.3" data-path="data-and-sample-files.html"><a href="data-and-sample-files.html#sample-files"><i class="fa fa-check"></i><b>6.1.3</b> Sample Files</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-and-sample-files.html"><a href="data-and-sample-files.html#why-can-the-project-big-life-planning-tool-only-accept-the-20132014-canadian-community-health-survey-data"><i class="fa fa-check"></i><b>6.1.2</b> Why can the Project Big Life Planning Tool only accept the 2013/2014 Canadian Community Health Survey data?</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-and-sample-files.html"><a href="data-and-sample-files.html#can-i-use-other-population-health-survey-data-sets"><i class="fa fa-check"></i><b>6.1.3</b> Can I use other population health survey data sets?</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-and-sample-files.html"><a href="data-and-sample-files.html#sample-files"><i class="fa fa-check"></i><b>6.1.4</b> Sample Files</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="multivariable-predictive-risk-algorithms.html"><a href="multivariable-predictive-risk-algorithms.html"><i class="fa fa-check"></i><b>6.2</b> Multivariable predictive risk algorithms</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="multivariable-predictive-risk-algorithms.html"><a href="multivariable-predictive-risk-algorithms.html#development-of-multivariable-predictive-risk-algorithms"><i class="fa fa-check"></i><b>6.2.1</b> Development of multivariable predictive risk algorithms</a></li>
@@ -138,13 +179,36 @@
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="scenario-intervention.html"><a href="scenario-intervention.html"><i class="fa fa-check"></i><b>6.5</b> Scenario: Intervention</a></li>
 <li class="chapter" data-level="6.6" data-path="scenario-cause-deleted.html"><a href="scenario-cause-deleted.html"><i class="fa fa-check"></i><b>6.6</b> Scenario: Cause-deleted</a><ul>
-<li class="chapter" data-level="6.6.1" data-path="scenario-cause-deleted.html"><a href="scenario-cause-deleted.html#cause-deleted-calculation"><i class="fa fa-check"></i><b>6.6.1</b> Cause-deleted calculation</a></li>
+<li class="chapter" data-level="6.6.1" data-path="scenario-cause-deleted.html"><a href="scenario-cause-deleted.html#cause-deleted-references"><i class="fa fa-check"></i><b>6.6.1</b> Cause-deleted references</a></li>
+<li class="chapter" data-level="6.6.2" data-path="scenario-cause-deleted.html"><a href="scenario-cause-deleted.html#cause-deleted-calculation-overview"><i class="fa fa-check"></i><b>6.6.2</b> Cause-deleted calculation overview</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>6.7</b> Limitations</a></li>
+<li class="chapter" data-level="6.7" data-path="assumptions-and-limitations.html"><a href="assumptions-and-limitations.html"><i class="fa fa-check"></i><b>6.7</b> Assumptions and Limitations</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="assumptions-and-limitations.html"><a href="assumptions-and-limitations.html#limitation-data-source-canadian-community-health-survey"><i class="fa fa-check"></i><b>6.7.1</b> Limitation: Data source: Canadian Community Health Survey</a></li>
+<li class="chapter" data-level="6.7.2" data-path="assumptions-and-limitations.html"><a href="assumptions-and-limitations.html#hazard-ratios-and-exposures-are-assumed-constant"><i class="fa fa-check"></i><b>6.7.2</b> Hazard ratios and exposures are assumed constant</a></li>
+<li class="chapter" data-level="6.7.3" data-path="assumptions-and-limitations.html"><a href="assumptions-and-limitations.html#limitation-calculations"><i class="fa fa-check"></i><b>6.7.3</b> Limitation: Calculations</a></li>
+<li class="chapter" data-level="6.7.4" data-path="assumptions-and-limitations.html"><a href="assumptions-and-limitations.html#limitation-using-the-project-big-life-planning-tool"><i class="fa fa-check"></i><b>6.7.4</b> Limitation: Using the Project Big Life Planning Tool</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>7</b> Glossary</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="mortality-population-risk-tool-mport.html"><a href="mortality-population-risk-tool-mport.html"><i class="fa fa-check"></i><b>A</b> Mortality Population Risk Tool (MPoRT)</a></li>
+<li class="chapter" data-level="A" data-path="mport.html"><a href="mport.html"><i class="fa fa-check"></i><b>A</b> Mortality Population Risk Tool (MPoRT)</a><ul>
+<li class="chapter" data-level="A.1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>A.1</b> Overview</a></li>
+<li class="chapter" data-level="A.2" data-path="data-requirements-for-mport.html"><a href="data-requirements-for-mport.html"><i class="fa fa-check"></i><b>A.2</b> Data requirements for MPoRT</a></li>
+<li class="chapter" data-level="A.3" data-path="mport-version-description.html"><a href="mport-version-description.html"><i class="fa fa-check"></i><b>A.3</b> MPoRT version description</a><ul>
+<li class="chapter" data-level="A.3.1" data-path="mport-version-description.html"><a href="mport-version-description.html#derived-parameters"><i class="fa fa-check"></i><b>A.3.1</b> Derived parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="cause-deleted-calculations.html"><a href="cause-deleted-calculations.html"><i class="fa fa-check"></i><b>B</b> Cause-deleted calculations</a><ul>
+<li class="chapter" data-level="B.1" data-path="calculation.html"><a href="calculation.html"><i class="fa fa-check"></i><b>B.1</b> Calculation</a><ul>
+<li class="chapter" data-level="B.1.1" data-path="calculation.html"><a href="calculation.html#part-a-risk-calculations"><i class="fa fa-check"></i><b>B.1.1</b> Part A: Risk calculations</a></li>
+<li class="chapter" data-level="B.1.2" data-path="calculation.html"><a href="calculation.html#part-b-health-outcome-calculations"><i class="fa fa-check"></i><b>B.1.2</b> Part B: Health outcome calculations</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="additional-considerations.html"><a href="additional-considerations.html"><i class="fa fa-check"></i><b>B.2</b> Additional considerations</a><ul>
+<li class="chapter" data-level="B.2.1" data-path="additional-considerations.html"><a href="additional-considerations.html#exposures-with-non-monotonic-relationships"><i class="fa fa-check"></i><b>B.2.1</b> Exposures with non-monotonic relationships</a></li>
+<li class="chapter" data-level="B.2.2" data-path="additional-considerations.html"><a href="additional-considerations.html#exposures-with-interactions-or-multiple-coefficients"><i class="fa fa-check"></i><b>B.2.2</b> Exposures with interactions or multiple coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="exposures-not-in-the-original-algorithm.html"><a href="exposures-not-in-the-original-algorithm.html"><i class="fa fa-check"></i><b>B.3</b> Exposures not in the original algorithm</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -170,61 +234,71 @@
 <p>What would be the life expectancy of a population if be no one in the population ever smoked? This scenario is a cause-deleted scenario.</p>
 <p>There are two distinct terms in cause-deleted calculations:</p>
 <ul>
-<li><p><strong>Cause-deleted life expectancy</strong> is the estimated life expectancy for the counterfactual population where a specific cause (e.g. smoking) never existed. E.g. the counterfactual population was always never smokers.</p></li>
-<li><p><strong>Cause-deleted effect of life expectancy</strong> or <strong>life years lost due to the cause</strong> is the full effect of the cause (e.g smoking) in the population. E.g. In a population 3 years of life are lost due to individuals in that population smoking: either currently or previously.</p></li>
+<li><p><strong>Cause-deleted life expectancy</strong> is the estimated life expectancy for the counter-factual population where a specific cause (e.g. smoking) never existed. For instance, everyone in the counter-factual population were always never smokers.</p></li>
+<li><p><strong>Cause-deleted effect on life expectancy</strong> is the full effect of the cause (e.g. smoking) in the population. For instance, 3 years of life expectancy are lost in a population due to individuals smoking: either currently or previously.</p></li>
 </ul>
-<p>If multiple causes are selected (e.g. smoking and physical inactivity) the cause-deleted life expectancy calculated accounts for both of these effects and the cause-deleted effect of life expectancy (or life years lost) is calculated for each individual cause.</p>
+<p>If multiple causes are selected (e.g. smoking and physical inactivity) the:</p>
+<ul>
+<li>cause-deleted life expectancy calculated accounts for both of these effects</li>
+<li>cause-deleted effect on life expectancy (or life expectancy lost due to the cause) is calculated for each individual cause. There will be both the cause-deleted effect of smoking on life expectancy and cause-deleted effect of physical inactivity on life expectancy.</li>
+</ul>
 <div class="FOO">
 <p><strong>Note:</strong> <span class="math inline">\(\text{Cause-deleted life expectancy of smoking and physical inactivity} \neq\)</span> <span class="math inline">\(\text{Cause-deleted effect of smoking} + \text{Cause-deleted effect of physical inactivity}\)</span></p>
 <p>This is because individuals in the population may be both smokers and physically inactive.</p>
 </div>
-<p><em>Insert table with the reference levels for each of the health behaviours</em></p>
-<div id="cause-deleted-calculation" class="section level3">
-<h3><span class="header-section-number">6.6.1</span> Cause-deleted calculation</h3>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ysX3M0cMSXQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p>There are two parts to the calculations preformed in cause-deleted scenarios: (A) calculate the risk, and (B) calculate the health outcome: life expectancy or number of deaths.</p>
-<p><strong>Part A: Risk calculations</strong></p>
-<p>The original multivariable predictive risk algorithm is:</p>
-<p><span class="math display">\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
-<p><strong>Step 1.</strong> Modify the original algorithm to include the external coefficient(s). This means replacing all predictive hazard ratios/betas related to the health behaviour to the causal hazard ratios/betas.</p>
-<ul>
-<li>Remove the original regression coefficient(s) for the health behaviour.</li>
-<li>Add the new external coefficient(s) to the algorithm. External coefficients are generated from either: causal models, or from systematic reviews or meta-analysis.</li>
-</ul>
-<p><span class="math display">\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
-<p><strong>Step 2.</strong> Risk is calculated using the modified algorithm created in Step 1 and the respondent’s original profile (e.g. current smoker). This is the “external coefficient risk”.</p>
-<p><span class="math display">\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
-<p><strong>Step 3.</strong> “Cause-deleted risk’” is calculated by setting an exposure to a reference (non-exposed) value (all other risk exposures remain unchanged).</p>
-<p><span class="math display">\[ \text{Cause-deleted risk&#39; } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
-<p><strong>Step 4.</strong> The “cause-deleted effect external” is calculated as “external coefficient risk” (Step 2) minus the “cause-deleted risk’.”(Step 3).</p>
-<p><span class="math display">\[\text{Cause-deleted effect}_{external} = \text{External coefficient risk} - \text{Cause-deleted risk&#39;}\]</span></p>
-<p><strong>Step 5.</strong> Original risk is calculated using the original algorithm and the original respondent’s profile.</p>
-<p><span class="math display">\[ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]</span></p>
-<p><strong>Step 6.</strong> The “cause-deleted risk external” is calculated by “original risk” (Step 5) minus the “cause-deleted effect external” (Step 4).</p>
-<p><span class="math display">\[\text{Cause-deleted risk}_{ external} = \text{Original risk} - \text{Cause-deleted effect}_{external}\]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
-<img src="Images/Method2%20only%20-cbf.jpg" alt="Risk portion of the cause-deleted calculations"  />
-<p class="caption">
-Figure 6.2: Risk portion of the cause-deleted calculations
-</p>
+<div id="cause-deleted-references" class="section level3">
+<h3><span class="header-section-number">6.6.1</span> Cause-deleted references</h3>
+<p>The following table describes the reference exposures used in the counter-factual populations for each of the health behaviours in the cause-deleted calculations:</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Health.Behaviour
+</th>
+<th style="text-align:left;">
+Reference
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Smoking
+</td>
+<td style="text-align:left;">
+Never smoker
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Alcohol Consumption
+</td>
+<td style="text-align:left;">
+0 drinks/week
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Physical Activity
+</td>
+<td style="text-align:left;">
+3.0 METs/day
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Diet
+</td>
+<td style="text-align:left;">
+A total of: 5 fruit and vegetables, 0 juice, and 0 potato, servings/day
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p><strong>Part B: Health outcome calculations</strong></p>
-<p>Using risks generated above you can then calculate:</p>
-<ul>
-<li>cause-deleted life expectancy or life years lost attributable to a health behaviour (exposure)</li>
-<li>cause-deleted number of deaths or number of deaths attributable to a health behaviour (exposure)</li>
-</ul>
-<p><strong>Life expectancy calculations</strong></p>
-<p>Step I: Calculate the original life expectancy by using the original risk (Step 5 above) in the sex-specific 5-year abridge period life tables.</p>
-<p>Step II: Calculate the cause-deleted life expectancy by using the cause-deleted risk external (Step 6 above) in the sex-specific 5-year abridge period life tables.</p>
-<p>Step III: Calculate life years attributable to a health behaviour by: original life expectancy (Step I) minus cause-deleted life expectancy (Step II):</p>
-<p><span class="math display">\[ \text{Life years due to exposure} = \text{Original life expectancy} - \text{Cause-deleted life expectancy}\]</span> If the life years attributable to a health behaviour are negative then the value represents the life years lost due to smoking.</p>
-<p><strong>Number of deaths calculations</strong></p>
-<p>Step I: Calculate the number of deaths that would occur using the original risk (Step 5 above).</p>
-<p>Step II: Calculate the number of deaths that would occur using the cause-deleted risk external (Step 6 above).</p>
-<p>Step III: Calculate the number of deaths that are attributable to a health behaviour (exposure) by: original number of deaths (Step I) minus cause-deleted number of deaths (Step II):</p>
-<p><span class="math display">\[\text{Deaths due to exposure} = \text{Original number of deaths} - \text{Cause-deleted number of deaths}\]</span></p>
+<div id="cause-deleted-calculation-overview" class="section level3">
+<h3><span class="header-section-number">6.6.2</span> Cause-deleted calculation overview</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#To create a graph tomorrow</span></code></pre></div>
 </div>
 </div>
             </section>
@@ -233,7 +307,7 @@ Figure 6.2: Risk portion of the cause-deleted calculations
         </div>
       </div>
 <a href="scenario-intervention.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="limitations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="assumptions-and-limitations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -263,7 +337,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/Rmd//06-Key-Concepts.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/Rmd/06-Key-Concepts.Rmd",
 "text": "Edit"
 },
 "history": {

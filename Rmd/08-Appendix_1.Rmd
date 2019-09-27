@@ -1,48 +1,104 @@
 # (APPENDIX) Appendix {-} 
 
-#Mortality Population Risk Tool (MPoRT) 
+#Mortality Population Risk Tool (MPoRT){#mport} 
 
-**Outcomes: 5-yr risk of death, Life Expectancy, Cause-deleted Life Expectancy**
+***Outcomes: Life Expectancy, Number of deaths, 5-year mortality risk**
 
 **Calculations**
  
 Using MPoRT you are able to calculate:
 
-- 5 year mortality risk
-- Number of deaths
-- Life Expectancy (individual and population)
+- For each individual (By row)
 
-- Cause-deleted deaths and life expectancy
-- Burden of health behaviour in deaths and on life expectancy
+  - 5 year mortality risk
+  - Life Expectancy
+  
+- For the population (Summary)
+
+  - Number of deaths
+  - Life Expectancy
+  - Health behaviour-deleted life expectancy
+  - Health behaviour-deleted number of deaths
+  - Health behaviour attributable life expectancy 
+  - Health behaviour attributable number of deaths
 
 **Types of Questions**
 
 - What is the burden of smoking on life expectancy?
-- How many deaths would be prevented if everyone met their daily excercise requirements?
+- How many deaths would be prevented if everyone met their daily exercise requirements?
+
+**Description**
+
+A multivariable predictive risk model that estimates the future risk of all-cause death in Canada. It adjusts for health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity, and a wide range of other risk factors. 
+
+##Data requirements for MPoRT
+
+In order to use the MPoRT algorithm on the Project Big Life Tool your data set **must include** the following CCHS 2013/2014 variables:
+
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+
+(reqVariableMPoRT <- data.frame(
+    PUMF_CCHS_variable = c("DDH_SEX", "DHHGAGE*", "WTS_M*"),
+    Shared_CCHS_variable = c("DDH_SEX", "DHH_AGE*", "WTS_S*"),
+    Description = c("Sex", "Age", "Survey weight") ) 
+    )#closingbracket 
+```
+```{r, echo=FALSE}
+#Creating the table
+kable(reqVariableMPoRT) %>%
+  kable_styling(full_width = T) %>%
+  footnote(symbol = c("Variable names are different between the two files"), footnote_as_chunk = TRUE)
+```
+
+In addition the following variables **should** be included to increase the prediction accuracy:
+
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+
+(recVariableMPoRT <- data.frame(
+    PUMF_CCHS_variable = c("ALWDWKY", "CCC_071", "CCC_091", "CCC_101", "CCC_121", "CCC_131", "CCC_151", "CCC_280", "EDUDR04", "FVCDCAR", "FVCDFRU", "FVCDJUI", "FVCDPOT", "FVCDSAL", "FVCDVEG", "HWTGBMI*", "PACDEE", "SDCFIMM", "SDCGCGT*", "SDCGRES*", "SMK_01A", "SMK_05B", "SMK_05C", "SMK_09A", "SMK_204", "SMK_208", "SMKDSTY", "SMKG01C*", "SMKG09C*", "SMKG203*"),
+    Shared_CCHS_variable = c("ALWDWKY", "CCC_071", "CCC_091", "CCC_101", "CCC_121", "CCC_131", "CCC_151", "CCC_280", "EDUDR04", "FVCDCAR", "FVCDFRU", "FVCDJUI", "FVCDPOT", "FVCDSAL", "FVCDVEG", "HWTDBMI*", "PACDEE", "SDCFIMM", "SDCDCGT*", "SDCDRES*", "SMK_01A", "SMK_05B", "SMK_05C", "SMK_09A", "SMK_204", "SMK_208", "SMKDSTY", "SMK_01C*", "SMK_09C*", "SMK_203*"),
+    Description = c("Weekly alcohol consumption", "Do you have high blood pressure", "Do you have chronic obstructive pulmonary disease", "Do you have diabetes", "Do you have heart disease", "Do you have active cancer", "Do you suffer from effects of stroke", "Do you have a mood disorder", "Highest level/education of respondent", "Daily consumption - carrot", "Daily consumption - fruit", "Daily consumption - juice", "Daily consumption - potatoes", "Daily consumption - green salad", "Daily consumption - vegetables", "BMI self reported", "Daily energy expenditure", "Immigrant", "Cultural or racial origin", "Length of time in Canada since immigration", "In lifetime, smoked 100 or more cigarettes", "# of cigarettes smoked daily - occasional smoker", "Past month, smoked 1+ cigarettes daily - occasional smoker", "When did you stop smoking daily - occasional smoker", "# of cigarettes smoked daily - daily smoker", "# of cigarettes smoke each day - occasional smoker", "Type of smoker", "Age smoked first whole cigarette", "Years since stopped smoking daily - occasional smoker", "Age started to smoke daily" )) 
+    
+    )#closingbracket 
+```
+```{r, echo=FALSE}
+#Creating the table
+kable(recVariableMPoRT) %>%
+  kable_styling(full_width = T)  %>%
+  scroll_box(height = "400px")  %>%
+  footnote(symbol = c("Variable names are different between the two files"), footnote_as_chunk = TRUE)
+```
 
 
 
-**Description**: A multivariable predictive risk model that estimates the future risk of all-cause death in Canada. It adjusts for health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity, and a wide range of other risk factors. 
+##Descriptions of MPoRT versions
 
-Versions of MPoRT have been developed since 2012 and used in various studies. Each version of MPoRT (v1.0, v1.2, v2.0) used the Ontario subset of the Canadian Community Health Survey (CCHS) for development and the survey respondents were linked to personal death records. In later versions of MPoRT (v1.2, v2.0) the following changes were made:, (a) algorithm variables were adjusted to improve predictions, and (b) the algorithms were validated using: the Ontario subset of CCHS of the years that were not used in development and the National CCHS dataset (excluding Ontario).
+Versions of MPoRT have been developed since 2012 and used in various studies. Each version of MPoRT (v1.0, v1.2, v2.0) used the Ontario subset of the Canadian Community Health Survey (CCHS) for development and the survey respondents were linked to personal death records. In later versions of MPoRT (v1.2, v2.0) the following changes were made:, (a) algorithm variables were adjusted to improve predictions, and (b) the algorithms were validated using: the Ontario subset of CCHS of the years that were not used in development and the National CCHS data set (excluding Ontario).
 
 
 **MPoRTv1.0**
-Was used in the "Seven More Years" report, a joint report with Public Health Ontario and IC/ES (https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years). 
-In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, physical inactivity and stress. There were approximately 550,000 person-years of follow up and over 6000 deaths in the development dataset. The algorthim used categorical predictor variables for health behaviours and sociodemographic factors.
+
+Was used in the [Seven More Years](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) report, a joint report with Public Health Ontario and ICES . 
+In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, physical inactivity and stress. There were approximately 550,000 person-years of follow up and over 6000 deaths in the development data set. The algorithm used categorical predictor variables for health behaviours and sociodemographic factors.
 
 **MPoRTv1.2**
-Was published in PLoS (https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002082).
-In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity (stress was removed due to its low prediction ability).  There were approximately 1 million person-years of follow up and over 9000 deaths in the development and validation datasets. The algorithm used multiple continous predictor variables, and added chronic disease predictor variables and interaction terms.
 
-**MPoRTv2.0 - The version used in Project Big Life's Planning Tool**
+Was published in [PLoS](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002082).
+In summary, the algorithm estimated the risk of death associated with health behaviours: smoking, unhealthy alcohol consumption, poor diet, and physical inactivity (stress was removed due to its low prediction ability).  There were approximately 1 million person-years of follow up and over 9000 deaths in the development and validation data sets. The algorithm used multiple continuous predictor variables, and added chronic disease predictor variables and interaction terms.
+
+**MPoRTv2.0 - Version in Project Big Life's Planning Tool**
+
 This version of MPoRT has not yet been published.
 
-*Development*: This predictive risk model was developed using Ontario subsets of the 2001 to 2008 CCHS and participants were linked to personal health records. There were approximately 1.3 million person-years of follow-up and over 15,000 deaths in the developmental dataset.
+*Development*: This predictive risk model was developed using Ontario subsets of the 2001 to 2008 CCHS and participants were linked to personal health records. There were approximately 1.3 million person-years of follow-up and over 15,000 deaths in the developmental data set.
 
-*Validation*: This predictive risk model was validated using three different datasets: Ontario subset of the 2009 to 2012 CCHS, National dataset (except Ontario) of the 2003 to 2008 CCHS, and the National dataset of the 2000 and 2005 National Health Interview Survey in the United States of America. In all validation datasets individuals were linked to personal health records.
+*Validation*: This predictive risk model was validated using three different data sets: Ontario subset of the 2009 to 2012 CCHS, National data set (except Ontario) of the 2003 to 2008 CCHS, and the National data set of the 2000 and 2005 National Health Interview Survey in the United States of America. In all validation data sets individuals were linked to personal health records.
 
-*Model*: Two MPoRTs have been created: one for males and one for females. Each model is a cox-porportional hazard model that looks similar to:
+*Model*: Two MPoRTs have been created: one for males and one for females. Each model is a cox-proportional hazard model that looks similar to:
 
 $$ \text{Mortality risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
 
@@ -54,7 +110,7 @@ Where:
 - $x$ = the exposure. The exposure can be continuous (e.g. age) or categorical (e.g. smoking status). 
 
 
-*Parameters*: The parameters (exposures) used in this multivariable predictive risk model are: 
+*Parameters*: The parameters used in this multivariable predictive risk model are: 
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(knitr)
 library(kableExtra)
@@ -103,3 +159,141 @@ kable(pred.MPoRT2) %>%
 #Adding the footnote 
   footnote(symbol = c("Age interaction included for all variables exept immigrant, fraction of time in Canada, and ethnicity", "Excluded in the male model, remains in the female model", "Excluded in the female model, remains in the male model"), footnote_as_chunk = TRUE)
 ```
+
+###Derived parameters
+
+In MPoRTv2 there are some parameters that are derived from variables within the data set. These include: pack-years of smoking, and the simplified diet score. 
+
+**Pack-years of smoking**
+
+Pack-years of smoking is generated from: the type of smoker, age in which they started smoking daily, how many cigarettes they smoke daily, and if applicable the age in which they stopped smoking daily. Pack-years of smoking also includes: their age, the age of thier first cigarette, and whether throughout thier life they have smoked 100+ cigarettes.
+
+In summary, the more an individual smokes or the longer they smoke, the greater the pack-years of smoking.
+
+**Simplified Diet Score**
+
+The simplified diet score essentially adds the healthy diet variables together (daily servings of carrots, fruit, salad, vegetables) and subtracts the unhealthy diet variables (daily servings of juice and potato). 
+
+
+
+
+
+
+
+#Health behaviour attributable calculations
+
+Here we will explain the details behind Project Big Life Planning Tool health behaviour attributable scenarios including: the calculations and additional considerations. 
+
+
+##Calculation
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ysX3M0cMSXQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+There are two parts to the calculations preformed in health behaviour attributable scenarios: (A) calculate the risk, and (B) calculate the health outcome: life expectancy or number of deaths.
+
+###Part A: Risk calculations
+
+The original multivariable predictive risk algorithm is: 
+
+$$ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
+
+
+**Step 1.** Modify the original algorithm to include the external coefficient(s). This means replacing all predictive hazard ratios/betas related to the health behaviour to the causal hazard ratios/betas. 
+
+- Remove the original regression coefficient(s) for the health behaviour.
+- Add the new external coefficient(s) to the algorithm. External coefficients are generated from either: causal models, or from systematic reviews or meta-analysis.
+
+$$ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
+    
+
+**Step 2.**	Risk is calculated using the modified algorithm created in Step 1 and the respondent’s original profile (e.g. current smoker). This is the “external coefficient risk”. 
+
+$$ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
+
+
+**Step 3.**	“Health behaviour-deleted risk' " is calculated by setting an exposure to a reference (non-exposed) value (all other risk exposures remain unchanged).
+
+$$ \text{Health behaviour-deleted risk' } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
+
+
+**Step 4.**	The “health behaviour attributable risk external” is calculated as “external coefficient risk” (Step 2) minus the “health behaviour-deleted risk’. ”(Step 3).
+
+$$\text{Health behaviour attributable risk}_{external} = \text{External coefficient risk} - \text{Health behaviour-deleted risk'}$$
+
+
+**Step 5.**	Original risk is calculated using the original algorithm and the original respondent’s profile.
+
+$$ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
+
+
+**Step 6.**	The “health behaviour-deleted risk external” is calculated by “original risk” (Step 5) minus the “health behaviour-deleted effect external” (Step 4).
+
+$$\text{Health behaviour-deleted risk}_{ external} = \text{Original risk} - \text{Health behaviour attributable risk}_{external}$$
+
+```{r, echo=FALSE, fig.align='center', fig.cap= "Risk portion of the health behaviour attribution calculations"}
+knitr::include_graphics("Images/Method2 only -cbf.jpg")
+```
+
+
+###Part B: Health outcome calculations
+
+Using risks generated above you can then calculate:
+
+- Health behaviour-deleted life expectancy or health behaviour attributable life expectancy lost
+- Health behaviour-deleted number of deaths or health behaviour attributable number of deaths
+
+
+**Life expectancy calculations**
+
+Step I: Calculate the original life expectancy by using the original risk (Step 5 above) in the sex-specific 5-year abridge period life tables.
+
+Step II: Calculate the health behaviour-deleted life expectancy by using the health behaviour-deleted risk external (Step 6 above) in the sex-specific 5-year abridge period life tables.
+
+Step III: Calculate the health behaviour attributable life expectancy lost by: original life expectancy (Step I) minus health behaviour-deleted life expectancy (Step II):
+
+$$ \text{Health behaviour attributable life exectancy lost} = \text{Health behaviour-deleted life expectancy} - \text{Original life expectancy}$$
+
+
+**Number of deaths calculations**
+
+Step I: Calculate the number of deaths that would occur using the original risk (Step 5 above).
+
+Step II: Calculate the number of deaths that would occur using the health behaviour-deleted risk external (Step 6 above).
+
+Step III: Calculate the health behaviour attributable deaths by: original number of deaths (Step I) minus health behaviour-deleted number of deaths (Step II):
+
+$$\text{Health behaviour attributable deaths} = \text{Original number of deaths} - \text{Health behaviour-deleted number of deaths}$$
+
+
+
+##Additional considerations
+
+###Health behaviours with non-monotonic relationships
+
+Health behaviours with relationships that are non-monotonic (always increasing or always decreasing) can be used in health behaviour attributable calculations but special consideration may be warranted for both policy and analytic reasons.
+
+An example of a health behaviour with a non-monotonic relationship is alcohol. Some studies suggest that there is a "J" shaped risk relationship for outcomes such as cardiovascular disease. 
+
+_Is this still a consideration if we are using 0 as the reference value?_
+_Need to complete the thought at the end of the paragraph_
+Alcohol drinking guidelines usually do not recommend people: non-drinkers or former-drinkers, initiate drinking. In this situation, the target population for health behaviour attribution calculations can be restricted to for respondents with moderate or higher drinking, or multiple reference exposures could be created.
+
+
+
+###Health behaviours with interactions or multiple coefficients
+
+The health behaviour attributable risk and the health behaviour-deleted risk estimates can be calculated for health behaviours with interaction terms, including complex interactions or multiple coefficients. Examples include:
+
+-	health behaviour parametes  with age interaction; 
+-	spline functions with terms for each knot point; or, 
+-	composite risks such as smoking which may coefficients for smoking status (current, former, never) and pack-years.
+
+All coefficients that related to a common risk factor should be simultaneously considered.
+
+
+###Exposures not in the original algorithm
+
+
+
+#Bibilography

@@ -4,25 +4,25 @@ The Project Big Life Planning Tool was developed in order to support health prof
 
 For instance Project Big Life Planning Tool helps:
 
-- Public health professionals: assess the impact of preventative interventions that target health behaviours
-- Health planners: assess the need for palliative care
+- Public health professionals: assess the impact of interventions that target health behaviours
+- Health planners: assess the need for palliative care (_To be developed_)
 
 **What types of questions can it answer?**
 
 The Project Big Life Planning Tool can answer the following types of questions: 
 
 - What is the burden of smoking on life expectancy?
-- How many deaths would be prevented if everyone met their daily exercise requirements?
+- How many deaths would be prevented if everyone increased thier daily exercise by 10%?
 
 **How does it work?**
 
 - This tool provides health planners with access to multivariable predictive risk algorithms, created and housed by the Project Big Life Team.
 
-- The multivariable predictive risk algorithms use distinct characteristics and health profiles of groups of people to assess the risk of a health outcome (e.g. Life Expectancy).
+- The multivariable predictive risk algorithms use distinct characteristics and health profiles of groups of people to assess the risk of a health outcome (e.g. deaths).
 
 - The multivariable predictive risk algorithms are developed and validated using data routinely collected by Statistics Canada and provincial health agencies, and the algorithms have been published in various journals.
 
-- More information about multivariable predictive risk algorithms can be found in the key concepts (Chapter \@ref(keyconcepts)).
+- More information about multivariable predictive risk algorithms can be found in the [key concepts](#keyconcepts) or [appendices](#mport).
 
 **Why should I used it?**
 

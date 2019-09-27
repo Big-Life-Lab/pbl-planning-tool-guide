@@ -32,18 +32,29 @@ knitr::write_bib(c(
 ), 'packages.bib')
 ```
 
-_TO DO: Insert the image for the PBL planning tool_
 
 ###What is the Project Big Life Planning Tool
 
-*To do: Develop video showcasing the platform including what it is and why someone should use the platform*
+The Project Big Life Team received numerous requests to generate, replicate, and updated health status reports such as Public Health Ontario's [Seven More Years](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) which examined the impact of health behaviours on health outcomes: mortality and life expectancy. 
+
+To address these requests and better support public health professionals the Project Big Life Team decided to create [Project Big Life Planning Tool](http://planning.projectbiglife.ca/).
+
+The Project Big Life Planning Tool gives public health professionals access to the algorithms used by the Project Big Life Team, and can be used to support your research, planning, development, and evaluation of health interventions. 
+
+The tool can help you:
+
+- Determine who in the population is at risk
+- Predict number of new cases of the disease for a population
+- Determine how much a risk factor contributes to a health outcome
+- Assess health benefits of potential interventions
+
+
 
 ###Who made the Project Big Life Planning Tool?
 
-The Project Big Life Planning Tool was developed by the Project Big Life Team. The Project Big Life Team is part of the ICES. The below video explains what ICES is. 
+The Project Big Life Planning Tool was developed by the [Project Big Life](https://www.projectbiglife.ca) Team based at the [Ottawa Hospital](http://www.ohri.ca/home.asp) and the [Bruyère Research Institute](https://www.bruyere.org/en/bruyere-research-institute).
 
-```{r embed2, out.extra='style="border: none;"', out.width='99%', echo=FALSE}
-knitr::include_url('https://www.youtube.com/embed/5pZhRSM1cyk')
-#Not sure how to work the vimeo embeding
-#knitr::include_url('https://vimeo.com/embed/267453408')
-```
+The planning tool was made in collaboration with [Public Health Ontario](https://www.publichealthontario.ca/), the [Population Health Analytics Lab](https://pophealthanalytics.com/) at the University of Toronto and [Ottawa Public Health](http://www.ottawapublichealth.ca/en/index.aspx). 
+
+Algorithms used in the planning tool were developed using linked population data housed at [ICES](https://www.ices.on.ca/) and validated at Statistics Canada. All algorithms have been published in peer-review journals. To learn more about the specific algorithms used in the Project Big Life Planning Tool see our [appendices](#mport) to the specific algorithms or [Project Big Life](https://www.projectbiglife.ca/science) website.
+
