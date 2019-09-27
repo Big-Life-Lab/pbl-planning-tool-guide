@@ -1,6 +1,6 @@
 # Project Big Life Planning Tool guidance document
 
-The Project Big Life Planning Tool (http://policy.projectbiglife.ca/) was developed in order to support health professionals to perform research, plan, develop, and evaluate evidence-based public health interventions in Canada.
+The Project Big Life Planning Tool (http://planning.projectbiglife.ca/) was developed to public health surveillance, planing and research. The planning tool can assess the health burden of health behaviours and the potential health impact of public health preventive strategies in Canada, amongst other uses. 
 
 This guidance document outlines **what the tool is**, **how it to use it**, and **how it operates**. The guidance includes the following sections:
 
@@ -13,6 +13,10 @@ This guidance document outlines **what the tool is**, **how it to use it**, and 
 
 ## Contributing to the documentation
 We welcome suggestions and additions to the Project Big Life Planning Tool documentation. Please follow [this guide](CONTRIBUTING.MD) if you would like contribute.
+
+## Do you have a senerio or use of the planninng tool that you would like to share with others?
+
+Please tell us if you have scenarios or uses of the planning tool that you want to share with others by making a comment in this [issue](https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/issues/9).
 
 ## Downloading the Project Big Life Planning Tool guidance repository
 Feel free to copy this repository. To do so, complete the following steps. (These steps have been adapted from Yihui Xie's "Bookdown: Authoring Books and Technical Documents with R Markdown" https://bookdown.org/yihui/bookdown/.)
