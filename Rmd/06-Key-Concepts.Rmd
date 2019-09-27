@@ -16,8 +16,12 @@ This section explains some key concepts in Project Big Life’s Planning Tool. T
     - Life expectancy
 
 - Scenario: Intervention
-- Scenario: Cause-deleted
-- Limitations
+- Scenario: Health behaviour attribution
+- Results
+
+    - Why are there more deaths for the healthy behaviour?
+    
+- Assumptions and limitations
 
 
 
@@ -36,21 +40,19 @@ The CCHS is an annual cross-sectional survey preformed by Statistics Canada. The
 - Details about the survey and its design can be found on Statistic Canada website  (http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&Id=144170). 
 - Details and access to the Public Use Microdata file (PUMF) can be found through the Odesi website (https://search2.odesi.ca/#/details?uri=%2Fodesi%2Fcchs-82M0013-E-2013-2014-Annual-component.xml)
 
-###Why can I only use the 2013/2014 Canadian Community Health Survey data?
+###Why can the Project Big Life Planning Tool only accept the 2013/2014 Canadian Community Health Survey data?
 
-Each year the CCHS changes a few variables it captures. This makes CCHS data sets from every year other then 2013/2014 incompatible with the algorithms used by the Project Big Life Planning Tool.
+Each year the CCHS changes a few variables it captures. This makes CCHS data sets from every year other then 2013/2014 partly incompatible with the algorithms used by the Project Big Life Planning Tool.
 
-The Project Big Life Planning Team is currently working to adjust the algorithms so that they accept other CCHS years, and we will update the guidance when we are done.
+The Project Big Life Planning Team is currently working to adjust the algorithms so that they accept CCHS year: 2001 to 2014, and will update this guidance.
+
+###Can I use other population health survey data sets?
+
+Yes you can use other population health survey data sets but you have to transform these data set to the 2013/2014 CCHS format.
 
 ###Sample Files
 
-- data.sample.csv this is fabricated data set that includes all variables required for calculation, recommend for calculation, and needed for the real life application examples (found in Chapter 5). It includes all required and recommended variables: age, sex, BMI, smoking habits, alcohol consumption, diet components, daily physical activity expenditure, chronic conditions, ethnicity, immigration status, and education. 
-
-<div class="FOO">
-**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File from if was created only for example purposes and **cannot** be used for analysis.
-</div>
-
-
+- data.sample.csv this is synthetic data set that includes all variables required for calculation, recommend for calculation, and needed for the case examples (found in Chapter \@ref(caseexamples)). While this data set was model on the response rates of the 2013/2014 CCHS PUMF (e.g. approximately 80% of respondents did not have high blood pressure (CCC_071)), the data is fabricated. **This data set cannot be used for real analysis**.
 
 
 
@@ -133,10 +135,17 @@ By row measures: (ref:byrowcalc)
 
 ###Weighted vs unweighted
 
+Weights are used in complex surveys like the Canadian Community Healthy Survey (CCHS). A weight is given to each respondent in the survey and the weight corresponds to the number of individuals in the population the respondent represents. 
+
+When a data set has weights, like the CCHS PUMF data set, the weights are used to calculate the population's outcome e.g. number of deaths. 
+
+When a survey does not have weights, the the population's outcome is not calculated with weights. 
+
+In either case, weights are not used in the calculation of an individual's outcome (e.g. an individual's 5 year risk of mortality). 
+
 
 
 ##Calculations: specific health outcomes
-
 
 ###Risk of health outcome
 
@@ -158,17 +167,17 @@ Categorical exposures are represented by dummy/factor variables. Each category h
 The number of health outcomes (e.g. summary - deaths) is calculated through the following steps:
 
 1. Risk of the health outcome is calculated for each individual (row) in the data set using the mutlivariable predictive risk algorithm.
+
 2. Each individual's (row) risk is weighted with their corresponding survey weight (CCHS PUMF = WTS_M and CCHS shared file = WTS_S).
 
-$$ \text{Weighted risk of death } = \text{Individual's risk of death}*\text{Individual's survey weight}$$
-
 3. The weighted mean of the health outcome (e.g. mean risk of death) is calculated.
+
 4. The weighted mean is then multiplied with the total number of individuals in the population to generate the number of health outcomes (e.g. number of deaths in 5 years).
 
 
 ###Life expectancy
 
-Life expectancy is calculated using abridge life tables *using a modified Chaing approach.(link to reference for Chiang and Hsieh and also one of our papers)*. Life expectancy is calculated by two methods: one for summary life expectancy, and a second for by row life expectancy.
+Life expectancy is calculated using abridge life tables using a modified Chaing approach [@Chiang] [@Hsieh]. *(link to reference for Chiang and Hsieh and also one of our papers)*. Life expectancy is calculated by two methods: one for summary life expectancy, and a second for by row life expectancy.
 
 ####Summary Life Expectancy
 
@@ -181,9 +190,6 @@ Life expectancy is calculated separately for males and females.
 2. Male individuals are grouped into the 5-year age groups that are used in the 5-year abridge life tables (e.g. 40-44 years old).
 
 3. The weighted average risk of death for each age group is calculated. 
-
-(Maybe modify this formula and put it in the number of health outcomes section?)
-$$ \text{Weighted risk of death for age group} = \sum(\text{Weighted risk of deaths}) \div \text{Number of individuals in age group}$$
 
 4. A male 5-year abridge life table is created using the weighted average risks of death (q(x)) for each age group and the median age for the age group. 
 
@@ -212,9 +218,8 @@ These life tables are 1-year abridge life tables, and begin at the individual's 
 
 2. The probability of death is recalculated for incremental older ages (additional rows of the life table) up to age 90 years ( $q_\text{(x+1)}, q_\text{(x+2)}...q_{90}$). For each life table row, age is the only variable that is changed for MPoRT risk calculation.
 
-_Not sure what Doug is trying to get at here..._
 <div class="FOO">
-**Note:** Life expectancy calculation is for the respondent's age (eg. 43). To calculate age of death, add the respondent's age to their life expectancy estimate.
+**Note:** The result for By Row Life Expectancy are the predicted years of life that the individual still has left to live based on thier age (e.g. 43). To calculate age of death, add the respondent's age to their by row life expectancy estimate.
 <div>
 
 <div class="FOO">
@@ -241,12 +246,12 @@ The changes for each type of scenario for **alcohol, physical activity,** and **
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(knitr)
 library(kableExtra)
-(scenarios <- data.frame(
+scenarios <- data.frame(
     Health.Behaviour = c(" ", "Alcohol Consumption", "Physical Activity", rep("Diet",3)),
     Absolute.change = c("Each individual changes ...", "the number of drinks they have per week by x", "their physical activity level by x METs per day", "the number of servings of fruits and vegetables they eat by x per day", "the number of glasses of juice they drink by x per week", "the number of servings of potatoes the eat by x per week"),
     Relative.change =c("Each individual changes ...", "the number of drinks they have per week by y %", "their physical activity level by y % METs per day", "the number servings of fruits and vegetables they eat by y % per day", "the number of glasses of juice by y % per day", "the number of potatoes they eat by y % per day"), 
     Target = c("Each individual has the value ...", "z drinks per week", "z METs per day", "z fruits and vegetables per day", "z glasses of juice per day", "z potatoes per day")
-    ))#closingbracket 
+    )#closingbracket 
 
 ```
 ```{r, echo=FALSE}
@@ -282,120 +287,157 @@ Although each type of health intervention for smoking: absolute, relative and ta
 knitr::include_graphics("Images/Scenario-Abs, Rel, Target cropped.jpg")
 ```
 
-To adjust the prevalence of smokers, the change is applied to every current smoker in the population; individuals are not selected at random. ....
+To adjust the prevalence of smokers, the change is applied to every current smoker in the population; individuals are not selected at random.
 
 
 
 
 
-##Scenario: Cause-deleted
+##Scenario: Health behaviour attribution
 
-What would be the life expectancy of a population if be no one in the population ever smoked? This scenario is a cause-deleted scenario.
+What would be the life expectancy of a population if be no one in the population ever smoked? This scenario is a health behaviour attribution scenario.
 
-There are two distinct terms in cause-deleted calculations:
+A health behaviour attribution scenario:
 
-- **Cause-deleted life expectancy** is the estimated life expectancy for the counterfactual population where a specific cause (e.g. smoking) never existed. E.g. the counterfactual population was always never smokers.
+- predicts the health outcome if no one was exposed to the health behaviour = **health behaviour-deleted outcome**, and
 
-- **Cause-deleted effect of life expectancy** or **life years lost due to the cause** is the full effect of the cause (e.g smoking) in the population. E.g. In a population 3 years of life are lost due to individuals in that population smoking: either currently or previously.
+- estimates the effect the health behaviour has on the health outcome for the population = **health behaviour attributable outcome**
 
-If multiple causes are selected (e.g. smoking and physical inactivity) the cause-deleted life expectancy calculated accounts for both of these effects and the cause-deleted effect of life expectancy (or life years lost) is calculated for each individual cause.
+To understand health behaviour attribution scenarios lets use the example of smoking and deaths for a population. 
 
-<div class="FOO">
-**Note:** $\text{Cause-deleted life expectancy of smoking and physical inactivity} \neq$
-$\text{Cause-deleted effect of smoking} + \text{Cause-deleted effect of physical inactivity}$
+The number of deaths for a population is calculated twice: 
 
-This is because individuals in the population may be both smokers and physically inactive. 
+- with the population that has all smokers = **baseline deaths**,  and
+- with a counterfactual scenario where everyone in the population is non-smokers = **smoking-deleted deaths**
 
-</div>
+The difference between the number of deaths for of the two populations is the **smoking attributable deaths**.
 
-_Insert table with the reference levels for each of the health behaviours_
-
-###Cause-deleted calculation
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ysX3M0cMSXQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-There are two parts to the calculations preformed in cause-deleted scenarios: (A) calculate the risk, and (B) calculate the health outcome: life expectancy or number of deaths.
-
-**Part A: Risk calculations**
-
-The original multivariable predictive risk algorithm is: 
-
-$$ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
-
-
-**Step 1.** Modify the original algorithm to include the external coefficient(s). This means replacing all predictive hazard ratios/betas related to the health behaviour to the causal hazard ratios/betas. 
-
-- Remove the original regression coefficient(s) for the health behaviour.
-- Add the new external coefficient(s) to the algorithm. External coefficients are generated from either: causal models, or from systematic reviews or meta-analysis.
-
-$$ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
-    
-
-**Step 2.**	Risk is calculated using the modified algorithm created in Step 1 and the respondent’s original profile (e.g. current smoker). This is the “external coefficient risk”. 
-
-$$ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
-
-
-**Step 3.**	“Cause-deleted risk' " is calculated by setting an exposure to a reference (non-exposed) value (all other risk exposures remain unchanged).
-
-$$ \text{Cause-deleted risk' } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
-
-
-**Step 4.**	The “cause-deleted effect external” is calculated as “external coefficient risk” (Step 2) minus the “cause-deleted risk’. ”(Step 3).
-
-$$\text{Cause-deleted effect}_{external} = \text{External coefficient risk} - \text{Cause-deleted risk'}$$
-
-
-**Step 5.**	Original risk is calculated using the original algorithm and the original respondent’s profile.
-
-$$ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
-
-
-**Step 6.**	The “cause-deleted risk external” is calculated by “original risk” (Step 5) minus the “cause-deleted effect external” (Step 4).
-
-$$\text{Cause-deleted risk}_{ external} = \text{Original risk} - \text{Cause-deleted effect}_{external}$$
-
-```{r, echo=FALSE, fig.align='center', fig.cap= "Risk portion of the cause-deleted calculations"}
-knitr::include_graphics("Images/Method2 only -cbf.jpg")
+```{r, echo=FALSE, fig.align='center', fig.cap= "Health behaviour attributable scenario - Deaths"}
+knitr::include_graphics("Images/HB attributable number of deaths.jpg")
 ```
 
+In this example smoking attributes approximately 15,000 deaths in the population. 
 
-**Part B: Health outcome calculations**
+This can also be done with life expectancy. Life expectancy is calculated: 
 
-Using risks generated above you can then calculate:
+- with the population that has all smokers = **baseline life expectancy**,  and
+- with the counterfactual population where there are no smokers = **smoking-deleted life expectancy**.
 
-- cause-deleted life expectancy or life years lost attributable to a health behaviour (exposure)
-- cause-deleted number of deaths or number of deaths attributable to a health behaviour (exposure)
+The difference between the life expectancy of the two populations is the **life expectancy lost due to smoking**.
+
+```{r, echo=FALSE, fig.align='center', fig.cap= "Health behaviour attributable scenario - Life expectancy"}
+knitr::include_graphics("Images/HB attributable LE.jpg")
+```
+
+###Multiple selected health behaviours
+
+If multiple health behaviours are selected the:
+
+ - **health behaviour-deleted outcome** calculated accounts for **both** of these health behaviours, and 
+ - **health behaviour attributable outcome** is calculated **seperately** for each health behaviour. 
+
+We will use smoking (SMK) and physical inactivity (inPA) to demonstrate what happens when multiple behaviours are selected for health behaviour attribution scenario:
+ 
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+HBAO <- data.frame(
+    Baseline = c("Deaths", "150,000", "Life expectancy",  "75"),
+    Counterfactual = c("SMK and inPA - deleted deaths", "100,000", "SMK and inPA - deleted  life expectancy", "80 "), 
+    Difference = c("SMK and inPA attributable deaths", "50,000", "Life expectancy lost due SMK and inPA", "5"),
+    HealthBehaviour1 = c("SMK attributable deaths", "40,000", "inPA attributable life expectancy lost", "2"), 
+    HealthBehaviour2 = c("SMK attributable deaths", "15,000", "inPA attributable life expectancy lost", "4")
+)#closingbracket 
+
+```
+```{r, echo=FALSE, fig.align='center', fig.cap= "Outcomes for multiple health behaviours attribution scenario"}
+#Creating the table
+kable(HBAO[1:4,1:5]) %>%
+  kable_styling("striped", full_width = F) %>%
+  pack_rows("Number of deaths", 1, 2, label_row_css = "background-color: #888; color: #fff;") %>%
+  pack_rows("Life expectancy", 3, 4, label_row_css = "background-color: #888; color: #fff;")
+```
+ 
+<div class="FOO">
+**Note:** $\text{SMK and inPA - deleted outcome} \neq$
+$\text{SMK attributable outcome} + \text{inPA attributable outcome}$
+
+as individuals in the population may be both smokers and physically inactive. 
+</div>
 
 
-**Life expectancy calculations**
+###Reference health behaviours
 
-Step I: Calculate the original life expectancy by using the original risk (Step 5 above) in the sex-specific 5-year abridge period life tables.
+The health behaviours (references) used to calculate the health behaviour deleted outcomes are:
 
-Step II: Calculate the cause-deleted life expectancy by using the cause-deleted risk external (Step 6 above) in the sex-specific 5-year abridge period life tables.
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+(HBAref <- data.frame(
+    Health.Behaviour = c("Smoking", "Alcohol Consumption", "Physical Activity", "Diet"),
+    Reference = c("Never smoker", "0 drinks/week", "3.0 METs/day", "A total of: 5 fruit and vegetables, 0 juice, and 0 potato, servings/day")
+    ))#closingbracket 
 
-Step III: Calculate life years attributable to a health behaviour by: original life expectancy (Step I) minus cause-deleted life expectancy (Step II):
+```
+```{r, echo=FALSE}
+#Creating the table
+kable(HBAref) %>%
+  kable_styling(full_width = T)
+```
 
-$$ \text{Life years due to exposure} = \text{Original life expectancy} - \text{Cause-deleted life expectancy}$$
-If the life years attributable to a health behaviour are negative then the value represents the life years lost due to smoking. 
+##Results
 
-**Number of deaths calculations**
+###Why are there more deaths for the healthy behaviour?
 
-Step I: Calculate the number of deaths that would occur using the original risk (Step 5 above).
+You may get a result where there are more deaths for the "healthier" exposure rather then an "unhealthier" exposure, for instance:
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("Images/Graph-hypertension-diabetes.jpg")
+```
 
-Step II: Calculate the number of deaths that would occur using the cause-deleted risk external (Step 6 above).
+This result occurs as there are more people in the population that do not have diabetes. You can standarized your data set prior to the calculation to get a differnt result.
 
-Step III: Calculate the number of deaths that are attributable to a health behaviour (exposure) by: original number of deaths (Step I) minus cause-deleted number of deaths (Step II):
+##Assumptions and Limitations
 
-$$\text{Deaths due to exposure} = \text{Original number of deaths} - \text{Cause-deleted number of deaths}$$
+###Limitation: Data source: Canadian Community Health Survey
+
+####Included population
+
+The CCHS survey used to develop the mortality algorithm in the Project Big Life Planning Tool, include only individuals living in the community setting 20 years of age or older. Therefore individuals that live: in long-term care facilities, First Nations reserves, incarcerated populations, and full-time members of the Canadian Forces were excluded. 
+
+The exclusion of these individuals is likely to lead to a small under-estimation of the burden of a health behaviour on a health outcome. Excluded populations have higher prevalence of unhealthy behaviours like smoking: incarerated and First Nations have higher prevelance of current smoking and individuals in long-term care facilities are more likely to be former smokers then the general population. However this under-estimation is small as the excluded population only accounts for < 3% of the Canadian population. 
+
+####Reporting of health behaviours
+
+Self-reported data is used to  health surveys use self-reported data to predict risk and health outcomes. With self-reported surveys there is the possibility of social desirability bias, where respondents tend to over-report what they perceive to be healthy behaviours and under-report what they perceive to be unhealthy behaviours.
+
+This is particularly the case with alcohol, where there is a consistent under-reporting of alcohol consumption in most population health surveys. In Ontario, the sum of self-reported alcohol consumption is about half the volume of alcohol sold {@ONalcohol}.
+
+In addition the full spectrum of the behaviour has not been captured due to limited questions about the health behaviour in surveys. With diet there were few questions on the CCHS survey and these questions only asked about frequency of diet components. Information on diet factors like quantity, sodium intake, trans fat, or other healthy/unhealthy behaviours were not captured. It is likely that the burden of poor diet is under-estimated.
+
+Although more accurate risk factor ascertainment could improve discriminiation and calibration of the algorithms used in the Project Big Life Planning Tool, these algorithms already have high discrimination and calibration. 
+
+
+###Limitation: Multivariable predictive risk algorithms
+
+####Hazard ratios and exposures are assumed constant
+
+The hazard ratios in the algorithms of the Project Big Life Planning Tool, and an individual's exposures are assumed to be constant. 
+
+Constant hazard ratios do not account for period effect which could lead to an over-estimation of the burden of a health behaviour e.g. the differential mortality between smokers and non-smokers may have been greater for older periods, Therefore the algorithms do not account for any period effects.
+
+
+###Limitation: Calculations
+
+####Uncertainty
+
+
+
+####Attributable risk calculations
 
 
 
 
-##Limitations
-
-
+###Limitation: Using the Project Big Life Planning Tool
 
 
 

@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-08-09}
+    \date{2019-09-26}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -106,24 +106,63 @@
 \chapter{Welcome to Project Big Life's Planning
 Tool}\label{welcome-to-project-big-lifes-planning-tool}
 
-\emph{TO DO: Insert the image for the PBL planning tool}
-
 \subsection{What is the Project Big Life Planning
 Tool}\label{what-is-the-project-big-life-planning-tool}
 
-\emph{To do: Develop video showcasing the platform including what it is
-and why someone should use the platform}
+The Project Big Life Team received numerous requests to generate,
+replicate, and updated health status reports such as Public Health
+Ontario's
+\href{https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years}{Seven
+More Years} which examined the impact of health behaviours on health
+outcomes: mortality and life expectancy.
+
+To address these requests and better support public health professionals
+the Project Big Life Team decided to create
+\href{http://planning.projectbiglife.ca/}{Project Big Life Planning
+Tool}.
+
+The Project Big Life Planning Tool gives public health professionals
+access to the algorithms used by the Project Big Life Team, and can be
+used to support your research, planning, development, and evaluation of
+health interventions.
+
+The tool can help you:
+
+\begin{itemize}
+\tightlist
+\item
+  Determine who in the population is at risk
+\item
+  Predict number of new cases of the disease for a population
+\item
+  Determine how much a risk factor contributes to a health outcome
+\item
+  Assess health benefits of potential interventions
+\end{itemize}
 
 \subsection{Who made the Project Big Life Planning
 Tool?}\label{who-made-the-project-big-life-planning-tool}
 
-The Project Big Life Planning Tool was developed by the Project Big Life
-Team. The Project Big Life Team is part of the ICES. The below video
-explains what ICES is.
+The Project Big Life Planning Tool was developed by the
+\href{https://www.projectbiglife.ca}{Project Big Life} Team based at the
+\href{http://www.ohri.ca/home.asp}{Ottawa Hospital} and the
+\href{https://www.bruyere.org/en/bruyere-research-institute}{Bruyère
+Research Institute}.
 
-\begin{verbatim}
-## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
-\end{verbatim}
+The planning tool was made in collaboration with
+\href{https://www.publichealthontario.ca/}{Public Health Ontario}, the
+\href{https://pophealthanalytics.com/}{Population Health Analytics Lab}
+at the University of Toronto and
+\href{http://www.ottawapublichealth.ca/en/index.aspx}{Ottawa Public
+Health}.
+
+Algorithms used in the planning tool were developed using linked
+population data housed at \href{https://www.ices.on.ca/}{ICES} and
+validated at Statistics Canada. All algorithms have been published in
+peer-review journals. To learn more about the specific algorithms used
+in the Project Big Life Planning Tool see our
+\protect\hyperlink{mport}{appendices} to the specific algorithms or
+\href{https://www.projectbiglife.ca/science}{Project Big Life} website.
 
 \chapter{Introduction}\label{introduction}
 
@@ -136,10 +175,11 @@ For instance Project Big Life Planning Tool helps:
 \begin{itemize}
 \tightlist
 \item
-  Public health professionals: assess the impact of preventative
-  interventions that target health behaviours
+  Public health professionals: assess the impact of interventions that
+  target health behaviours
 \item
-  Health planners: assess the need for palliative care
+  Health planners: assess the need for palliative care (\emph{To be
+  developed})
 \end{itemize}
 
 \textbf{What types of questions can it answer?}
@@ -152,8 +192,8 @@ questions:
 \item
   What is the burden of smoking on life expectancy?
 \item
-  How many deaths would be prevented if everyone met their daily
-  exercise requirements?
+  How many deaths would be prevented if everyone increased thier daily
+  exercise by 10\%?
 \end{itemize}
 
 \textbf{How does it work?}
@@ -166,7 +206,7 @@ questions:
 \item
   The multivariable predictive risk algorithms use distinct
   characteristics and health profiles of groups of people to assess the
-  risk of a health outcome (e.g.~Life Expectancy).
+  risk of a health outcome (e.g.~deaths).
 \item
   The multivariable predictive risk algorithms are developed and
   validated using data routinely collected by Statistics Canada and
@@ -174,7 +214,8 @@ questions:
   various journals.
 \item
   More information about multivariable predictive risk algorithms can be
-  found in the key concepts (Chapter \ref{keyconcepts}).
+  found in the \protect\hyperlink{keyconcepts}{key concepts} or
+  \protect\hyperlink{mport}{appendices}.
 \end{itemize}
 
 \textbf{Why should I used it?}
@@ -221,18 +262,19 @@ To help you get started quickly with Project Big Life's Planning Tool,
 we built a Tutorial directly onto the platform.
 
 The tutorial takes you through step-by-step how to use Project Big
-Life's Planning Tool. The tutorial will not explain the steps in detail
-(Chapter \ref{howto}) nor will it provide reference material (Chapter
-\ref{glossary}), but it will give you an understanding of how easy it is
-to use the Planning Tool!
+Life's Planning Tool. The tutorial will not explain the
+\protect\hyperlink{howto}{steps in detail}) nor will it provide
+terminology \protect\hyperlink{glossary}{glossary} or how the
+\protect\hyperlink{mport}{tool operates}, but it will give you an
+understanding of how easy it is to use the Planning Tool!
 
-\textbf{To access the tutorial}, go onto Project Big Life's Planning
-Tool (\url{http://policy.projectbiglife.ca/}) and click on the Tutorial
-button in the top right corner!
+\textbf{To access the tutorial}, go onto
+\href{http://planning.projectbiglife.ca/}{Project Big Life's Planning
+Tool} and click on the Tutorial button in the top right corner!
 
 \begin{center}\includegraphics{Images/Tutorial Button} \end{center}
 
-\chapter{How To}\label{howto}
+\hypertarget{howto}{\chapter{How To}\label{howto}}
 
 These guides will cover the topics covered in the tutorial but in
 greater detail.
@@ -244,35 +286,48 @@ greater detail.
 \item
   Load data
 \item
-  Select calculation
+  Select measure (calculation)
 \item
   Filter data
 \item
   Stratify data
 \item
-  Run scenarios: Intervention and Cause-deleted
+  Run scenarios: Intervention and Health behaviour attribution
 \item
   Calculate results
 \item
-  Visualize data (TBD)
+  Download results (To be developed)
 \item
-  Export data (TBD)
-\item
-  Resolve error messages (TBD)
+  Resolve error messages (To be developed)
 \end{itemize}
 
 \section{Customize Data}\label{customize-data}
 
+\textbf{Note:} The Project Big Life Planning Tool can only be used with
+the 2013/2014 Canadian Community Health Survey (CCHS) Public Use
+Microdata File (PUMF) or Shared versions in `.csv' format.
+
+Other population health surveys can be used only if the required
+variables are transformed to the specifications of the 2013/2014 CCHS
+data. Please note that the Project Big Life team is in the process of
+supporting CCHS versions from 2001 to 2013.
+
 Prior to using the Project Big Life Planning Tool you may want to
-manipulate your data set. Reasons include: customized filter(s) and/or
-customized stratification(s).
+transform your data set. Reasons include: customized filter(s) and/or
+customized stratification(s), and transforming variables from other
+population health surveys to the 2013/2014 Canadian Community Health
+Survey (CCHS) format. Any variable that you create can be selected
+within the planning tool in the filter and/or stratify options.
 
 Data manipulation can occur on any programming software: R, SAS, STATA,
 etc, as long as you output your data set as a `.csv' file.
 
+\subsection{Customize filter and/or
+stratification}\label{customize-filter-andor-stratification}
+
 An example of customizing your data set is converting the variable: Body
-Mass Index (CCHS 2013 variable HWTGBMI) from a continuous variable into
-four distinct categories:
+Mass Index (CCHS 2013/2014 variable HWTGBMI) from a continuous variable
+into four distinct categories:
 
 \begin{itemize}
 \tightlist
@@ -330,47 +385,90 @@ data$newcolumn <- cut(data$HWTGBMI, breaks = c(0,18.5,25,30,Inf),  labels=c("Und
 This new column can be now be used with the Project Big Life Planning
 Tool for the purpose of filtering or stratification.
 
+\subsection{Transforming variables to 2013/2014 CCHS
+format}\label{transforming-variables-to-20132014-cchs-format}
+
+Population health surveys other then the 2013/2014 CCHS PUMF or Shared
+files can be used if the variables: sex, age and survey weight (required
+variables) are transformed to the 2013/2014 CCHS format.
+
+For example the 2005/2006 CCHS data the age variable is titled
+DHH\textbf{E}GAGE and in the 2013/2014 CCHS data it is DHHGAGE. Although
+the variable's name changes the data is captured identically in the
+2005/2006 and 2013/2014 surveys. Therefore you can use the 2005/2006
+CCHS data if you transform this variable to the 2013/2014 format.
+
+\begin{verbatim}
+library(dpylr)
+
+CCHSdata.2005.2006 <- CCHSdata.2005.2006 %>% 
+  rename(DHHGAGE = DHHEGAGE)
+\end{verbatim}
+
+All required variables \textbf{must} be transformed to the 2013/2014
+CCHS format. It is also recommended that you transform the recommend
+variables as well to increase the accuracy of the prediction(s).
+
+When transforming required or recommended variables pay attention to how
+the variables are captured. There may be differences limit the ability
+to use the data set or that will affect your results. For instance from
+the 2001-2004 CCHS survey there are 15 age categories but from 2005-2013
+there are 16 age categories.
+
 \section{Load data}\label{load-data}
-
-Only one data set can be used on the platform for each calculation; a
-calculation cannot be preformed across multiple data sets.
-
-\textbf{Note:} Data sets loaded to the Project Big Life Planning Tool
-remains on your computer and is not uploaded or sent anywhere.
-
-There are two options for your data: use a sample file or load your own
-file.
 
 \textbf{Note:} The Project Big Life Planning Tool can currently only
 support .csv data files from the 2013/2014 Canadian Community Health
-Survey. Both the PUMF and Shared 2013/2014 Canadian Community Health
-Survey files are accepted.
+Survey (CCHS). Both the 2013/2014 CCHS PUMF and Shared file are
+accepted.
+
+Data loaded to the Project Big Life Planning Tool:
 
 \begin{itemize}
-\tightlist
 \item
-  More information on the Canadian Community Health Survey and the types
-  of accepted data can be found in Key concepts (Chapter
-  \ref{keyconcepts}) - ``Data and Sample Files''.
+  \textbf{Must include all} the \textbf{required} variables: DDH\_SEX
+  (sex), DHHGAGE (age), and WTS\_M (survey weight).
+\item
+  \textbf{Should include} some or all of the \textbf{recommended}
+  variables. Recommended variables aren't required for calculations but
+  will increase the accuracy of the predicted health outcome.
 \end{itemize}
+
+More information on the required and recommended variables can be found
+\protect\hyperlink{mport}{Appendix}.
+
+Only \textbf{one data file} can be used on the planning tool at a time;
+the planning tool cannot preform a calculation across multiple data
+files. If you wish to use data from different data sets, you first merge
+the data sets together and use the 2013/2014 CCHS format (e.g.~variable
+names). Once data sets are merged into one data file you can load your
+data on to the Planning Tool.
+
+\textbf{Note:} Data you load to the Project Big Life Planning Tool
+remains on your computer and is not uploaded or sent anywhere.
+
+There are two options of data files: a sample file or your own file.
 
 \subsection{Load sample files}\label{load-sample-files}
 
 If you don't have your own data or want to explore the platform's
-capabilities before using your data, you can use the sample files on the
-Project Big Life Planning Tool. There are \textbf{X} sample files you
-may use:
+capabilities before using your data, you can use the sample file on the
+Project Big Life Planning Tool. There are two sample files included on
+the planning tool:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{data.sample.csv} this is fabricated dataset that includes all
-  variables required for calculation, recommend for calculation, and
-  needed for the real life application examples (found in Chapter 5).
-  This data set is based on the 2013/2014 Canadian Community Health
-  Survey Public Use Microdata File from, however this data set was
-  created only for example purposes and \textbf{cannot} be used for
-  analysis.
+  \textbf{sample.csv (Sample)} this is fabricated data set that includes
+  all variables required for calculation, recommend for calculation, and
+  needed for the \protect\hyperlink{caseexamples}{case examples}. This
+  data set is based on the 2013/2014 CCHS PUMF but it is
+  \textbf{entirely fabricated and can only be used for examplary
+  purposes.}
+\item
+  \textbf{sample\_small.csv (Sample)} is the same data set as above but
+  has fewer observations. Use this data set if you are testing out the
+  platform as it will take less time to compute.
 \end{itemize}
 
 \textbf{Steps}
@@ -379,7 +477,7 @@ may use:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Click on the file name under ``Sample files'' to select it.
+  Click on the checkmark beside the ``Sample file'' to select it.
 \end{enumerate}
 
 \subsection{Load your own file}\label{load-your-own-file}
@@ -393,7 +491,12 @@ may use:
   calculations''.
 \item
   Locate the file on your computer, select, and open.
+\item
+  Choose the file type (2013/2014 PUMF or 2013/2014 Shared) for your
+  uploaded file, in the table that showcases all of the files.
 \end{enumerate}
+
+Note:
 
 \begin{itemize}
 \item
@@ -409,7 +512,7 @@ may use:
   the planning tool, however the calculations may be less accurate.
 \end{itemize}
 
-\section{Select calculation}\label{select-calculation}
+\section{Select measure (calculation)}\label{select-measure-calculation}
 
 There are two general types of calculations: summary measures and by row
 measures.
@@ -426,7 +529,8 @@ each individual (e.g.~row) in the dataset.
 \end{itemize}
 
 Summary measures must be selected for calculations that have
-stratifications, intervention scenarios, and cause-deleted scenario.
+stratifications, intervention scenarios, and health behaviour
+attribution scenario.
 
 \textbf{Steps}
 
@@ -447,7 +551,8 @@ stratifications, intervention scenarios, and cause-deleted scenario.
 \end{itemize}
 
 More details of what the calculations are and how they are preformed can
-be found in key concepts (Chapter \ref{keyconcepts}) - ``Calculations''.
+be found in \protect\hyperlink{keyconcepts}{key concepts} -
+``Calculations''.
 
 \section{Filter data}\label{filter-data}
 
@@ -575,7 +680,8 @@ behaviours:
 \item
   are modified in the population: \textbf{Intervention}, or
 \item
-  were never present in the population: \textbf{Cause-deleted}
+  were never present in the population: \textbf{health behaviour
+  attribution}
 \end{itemize}
 
 Scenarios can be used to inform potential health policies or programs.
@@ -617,8 +723,9 @@ There are 3 types of intervention scenarios that you can select:
 \end{itemize}
 
 More information on the specifics of each type of intervention scenario
-and how they are calculated can be found in Key Concepts (Chapter
-\ref{keyconcepts}) - ``Scenarios: Interventions''.
+and how they are calculated can be found in
+\protect\hyperlink{keyconcepts}{key concepts} - ``Scenarios:
+Interventions''.
 
 \textbf{Steps}
 
@@ -680,10 +787,11 @@ can be selected for a single calculation.
   ``Scenario''.
 \end{itemize}
 
-\subsection{Cause-deleted scenarios}\label{cause-deleted-scenarios}
+\subsection{Health behaviour attribution
+scenarios}\label{health-behaviour-attribution-scenarios}
 
-Cause-deleted scenarios provide you with the ability to see the best
-case scenario for the population. For example:
+Health behaviour attribution scenarios provide you with the ability to
+see the best case scenario for the population. For example:
 
 \begin{itemize}
 \tightlist
@@ -694,9 +802,9 @@ case scenario for the population. For example:
   activity levels (3.00 METs/week)?
 \end{itemize}
 
-More information on cause-deleted calculations and how they are
-calculated can be found in key concepts (\emph{Chapter
-\ref{keyconcepts}}) - ``Scenarios: Cause-deleted''.
+More information on health behaviour attribution calculations and how
+they are calculated can be found in key concepts{]}(\#keyconcepts) -
+``Scenarios: Health behaviour attribution''.
 
 \textbf{Steps}
 
@@ -706,11 +814,11 @@ calculated can be found in key concepts (\emph{Chapter
   Click the box beside either ``Life Expectancy (Summary)'' under the
   ``Calculation'' drop down.
 \item
-  Check the button beside: ``Cause-deleted'' under the ``Scenario'' drop
-  down.
+  Check the button beside: ``Health behaviour attribution'' under the
+  ``Scenario'' drop down.
 \item
   Check the box beside the health behaviour that you want to have a
-  cause-deleted calculation.
+  health behaviour attribution calculation.
 \end{enumerate}
 
 Multiple health behaviours can be selected for a single calculation.
@@ -735,73 +843,162 @@ Multiple health behaviours can be selected for a single calculation.
 will take. Depending on the size of the data set and the type of
 calculation being preformed it could take an hour or more.
 
-\section{Visualize Data}\label{visualize-data}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Click the ``calculate'' button.
+\item
+  A new table will appear under the calculate button. The table includes
+  the status of the calculation, the calculation: name, measures,
+  filters and stratifications that were select.
+\end{enumerate}
 
-\emph{TBD: Need plots on the platform to work through the steps below} -
-export - create your own(?)
+A green check mark will appear in the status column.
+
+\section{View Results}\label{view-results}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Click on the calculation name, in the table under the green
+  calculation button.
+\item
+  There are three tabs for the results:
+\end{enumerate}
+
+\begin{itemize}
+\item
+  \textbf{Overview:} provides a summary of the calculation that was
+  preformed including: measure, filters used, errors, and warnings.
+\item
+  \textbf{Stratifications:} This will show the results for the
+  measurement you choose to calculate. This screen will either have:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{a table} when you stratifications are selected.
+  \item
+    \textbf{a graph} when stratification are selected. The graph is
+    further described below.
+  \end{itemize}
+\item
+  \textbf{Log:} will give you a summary of the warnings and errors that
+  occurred during the calculation.
+\end{itemize}
+
+\subsection{Graph}\label{graph}
+
+The graph produce through plotly is interactive. Hover over the graph to
+see the results for each strata, exclude strata, download a .png of the
+graph, and much more.
 
 \section{Download results}\label{download-results}
 
 Click on the \textbf{Download results} button under the \textbf{Results}
 section.
 
+A pop-up will appear.
+
+Select which measures you would like to download.
+
 Select which calculations you'd like to download.
 
-\emph{To Do: Screenshot of all the calculation options once the platform
-is fixed.}
+Scroll down in the pop up window and select ``Download File:
+Your\_file\_and\_calculation\_name''.
 
-\section{Resolve warning or error
-messages}\label{resolve-warning-or-error-messages}
+Two files will be downloaded.
+
+\begin{itemize}
+\tightlist
+\item
+  **Text \url{file:**} will give you a summary of the calculation
+  preformed.
+\item
+  **CSV \url{file:**} will provide you a table with the measures you
+  preformed.
+\end{itemize}
+
+\section{Resolve warning or error messages (To be
+developed)}\label{resolve-warning-or-error-messages-to-be-developed}
 
 There are different types of warning and error messages that may appear.
 
 Below describes some of the messages that are likely to occur and steps
 to resolve them.
 
-\emph{Waiting for the branch with the error messages to be finalized and
-merged}
-
 \subsection{Invalid category}\label{invalid-category}
 
 \subsection{Out of range}\label{out-of-range}
-
-``Out of range'' is when there are observation(s) in the data set that
-are not is beyond the limit of
 
 \subsection{Not a number}\label{not-a-number}
 
 \subsection{Sample size is too small}\label{sample-size-is-too-small}
 
-\chapter{Applications}\label{applications}
+\hypertarget{caseexamples}{\chapter{Case examples}\label{caseexamples}}
 
 This chapter provides you with examples of how Project Big Life's
-Planning Tool can be used in your day-to-day operations. The examples
-will cover:
+Planning Tool can be used in your day-to-day operations. The case
+examples will cover:
 
-\begin{itemize}
-\tightlist
-\item
-  analyses that can be included in a health status report,
-\item
-  a national scenario: What if Canada biked like the Dutch?
-\item
-  a local scenario: turning Ottawa into the healthiest Canadian region
-\end{itemize}
+Description
+
+Name
+
+Type
+
+Statistics for health status reports
+
+Health status report
+
+Filter, Stratification, Scenario - Health behaviour attributable
+(smoking and diet)
+
+Deaths prevented from increasing cycling infrastructure
+
+Adjusting gears
+
+Filter, Scenario - Intervention: Absolute (Physical activity)
+
+Impact on life expectancy by modifying all health behaviours
+
+Healthy cities
+
+Filter, Stratification, Scenario - Intervention: Target (All)
+
+Impact on life expectancy by increasing cycling rates
+
+Canada bikes like the Dutch
+
+Filter, Scenario, Intervention: Absolute (Physical activity)
+
+Prevented deaths from enacting a 2004 smoking by-law
+
+Smoking by-law, Ottawa 2004: retrospective
+
+Transform variables, Filter, Scenario - Intervention: Target (Smoking)
 
 \section{Health Status Report}\label{health-status-report}
 
-In this example we will highlight statistics that could reported in
-health status reports. Health status reports are a way to report the
-health state for a population and the factors that influence the
-population's health. Information from health status reports are used to
-inform policy, planning, and resource allocation.
+Health status reports are a way to report the health state for a
+population and the factors that influence a population's health.
+Information from health status reports are used to inform policy,
+planning, and resource allocation.
 
-In this example we will calculate:
+Using the Project Big Life Planning Tool you can replicate or update
+existing health status reports e.g.~Public Health Ontario's:
+\href{https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years}{Seven
+More Years Report} or generate a new health status report.
+
+In this example we will show you how to create some health statistics to
+include in your health report. We will calculate:
 
 \begin{itemize}
 \tightlist
 \item
-  The predicted number of deaths by strata
+  The predicted number of deaths by strata (e.g.~by sex {[}males and
+  females{]})
 \item
   The impact of eliminating unhealthy behaviours on life expectancy
 \end{itemize}
@@ -813,15 +1010,26 @@ education}\label{predicted-number-of-deaths-stratified-by-sex-and-level-of-educa
 
 By showing the number of deaths by strata, the reader can see the
 distribution of deaths across specific population characteristics. Any
-categorical variable can be used for stratification but in this example,
+categorical variable can be used for stratification but in this example
 we will use sex and level of education.
 
 \textbf{Steps}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  Select the sample file XXXX under ``Sample files''.
+  Select the sample file data.sample.csv under ``Sample files''.
+\end{enumerate}
+
+\textbf{Note:} Although the data.sample.csv is based on the 2013/2014
+Canadian Community Health Survey Public Use Microdata File,
+data.sample.csv is a completely synthetic data set and can only be used
+for exemplary purposes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
 \item
   Select the calculation: Summary Measure -- Deaths (Five years)
 \item
@@ -837,23 +1045,34 @@ we will use sex and level of education.
 
 \emph{7. To do: Results -- walk through the results}
 
-\subsection{Impact of eliminating unhealthy behaviours: physical
-inactivity and poor diet, on life
-expectancy}\label{impact-of-eliminating-unhealthy-behaviours-physical-inactivity-and-poor-diet-on-life-expectancy}
+\subsection{Impact of eliminating unhealthy behaviours: smoking and poor
+diet, on life
+expectancy}\label{impact-of-eliminating-unhealthy-behaviours-smoking-and-poor-diet-on-life-expectancy}
 
 To show how much an unhealthy behaviour impacts life expectancy we use
-the scenario: cause-deleted. Cause-deleted scenarios can be used for the
-health behaviours: alcohol consumption, diet, physical activity, and
-smoking, individually or in any combination. In this example we will
-evaluate the impact of physical inactivity and poor diet, in
-combination, on life expectancy.
+the scenario: health behaviour attributable. Health behaviour
+attributable scenarios can be used for the health behaviours: alcohol
+consumption, diet, physical activity, and smoking, individually or in
+any combination. In this example we will evaluate the impact of smoking
+and poor diet, in combination, on life expectancy.
 
 \textbf{Steps}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  Select the sample file XXXX under ``Sample files''.
+  Select the sample file data.sample.csv under ``Sample files''.
+\end{enumerate}
+
+\textbf{Note:} Although the data.sample.csv is based on the 2013/2014
+Canadian Community Health Survey Public Use Microdata File,
+data.sample.csv is a completely synthetic data set and can only be used
+for exemplary purposes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
 \item
   Select initial calculation: Summary Measure -- Life Expectancy
   (Summary)
@@ -863,51 +1082,293 @@ combination, on life expectancy.
 \item
   Click the text: Scenario.
 \item
-  Select Cause-deleted.
+  Select health behaviour attribution.
 \item
-  Select the causes to delete: physical activity and diet
+  Select the health behaviours: smoking and diet
 \item
-  Title the calculation: Alberta: Cause-deleted - physical activity and
-  diet
+  Title the calculation: Alberta: smoking and diet attributable life
+  expectancy
 \item
   Click the calculate button
 \end{enumerate}
 
 \emph{9. To Do: Walk through results}
 
-\section{Canada bikes like the Dutch}\label{canada-bikes-like-the-dutch}
+\textbf{Note:}
+\(\text{Physical inactivity and poor diet attributable life expectancy lost} \neq\)
+\(\text{Physical inactivity-deleted life expectacny} + \text{Poor diet-deleted life expectancy}\)
 
-Cycling as a form of transportation, is an effective way of increasing
-individuals' daily physical activity levels which leads to a decrease in
-the risk of disease and death.
+as individuals in the population may be both physically inactive and
+have a poor diet.
 
-In this example we will determine the impact on life expectancy if
-Canadians were to cycle like the Dutch, who are world-renowned for their
-cycling.
+\section{Adjusting gears}\label{adjusting-gears}
 
-In this example we determine:
+The City of Hamilton has decided to implement a new initiative
+\emph{Adjusting Gears} which will increase cycling infrastructure in
+Hamilton. As part of the plan they have decide to develop 100 km of new
+cycling infrastructure in the next 3 years (2019-2021).
 
-A. How much Canadians cycle per day for transportation purposes,
+The city has asked you to evaluate the health impact of this initiative.
 
-B. How much Dutch cycle per day for transportation purposes,
+As part of the analysis you want to determine how the 100km of new
+cycling infrastructure will impact the health of the Hamilton area, and
+how many deaths will be prevented.
 
-C. The difference in daily cycling levels for transportation of
-Canadians and Dutch, and
+\subsection{Part A: Determine the how much a Hamiltonian will increase
+their physical activity by using these new cycling
+tracks}\label{part-a-determine-the-how-much-a-hamiltonian-will-increase-their-physical-activity-by-using-these-new-cycling-tracks}
 
-D. Predict how Canadian life expectancy would change if Canadians biked
-like the Dutch.
+Assumption \#1: After having done your research, you assume that with
+the new tracks the average person in Hamilton will cycle an additional
+10 minutes/day (duration).
 
-For this example we will use the sample data set \textbf{data.sample},
-which can be downloaded at
-\url{https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes}.
-This link also contains all of the R code for this vignette.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Convert the increased duration of cycling into daily energy
+  expenditure (MET-hours):
+\end{enumerate}
+
+\(\text{MET-hours} = \text{Duration}*\text{MET value for cycling}\)
+
+\begin{itemize}
+\tightlist
+\item
+  The MET value for cycling in Canada is 4.0
+\end{itemize}
+
+\subsection{Part B: Determine the impact on life
+expectancy}\label{part-b-determine-the-impact-on-life-expectancy}
+
+Use the Project Big Life Planning Tool for the following steps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Load your data file: data.sample.csv to the Project Big Life Planning
+  Tool.
+\item
+  Select initial calculation: Summary Measure -- Deaths (5-years)
+\item
+  Add Filter: GEODPMF - 35937
+\item
+  Click: Scenarios, and select Intervention
+\item
+  Click Physical Activity then Select ``Average daily leisure time
+  energy expenditure in METs''
+\end{enumerate}
+
+Assumption \#2: Although the scenario for physical activity is for
+leisure energy expenditure, we assume 1) individuals that are active in
+their leisure time also use active transportation, and 2) cycling as a
+form of active transportation is minor part of their energy expenditure.
+Therefore we will adjust the average daily leisure time energy
+expenditure in METs.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item
+  Select Absolute
+\item
+  Type in the absolute change calculated in Part 1, into the text box.
+\item
+  Name your calculation: Adjusting gears - Deaths in Hamilton
+\item
+  Click Calculate
+\end{enumerate}
+
+\section{Healthy Cities}\label{healthy-cities}
+
+What would be Ottawa's life expectancy, if the region had the same
+health behaviours as the healthiest region in Canada?
+
+In this example, we will determine:
+
+A. who is the healthiest region in Canada,
+
+B. what are the health behaviours of Ottawa vs the healthiest region,
+and
+
+C. what would be the mortality outcomes be if Ottawa's health behaviours
+were the same as the healthiest region.
+
+Here we will use the average life expectancy to determine the health of
+regions: the higher the life expectancy for the region the healthier
+that region is.
+
+For this example we will use the sample data set
+\textbf{data.sample.csv}, which can be downloaded at
+\url{https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples}.
+This link also contains all of the R code for this case example.
+Although we have included the R code any other statistics software (SAS,
+STATA, etc) can be used to complete this case example.
 
 The following steps include the R coding for each of the steps but you
 can preform the steps in any other software program.
 
+\subsection{Part A: Find the healthiest region in
+Canada}\label{part-a-find-the-healthiest-region-in-canada}
+
+Using the Project Bid Life Planning Tool, we will find the healthiest
+region in Canada: the region with the highest life expectancy.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Load the data file: data.sample.csv.
+\end{enumerate}
+
+\textbf{Note:} Although the data.sample.csv is based on the 2013/2014
+Canadian Community Health Survey Public Use Microdata File,
+data.sample.csv is a completely fabricated data set and can only be used
+for exemplary purposes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Select calculation: Summary Measure -- Life Expectancy (Summary)
+\item
+  Add Stratification: GEODPMF. This variable represents the health
+  regions in Canada
+\item
+  Title the calculation: Life expectancy by health region
+\item
+  Click the calculate button
+\item
+  Download the results - \emph{TO DO}
+\end{enumerate}
+
+Using your preferred statistic software (Excel, SAS, STATA, R Studio,
+etc) identify the healthiest region and the health of the Ottawa health
+region.
+
+The healthiest region is XXX.
+
+\subsection{Part B: Determine the health behaviours of the healthiest
+region and the Ottawa
+region.}\label{part-b-determine-the-health-behaviours-of-the-healthiest-region-and-the-ottawa-region.}
+
+Calculate the average of each health behaviour in the healthiest region:
+XXX and the Ottawa region.
+
+\begin{itemize}
+\item
+  \textbf{Smoking}: Calculate the prevalence of current smokers in the
+  XXX and Ottawa region.
+\item
+  \textbf{Physical Activity}: Calculate the average of physical activity
+  (variable PACDEE) in the XXX and Ottawa region.
+\item
+  \textbf{Alcohol}: Calculate the average of weekly alcohol consumption
+  (variable ALWDWKY) in the XXX and Ottawa region.
+\item
+  \textbf{Diet}: Calculate the average daily consumption of each diet
+  component (variables: FVCDCAR, FVCDFRU, FVCDJUI, FVCDPOT, FVCDSAL, and
+  FVCDVEG) in the XXX and Ottawa region.
+\item
+  The more daily servings an individual has of:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    carrots, fruits, salad, and vegetables = the more healthy the
+    individual,
+  \item
+    juice = the less healthy the individual,
+  \item
+    potato \textless{} 1 = the more healthy the individual, and
+  \item
+    potato \textgreater{} 1 = the less healthy the individual.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Comparing health behaviours}
+
+Compare the averages of all health behaviours in the Ottawa region to
+the XXX. When the health behaviour for Ottawa is unhealthier then XXX,
+record the avg/prevalence of that health behaviour for XXX.
+
+\subsection{Part C: What if Ottawa acted like
+XXX?}\label{part-c-what-if-ottawa-acted-like-xxx}
+
+We'll now run a scenario where the Ottawa region acts like XXX. Ottawa
+will now have the health behaviours of XXX, when the health behaviour of
+XXX is healthier then Ottawa's.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Load your data file: data.sample.csv
+\item
+  Select initial calculation: Summary Measure -- Life Expectancy
+  (Summary)
+\item
+  Add Filter: GEODPMF -- 35951 (the code for the Ottawa Health region)
+\item
+  Click: Scenarios
+\item
+  Click on each health behaviour where Ottawa is unhealthier then XXX
+  and input XXX's value in the target scenario for that health behaviour
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{TO DO: } Examples of where that is
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item
+  Title the Calculation: Ottawa - Intervention - HB1, \ldots{}..
+\item
+  Click calculate.
+\item
+  \emph{TO DO:} results
+\end{enumerate}
+
+\section{Canada bikes like the Dutch}\label{canada-bikes-like-the-dutch}
+
+Cycling as a form of transportation, is an effective way of increasing
+individuals' daily physical activity levels and can lead to a decrease
+in the risk of disease and death.
+
+In this example we will determine the impact on life expectancy if
+Canadians were to cycle like the cycling enthusiasts the Dutch!
+
+In this example we determine:
+
+A. How much Canadians cycle per day for transportation purposes on
+average?
+
+B. How much Dutch cycle per day for transportation purposes on average?
+
+C. What is the average difference in daily cycling transportation for
+Canadians and the Dutch?
+
+D. Predict how Canadian life expectancy would change if Canadians biked
+like the Dutch.
+
+For this example we will use the sample data set
+\textbf{data.sample.csv}, which can be downloaded at
+\url{https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples}.
+This link also contains all of the R code for this case example.
+Although we have included the Rcode other statistics software (SAS,
+STATA, etc) can be used to complete this case example.
+
+\textbf{Note:} Although the data.sample.csv is based on the 2013/2014
+Canadian Community Health Survey Public Use Microdata File,
+data.sample.csv is a completely synthetic data set and can only be used
+for exemplary purposes.
+
 \subsection{Part A: How much do Canadians cycle per day for
-transportation
-purposes}\label{part-a-how-much-do-canadians-cycle-per-day-for-transportation-purposes}
+transportation purposes on
+average?}\label{part-a-how-much-do-canadians-cycle-per-day-for-transportation-purposes-on-average}
 
 We will determine how much Canadians cycle per day by calculating the
 average daily energy expenditure from cycling in the current Canadian
@@ -928,189 +1389,47 @@ transportation:
   PAC\_8B: How much time did you spend on each occasion?
 \end{itemize}
 
-\textbf{Step 1:} Import your data set to R.
-
-\begin{verbatim}
-    PA.data <- read.csv("data.sample")
-\end{verbatim}
-
 \textbf{Assumption \#1:} we assume individuals 65 or older are retired
 and therefore not cycling to/from work/school. Therefore, we will only
 evaluate individuals that are \textless{} 65 years old.
 
-\textbf{Step 2:} Filter the data: \textless{} 65. The CCHS data set has
-categories for age, therefore we will filter out all age categories that
-are \textgreater{}=65 years old.
+In order to calculate the average Canadian daily energy expenditure from
+cycling for transportation, you will need to:
 
-\begin{verbatim}
-    library(dplyr)
-    PA.data <- PA.data %>%
-      filter(DHHGAGE <= 12)
-\end{verbatim}
-
-We will first evaluate the data for individuals that cycle to/from
-work/school (PAC\_8, answer 1) only:
-
-\textbf{Step 3:} Find the average number of times, that an individual
-cycled to/from work/school in the past 3 months
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\tightlist
+\begin{itemize}
 \item
-  Exclude the missing data - all individuals that did not cycle in the
-  past 3 months: do not cycle to/from work school, do not know, refused
-  to answer, or did not answer
-\end{enumerate}
-
-\begin{verbatim}
-    PA.data$PAC_8A[PA.data$PAC_8A == 996] <- NA
-    PA.data$PAC_8A[PA.data$PAC_8A == 997] <- NA
-    PA.data$PAC_8A[PA.data$PAC_8A == 998] <- NA
-    PA.data$PAC_8A[PA.data$PAC_8A == 999] <- NA
-\end{verbatim}
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{1}
+  Find the average number of times, that an individual cycled to/from
+  work/school in the past 3 months (mean PAC\_8A)
 \item
-  Calculate the average number of times that an individual cycled
-  to/from work/school (mean of PAC\_8A)
-
-\begin{verbatim}
-freq.cycle <- mean(PA.data$PAC_8A, na.rm = TRUE)
-\end{verbatim}
-\end{enumerate}
-
-\textbf{Step 4:} Find the average time spent cycling to/from
-work/school, in the past 3 months
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\tightlist
+  Find the average number of hours spent cycling to/from work/school, in
+  the past 3 month (mean of PAC\_8B)
 \item
-  Exclude the missing data - all individuals that did not cycle in the
-  past 3 months: do not cycle to/from work school, do not know, refused
-  to answer, or did not answer
-\end{enumerate}
-
-\begin{verbatim}
-    PA.data$PAC_8B[PA.data$PAC_8B == 6] <- NA
-    PA.data$PAC_8B[PA.data$PAC_8B == 7] <- NA
-    PA.data$PAC_8B[PA.data$PAC_8B == 8] <- NA
-    PA.data$PAC_8B[PA.data$PAC_8B == 9] <- NA
-\end{verbatim}
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
+  Calculate the average duration of cycling:
+  \(\text{Duration} = [\text{(Frequency/3 months)}*\text{(Time/trip)}] / \text{(Days/3 months)}\)
 \item
-  Calculate the mean time spent cycling (mean of PAC\_8B).
-\end{enumerate}
-
-\textbf{Note:} Since the PAC\_8B variable has 15 minute time periods (1
-= 1 to 15 minutes, 2 = 16 to 30 minutes), we will convert the mean into
-minutes by multiplying the mean of PAC\_8A with 15.
-
-\begin{verbatim}
-    time.cycle <- 15 * mean(PA.data$PAC_8B, na.rm = TRUE)
-\end{verbatim}
-
-There are other ways you can do this step. You can take the average of
-the medians for each time period or use both the minimum and maximum for
-each time period.
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{2}
-\item
-  Convert the mean time spent cycling to/from work/school from minutes
-  to hours.
-
-\begin{verbatim}
-time.hour.cycle <- time.cycle/60
-\end{verbatim}
-\end{enumerate}
-
-\textbf{Step 5:} Calculate the average duration of cycling. Duration is
-calculated with the following formula:
-
-\(\text{Duration} = [\text{(Frequency/3 months)}*\text{(Time/trip)}] / \text{(Days/3 months)}\)
-
-\begin{verbatim}
-    duration.cycle <- (time.hour.cycle*freq.cycle)/(30.42*3)
-\end{verbatim}
-
-\textbf{Step 6:} Calculate the average daily energy expenditure
-(MET-hours) for cycling to/from work/school
-
-\(\text{MET-hours} = \text{Duration}*\text{MET value for walking}\)
+  Calculate the average daily energy expenditure (MET-hours) for cycling
+  to/from work/school:
+  \(\text{MET-hours} = \text{Duration}*\text{MET value for cycling}\)
+\end{itemize}
 
 \textbf{Note:} For Canadians to cycle like the Dutch, we need to use the
 Dutch MET cycling value of 5.8 and not the Canadian MET cycling value of
 4.0. The Dutch MET value accounts for the speed of cycling of the Dutch.
 
-\begin{verbatim}
-    MET.hours.cycle <- (duration.cycle*5.8)
-\end{verbatim}
-
-We now have our average daily energy expenditure (MET-hours) for
-Canadians that \textbf{DO} cycle to/from work/school.
-
-Now we need to account for the rest of the population that does not
-cycle to/from work school.
-
-\textbf{Step 7:} Determine the average daily expenditure for all
-individuals in the population not only those that cycled to/from
-work/school
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\begin{itemize}
 \tightlist
 \item
-  Calculate the proportion of individuals that cycled to/from
-  work/school in the total population
-\end{enumerate}
-
-\begin{itemize}
-\item
-  Numerator: all individuals that answer Yes to they walked to/from
-  work/school (1 for PAC\_7)
-\item
-  Denominator: total population
-
-\begin{verbatim}
-PA.table.cycle <- table(PA.data$PAC_8)
-indiv.cycle <- PA.table.cycle[1]/(sum(PA.table.cycle))
-\end{verbatim}
+  Calculation the average daily expenditure from cycling for
+  transportation for all individuals in the population not only those
+  that cycled to/from work/school
 \end{itemize}
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Calculate the average daily energy expenditure from cycling to/from
-  work/school (MET-hours) for the entire population
-\end{enumerate}
-
-\begin{itemize}
-\item
-  Multiply the average daily energy expenditure for those that did cycle
-  to/from work/school with the proportion of individuals that did cycle
-  to/from work/school
-
-\begin{verbatim}
-MET.hours.cycle.all <- MET.hours.cycle*indiv.cycle
-\end{verbatim}
-
-  On average a Canadian only gets 0.024 MET-hours/day from cycling
-  to/from work/school.
-\end{itemize}
+On average a Canadian only gets 0.024 MET-hours/day from cycling to/from
+work/school.
 
 \subsection{Part B: How much do the Dutch cycle/day for transportation
-purposes}\label{part-b-how-much-do-the-dutch-cycleday-for-transportation-purposes}
+purposes on
+average?}\label{part-b-how-much-do-the-dutch-cycleday-for-transportation-purposes-on-average}
 
 Using data collected as part of the Dutch National Travel Survey (2010
 -- 2012), Fisherman, 2015 (\url{doi:10.1371/journal.pone.0121871} -
@@ -1121,16 +1440,19 @@ and females: 1.4 MET-hours.
 The average Dutch daily energy expenditure from cycling as a form of
 transportation for both sexes is then 1.35 MET-hours.
 
-\subsection{Part C: Calculate the difference between Dutch and Canadian
-daily cycling
-levels}\label{part-c-calculate-the-difference-between-dutch-and-canadian-daily-cycling-levels}
+\subsection{Part C: What is the average difference in daily cycling
+transporation for Canadians and the
+Dutch?}\label{part-c-what-is-the-average-difference-in-daily-cycling-transporation-for-canadians-and-the-dutch}
 
-Canadians need to increase their daily energy expenditure from cycling
-from 0.07 MET-hours to 1.35 MET-hours, in order to be like the Dutch.
+Canadians need to increase their average daily energy expenditure from
+cycling from 0.07 MET-hours to 1.35 MET-hours, in order to be like the
+Dutch.
 
-\begin{verbatim}
-    Abs.change <- 1.35 - MET.hours.cycle.all
-\end{verbatim}
+\textbf{Note:} Since the physical activity intervention scenario on the
+Project Big Life Planning Tool is for daily leisure energy expenditure
+and not daily active transportation, we will use the `absolute' scenario
+for this example. We will increase each individual's daily leisure
+energy expenditure by 1.28 MET-hours (1.35 MET-hours - 0.07 MET-hours).
 
 \subsection{Part D: Predict how Canadian life expectancy would change if
 Canadians biked like the
@@ -1141,7 +1463,8 @@ Use the Project Big Life Planning Tool for the following steps:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Load your data file: XXXX to the Project Big Life Planning Tool.
+  Load your data file: data.sample.csv to the Project Big Life Planning
+  Tool.
 \item
   Select initial calculation: Summary Measure -- Life Expectancy
   (Summary)
@@ -1176,311 +1499,133 @@ expenditure in METs.
   Interpret results
 \end{enumerate}
 
-\section{Healthy Cities}\label{healthy-cities}
+\section{Smoking by-law, 2004 Ottawa:
+retrospective}\label{smoking-by-law-2004-ottawa-retrospective}
 
-What would be Ottawa's life expectancy, if the region had the same
-health behaviours as the healthiest region in Canada?
+The City of Ottawa has historically been a leader in municipal policy to
+reduce tobacco smoking at the population level. A key milestone was the
+introduction of a 2004 by-law that limited smoking in bars/restaurants.
 
-In this example, we will determine:
+We want to know how many smoking attributable deaths were prevented due
+to this by-law.
 
-A. who is the healthiest region in Canada,
+Assumption: We assume that the by-law lead to decrease in current
+smokers either through individuals quitting smoking or individuals not
+starting to smoke.
 
-B. what are the health behaviours of Ottawa vs the healthiest region,
-and
+For this example we will:
 
-C. what would be the mortality outcomes be if Ottawa's health behaviours
-were the same asthe healthiest region.
+A. Transform 2003 CCHS PUMF variables to 2013 CCHS PUMF variables
 
-Here we will use the average life expectancy to determine the health of
-regions: the higher the life expectancy for the region the healthier
-that region is.
+B. Determine the prevalence of current smokers in 2003
 
-For this example we will use the sample data set \textbf{data.sample},
-which can be downloaded at
-\url{https://github.com/Big-Life-Lab/PBL-Planning-Tool---Applications-Vignettes}.
-This link also contains all of the R code for this vignette.
+C. Determine the prevalence of current smokers in 2013
 
-The following steps include the R coding for each of the steps but you
-can preform the steps in any other software program.
+D. Estimate how many smoking attributable deaths were prevented due to
+enacting the by-law
 
-\subsection{Part A: Find the healthiest region in
-Canada}\label{part-a-find-the-healthiest-region-in-canada}
+For this example we will use the sample data set
+\textbf{data.sample2003.csv} and \textbf{data.sample2013.csv}, which can
+be downloaded at
+\url{https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples}.
+This link also contains all of the R code for this case example.
+Although we have included the R code any other statistics software (SAS,
+STATA, etc) can be used to complete this case example.
 
-Using the Project Bid Life Planning Tool, we will find the healthiest
-region in Canada: the region with the highest life expectancy.
+\subsection{Part A: Transform 2003 CCHS PUMF variables to 2013 CCHS PUMF
+variables}\label{part-a-transform-2003-cchs-pumf-variables-to-2013-cchs-pumf-variables}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Load the data file: sample.data.
-\item
-  Select calculation: Summary Measure -- Life Expectancy (Summary)
-\item
-  Add Stratification: GEODPMF. This variable represents the health
-  regions in Canada
-\item
-  Title the calculation: Life expectancy by health region
-\item
-  Click the calculate button
-\item
-  Download the results - \emph{TO DO}
-\end{enumerate}
-
-Using your preferred statistic software (Excel, SAS, STATA, R Studio,
-etc) identify the healthiest region and the health of the Ottawa health
-region. The following code is for R.
+The Project Big Life Planning Tool only works on 2013-2014 CCHS variable
+names only. Therefore if you are using a CCHS data set from previous
+years you will have to transform the variables to the 2013-2014 format.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{6}
-\item
-  Import the data that you just downloaded to R.
-
-\begin{verbatim}
-data.summary <- read.csv("data.sample_Life_expectancy_by_health_region.csv")
-\end{verbatim}
-\item
-  Sort the data in descending order to find the healthiest region.
-\end{enumerate}
-
-\begin{verbatim}
-  data.summary[data.summary$SummaryLE == max(data.summary$SummaryLE),]
-\end{verbatim}
-
-The healthiest region is XXX.
-
-\subsection{Part B: Determine the health behaviours of the healthiest
-region and the Ottawa
-region.}\label{part-b-determine-the-health-behaviours-of-the-healthiest-region-and-the-ottawa-region.}
-
-Calculate the average of each health behaviour in the healthiest region:
-XXX and the Ottawa region.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Import your original data set to R.
-
-\begin{verbatim}
-data <- read.csv("data.sample.csv")
-\end{verbatim}
-\item
-  Subset your data for the healthiest region XXX and the Ottawa region.
-
-\begin{verbatim}
-Ottawa <- data %>%
-  filter(GEODPMF == 35951)
-
-XXX <- data %>%
-  filter(GEODPMF == XXXXX)
-\end{verbatim}
-\item
-  Calculate the average/prevalence of each health behaviour for the XXX
-  and Ottawa region.
-\end{enumerate}
-
-\textbf{Smoking}
-
-Calculate the prevalence of current smokers in the XXX and Ottawa
-region.
-
-\begin{verbatim}
-  Ottawa.smokers <- table(Ottawa$SMKDSTY)
-  Ottawa.smokers.prev <- round(prop.table(Ottawa.smokers),2)
-  Ottawa.smokers.prev[1]
-  
-  XXX.smokers <- table(XXX$SMKDSTY)
-  XXX.smokers.prev <- round(prop.table(XXX.smokers),2)
-  XXX.smokers.prev[1]
-\end{verbatim}
-
-\textbf{Physical Activity}
-
-Calculate the average of physical activity (variable PACDEE) in the XXX
-and Ottawa region.
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
 \tightlist
 \item
-  Exclude the missing data: `not stated'.
+  Use \textbf{data.sample2003.csv}
 \end{enumerate}
 
-\begin{verbatim}
-  Ottawa$PACDEE[Ottawa$PACDEE == 99.9] <- NA
-  XXX$PACDEE[XXX$PACDEE == 99.9] <- NA
-\end{verbatim}
+\textbf{Note:} Although the data.sample2003.csv is based on the
+2003/2004 Canadian Community Health Survey Public Use Microdata File,
+data.sample2003.csv is a completely fabricated data set and can only be
+used for exemplary purposes.
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Calculate the average daily energy expenditure for individuals in each
-  region who do have a value for PACDEE
-\end{enumerate}
-
-\begin{verbatim}
-  Ottawa.PA <- mean(Ottawa$PACDEE, na.rm = TRUE)
-  XXX.PA <- mean(XXX$PACDEE, na.rm = TRUE)
-\end{verbatim}
-
-\textbf{Alcohol}
-
-Calculate the average of weekly alcohol consumption (variable ALWDWKY)
-in the XXX and Ottawa region.
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\tightlist
-\item
-  Exclude the missing data: `not stated'
-\end{enumerate}
-
-\begin{verbatim}
-  Ottawa$ALWDWKY[Ottawa$ALWDWKY == 999] <- NA
-  XXX$ALWDWKY[XXX$ALWDWKY == 999] <- NA
-\end{verbatim}
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Change observations: not applicable to 0. These are individuals who
-  did not drink alcohol in the past year (represented by observations
-  coded as 996 - NA).
-\end{enumerate}
-
-\begin{verbatim}
-  Ottawa$ALWDWKY[Ottawa$ALWDWKY == 996] <- 0
-  XXX$ALWDWKY[XXX$ALWDWKY == 996] <- 0
-\end{verbatim}
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  Calculate the average alcohol consumption for individuals in each
-  region
-\end{enumerate}
-
-\begin{verbatim}
-  Ottawa.Alcohol <- mean(Ottawa$ALWDWKY, na.rm = TRUE)
-  XXX.Alcohol <- mean(XXX$ALWDWKY, na.rm = TRUE)
-\end{verbatim}
-
-\textbf{Diet}
-
-An individual's diet is composed of multiple components including the
-number of daily servings of: carrot, fruit, juice, potato, salad, and
-vegetable.
-
-The more daily servings an individual has of:
+With the data.sample2003 data set you will need to:
 
 \begin{itemize}
-\tightlist
 \item
-  carrots, fruits, salad, and vegetables = the more healthy the
-  individual,
+  Rename 2003 CCHS PUMF variables to their corresponding 2013 CCHS PUMF
+  variables,
 \item
-  juice = the less healthy the individual,
+  Create variable CCC\_091 from variables CCCC\_91A and CCCC\_91B, and
 \item
-  potato \textless{} 1 = the more healthy the individual, and
-\item
-  potato \textgreater{} 1 = the less healthy the individual.
+  Recode DHHGAGE variable
 \end{itemize}
 
-To compare the average diet of each region
+Note: The Project Big Life team is developing a R package that will make
+this step easier for you! The package transforms CCHS variables from
+2001 to 2014.
 
-Calculate the average of each diet component for the XXX and Ottawa
-region.
+We'll update the guidance as soon as the package is ready!
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\tightlist
-\item
-  Eliminate observations: not stated. To reduce the number of coding
-  steps, we will create a data set with only the diet variables.
-\end{enumerate}
+\subsection{Part B: Determine the prevalence of current smokers in
+2003}\label{part-b-determine-the-prevalence-of-current-smokers-in-2003}
 
-\begin{verbatim}
-  Ottawa.diet <- Ottawa %>%
-    select(FVCDCAR, FVCDFRU, FVCDJUI, FVCDPOT, FVCDSAL, FVCDVEG)
-  Ottawa.diet[Ottawa.diet == 999.9] <- NA
+Current smokers are defined by variable SMKDSTY: 1 -- Daily, 2 --
+Occasional, 3 -- Always Occasional.
 
-  XXX.diet <- XXX %>%
-    select(FVCDCAR, FVCDFRU, FVCDJUI, FVCDPOT, FVCDSAL, FVCDVEG)
-  XXX.diet[XXX.diet == 999.9] <- NA
-\end{verbatim}
+In 2003, current smokers accounted for 26\% of the Ottawa population.
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{1}
-\item
-  Calculate the average of each diet component for XXX and the Ottawa
-  region.
+\subsection{Part C: Determine the prevalence of current smokers in
+2013.}\label{part-c-determine-the-prevalence-of-current-smokers-in-2013.}
 
-\begin{verbatim}
-  summary(Ottawa.diet)
-  summary(XXX.diet)
-\end{verbatim}
-\end{enumerate}
-
-\textbf{Comparing health behaviours}
+The prevalence of smokers in 2013 will be the scenario target in Part D.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{3}
 \tightlist
 \item
-  Compare the averages of all health behaviours in the Ottawa region to
-  the XXX. When the health behaviour for Ottawa is unhealthier then XXX,
-  record the avg/prevalence of that health behaviour for XXX.
+  Use \textbf{data.sample.csv}
 \end{enumerate}
 
-\subsection{Part C: What if Ottawa acted like
-XXX?}\label{part-c-what-if-ottawa-acted-like-xxx}
+\textbf{Note:} Although the data.sample.csv is based on the 2013/2014
+Canadian Community Health Survey Public Use Microdata File,
+data.sample.csv is a completely fabricated data set and can only be used
+for exemplary purposes.
 
-We'll now run a scenario where the Ottawa region acts like XXX. Ottawa
-will now have the health behaviours of XXX, when the health behaviour of
-XXX is healthier then Ottawa's.
+In 2013, current smokers accounted for 21\% of the Ottawa population.
+
+\subsection{Part D: Estimate how many smoking attributable deaths were
+prevented due to enacting the
+by-law}\label{part-d-estimate-how-many-smoking-attributable-deaths-were-prevented-due-to-enacting-the-by-law}
+
+Use the Project Big Life Planning Tool for the following steps:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Load your data file: data.sample.
+  Load your data file: data.sample2003.csv to the Project Big Life
+  Planning Tool.
 \item
-  Select initial calculation: Summary Measure -- Life Expectancy
-  (Summary)
+  Select initial calculation: Summary Measure -- Deaths (5 years)
 \item
-  Add Filter: GEODPMF -- 35951 (the code for the Ottawa Health region)
+  Add Filter: GEODPMF - 35951
 \item
-  Click: Scenarios
+  Click: Scenarios, and select Intervention
 \item
-  Click on each health behaviour where Ottawa is unhealthier then XXX
-  and input XXX's value in the target scenario for that health behaviour
+  Click Smoking then Select ``Prevalence of current smokers''
+\item
+  Select Target
+\item
+  Type in 21 (prevalence of smokers from 2013) into the text box.
+\item
+  Name your calculation: Smoking attributable deaths 2003
+\item
+  Click Calculate
 \end{enumerate}
 
-\begin{itemize}
-\tightlist
-\item
-  \emph{TO DO: } Examples of where that is
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{5}
-\item
-  Title the Calculation: Ottawa - Intervention - HB1, \ldots{}..
-\item
-  Click calculate.
-\item
-  \emph{TO DO:} results
-\end{enumerate}
-
-\chapter{Key Concepts}\label{keyconcepts}
+\hypertarget{keyconcepts}{\chapter{Key Concepts}\label{keyconcepts}}
 
 This section explains some key concepts in Project Big Life's Planning
 Tool. This section will explain how it works rather then how to do
@@ -1516,9 +1661,17 @@ things.
 \item
   Scenario: Intervention
 \item
-  Scenario: Cause-deleted
+  Scenario: Health behaviour attribution
 \item
-  Limitations
+  Results
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Why are there more deaths for the healthy behaviour?
+  \end{itemize}
+\item
+  Assumptions and limitations
 \end{itemize}
 
 \section{Data and sample files}\label{data-and-sample-files}
@@ -1548,36 +1701,37 @@ or combination of health regions).
   (\url{https://search2.odesi.ca/\#/details?uri=\%2Fodesi\%2Fcchs-82M0013-E-2013-2014-Annual-component.xml})
 \end{itemize}
 
-\subsection{Why can I only use the 2013/2014 Canadian Community Health
-Survey
-data?}\label{why-can-i-only-use-the-20132014-canadian-community-health-survey-data}
+\subsection{Why can the Project Big Life Planning Tool only accept the
+2013/2014 Canadian Community Health Survey
+data?}\label{why-can-the-project-big-life-planning-tool-only-accept-the-20132014-canadian-community-health-survey-data}
 
 Each year the CCHS changes a few variables it captures. This makes CCHS
-data sets from every year other then 2013/2014 incompatible with the
-algorithms used by the Project Big Life Planning Tool.
+data sets from every year other then 2013/2014 partly incompatible with
+the algorithms used by the Project Big Life Planning Tool.
 
 The Project Big Life Planning Team is currently working to adjust the
-algorithms so that they accept other CCHS years, and we will update the
-guidance when we are done.
+algorithms so that they accept CCHS year: 2001 to 2014, and will update
+this guidance.
+
+\subsection{Can I use other population health survey data
+sets?}\label{can-i-use-other-population-health-survey-data-sets}
+
+Yes you can use other population health survey data sets but you have to
+transform these data set to the 2013/2014 CCHS format.
 
 \subsection{Sample Files}\label{sample-files}
 
 \begin{itemize}
 \tightlist
 \item
-  data.sample.csv this is fabricated data set that includes all
-  variables required for calculation, recommend for calculation, and
-  needed for the real life application examples (found in Chapter 5). It
-  includes all required and recommended variables: age, sex, BMI,
-  smoking habits, alcohol consumption, diet components, daily physical
-  activity expenditure, chronic conditions, ethnicity, immigration
-  status, and education.
+  data.sample.csv this is synthetic data set that includes all variables
+  required for calculation, recommend for calculation, and needed for
+  the case examples (found in Chapter \ref{caseexamples}). While this
+  data set was model on the response rates of the 2013/2014 CCHS PUMF
+  (e.g.~approximately 80\% of respondents did not have high blood
+  pressure (CCC\_071)), the data is fabricated. \textbf{This data set
+  cannot be used for real analysis}.
 \end{itemize}
-
-\textbf{Note:} Although the data.sample.csv is based on the 2013/2014
-Canadian Community Health Survey Public Use Microdata File from if was
-created only for example purposes and \textbf{cannot} be used for
-analysis.
 
 \section{Multivariable predictive risk
 algorithms}\label{multivariable-predictive-risk-algorithms}
@@ -1724,6 +1878,20 @@ for the survey weights and will result in an incorrect outcome.
 
 \subsection{Weighted vs unweighted}\label{weighted-vs-unweighted}
 
+Weights are used in complex surveys like the Canadian Community Healthy
+Survey (CCHS). A weight is given to each respondent in the survey and
+the weight corresponds to the number of individuals in the population
+the respondent represents.
+
+When a data set has weights, like the CCHS PUMF data set, the weights
+are used to calculate the population's outcome e.g.~number of deaths.
+
+When a survey does not have weights, the the population's outcome is not
+calculated with weights.
+
+In either case, weights are not used in the calculation of an
+individual's outcome (e.g.~an individual's 5 year risk of mortality).
+
 \section{Calculations: specific health
 outcomes}\label{calculations-specific-health-outcomes}
 
@@ -1764,21 +1932,12 @@ through the following steps:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   Risk of the health outcome is calculated for each individual (row) in
   the data set using the mutlivariable predictive risk algorithm.
 \item
   Each individual's (row) risk is weighted with their corresponding
   survey weight (CCHS PUMF = WTS\_M and CCHS shared file = WTS\_S).
-\end{enumerate}
-
-\[ \text{Weighted risk of death } = \text{Individual's risk of death}*\text{Individual's survey weight}\]
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
 \item
   The weighted mean of the health outcome (e.g.~mean risk of death) is
   calculated.
@@ -1790,11 +1949,11 @@ through the following steps:
 
 \subsection{Life expectancy}\label{life-expectancy}
 
-Life expectancy is calculated using abridge life tables \emph{using a
-modified Chaing approach.(link to reference for Chiang and Hsieh and
-also one of our papers)}. Life expectancy is calculated by two methods:
-one for summary life expectancy, and a second for by row life
-expectancy.
+Life expectancy is calculated using abridge life tables using a modified
+Chaing approach \citep{Chiang} \citep{Hsieh}. \emph{(link to reference
+for Chiang and Hsieh and also one of our papers)}. Life expectancy is
+calculated by two methods: one for summary life expectancy, and a second
+for by row life expectancy.
 
 \subsubsection{Summary Life Expectancy}\label{summary-life-expectancy}
 
@@ -1813,16 +1972,6 @@ Life expectancy is calculated separately for males and females.
   in the 5-year abridge life tables (e.g.~40-44 years old).
 \item
   The weighted average risk of death for each age group is calculated.
-\end{enumerate}
-
-(Maybe modify this formula and put it in the number of health outcomes
-section?)
-\[ \text{Weighted risk of death for age group} = \sum(\text{Weighted risk of deaths}) \div \text{Number of individuals in age group}\]
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{3}
-\tightlist
 \item
   A male 5-year abridge life table is created using the weighted average
   risks of death (q(x)) for each age group and the median age for the
@@ -1877,11 +2026,10 @@ life table start at 43 years).
   age is the only variable that is changed for MPoRT risk calculation.
 \end{enumerate}
 
-\emph{Not sure what Doug is trying to get at here\ldots{}}
-
-\textbf{Note:} Life expectancy calculation is for the respondent's age
-(eg. 43). To calculate age of death, add the respondent's age to their
-life expectancy estimate.
+\textbf{Note:} The result for By Row Life Expectancy are the predicted
+years of life that the individual still has left to live based on thier
+age (e.g.~43). To calculate age of death, add the respondent's age to
+their by row life expectancy estimate.
 
 \textbf{Note:} By row life expectancy does not account for the
 individual's weight, and therefore can not be used to estimate the
@@ -2004,165 +2152,280 @@ another.
 
 }
 
-\caption{Comparison of health intervention scenario types}\label{fig:unnamed-chunk-10}
+\caption{Comparison of health intervention scenario types}\label{fig:unnamed-chunk-12}
 \end{figure}
 
 To adjust the prevalence of smokers, the change is applied to every
 current smoker in the population; individuals are not selected at
-random. \ldots{}.
+random.
 
-\section{Scenario: Cause-deleted}\label{scenario-cause-deleted}
+\section{Scenario: Health behaviour
+attribution}\label{scenario-health-behaviour-attribution}
 
 What would be the life expectancy of a population if be no one in the
-population ever smoked? This scenario is a cause-deleted scenario.
+population ever smoked? This scenario is a health behaviour attribution
+scenario.
 
-There are two distinct terms in cause-deleted calculations:
+A health behaviour attribution scenario:
 
 \begin{itemize}
 \item
-  \textbf{Cause-deleted life expectancy} is the estimated life
-  expectancy for the counterfactual population where a specific cause
-  (e.g.~smoking) never existed. E.g. the counterfactual population was
-  always never smokers.
+  predicts the health outcome if no one was exposed to the health
+  behaviour = \textbf{health behaviour-deleted outcome}, and
 \item
-  \textbf{Cause-deleted effect of life expectancy} or \textbf{life years
-  lost due to the cause} is the full effect of the cause (e.g smoking)
-  in the population. E.g. In a population 3 years of life are lost due
-  to individuals in that population smoking: either currently or
-  previously.
+  estimates the effect the health behaviour has on the health outcome
+  for the population = \textbf{health behaviour attributable outcome}
 \end{itemize}
 
-If multiple causes are selected (e.g.~smoking and physical inactivity)
-the cause-deleted life expectancy calculated accounts for both of these
-effects and the cause-deleted effect of life expectancy (or life years
-lost) is calculated for each individual cause.
+To understand health behaviour attribution scenarios lets use the
+example of smoking and deaths for a population.
 
-\textbf{Note:}
-\(\text{Cause-deleted life expectancy of smoking and physical inactivity} \neq\)
-\(\text{Cause-deleted effect of smoking} + \text{Cause-deleted effect of physical inactivity}\)
-
-This is because individuals in the population may be both smokers and
-physically inactive.
-
-\emph{Insert table with the reference levels for each of the health
-behaviours}
-
-\subsection{Cause-deleted calculation}\label{cause-deleted-calculation}
-
-There are two parts to the calculations preformed in cause-deleted
-scenarios: (A) calculate the risk, and (B) calculate the health outcome:
-life expectancy or number of deaths.
-
-\textbf{Part A: Risk calculations}
-
-The original multivariable predictive risk algorithm is:
-
-\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
-
-\textbf{Step 1.} Modify the original algorithm to include the external
-coefficient(s). This means replacing all predictive hazard ratios/betas
-related to the health behaviour to the causal hazard ratios/betas.
+The number of deaths for a population is calculated twice:
 
 \begin{itemize}
 \tightlist
 \item
-  Remove the original regression coefficient(s) for the health
-  behaviour.
+  with the population that has all smokers = \textbf{baseline deaths},
+  and
 \item
-  Add the new external coefficient(s) to the algorithm. External
-  coefficients are generated from either: causal models, or from
-  systematic reviews or meta-analysis.
+  with a counterfactual scenario where everyone in the population is
+  non-smokers = \textbf{smoking-deleted deaths}
 \end{itemize}
 
-\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
-
-\textbf{Step 2.} Risk is calculated using the modified algorithm created
-in Step 1 and the respondent's original profile (e.g.~current smoker).
-This is the ``external coefficient risk''.
-
-\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
-
-\textbf{Step 3.} ``Cause-deleted risk''' is calculated by setting an
-exposure to a reference (non-exposed) value (all other risk exposures
-remain unchanged).
-
-\[ \text{Cause-deleted risk' } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
-
-\textbf{Step 4.} The ``cause-deleted effect external'' is calculated as
-``external coefficient risk'' (Step 2) minus the ``cause-deleted
-risk'.''(Step 3).
-
-\[\text{Cause-deleted effect}_{external} = \text{External coefficient risk} - \text{Cause-deleted risk'}\]
-
-\textbf{Step 5.} Original risk is calculated using the original
-algorithm and the original respondent's profile.
-
-\[ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
-
-\textbf{Step 6.} The ``cause-deleted risk external'' is calculated by
-``original risk'' (Step 5) minus the ``cause-deleted effect external''
-(Step 4).
-
-\[\text{Cause-deleted risk}_{ external} = \text{Original risk} - \text{Cause-deleted effect}_{external}\]
+The difference between the number of deaths for of the two populations
+is the \textbf{smoking attributable deaths}.
 
 \begin{figure}
 
-{\centering \includegraphics{Images/Method2 only -cbf} 
+{\centering \includegraphics{Images/HB attributable number of deaths} 
 
 }
 
-\caption{Risk portion of the cause-deleted calculations}\label{fig:unnamed-chunk-11}
+\caption{Health behaviour attributable scenario - Deaths}\label{fig:unnamed-chunk-13}
 \end{figure}
 
-\textbf{Part B: Health outcome calculations}
+In this example smoking attributes approximately 15,000 deaths in the
+population.
 
-Using risks generated above you can then calculate:
+This can also be done with life expectancy. Life expectancy is
+calculated:
 
 \begin{itemize}
 \tightlist
 \item
-  cause-deleted life expectancy or life years lost attributable to a
-  health behaviour (exposure)
+  with the population that has all smokers = \textbf{baseline life
+  expectancy}, and
 \item
-  cause-deleted number of deaths or number of deaths attributable to a
-  health behaviour (exposure)
+  with the counterfactual population where there are no smokers =
+  \textbf{smoking-deleted life expectancy}.
 \end{itemize}
 
-\textbf{Life expectancy calculations}
+The difference between the life expectancy of the two populations is the
+\textbf{life expectancy lost due to smoking}.
 
-Step I: Calculate the original life expectancy by using the original
-risk (Step 5 above) in the sex-specific 5-year abridge period life
-tables.
+\begin{figure}
 
-Step II: Calculate the cause-deleted life expectancy by using the
-cause-deleted risk external (Step 6 above) in the sex-specific 5-year
-abridge period life tables.
+{\centering \includegraphics{Images/HB attributable LE} 
 
-Step III: Calculate life years attributable to a health behaviour by:
-original life expectancy (Step I) minus cause-deleted life expectancy
-(Step II):
+}
 
-\[ \text{Life years due to exposure} = \text{Original life expectancy} - \text{Cause-deleted life expectancy}\]
-If the life years attributable to a health behaviour are negative then
-the value represents the life years lost due to smoking.
+\caption{Health behaviour attributable scenario - Life expectancy}\label{fig:unnamed-chunk-14}
+\end{figure}
 
-\textbf{Number of deaths calculations}
+\subsection{Multiple selected health
+behaviours}\label{multiple-selected-health-behaviours}
 
-Step I: Calculate the number of deaths that would occur using the
-original risk (Step 5 above).
+If multiple health behaviours are selected the:
 
-Step II: Calculate the number of deaths that would occur using the
-cause-deleted risk external (Step 6 above).
+\begin{itemize}
+\tightlist
+\item
+  \textbf{health behaviour-deleted outcome} calculated accounts for
+  \textbf{both} of these health behaviours, and
+\item
+  \textbf{health behaviour attributable outcome} is calculated
+  \textbf{seperately} for each health behaviour.
+\end{itemize}
 
-Step III: Calculate the number of deaths that are attributable to a
-health behaviour (exposure) by: original number of deaths (Step I) minus
-cause-deleted number of deaths (Step II):
+We will use smoking (SMK) and physical inactivity (inPA) to demonstrate
+what happens when multiple behaviours are selected for health behaviour
+attribution scenario:
 
-\[\text{Deaths due to exposure} = \text{Original number of deaths} - \text{Cause-deleted number of deaths}\]
+Baseline
 
-\section{Limitations}\label{limitations}
+Counterfactual
 
-\chapter{Glossary}\label{glossary}
+Difference
+
+HealthBehaviour1
+
+HealthBehaviour2
+
+Number of deaths
+
+Deaths
+
+SMK and inPA - deleted deaths
+
+SMK and inPA attributable deaths
+
+SMK attributable deaths
+
+SMK attributable deaths
+
+150,000
+
+100,000
+
+50,000
+
+40,000
+
+15,000
+
+Life expectancy
+
+Life expectancy
+
+SMK and inPA - deleted life expectancy
+
+Life expectancy lost due SMK and inPA
+
+inPA attributable life expectancy lost
+
+inPA attributable life expectancy lost
+
+75
+
+80
+
+5
+
+2
+
+4
+
+\textbf{Note:} \(\text{SMK and inPA - deleted outcome} \neq\)
+\(\text{SMK attributable outcome} + \text{inPA attributable outcome}\)
+
+as individuals in the population may be both smokers and physically
+inactive.
+
+\subsection{Reference health
+behaviours}\label{reference-health-behaviours}
+
+The health behaviours (references) used to calculate the health
+behaviour deleted outcomes are:
+
+Health.Behaviour
+
+Reference
+
+Smoking
+
+Never smoker
+
+Alcohol Consumption
+
+0 drinks/week
+
+Physical Activity
+
+3.0 METs/day
+
+Diet
+
+A total of: 5 fruit and vegetables, 0 juice, and 0 potato, servings/day
+
+\section{Results}\label{results}
+
+\subsection{Why are there more deaths for the healthy
+behaviour?}\label{why-are-there-more-deaths-for-the-healthy-behaviour}
+
+You may get a result where there are more deaths for the ``healthier''
+exposure rather then an ``unhealthier'' exposure, for instance:
+
+\begin{center}\includegraphics{Images/Graph-hypertension-diabetes} \end{center}
+
+This result occurs as there are more people in the population that do
+not have diabetes. You can standarized your data set prior to the
+calculation to get a differnt result.
+
+\section{Assumptions and Limitations}\label{assumptions-and-limitations}
+
+\subsection{Limitation: Data source: Canadian Community Health
+Survey}\label{limitation-data-source-canadian-community-health-survey}
+
+\subsubsection{Included population}\label{included-population}
+
+The CCHS survey used to develop the mortality algorithm in the Project
+Big Life Planning Tool, include only individuals living in the community
+setting 20 years of age or older. Therefore individuals that live: in
+long-term care facilities, First Nations reserves, incarcerated
+populations, and full-time members of the Canadian Forces were excluded.
+
+The exclusion of these individuals is likely to lead to a small
+under-estimation of the burden of a health behaviour on a health
+outcome. Excluded populations have higher prevalence of unhealthy
+behaviours like smoking: incarerated and First Nations have higher
+prevelance of current smoking and individuals in long-term care
+facilities are more likely to be former smokers then the general
+population. However this under-estimation is small as the excluded
+population only accounts for \textless{} 3\% of the Canadian population.
+
+\subsubsection{Reporting of health
+behaviours}\label{reporting-of-health-behaviours}
+
+Self-reported data is used to health surveys use self-reported data to
+predict risk and health outcomes. With self-reported surveys there is
+the possibility of social desirability bias, where respondents tend to
+over-report what they perceive to be healthy behaviours and under-report
+what they perceive to be unhealthy behaviours.
+
+This is particularly the case with alcohol, where there is a consistent
+under-reporting of alcohol consumption in most population health
+surveys. In Ontario, the sum of self-reported alcohol consumption is
+about half the volume of alcohol sold \{\citet{ONalcohol}\}.
+
+In addition the full spectrum of the behaviour has not been captured due
+to limited questions about the health behaviour in surveys. With diet
+there were few questions on the CCHS survey and these questions only
+asked about frequency of diet components. Information on diet factors
+like quantity, sodium intake, trans fat, or other healthy/unhealthy
+behaviours were not captured. It is likely that the burden of poor diet
+is under-estimated.
+
+Although more accurate risk factor ascertainment could improve
+discriminiation and calibration of the algorithms used in the Project
+Big Life Planning Tool, these algorithms already have high
+discrimination and calibration.
+
+\subsection{Limitation: Multivariable predictive risk
+algorithms}\label{limitation-multivariable-predictive-risk-algorithms}
+
+\subsubsection{Hazard ratios and exposures are assumed
+constant}\label{hazard-ratios-and-exposures-are-assumed-constant}
+
+The hazard ratios in the algorithms of the Project Big Life Planning
+Tool, and an individual's exposures are assumed to be constant.
+
+Constant hazard ratios do not account for period effect which could lead
+to an over-estimation of the burden of a health behaviour e.g.~the
+differential mortality between smokers and non-smokers may have been
+greater for older periods, Therefore the algorithms do not account for
+any period effects.
+
+\subsection{Limitation: Calculations}\label{limitation-calculations}
+
+\subsubsection{Uncertainty}\label{uncertainty}
+
+\subsubsection{Attributable risk
+calculations}\label{attributable-risk-calculations}
+
+\subsection{Limitation: Using the Project Big Life Planning
+Tool}\label{limitation-using-the-project-big-life-planning-tool}
+
+\hypertarget{glossary}{\chapter{Glossary}\label{glossary}}
 
 \textbf{5-year mortality risk}
 
@@ -2173,14 +2436,6 @@ The probability that an individual will die in the next 5 years.
 A weight-to-height ratio used as an indicator of obesity and
 underweight. BMI is calculated by dividing an individual's body weight
 in kilograms by the square of height in metres (kg/m2).
-
-\textbf{Burden}
-
-The impact or size of a health problem in an area, measured by cost,
-mortality, morbidity or other indicators. The burden of unhealthy
-behaviour is calculated by the differences in life expectancy based on
-individuals' exposure to four health behavioural risks for poor health
-relative to the healthy category.
 
 \textbf{By Row Measures}
 
@@ -2199,12 +2454,6 @@ information related to health status, health care utilization and health
 determinants for the Canadian population. Details about the survey can
 be found on Statistic Canada website
 (\url{http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey\&Id=144170}).
-
-\textbf{Cause-deleted life expectancy}
-
-A cause-deleted health outcome is the estimated
-health outcome of a population if a specific cause (e.g.~smoking) did
-not exist in that population.
 
 \textbf{Discrimination}
 
@@ -2238,6 +2487,20 @@ individual choices and external constraints.\citep{StatsCan2010} The
 four health behaviours of \textbf{smoking, alcohol consumption, diet,}
 and \textbf{physical activity} are specified in Project Big Life's
 planning tool.
+
+\textbf{Health behaviour-deleted outcome}
+
+The health behaviour-deleted outcome is the estimated health outcome in
+a counterfactual population where a specific health behaviour
+(e.g.~smoking) never existed. For instance, everyone in the
+counterfactual population were are never smokers.
+
+\textbf{Health behaviour attributable outcome}
+
+The health behaviour attributable outcome represents the effect the
+health behaviour (e.g.~smoking) has on the health outcome for a
+population. For example, smoking attributes to 30,000 deaths in the
+population or 30,000 deaths in the population are caused by smoking.
 
 \textbf{Ignored Variables}
 
@@ -2329,9 +2592,11 @@ entire column for the variable is missing the calculation will still be
 performed on the data. If there are missing row entries for the variable
 the row will still be used in the calculation
 
+\textbf{Weights}
 
-
-
+A weight is given to each respondent in the survey and the weight
+corresponds to the number of individuals in the population the
+respondent represents.
 
 
 
@@ -2381,11 +2646,11 @@ the row will still be used in the calculation
 \appendix
 
 
-\chapter{Mortality Population Risk Tool
-(MPoRT)}\label{mortality-population-risk-tool-mport}
+\hypertarget{mport}{\chapter{Mortality Population Risk Tool
+(MPoRT)}\label{mport}}
 
-\textbf{Outcomes: 5-yr risk of death, Life Expectancy, Cause-deleted
-Life Expectancy}
+*\textbf{Outcomes: Life Expectancy, Number of deaths, 5-year mortality
+risk}
 
 \textbf{Calculations}
 
@@ -2393,15 +2658,25 @@ Using MPoRT you are able to calculate:
 
 \begin{itemize}
 \item
+  For each individual (By row)
+\item
   5 year mortality risk
+\item
+  Life Expectancy
+\item
+  For the population (Summary)
 \item
   Number of deaths
 \item
-  Life Expectancy (individual and population)
+  Life Expectancy
 \item
-  Cause-deleted deaths and life expectancy
+  Health behaviour-deleted life expectancy
 \item
-  Burden of health behaviour in deaths and on life expectancy
+  Health behaviour-deleted number of deaths
+\item
+  Health behaviour attributable life expectancy
+\item
+  Health behaviour attributable number of deaths
 \end{itemize}
 
 \textbf{Types of Questions}
@@ -2412,13 +2687,240 @@ Using MPoRT you are able to calculate:
   What is the burden of smoking on life expectancy?
 \item
   How many deaths would be prevented if everyone met their daily
-  excercise requirements?
+  exercise requirements?
 \end{itemize}
 
-\textbf{Description}: A multivariable predictive risk model that
-estimates the future risk of all-cause death in Canada. It adjusts for
-health behaviours: smoking, unhealthy alcohol consumption, poor diet,
-and physical inactivity, and a wide range of other risk factors.
+\textbf{Description}
+
+A multivariable predictive risk model that estimates the future risk of
+all-cause death in Canada. It adjusts for health behaviours: smoking,
+unhealthy alcohol consumption, poor diet, and physical inactivity, and a
+wide range of other risk factors.
+
+\section{Data requirements for MPoRT}\label{data-requirements-for-mport}
+
+In order to use the MPoRT algorithm on the Project Big Life Tool your
+data set \textbf{must include} the following CCHS 2013/2014 variables:
+
+PUMF\_CCHS\_variable
+
+Shared\_CCHS\_variable
+
+Description
+
+DDH\_SEX
+
+DDH\_SEX
+
+Sex
+
+DHHGAGE*
+
+DHH\_AGE*
+
+Age
+
+WTS\_M*
+
+WTS\_S*
+
+Survey weight
+
+* Variable names are different between the two files
+
+In addition the following variables \textbf{should} be included to
+increase the prediction accuracy:
+
+PUMF\_CCHS\_variable
+
+Shared\_CCHS\_variable
+
+Description
+
+ALWDWKY
+
+ALWDWKY
+
+Weekly alcohol consumption
+
+CCC\_071
+
+CCC\_071
+
+Do you have high blood pressure
+
+CCC\_091
+
+CCC\_091
+
+Do you have chronic obstructive pulmonary disease
+
+CCC\_101
+
+CCC\_101
+
+Do you have diabetes
+
+CCC\_121
+
+CCC\_121
+
+Do you have heart disease
+
+CCC\_131
+
+CCC\_131
+
+Do you have active cancer
+
+CCC\_151
+
+CCC\_151
+
+Do you suffer from effects of stroke
+
+CCC\_280
+
+CCC\_280
+
+Do you have a mood disorder
+
+EDUDR04
+
+EDUDR04
+
+Highest level/education of respondent
+
+FVCDCAR
+
+FVCDCAR
+
+Daily consumption - carrot
+
+FVCDFRU
+
+FVCDFRU
+
+Daily consumption - fruit
+
+FVCDJUI
+
+FVCDJUI
+
+Daily consumption - juice
+
+FVCDPOT
+
+FVCDPOT
+
+Daily consumption - potatoes
+
+FVCDSAL
+
+FVCDSAL
+
+Daily consumption - green salad
+
+FVCDVEG
+
+FVCDVEG
+
+Daily consumption - vegetables
+
+HWTGBMI*
+
+HWTDBMI*
+
+BMI self reported
+
+PACDEE
+
+PACDEE
+
+Daily energy expenditure
+
+SDCFIMM
+
+SDCFIMM
+
+Immigrant
+
+SDCGCGT*
+
+SDCDCGT*
+
+Cultural or racial origin
+
+SDCGRES*
+
+SDCDRES*
+
+Length of time in Canada since immigration
+
+SMK\_01A
+
+SMK\_01A
+
+In lifetime, smoked 100 or more cigarettes
+
+SMK\_05B
+
+SMK\_05B
+
+\# of cigarettes smoked daily - occasional smoker
+
+SMK\_05C
+
+SMK\_05C
+
+Past month, smoked 1+ cigarettes daily - occasional smoker
+
+SMK\_09A
+
+SMK\_09A
+
+When did you stop smoking daily - occasional smoker
+
+SMK\_204
+
+SMK\_204
+
+\# of cigarettes smoked daily - daily smoker
+
+SMK\_208
+
+SMK\_208
+
+\# of cigarettes smoke each day - occasional smoker
+
+SMKDSTY
+
+SMKDSTY
+
+Type of smoker
+
+SMKG01C*
+
+SMK\_01C*
+
+Age smoked first whole cigarette
+
+SMKG09C*
+
+SMK\_09C*
+
+Years since stopped smoking daily - occasional smoker
+
+SMKG203*
+
+SMK\_203*
+
+Age started to smoke daily
+
+* Variable names are different between the two files
+
+\section{Descriptions of MPoRT
+versions}\label{descriptions-of-mport-versions}
 
 Versions of MPoRT have been developed since 2012 and used in various
 studies. Each version of MPoRT (v1.0, v1.2, v2.0) used the Ontario
@@ -2427,47 +2929,52 @@ and the survey respondents were linked to personal death records. In
 later versions of MPoRT (v1.2, v2.0) the following changes were made:,
 (a) algorithm variables were adjusted to improve predictions, and (b)
 the algorithms were validated using: the Ontario subset of CCHS of the
-years that were not used in development and the National CCHS dataset
+years that were not used in development and the National CCHS data set
 (excluding Ontario).
 
-\textbf{MPoRTv1.0} Was used in the ``Seven More Years'' report, a joint
-report with Public Health Ontario and IC/ES
-(\url{https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years}).
+\textbf{MPoRTv1.0}
+
+Was used in the
+\href{https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years}{Seven
+More Years} report, a joint report with Public Health Ontario and ICES .
 In summary, the algorithm estimated the risk of death associated with
 health behaviours: smoking, unhealthy alcohol consumption, poor diet,
 physical inactivity and stress. There were approximately 550,000
-person-years of follow up and over 6000 deaths in the development
-dataset. The algorthim used categorical predictor variables for health
+person-years of follow up and over 6000 deaths in the development data
+set. The algorithm used categorical predictor variables for health
 behaviours and sociodemographic factors.
 
-\textbf{MPoRTv1.2} Was published in PLoS
-(\url{https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002082}).
+\textbf{MPoRTv1.2}
+
+Was published in
+\href{https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002082}{PLoS}.
 In summary, the algorithm estimated the risk of death associated with
 health behaviours: smoking, unhealthy alcohol consumption, poor diet,
 and physical inactivity (stress was removed due to its low prediction
 ability). There were approximately 1 million person-years of follow up
-and over 9000 deaths in the development and validation datasets. The
-algorithm used multiple continous predictor variables, and added chronic
-disease predictor variables and interaction terms.
+and over 9000 deaths in the development and validation data sets. The
+algorithm used multiple continuous predictor variables, and added
+chronic disease predictor variables and interaction terms.
 
-\textbf{MPoRTv2.0 - The version used in Project Big Life's Planning
-Tool} This version of MPoRT has not yet been published.
+\textbf{MPoRTv2.0 - Version in Project Big Life's Planning Tool}
+
+This version of MPoRT has not yet been published.
 
 \emph{Development}: This predictive risk model was developed using
 Ontario subsets of the 2001 to 2008 CCHS and participants were linked to
 personal health records. There were approximately 1.3 million
 person-years of follow-up and over 15,000 deaths in the developmental
-dataset.
+data set.
 
 \emph{Validation}: This predictive risk model was validated using three
-different datasets: Ontario subset of the 2009 to 2012 CCHS, National
-dataset (except Ontario) of the 2003 to 2008 CCHS, and the National
-dataset of the 2000 and 2005 National Health Interview Survey in the
-United States of America. In all validation datasets individuals were
+different data sets: Ontario subset of the 2009 to 2012 CCHS, National
+data set (except Ontario) of the 2003 to 2008 CCHS, and the National
+data set of the 2000 and 2005 National Health Interview Survey in the
+United States of America. In all validation data sets individuals were
 linked to personal health records.
 
 \emph{Model}: Two MPoRTs have been created: one for males and one for
-females. Each model is a cox-porportional hazard model that looks
+females. Each model is a cox-proportional hazard model that looks
 similar to:
 
 \[ \text{Mortality risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
@@ -2487,8 +2994,8 @@ Where:
   categorical (e.g.~smoking status).
 \end{itemize}
 
-\emph{Parameters}: The parameters (exposures) used in this multivariable
-predictive risk model are:
+\emph{Parameters}: The parameters used in this multivariable predictive
+risk model are:
 
 Category
 
@@ -2675,6 +3182,199 @@ Continous
 of time in Canada, and ethnicity † Excluded in the male model, remains
 in the female model ‡ Excluded in the female model, remains in the male
 model
+
+\subsection{Derived parameters}\label{derived-parameters}
+
+In MPoRTv2 there are some parameters that are derived from variables
+within the data set. These include: pack-years of smoking, and the
+simplified diet score.
+
+\textbf{Pack-years of smoking}
+
+Pack-years of smoking is generated from: the type of smoker, age in
+which they started smoking daily, how many cigarettes they smoke daily,
+and if applicable the age in which they stopped smoking daily.
+Pack-years of smoking also includes: their age, the age of thier first
+cigarette, and whether throughout thier life they have smoked 100+
+cigarettes.
+
+In summary, the more an individual smokes or the longer they smoke, the
+greater the pack-years of smoking.
+
+\textbf{Simplified Diet Score}
+
+The simplified diet score essentially adds the healthy diet variables
+together (daily servings of carrots, fruit, salad, vegetables) and
+subtracts the unhealthy diet variables (daily servings of juice and
+potato).
+
+\chapter{Health behaviour attributable
+calculations}\label{health-behaviour-attributable-calculations}
+
+Here we will explain the details behind Project Big Life Planning Tool
+health behaviour attributable scenarios including: the calculations and
+additional considerations.
+
+\section{Calculation}\label{calculation}
+
+There are two parts to the calculations preformed in health behaviour
+attributable scenarios: (A) calculate the risk, and (B) calculate the
+health outcome: life expectancy or number of deaths.
+
+\subsection{Part A: Risk calculations}\label{part-a-risk-calculations}
+
+The original multivariable predictive risk algorithm is:
+
+\[ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
+
+\textbf{Step 1.} Modify the original algorithm to include the external
+coefficient(s). This means replacing all predictive hazard ratios/betas
+related to the health behaviour to the causal hazard ratios/betas.
+
+\begin{itemize}
+\tightlist
+\item
+  Remove the original regression coefficient(s) for the health
+  behaviour.
+\item
+  Add the new external coefficient(s) to the algorithm. External
+  coefficients are generated from either: causal models, or from
+  systematic reviews or meta-analysis.
+\end{itemize}
+
+\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{{\beta_\textbf{causal.smoking}}*x_{smoking} + {{\beta_\textbf{causal.cancer}}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
+
+\textbf{Step 2.} Risk is calculated using the modified algorithm created
+in Step 1 and the respondent's original profile (e.g.~current smoker).
+This is the ``external coefficient risk''.
+
+\[ \text{External coefficient risk} = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{current smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
+
+\textbf{Step 3.} ``Health behaviour-deleted risk''' is calculated by
+setting an exposure to a reference (non-exposed) value (all other risk
+exposures remain unchanged).
+
+\[ \text{Health behaviour-deleted risk' } = \sum_t h_0(t) * e^{\beta_{causal.smoking}* {(\textbf{never smoker})} + \beta_{causal.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
+
+\textbf{Step 4.} The ``health behaviour attributable risk external'' is
+calculated as ``external coefficient risk'' (Step 2) minus the ``health
+behaviour-deleted risk'.''(Step 3).
+
+\[\text{Health behaviour attributable risk}_{external} = \text{External coefficient risk} - \text{Health behaviour-deleted risk'}\]
+
+\textbf{Step 5.} Original risk is calculated using the original
+algorithm and the original respondent's profile.
+
+\[ \text{Original risk} = \sum_t h_0(t) * e^{{\beta_\textbf{pred.smoking}}*{(\textbf{current smoker})}+{\beta_\textbf{pred.cancer}}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  \]
+
+\textbf{Step 6.} The ``health behaviour-deleted risk external'' is
+calculated by ``original risk'' (Step 5) minus the ``health
+behaviour-deleted effect external'' (Step 4).
+
+\[\text{Health behaviour-deleted risk}_{ external} = \text{Original risk} - \text{Health behaviour attributable risk}_{external}\]
+
+\begin{figure}
+
+{\centering \includegraphics{Images/Method2 only -cbf} 
+
+}
+
+\caption{Risk portion of the health behaviour attribution calculations}\label{fig:unnamed-chunk-26}
+\end{figure}
+
+\subsection{Part B: Health outcome
+calculations}\label{part-b-health-outcome-calculations}
+
+Using risks generated above you can then calculate:
+
+\begin{itemize}
+\tightlist
+\item
+  Health behaviour-deleted life expectancy or health behaviour
+  attributable life expectancy lost
+\item
+  Health behaviour-deleted number of deaths or health behaviour
+  attributable number of deaths
+\end{itemize}
+
+\textbf{Life expectancy calculations}
+
+Step I: Calculate the original life expectancy by using the original
+risk (Step 5 above) in the sex-specific 5-year abridge period life
+tables.
+
+Step II: Calculate the health behaviour-deleted life expectancy by using
+the health behaviour-deleted risk external (Step 6 above) in the
+sex-specific 5-year abridge period life tables.
+
+Step III: Calculate the health behaviour attributable life expectancy
+lost by: original life expectancy (Step I) minus health
+behaviour-deleted life expectancy (Step II):
+
+\[ \text{Health behaviour attributable life exectancy lost} = \text{Health behaviour-deleted life expectancy} - \text{Original life expectancy}\]
+
+\textbf{Number of deaths calculations}
+
+Step I: Calculate the number of deaths that would occur using the
+original risk (Step 5 above).
+
+Step II: Calculate the number of deaths that would occur using the
+health behaviour-deleted risk external (Step 6 above).
+
+Step III: Calculate the health behaviour attributable deaths by:
+original number of deaths (Step I) minus health behaviour-deleted number
+of deaths (Step II):
+
+\[\text{Health behaviour attributable deaths} = \text{Original number of deaths} - \text{Health behaviour-deleted number of deaths}\]
+
+\section{Additional considerations}\label{additional-considerations}
+
+\subsection{Health behaviours with non-monotonic
+relationships}\label{health-behaviours-with-non-monotonic-relationships}
+
+Health behaviours with relationships that are non-monotonic (always
+increasing or always decreasing) can be used in health behaviour
+attributable calculations but special consideration may be warranted for
+both policy and analytic reasons.
+
+An example of a health behaviour with a non-monotonic relationship is
+alcohol. Some studies suggest that there is a ``J'' shaped risk
+relationship for outcomes such as cardiovascular disease.
+
+\emph{Is this still a consideration if we are using 0 as the reference
+value?} \emph{Need to complete the thought at the end of the paragraph}
+Alcohol drinking guidelines usually do not recommend people:
+non-drinkers or former-drinkers, initiate drinking. In this situation,
+the target population for health behaviour attribution calculations can
+be restricted to for respondents with moderate or higher drinking, or
+multiple reference exposures could be created.
+
+\subsection{Health behaviours with interactions or multiple
+coefficients}\label{health-behaviours-with-interactions-or-multiple-coefficients}
+
+The health behaviour attributable risk and the health behaviour-deleted
+risk estimates can be calculated for health behaviours with interaction
+terms, including complex interactions or multiple coefficients. Examples
+include:
+
+\begin{itemize}
+\tightlist
+\item
+  health behaviour parametes with age interaction;
+\item
+  spline functions with terms for each knot point; or,
+\item
+  composite risks such as smoking which may coefficients for smoking
+  status (current, former, never) and pack-years.
+\end{itemize}
+
+All coefficients that related to a common risk factor should be
+simultaneously considered.
+
+\subsection{Exposures not in the original
+algorithm}\label{exposures-not-in-the-original-algorithm}
+
+\chapter{Bibilography}\label{bibilography}
 
 \bibliography{./bibliography/book.bib,./packages.bib}
 
