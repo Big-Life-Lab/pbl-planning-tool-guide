@@ -36,8 +36,8 @@ tinytex::install_tinytex()
 ```
 *Both lines of code are required to install tinytex
 
-4) Download the Github repository https://github.com/Big-Life-Lab/BATCH-Guidance as a Zip file, then unzip it locally. 
-5) Open the downloaded ```BATCH-Guidance``` repository in RStudio by clicking ```BATCH-Guidance.Rproj```.
+4) Download the Github repository https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance as a Zip file, then unzip it locally. 
+5) Open the downloaded ```PBL-Planning-Tool-Guidance``` repository in RStudio by clicking ```PBLT-guidance.Rproj```.
 
 6) Open the R markdown file ```index.Rmd```. A tab ```Build``` now appears in the right corner beside the tabs: environment and history. Click the ```Build Book``` button under the ```Build``` tab.
 
