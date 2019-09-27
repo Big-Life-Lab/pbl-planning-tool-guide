@@ -1,0 +1,60 @@
+--- 
+title: "Planning Tool Guidance"
+author: "Project Big Life"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [./bibliography/book.bib, ./packages.bib]
+biblio-style: apalike
+link-citations: yes
+always_allow_html: yes
+github-repo: Big-Life-Lab/BATCH-Guidance
+description: "Guidance on how to use the Project Big Life Planning Tool."
+---
+
+# Welcome to Project Big Life's Planning Tool
+
+```{r eval=FALSE, echo=FALSE}
+library(bookdown)
+library(knitr)
+library(kableExtra)
+install.packages("ggplot2")
+#install.packages('tinytex')
+#tinytex::install_tinytex()
+tinytex:::is_tinytex()
+```
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+
+###What is the Project Big Life Planning Tool
+
+The Project Big Life Team received numerous requests to generate, replicate, and updated health status reports such as Public Health Ontario's [Seven More Years](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) which examined the impact of health behaviours on health outcomes: mortality and life expectancy. 
+
+To address these requests and better support public health professionals the Project Big Life Team decided to create [Project Big Life Planning Tool](http://planning.projectbiglife.ca/).
+
+The Project Big Life Planning Tool gives public health professionals access to the algorithms used by the Project Big Life Team, and can be used to support your research, planning, development, and evaluation of health interventions. 
+
+The tool can help you:
+
+- Determine who in the population is at risk
+- Predict number of new cases of the disease for a population
+- Determine how much a risk factor contributes to a health outcome
+- Assess health benefits of potential interventions
+
+
+
+###Who made the Project Big Life Planning Tool?
+
+The Project Big Life Planning Tool was developed by the [Project Big Life](https://www.projectbiglife.ca) Team based at the [Ottawa Hospital](http://www.ohri.ca/home.asp) and the [Bruyère Research Institute](https://www.bruyere.org/en/bruyere-research-institute).
+
+The planning tool was made in collaboration with [Public Health Ontario](https://www.publichealthontario.ca/), the [Population Health Analytics Lab](https://pophealthanalytics.com/) at the University of Toronto and [Ottawa Public Health](http://www.ottawapublichealth.ca/en/index.aspx). 
+
+Algorithms used in the planning tool were developed using linked population data housed at [ICES](https://www.ices.on.ca/) and validated at Statistics Canada. All algorithms have been published in peer-review journals. To learn more about the specific algorithms used in the Project Big Life Planning Tool see our [appendices](#mport) to the specific algorithms or [Project Big Life](https://www.projectbiglife.ca/science) website.
+

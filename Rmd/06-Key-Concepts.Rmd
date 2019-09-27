@@ -1,0 +1,443 @@
+#Key Concepts {#keyconcepts}
+
+This section explains some key concepts in Project Big Life’s Planning Tool. This section will explain how it works rather then how to do things.
+
+- Data and sample files
+- Multivariable predictive risk algorithms
+- Calculations: general
+
+    - Summary vs. By Row
+    - Weighted vs. unweighted
+
+- Calculations: specific health outcomes
+
+    - Risk of health outcome
+    - Number of health outcomes
+    - Life expectancy
+
+- Scenario: Intervention
+- Scenario: Health behaviour attribution
+- Results
+
+    - Why are there more deaths for the healthy behaviour?
+    
+- Assumptions and limitations
+
+
+
+
+
+##Data and sample files
+
+<div class="FOO">
+The Project Big Life Planning Tool currently accepts **2013/2014 Public Use Microdata File and Shared File of the Canadian Community Health Survey (CCHS) in '.csv' format.**
+</div>
+
+###What is the Canadian Community Health Survey?
+
+The CCHS is an annual cross-sectional survey preformed by Statistics Canada. The CCHS collects information related to health status, health care utilization, and health determinants for the Canadian population. Data is shared at the the sub-provincial geographic level (health region or combination of health regions).
+
+- Details about the survey and its design can be found on Statistic Canada website  (http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&Id=144170). 
+- Details and access to the Public Use Microdata file (PUMF) can be found through the Odesi website (https://search2.odesi.ca/#/details?uri=%2Fodesi%2Fcchs-82M0013-E-2013-2014-Annual-component.xml)
+
+###Why can the Project Big Life Planning Tool only accept the 2013/2014 Canadian Community Health Survey data?
+
+Each year the CCHS changes a few variables it captures. This makes CCHS data sets from every year other then 2013/2014 partly incompatible with the algorithms used by the Project Big Life Planning Tool.
+
+The Project Big Life Planning Team is currently working to adjust the algorithms so that they accept CCHS year: 2001 to 2014, and will update this guidance.
+
+###Can I use other population health survey data sets?
+
+Yes you can use other population health survey data sets but you have to transform these data set to the 2013/2014 CCHS format.
+
+###Sample Files
+
+- data.sample.csv this is synthetic data set that includes all variables required for calculation, recommend for calculation, and needed for the case examples (found in Chapter \@ref(caseexamples)). While this data set was model on the response rates of the 2013/2014 CCHS PUMF (e.g. approximately 80% of respondents did not have high blood pressure (CCC_071)), the data is fabricated. **This data set cannot be used for real analysis**.
+
+
+
+
+##Multivariable predictive risk algorithms
+
+Multivariable predictive risk algorithms predict the future risk of health outcomes (e.g. Life Expectancy) for a population using routinely collected health data.
+
+Multivariable predictive risk algorithms can be used to:
+
+- Project the number of new cases of the health outcome
+- Estimate the contribution of specific risk factors of the health outcome
+- Evaluate effectiveness of health interventions
+- Describe the distribution of risk in the population (diffused or concentrated)
+
+Multivariable predictive risk algorithms are able to assess equity issues compared to competing population risk methods (e.g. World Health Organization Global Burden of Disease).
+
+More information on what multivariable predictive risk algorithms are and how they can be used can be found the journal article: *Predictive risk algorithms in a population setting: an overview* [@PoRTover]
+
+###Development of multivariable predictive risk algorithms
+
+Data:
+
+-	Multivariable predictive risk algorithms are created using routinely collected data that includes information about risk factors (exposure) and health events (outcomes).
+-	Data is collected at an individual level through population health surveys (e.g. Canadian Community Health Survey) and administrative databases (e.g. Vital Statistics). Data sources are linked together when the individual has given permission too.
+- Individuals are followed overtime until the health event (e.g. death or disease) occurs.
+- Separate data is collected to create a derivation cohort and validation cohort(s). 
+
+    - Note: The risk factors that are collected are from population health surveys and are self-reported; no clinical data (e.g. blood pressure) is collected. Risk factors focus on health behaviours (e.g. smoking) and sociodemographic factors, commonly associated with health outcome.
+
+**Algorithm generation:**
+
+- Multivariable predictive risk algorithms are cox proportional hazard models that analyze time to health outcome (e.g. death) *Question for Carol - The models are not cox-porportional hazard models but they are similar?*
+
+- Multivariable predictive risk algorithms are developed and validated in 4 stages:
+
+    - Algorithm derivation: the predictive risk algorithm is created using data from the derivation cohort
+    - Algorithm validation: the predictive risk algorithm is applied to the validation cohort
+    - Final algorithm generation: validation and derivation cohorts are combined to estimate the final application of the predictive risk algorithm 
+    - Derivation of the application algorithm: creation of a parsimonous (fewer predictors) algorithm that maintained discrimination, calibration, and overall algorithm performance
+    
+- In each stage of the algorithm development and validation, algorithm performance is assessed using measures of discrimination and calibration.
+
+###Multivariable predictive risk algorithms built in Project Big Life Planning Tool
+
+- There is currently 1 multivariable predictive risk algorithm is built into to Project Big Life planning tool.
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+
+(PoRTs <- data.frame(
+    Title = c("Mortality Population Risk Tool"),
+    Outcomes = c("5 year risk of death, Life Expectancy, Cause deleted"),
+    Information =c("Appendix A"))
+    )#closingbracket 
+```
+```{r, echo=FALSE}
+#Creating the table
+kable(PoRTs) %>%
+  kable_styling(full_width = T)
+```
+
+
+
+
+
+##Calculations
+
+###Summary vs By Row
+
+There are two general types of calculations Summary Measures and By Row Measures.
+
+Summary measures: (ref:Summarycalc)
+
+By row measures: (ref:byrowcalc)
+
+<div class="FOO">
+**Note:** Summary Measures are not the same as taking the average of By Row Measures. Summary measures account for the survey weights in their calculations. Only averaging the By Row Measures does not account for the survey weights and will result in an incorrect outcome. 
+</div>
+
+###Weighted vs unweighted
+
+Weights are used in complex surveys like the Canadian Community Healthy Survey (CCHS). A weight is given to each respondent in the survey and the weight corresponds to the number of individuals in the population the respondent represents. 
+
+When a data set has weights, like the CCHS PUMF data set, the weights are used to calculate the population's outcome e.g. number of deaths. 
+
+When a survey does not have weights, the the population's outcome is not calculated with weights. 
+
+In either case, weights are not used in the calculation of an individual's outcome (e.g. an individual's 5 year risk of mortality). 
+
+
+
+##Calculations: specific health outcomes
+
+###Risk of health outcome
+
+Risk of the health outcome (e.g. risk of dying) is the outcome of a multivariable predictive risk algorithm. An example of the mutlivariable risk algorithm is:
+
+$$ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$
+Where:
+
+- $t$ = survival time
+- $h_0(t)$ = the baseline hazard
+- $\beta_{pred}$ = predictive hazard ratios for the exposures
+- $x$ = the exposure. The exposure can be continuous (e.g. age) or categorical (e.g. smoking status). 
+
+Categorical exposures are represented by dummy/factor variables. Each category has its own beta and the exposure is binary. For example smoking status is categorical variable with categories: current, former <= 5 years, former >5 years, or never smoked. For $\beta_{pred.current.smoker}$ the exposure: $x_{current.smoker}$ = 1 if the individual currently smokes or 0 if the individual is another type of smoker.
+
+
+###Number of health outcomes
+
+The number of health outcomes (e.g. summary - deaths) is calculated through the following steps:
+
+1. Risk of the health outcome is calculated for each individual (row) in the data set using the mutlivariable predictive risk algorithm.
+
+2. Each individual's (row) risk is weighted with their corresponding survey weight (CCHS PUMF = WTS_M and CCHS shared file = WTS_S).
+
+3. The weighted mean of the health outcome (e.g. mean risk of death) is calculated.
+
+4. The weighted mean is then multiplied with the total number of individuals in the population to generate the number of health outcomes (e.g. number of deaths in 5 years).
+
+
+###Life expectancy
+
+Life expectancy is calculated using abridge life tables using a modified Chaing approach [@Chiang] [@Hsieh]. *(link to reference for Chiang and Hsieh and also one of our papers)*. Life expectancy is calculated by two methods: one for summary life expectancy, and a second for by row life expectancy.
+
+####Summary Life Expectancy
+
+Life expectancy is calculated separately for males and females. 
+
+**Males:**
+
+1. The mortality risk for each male individual is calculated using the male mortality mutlivariable predictive risk algorithm for mortality (MPoRT). Details about the MPoRT can be found in Appendix A.
+
+2. Male individuals are grouped into the 5-year age groups that are used in the 5-year abridge life tables (e.g. 40-44 years old).
+
+3. The weighted average risk of death for each age group is calculated. 
+
+4. A male 5-year abridge life table is created using the weighted average risks of death (q(x)) for each age group and the median age for the age group. 
+
+
+**Females**
+
+Steps 1-4 used to calculate life expectancy for males, are repeated for females using the female MPoRT and a female 5-year abridge life table. 
+
+**Summary life expectancy**
+
+5. The summary life expectancy, or life expectancy of the entire population, is calculated by adding the male life expectancy with the female life expectancy, and taking its average.
+
+**Summary life expectancy by strata**
+
+Steps (1-4) are repeated for each strata. There will be strata specific weighted risk of death and strata specific life tables. 
+
+Step 5 is repeated with the average life expectancy calculated across all strata.
+
+####By row life expectancy
+
+An individual's life expectancy is calculated by creating a new life table specific to that individual. 
+
+These life tables are 1-year abridge life tables, and begin at the individual's age (e.g. an individual that is 43 years old, will have the life table start at 43 years). 
+
+1. The probability of death for a person's current age is calculated using the respective MPoRT (male or female), and the individual's health profile (e.g. never smoked, 15 drinks weekly, has hypertension, is a Canadian Citizen, etc) (e.g. $q_x$, where $x=43$). 
+
+2. The probability of death is recalculated for incremental older ages (additional rows of the life table) up to age 90 years ( $q_\text{(x+1)}, q_\text{(x+2)}...q_{90}$). For each life table row, age is the only variable that is changed for MPoRT risk calculation.
+
+<div class="FOO">
+**Note:** The result for By Row Life Expectancy are the predicted years of life that the individual still has left to live based on thier age (e.g. 43). To calculate age of death, add the respondent's age to their by row life expectancy estimate.
+<div>
+
+<div class="FOO">
+**Note:** By row life expectancy does not account for the individual's weight, and therefore can not be used to estimate the summary life expectancy. 
+<div>
+
+
+
+##Scenario: Intervention
+
+How would life expectancy change if everyone increased their physical activity levels by 10%?
+
+The health intervention scenario allows you to predict how changing the health behaviours: alcohol consumption, diet, physical activity, and smoking, of a population will affect the population health outcome (e.g. life expectancy). This feature can be used to predict the effectiveness of proposed policies or programs.
+
+There are three types of scenarios: **absolute, relative,** and **target**.
+
+- **Absolute:** each individual in the population **changes** their health behaviour **by a value of x**. 
+- **Relative:** each individual in the population **changes** their health behaviour **by a ratio of y**.
+- **Target:** each individual in the population **has a set value of z.**
+
+For target scenarios if the individual's value is already at the target value or beyond the target value then their value is not changed. E.g. If the target value for physical activity is 2.5 METs/day, then any individual that already has METs/day >= 2.5 METs/week then there value will not be adjusted.
+
+The changes for each type of scenario for **alcohol, physical activity,** and **diet** are described in the following table:
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+scenarios <- data.frame(
+    Health.Behaviour = c(" ", "Alcohol Consumption", "Physical Activity", rep("Diet",3)),
+    Absolute.change = c("Each individual changes ...", "the number of drinks they have per week by x", "their physical activity level by x METs per day", "the number of servings of fruits and vegetables they eat by x per day", "the number of glasses of juice they drink by x per week", "the number of servings of potatoes the eat by x per week"),
+    Relative.change =c("Each individual changes ...", "the number of drinks they have per week by y %", "their physical activity level by y % METs per day", "the number servings of fruits and vegetables they eat by y % per day", "the number of glasses of juice by y % per day", "the number of potatoes they eat by y % per day"), 
+    Target = c("Each individual has the value ...", "z drinks per week", "z METs per day", "z fruits and vegetables per day", "z glasses of juice per day", "z potatoes per day")
+    )#closingbracket 
+
+```
+```{r, echo=FALSE}
+#Creating the table
+kable(scenarios) %>%
+  kable_styling(full_width = T) %>%
+  collapse_rows(columns = 1, valign = "top") 
+```
+
+
+The **smoking** health intervention scenario is different then the other types of health intervention scenarios as they adjust the prevalence of the health behaviour. 
+
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+(scenarios.smoke <- data.frame(
+    Health.Behaviour = c("Smoking"),
+    Absolute.change = c("The prevalence of smokers decreases by x %"),
+    Relative.change =c("The prevalence of smokers decreases by y %"), 
+    Target = c("The prevalence of smokers is z %")
+    ))#closingbracket 
+
+```
+```{r, echo=FALSE}
+#Creating the table
+kable(scenarios.smoke) %>%
+  kable_styling(full_width = T)
+```
+
+Although each type of health intervention for smoking: absolute, relative and target, changes the prevalence of current smokers they are different. The following figure shows how each is different from one another. 
+
+```{r, echo=FALSE, fig.align='center', fig.cap= "Comparison of health intervention scenario types"}
+knitr::include_graphics("Images/Scenario-Abs, Rel, Target cropped.jpg")
+```
+
+To adjust the prevalence of smokers, the change is applied to every current smoker in the population; individuals are not selected at random.
+
+
+
+
+
+##Scenario: Health behaviour attribution
+
+What would be the life expectancy of a population if be no one in the population ever smoked? This scenario is a health behaviour attribution scenario.
+
+A health behaviour attribution scenario:
+
+- predicts the health outcome if no one was exposed to the health behaviour = **health behaviour-deleted outcome**, and
+
+- estimates the effect the health behaviour has on the health outcome for the population = **health behaviour attributable outcome**
+
+To understand health behaviour attribution scenarios lets use the example of smoking and deaths for a population. 
+
+The number of deaths for a population is calculated twice: 
+
+- with the population that has all smokers = **baseline deaths**,  and
+- with a counterfactual scenario where everyone in the population is non-smokers = **smoking-deleted deaths**
+
+The difference between the number of deaths for of the two populations is the **smoking attributable deaths**.
+
+```{r, echo=FALSE, fig.align='center', fig.cap= "Health behaviour attributable scenario - Deaths"}
+knitr::include_graphics("Images/HB attributable number of deaths.jpg")
+```
+
+In this example smoking attributes approximately 15,000 deaths in the population. 
+
+This can also be done with life expectancy. Life expectancy is calculated: 
+
+- with the population that has all smokers = **baseline life expectancy**,  and
+- with the counterfactual population where there are no smokers = **smoking-deleted life expectancy**.
+
+The difference between the life expectancy of the two populations is the **life expectancy lost due to smoking**.
+
+```{r, echo=FALSE, fig.align='center', fig.cap= "Health behaviour attributable scenario - Life expectancy"}
+knitr::include_graphics("Images/HB attributable LE.jpg")
+```
+
+###Multiple selected health behaviours
+
+If multiple health behaviours are selected the:
+
+ - **health behaviour-deleted outcome** calculated accounts for **both** of these health behaviours, and 
+ - **health behaviour attributable outcome** is calculated **seperately** for each health behaviour. 
+
+We will use smoking (SMK) and physical inactivity (inPA) to demonstrate what happens when multiple behaviours are selected for health behaviour attribution scenario:
+ 
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+HBAO <- data.frame(
+    Baseline = c("Deaths", "150,000", "Life expectancy",  "75"),
+    Counterfactual = c("SMK and inPA - deleted deaths", "100,000", "SMK and inPA - deleted  life expectancy", "80 "), 
+    Difference = c("SMK and inPA attributable deaths", "50,000", "Life expectancy lost due SMK and inPA", "5"),
+    HealthBehaviour1 = c("SMK attributable deaths", "40,000", "inPA attributable life expectancy lost", "2"), 
+    HealthBehaviour2 = c("SMK attributable deaths", "15,000", "inPA attributable life expectancy lost", "4")
+)#closingbracket 
+
+```
+```{r, echo=FALSE, fig.align='center', fig.cap= "Outcomes for multiple health behaviours attribution scenario"}
+#Creating the table
+kable(HBAO[1:4,1:5]) %>%
+  kable_styling("striped", full_width = F) %>%
+  pack_rows("Number of deaths", 1, 2, label_row_css = "background-color: #888; color: #fff;") %>%
+  pack_rows("Life expectancy", 3, 4, label_row_css = "background-color: #888; color: #fff;")
+```
+ 
+<div class="FOO">
+**Note:** $\text{SMK and inPA - deleted outcome} \neq$
+$\text{SMK attributable outcome} + \text{inPA attributable outcome}$
+
+as individuals in the population may be both smokers and physically inactive. 
+</div>
+
+
+###Reference health behaviours
+
+The health behaviours (references) used to calculate the health behaviour deleted outcomes are:
+
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+(HBAref <- data.frame(
+    Health.Behaviour = c("Smoking", "Alcohol Consumption", "Physical Activity", "Diet"),
+    Reference = c("Never smoker", "0 drinks/week", "3.0 METs/day", "A total of: 5 fruit and vegetables, 0 juice, and 0 potato, servings/day")
+    ))#closingbracket 
+
+```
+```{r, echo=FALSE}
+#Creating the table
+kable(HBAref) %>%
+  kable_styling(full_width = T)
+```
+
+##Results
+
+###Why are there more deaths for the healthy behaviour?
+
+You may get a result where there are more deaths for the "healthier" exposure rather then an "unhealthier" exposure, for instance:
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("Images/Graph-hypertension-diabetes.jpg")
+```
+
+This result occurs as there are more people in the population that do not have diabetes. You can standarized your data set prior to the calculation to get a differnt result.
+
+##Assumptions and Limitations
+
+###Limitation: Data source: Canadian Community Health Survey
+
+####Included population
+
+The CCHS survey used to develop the mortality algorithm in the Project Big Life Planning Tool, include only individuals living in the community setting 20 years of age or older. Therefore individuals that live: in long-term care facilities, First Nations reserves, incarcerated populations, and full-time members of the Canadian Forces were excluded. 
+
+The exclusion of these individuals is likely to lead to a small under-estimation of the burden of a health behaviour on a health outcome. Excluded populations have higher prevalence of unhealthy behaviours like smoking: incarerated and First Nations have higher prevelance of current smoking and individuals in long-term care facilities are more likely to be former smokers then the general population. However this under-estimation is small as the excluded population only accounts for < 3% of the Canadian population. 
+
+####Reporting of health behaviours
+
+Self-reported data is used to  health surveys use self-reported data to predict risk and health outcomes. With self-reported surveys there is the possibility of social desirability bias, where respondents tend to over-report what they perceive to be healthy behaviours and under-report what they perceive to be unhealthy behaviours.
+
+This is particularly the case with alcohol, where there is a consistent under-reporting of alcohol consumption in most population health surveys. In Ontario, the sum of self-reported alcohol consumption is about half the volume of alcohol sold {@ONalcohol}.
+
+In addition the full spectrum of the behaviour has not been captured due to limited questions about the health behaviour in surveys. With diet there were few questions on the CCHS survey and these questions only asked about frequency of diet components. Information on diet factors like quantity, sodium intake, trans fat, or other healthy/unhealthy behaviours were not captured. It is likely that the burden of poor diet is under-estimated.
+
+Although more accurate risk factor ascertainment could improve discriminiation and calibration of the algorithms used in the Project Big Life Planning Tool, these algorithms already have high discrimination and calibration. 
+
+
+###Limitation: Multivariable predictive risk algorithms
+
+####Hazard ratios and exposures are assumed constant
+
+The hazard ratios in the algorithms of the Project Big Life Planning Tool, and an individual's exposures are assumed to be constant. 
+
+Constant hazard ratios do not account for period effect which could lead to an over-estimation of the burden of a health behaviour e.g. the differential mortality between smokers and non-smokers may have been greater for older periods, Therefore the algorithms do not account for any period effects.
+
+
+###Limitation: Calculations
+
+####Uncertainty
+
+
+
+####Attributable risk calculations
+
+
+
+
+###Limitation: Using the Project Big Life Planning Tool
+
+
+

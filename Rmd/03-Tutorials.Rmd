@@ -1,0 +1,11 @@
+#Getting Started
+
+To help you get started quickly with Project Big Life's Planning Tool, we built a Tutorial directly onto the platform.
+
+The tutorial takes you through step-by-step how to use Project Big Life's Planning Tool. The tutorial will not explain the [steps in detail](#howto)) nor will it provide terminology [glossary](#glossary) or how the [tool operates](#mport), but it will give you an understanding of how easy it is to use the Planning Tool! 
+
+**To access the tutorial**, go onto [Project Big Life's Planning Tool](http://planning.projectbiglife.ca/) and click on the Tutorial button in the top right corner!
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("Images/Tutorial Button.jpg")
+```

@@ -1,0 +1,443 @@
+# Case examples {#caseexamples}
+
+This chapter provides you with examples of how Project Big Life's Planning Tool can be used in your day-to-day operations. The case examples will cover:
+
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+library(kableExtra)
+
+(caseExamples <- data.frame(
+    Description = c("Statistics for health status reports", "Deaths prevented from increasing cycling infrastructure", "Impact on life expectancy by modifying all health behaviours", "Impact on life expectancy by increasing cycling rates", "Prevented deaths from enacting a 2004 smoking by-law"), 
+    Name = c("Health status report", "Adjusting gears", "Healthy cities", "Canada bikes like the Dutch", "Smoking by-law, Ottawa 2004: retrospective"),
+    Type = c("Filter,\nStratification,\nScenario - Health behaviour attributable (smoking and diet)", "Filter,\nScenario - Intervention: Absolute (Physical activity)", "Filter,\nStratification,\nScenario - Intervention: Target (All)", "Filter,\nScenario,\nIntervention: Absolute (Physical activity)", "Transform variables,\nFilter,\nScenario - Intervention: Target (Smoking)")) 
+    )#closingbracket 
+
+```
+```{r, echo=FALSE}
+kable(caseExamples) %>%
+  kable_styling(full_width = T)  %>%
+  scroll_box(height = "400px")
+```
+
+
+
+## Health Status Report
+
+Health status reports are a way to report the health state for a population and the factors that influence a population’s health. Information from health status reports are used to inform policy, planning, and resource allocation.
+
+Using the Project Big Life Planning Tool you can replicate or update existing health status reports e.g. Public Health Ontario's: [Seven More Years Report](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) or generate a new health status report. 
+
+In this example we will show you how to create some health statistics to include in your health report. We will calculate:
+
+- The predicted number of deaths by strata (e.g. by sex [males and females])
+- The impact of eliminating unhealthy behaviours on life expectancy
+
+For this example we will focus on the population of Alberta.
+
+###Predicted number of deaths stratified by sex and level of education
+
+By showing the number of deaths by strata, the reader can see the distribution of deaths across specific population characteristics.  Any categorical variable can be used for stratification but in this example we will use sex and level of education.
+
+**Steps**
+
+1. Select the sample file data.sample.csv under "Sample files". 
+
+<div class="FOO">
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely synthetic data set and can only be used for exemplary purposes.
+</div>
+
+2. Select the calculation: Summary Measure – Deaths (Five years)
+
+3. Add filter: GEOGPRV – 48, which is the corresponding code for Alberta.
+
+4. Add two stratification: DDH_SEX and EDUDR04
+
+5. Title the calculation: Deaths by sex and education level
+
+6. Click the calculate button
+
+*7. To do: Results – walk through the results*
+
+
+###Impact of eliminating unhealthy behaviours: smoking and poor diet, on life expectancy
+
+To show how much an unhealthy behaviour impacts life expectancy we use the scenario: health behaviour attributable. Health behaviour attributable scenarios can be used for the health behaviours: alcohol consumption, diet, physical activity, and smoking, individually or in any combination. In this example we will evaluate the impact of smoking and poor diet, in combination, on life expectancy.
+
+**Steps**
+
+1. Select the sample file data.sample.csv under "Sample files". 
+
+<div class="FOO">
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely synthetic data set and can only be used for exemplary purposes.
+</div>
+
+2. Select initial calculation: Summary Measure – Life Expectancy (Summary)
+
+3. Add filter: GEOGPRV – 48, which is the corresponding code for Alberta.
+
+4. Click the text: Scenario.
+
+5. Select health behaviour attribution. 
+
+6. Select the health behaviours: smoking and diet
+
+7. Title the calculation: Alberta: smoking and diet attributable life expectancy
+
+8. Click the calculate button
+
+*9. To Do:	Walk through results*
+
+<div class="FOO">
+**Note:** $\text{Physical inactivity and poor diet attributable life expectancy lost} \neq$
+$\text{Physical inactivity-deleted life expectacny} + \text{Poor diet-deleted life expectancy}$
+
+as individuals in the population may be both physically inactive and have a poor diet. 
+</div>
+
+
+
+
+
+##Adjusting gears
+
+The City of Hamilton has decided to implement a new initiative *Adjusting Gears* which will increase cycling infrastructure in Hamilton. As part of the plan they have decide to develop 100 km of new cycling infrastructure in the next 3 years (2019-2021). 
+
+The city has asked you to evaluate the health impact of this initiative.
+
+As part of the analysis you want to determine how the 100km of new cycling infrastructure will impact the health of the Hamilton area, and how many deaths will be prevented.
+
+###Part A: Determine the how much a Hamiltonian will increase their physical activity by using these new cycling tracks
+
+<div class="AOO">
+Assumption #1: After having done your research, you assume that with the new tracks the average person in Hamilton will cycle an additional 10 minutes/day (duration).
+</div>
+
+1. Convert the increased duration of cycling into daily energy expenditure (MET-hours): 
+
+$\text{MET-hours} = \text{Duration}*\text{MET value for cycling}$ 
+
+- The MET value for cycling in Canada is 4.0
+
+
+###Part B: Determine the impact on life expectancy
+
+Use the Project Big Life Planning Tool for the following steps:
+
+1. Load your data file: data.sample.csv to the Project Big Life Planning Tool. 
+
+2. Select initial calculation: Summary Measure – Deaths (5-years)
+
+3. Add Filter: GEODPMF - 35937
+
+4. Click: Scenarios, and select Intervention
+
+5. Click Physical Activity then Select “Average daily leisure time energy expenditure in METs”
+
+<div class="AOO">
+Assumption #2: Although the scenario for physical activity is for leisure energy expenditure, we assume 1) individuals that are active in their leisure time also use active transportation, and 2) cycling as a form of active transportation is minor part of their energy expenditure. Therefore we will adjust the average daily leisure time energy expenditure in METs.
+</div>
+
+6. Select Absolute
+
+7. Type in the absolute change calculated in Part 1, into the text box.
+
+8. Name your calculation: Adjusting gears - Deaths in Hamilton
+
+9. Click Calculate
+
+
+
+
+
+## Healthy Cities
+
+What would be Ottawa's life expectancy, if the region had the same health behaviours as the healthiest region in Canada?
+
+In this example, we will determine:
+
+A. who is the healthiest region in Canada, 
+
+B. what are the health behaviours of Ottawa vs the healthiest region, and
+
+C. what would be the mortality outcomes be if Ottawa's health behaviours were the same as the healthiest region. 
+
+Here we will use the average life expectancy to determine the health of regions: the higher the life expectancy for the region the healthier that region is.
+
+For this example we will use the sample data set **data.sample.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples. This link also contains all of the R code for this case example. Although we have included the R code any other statistics software (SAS, STATA, etc) can be used to complete this case example.
+
+The following steps include the R coding for each of the steps but you can preform the steps in any other software program.
+
+###Part A: Find the healthiest region in Canada
+
+Using the Project Bid Life Planning Tool, we will find the healthiest region in Canada: the region with the highest life expectancy. 
+
+1. Load the data file: data.sample.csv. 
+
+<div class="FOO">
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely fabricated data set and can only be used for exemplary purposes.
+</div>
+
+2. Select calculation: Summary Measure – Life Expectancy (Summary)
+
+3. Add Stratification: GEODPMF. This variable represents the health regions in Canada
+
+4. Title the calculation: Life expectancy by health region
+
+5. Click the calculate button
+
+6. Download the results - _TO DO_
+
+Using your preferred statistic software (Excel, SAS, STATA, R Studio, etc) identify the healthiest region and the health of the Ottawa health region. 
+
+The healthiest region is XXX.
+
+
+
+###Part B: Determine the health behaviours of the healthiest region and the Ottawa region. 
+
+Calculate the average of each health behaviour in the healthiest region: XXX and the Ottawa region.
+
+- **Smoking**: Calculate the prevalence of current smokers in the XXX and Ottawa region.
+- **Physical Activity**: Calculate the average of physical activity (variable PACDEE) in the XXX and Ottawa region.
+- **Alcohol**: Calculate the average of weekly alcohol consumption (variable ALWDWKY) in the XXX and Ottawa region.
+- **Diet**: Calculate the average daily consumption of each diet component (variables: FVCDCAR, FVCDFRU, FVCDJUI, FVCDPOT, FVCDSAL, and FVCDVEG) in the XXX and Ottawa region. 
+
+  - The more daily servings an individual has of:
+
+    - carrots, fruits, salad, and vegetables =  the more healthy the individual, 
+    - juice = the less healthy the individual,
+    - potato < 1 = the more healthy the individual,  and
+    - potato > 1 = the less healthy the individual. 
+
+
+**Comparing health behaviours**
+
+Compare the averages of all health behaviours in the Ottawa region to the XXX. When the health behaviour for Ottawa is unhealthier then XXX, record the avg/prevalence of that health behaviour for XXX.
+
+
+###Part C: What if Ottawa acted like XXX?
+
+We’ll now run a scenario where the Ottawa region acts like XXX. Ottawa will now have the health behaviours of XXX, when the health behaviour of XXX is healthier then Ottawa's. 
+
+1.	Load your data file: data.sample.csv 
+
+2.	Select initial calculation: Summary Measure – Life Expectancy (Summary)
+
+3.	Add Filter: GEODPMF – 35951 (the code for the Ottawa Health region)
+
+4.	Click: Scenarios
+
+5.	Click on each health behaviour where Ottawa is unhealthier then XXX and input XXX’s value in the target scenario for that health behaviour
+
+- _TO DO: _ Examples of where that is
+
+6. Title the Calculation: Ottawa - Intervention - HB1, .....
+
+7. Click calculate.
+
+8. _TO DO:_ results
+
+
+
+
+
+##Canada bikes like the Dutch
+
+Cycling as a form of transportation, is an effective way of increasing individuals' daily physical activity levels and can lead to a decrease in the risk of disease and death.
+
+In this example we will determine the impact on life expectancy if Canadians were to cycle like the cycling enthusiasts the Dutch! 
+
+In this example we determine:
+
+A. How much Canadians cycle per day for transportation purposes on average?
+
+B. How much Dutch cycle per day for transportation purposes on average?
+
+C. What is the average difference in daily cycling transportation for Canadians and the Dutch?
+
+D. Predict how Canadian life expectancy would change if Canadians biked like the Dutch.
+
+For this example we will use the sample data set **data.sample.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples. This link also contains all of the R code for this case example. Although we have included the Rcode other statistics software (SAS, STATA, etc) can be used to complete this case example.
+
+<div class="FOO">
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely synthetic data set and can only be used for exemplary purposes.
+</div>
+
+
+
+###Part A: How much do Canadians cycle per day for transportation purposes on average?
+
+We will determine how much Canadians cycle per day by calculating the average daily energy expenditure from cycling in the current Canadian population.
+
+We will use 3 variables in our sample data set which are based off of the 2013/2014 CCHS PUMF and measure cycling as a form of active transportation:
+
+- PAC_8: In the past 3 months did you cycle to and from work or school?
+- PAC_8A: How many times did you cycle to and from work or school, in the past 3 months?
+- PAC_8B:	How much time did you spend on each occasion?
+
+<div class="AOO">
+**Assumption #1:** we assume individuals 65 or older are retired and therefore not cycling to/from work/school. Therefore, we will only evaluate individuals that are < 65 years old.
+</div>
+
+In order to calculate the average Canadian daily energy expenditure from cycling for transportation, you will need to: 
+
+- Find the average number of times, that an individual cycled to/from work/school in the past 3 months (mean PAC_8A)
+
+- Find the average number of hours spent cycling to/from work/school, in the past 3 month (mean of PAC_8B)
+
+- Calculate the average duration of cycling: $\text{Duration} = [\text{(Frequency/3 months)}*\text{(Time/trip)}] / \text{(Days/3 months)}$
+
+- Calculate the average daily energy expenditure (MET-hours) for cycling to/from work/school: $\text{MET-hours} = \text{Duration}*\text{MET value for cycling}$
+
+<div class="FOO">
+**Note:** For Canadians to cycle like the Dutch, we need to use the Dutch MET cycling value of 5.8 and not the Canadian MET cycling value of 4.0. The Dutch MET value accounts for the speed of cycling of the Dutch. 
+</div>
+
+- Calculation the average daily expenditure from cycling for transportation for all individuals in the population not only those that cycled to/from work/school
+
+On average a Canadian only gets 0.024 MET-hours/day from cycling to/from work/school.
+
+
+###Part B: How much do the Dutch cycle/day for transportation purposes on average?
+
+Using data collected as part of the Dutch National Travel Survey (2010 – 2012), Fisherman, 2015 (doi:10.1371/journal.pone.0121871 - Table S1) reported the average additional daily energy expenditure from cycling as a form of transportation for the Dutch: males: 1.3 MET-hours, and females: 1.4 MET-hours. 
+
+The average Dutch daily energy expenditure from cycling as a form of transportation for both sexes is then 1.35 MET-hours.
+
+
+###Part C: What is the average difference in daily cycling transporation for Canadians and the Dutch?
+
+Canadians need to increase their average daily energy expenditure from cycling from 0.07 MET-hours to 1.35 MET-hours, in order to be like the Dutch.
+
+<div class="FOO">
+**Note:** Since the physical activity intervention scenario on the Project Big Life Planning Tool is for daily leisure energy expenditure and not daily active transportation, we will use the 'absolute' scenario for this example. We will increase each individual's daily leisure energy expenditure by 1.28 MET-hours (1.35 MET-hours - 0.07 MET-hours).
+</div>
+
+###Part D: Predict how Canadian life expectancy would change if Canadians biked like the Dutch.
+
+Use the Project Big Life Planning Tool for the following steps:
+
+1. Load your data file: data.sample.csv to the Project Big Life Planning Tool. 
+
+2. Select initial calculation: Summary Measure – Life Expectancy (Summary)
+
+3. Add Filter: DDHGAGE – 1,2,3,4,5,6,7,8,9,10,11,12
+
+4. Click: Scenarios, and select Intervention
+
+5. Click Physical Activity then Select “Average daily leisure time energy expenditure in METs”
+
+<div class="AOO">
+Assumption #2: Although the scenario for physical activity is for leisure energy expenditure, we assume 1) individuals that are active in their leisure time also use active transportation, and 2) cycling as a form of active transportation is minor part of their energy expenditure. Therefore we will adjust the average daily leisure time energy expenditure in METs.
+</div>
+
+6. Select Absolute
+
+7. Type in the absolute change calculated in Part 3, into the text box.
+
+8. Name your calculation: Canada bikes like the Dutch
+
+9. Click Calculate
+
+10. Interpret results
+
+
+
+
+
+
+
+
+##Smoking by-law, 2004 Ottawa: retrospective
+
+The City of Ottawa has historically been a leader in municipal policy to reduce tobacco smoking at the population level. A key milestone was the introduction of a 2004 by-law that limited smoking in bars/restaurants.
+
+We want to know how many smoking attributable deaths were prevented due to this by-law.
+
+<div class="AOO">
+Assumption: We assume that the by-law lead to decrease in current smokers either through individuals quitting smoking or individuals not starting to smoke.
+</div>
+
+For this example we will:
+
+A. Transform 2003 CCHS PUMF variables to 2013 CCHS PUMF variables
+
+B. Determine the prevalence of current smokers in 2003
+
+C. Determine the prevalence of current smokers in 2013
+
+D. Estimate how many smoking attributable deaths were prevented due to enacting the by-law
+
+
+For this example we will use the sample data set **data.sample2003.csv** and **data.sample2013.csv**, which can be downloaded at https://github.com/Big-Life-Lab/PBL-Planning-Tool-Case-Examples. This link also contains all of the R code for this case example. Although we have included the R code any other statistics software (SAS, STATA, etc) can be used to complete this case example.
+
+
+
+###Part A: Transform 2003 CCHS PUMF variables to 2013 CCHS PUMF variables
+
+The Project Big Life Planning Tool only works on 2013-2014 CCHS variable names only. Therefore if you are using a CCHS data set from previous years you will have to transform the variables to the 2013-2014 format.
+
+1. Use **data.sample2003.csv**
+
+<div class="FOO">
+**Note:** Although the data.sample2003.csv is based on the 2003/2004 Canadian Community Health Survey Public Use Microdata File, data.sample2003.csv is a completely fabricated data set and can only be used for exemplary purposes.
+</div>
+
+With the data.sample2003 data set you will need to: 
+
+ - Rename 2003 CCHS PUMF variables to their corresponding 2013 CCHS PUMF variables, 
+ 
+ - Create variable CCC_091 from variables CCCC_91A and CCCC_91B, and
+ 
+ - Recode DHHGAGE variable
+
+<div class="FOO">
+Note: The Project Big Life team is developing a R package that will make this step easier for you! The package transforms CCHS variables from 2001 to 2014. 
+
+We'll update the guidance as soon as the package is ready!
+</div>
+
+
+###Part B:  Determine the prevalence of current smokers in 2003
+
+Current smokers are defined by variable SMKDSTY: 1 – Daily, 2 – Occasional, 3 – Always Occasional. 
+
+In 2003, current smokers accounted for 26% of the Ottawa population.
+
+
+###Part C: Determine the prevalence of current smokers in 2013. 
+
+The prevalence of smokers in 2013 will be the scenario target in Part D. 
+
+1. Use **data.sample.csv**
+
+<div class="FOO">
+**Note:** Although the data.sample.csv is based on the 2013/2014 Canadian Community Health Survey Public Use Microdata File, data.sample.csv is a completely fabricated data set and can only be used for exemplary purposes.
+</div>
+
+In 2013, current smokers accounted for 21% of the Ottawa population.
+
+
+###Part D: Estimate how many smoking attributable deaths were prevented due to enacting the by-law
+
+Use the Project Big Life Planning Tool for the following steps:
+
+1.	Load your data file: data.sample2003.csv to the Project Big Life Planning Tool.
+
+2.	Select initial calculation: Summary Measure – Deaths (5 years)
+
+3.	Add Filter: GEODPMF - 35951
+
+4.	Click: Scenarios, and select Intervention
+
+5.	Click Smoking then Select “Prevalence of current smokers”
+
+6.	Select Target
+
+7.	Type in 21 (prevalence of smokers from 2013) into the text box.
+
+8.	Name your calculation: Smoking attributable deaths 2003
+
+9.	Click Calculate
+
+

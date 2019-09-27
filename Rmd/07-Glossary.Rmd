@@ -1,0 +1,134 @@
+#Glossary {#glossary}
+
+
+**5-year mortality risk**
+
+The probability that an individual will die in the next 5 years.
+
+
+**Body Mass Index (BMI)**
+
+A weight-to-height ratio used as an indicator of obesity and underweight. BMI is calculated by dividing an individual’s body weight in kilograms by the square of height in metres (kg/m2).
+
+
+**By Row Measures**
+
+(ref:byrowcalc)
+
+
+**Calibration**
+
+The agreement between predicted risk generated from the model and observed risk generated from the data.
+
+
+**Canadian Community Health Survey**
+
+An annual survey preformed by Statistics Canada that collects information related to health status, health care utilization and health determinants for the Canadian population. Details about the survey can be found on Statistic Canada website  (http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&Id=144170). 
+
+
+**Discrimination**
+
+The ability of the model to differentiate between high risk individuals and low risk individuals.
+
+
+**Error Message**
+
+(ref:error)
+
+**Filter**
+
+(ref:Filter)
+
+
+**Health Behaviour** 
+
+Actions people do that may affect their health, positively or negatively. Health behaviours are among the determinants of health and are influenced by the social, cultural and physical environments in which people live and work.[@StatsCan2010] They are also shaped by individual choices and external constraints.[@StatsCan2010] The four health behaviours of **smoking, alcohol consumption, diet,** and **physical activity** are specified in Project Big Life's planning tool.
+
+**Health behaviour-deleted outcome**
+
+The health behaviour-deleted outcome is the estimated health outcome in a counterfactual population where a specific health behaviour (e.g. smoking) never existed. For instance, everyone in the counterfactual population were are never smokers.
+
+**Health behaviour attributable outcome**
+
+The health behaviour attributable outcome represents the effect the health behaviour (e.g. smoking) has on the health outcome for a population. For example, smoking attributes to 30,000 deaths in the population or 30,000 deaths in the population are caused by smoking.  
+
+
+**Ignored Variables**
+
+Are not included in the calculation. It does not matter if your dataset includes these variables or not. Ignored variables can used for filter and stratification.
+
+
+**Life Expectancy (LE)**
+
+(ref:LE)
+
+
+**Metabolic Equivalent of Task (MET)**
+
+The metabolic equivalent of task (MET) is a measure of the rate of energy expenditure from an activity; a measure of calories burned by type, duration and frequency of physical activity. The reference value of 1 MET is defined as the energy expediture rate at rest which is equal to 1kcal/kg/day.
+
+
+**Predictor**
+
+A variable that is used in the algorithm to predict the outcome.
+
+
+**Recommend for calculation**
+
+Variables that are included in the calculation but not necessary for the calculation to run. Rather these variables increase the accuracy of the results.
+
+
+**Required for calculation**
+
+Variables that are included in the calculations and are necessary for the calculation to run. If a dataset does not have these variables then the calculation will not run.
+
+
+**Risk**
+
+The probability ofa health event occuring at some point of time in the future.
+
+
+**Socioeconomic Position**
+
+People in poorer socioeconomic circumstances generally have poorer health. Deprivation measures identify those who experience material or social disadvantage compared to others in their community. The Deprivation Index for Health in Canada developed by the Institut national desanté publique du Québec (INSPQ)[@INSPQ2000] is used in this plannning tool. The index includes education, employment and income as measures of material deprivation; and single-parent families, living alone, or being divorced, widowed or separated as measures of social deprivation. The deprivation index was used to assign geographical areas into socioeconomic position groups (low, middle and high) based on material and social quintiles. High-deprivation neighbourhoods were those in the top two quintiles for both social and material deprivation. Low-deprivation neighbourhoods were those in the bottom two quintiles.
+
+
+**Stratification**
+
+(ref:Strat)
+
+Stratification can only occur on categorical variables.
+
+
+**Summary Measures**
+
+(ref:Summarycalc)
+
+(ref:Summarycalcstrat) 
+
+
+**Warning Message**
+
+(ref:warning) 
+
+
+**Weights**
+
+A weight is given to each respondent in the survey and the weight corresponds to the number of individuals in the population the respondent represents. 
+
+
+(ref:byrowcalc) When selected, the result will be the measurement for each individual (e.g. row) in the dataset.
+
+(ref:error) Error messages will occur when variables that are **"Required for Calculation"** are missing in the data. If the entire column for the variable is missing then the calculation cannot be performed on the data. If there are missing row entries for the variable then the entire row will not be used in the calculation.
+
+(ref:Filter) Chooses part of your dataset for analysis. If you filter on 'Sex' and then 'Male', calculations will only be performed on individuals that are 'Male' and 'Females' will be excluded. For example, when calculating Life Expectancy on the filter variable 'Sex' then 'Male' there will be a Life Expectancy estimate for 'Males' and *no* Life Expectancy estimate for 'Females'.
+
+(ref:LE) Life expectancy is a calculation of how long a person or population would be expected to live, on average, given unchanging risk of death from a specific point in time.
+
+(ref:Strat) The seperation of data into smaller strata (levels or classes which individuals are assigned too). If the variable 'Sex' is stratified it creates two strata: 'Male' and 'Female'. Calculations are performed on each strata (level or class) and the outcome will be specific to that strata. For example, when calculating Life Expectancy on the stratified variable 'Sex' there will be a Life Expectancy estimate for 'Males' and a different Life Expectancy estimate for 'Females'.
+
+(ref:Summarycalc) When selected, the result will be a single measure for the entire dataset. For instance when Summary Measure - Life Expectancy (Summary Measure) is selected the result is a single life expectancy at birth for the given for the population. 
+
+(ref:Summarycalcstrat) When stratifications are selected, the summary measure will be given for each strata. For instance when Summary Measure - Life Expectancy and Stratification - Sex are selected, then two life expectancy measures will be given one for males and one for females. 
+
+(ref:warning) Warning messages will occur when variables that are **"Recommended for Calculation"** are missing in the data. If the entire column for the variable is missing the calculation will still be performed on the data. If there are missing row entries for the variable the row will still be used in the calculation
