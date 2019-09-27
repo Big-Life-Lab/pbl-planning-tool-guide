@@ -10,7 +10,7 @@ bookdown::gitbook:
         <li><a href="https://planning.projectbiglife.ca" target="blank">A Project Big Life tool</a></li>
     toolbar:
       position: "fixed"
-    edit: https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance
+    edit: https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:
