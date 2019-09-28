@@ -1,6 +1,6 @@
 # Project Big Life Planning Tool guidance document
 
-The Project Big Life Planning Tool (http://planning.projectbiglife.ca/) was developed to public health surveillance, planing and research. The planning tool can assess the health burden of health behaviours and the potential health impact of public health preventive strategies in Canada, amongst other uses. 
+The Project Big Life Planning Tool (http://planning.projectbiglife.ca/) was developed to support public health surveillance, planing and research. The planning tool can assess the health burden of health behaviours and the potential health impact of public health preventive strategies in Canada, amongst other uses. 
 
 This guidance document outlines **what the tool is**, **how it to use it**, and **how it operates**. The guidance includes the following sections:
 
@@ -11,7 +11,7 @@ This guidance document outlines **what the tool is**, **how it to use it**, and 
 - **Key concepts:** understand how the tool works
 - **Glossary:** reference terms used in the tool and guidance
 
-## Contributing to the documentation
+## Contributing
 We welcome suggestions and additions to the Project Big Life Planning Tool documentation. Please follow [this guide](contributing/CONTRIBUTING.MD) if you would like contribute.
 
 ## Do you have a senerio or use of the planninng tool that you would like to share with others?
