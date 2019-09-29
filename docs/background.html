@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Getting Started | Project Biglife Planning Tool Guide</title>
+  <title>Chapter 2 Background | Project Biglife Planning Tool Guide</title>
   <meta name="description" content="Guidance on how to use the Project Big Life Planning Tool." />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Getting Started | Project Biglife Planning Tool Guide" />
+  <meta property="og:title" content="Chapter 2 Background | Project Biglife Planning Tool Guide" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="Big-Life-Lab/BATCH-Guidance" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Getting Started | Project Biglife Planning Tool Guide" />
+  <meta name="twitter:title" content="Chapter 2 Background | Project Biglife Planning Tool Guide" />
   
   <meta name="twitter:description" content="Guidance on how to use the Project Big Life Planning Tool." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="background.html"/>
-<link rel="next" href="howto.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="getting-started.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -203,29 +203,35 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Getting Started</h1>
-<p>To help you get started quickly with Project Big Life’s Planning Tool, we built a Tutorial directly onto the web application.</p>
-<p>The tutorial takes you through step-by-step how to use Project Big Life’s Planning Tool. The tutorial will not explain the <a href="howto.html#howto">steps in detail</a>) nor will it provide terminology <a href="glossary.html#glossary">glossary</a> or how the <a href="mport.html#mport">tool operates</a>, but it will give you an understanding of how easy it is to use the Planning Tool!</p>
-<p><strong>To access the tutorial</strong>, go onto <a href="http://planning.projectbiglife.ca/">Project Big Life’s Planning Tool</a> and click on the Tutorial button in the top right corner!</p>
-<p><img src="Images/Tutorial%20Button.jpg" style="display: block; margin: auto;" /></p>
-<p><strong>Data requirements</strong>
-The tool uses the Canadian Community Health Survey (CCHS), Canada’s main population health survey administered by Statistics Canada. Information about the CCHS can be found <a href="http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&amp;SDDS=3226">here</a>. The tool supports the CCHS 2013 PUMF or Shared files. Information for how to access the CCHS data can be found <a href="https://www150.statcan.gc.ca/n1/pub/82-620-m/2005001/4144189-eng.htm">here</a>. The Canadian university community can also access the CCCHS through <a href="http://odesi2.scholarsportal.info/webview/">Odesi</a> – See health/Canada/Canadian Community Health Survey.</p>
-<p>The web application provides two CCHS data samples that can be accessed directly in the web application. These two data samples are synthetic data that do not represent actual respondents. For this reason, the results should not be used other than for demonstration purposes.</p>
-<p><strong>Web browser support</strong>
-The PBL Planning Tool is a web application with all calculations performed on your desktop within the web browswer. Once loaded on your desktop, no connection to the Internet is required.</p>
-<p>Please contact the development team if work within a secure research environment without Internet access. We may be able to assist you in creating a broswer-based package that you can transfer onto your internal systems.</p>
-<p><a href="mailto:projectbiglife.ca">projectbiflife@toh.ca</a> or file an <a href="https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/issues">issue</a>.</p>
-<p>Modern web browsers are supported (Google Chrome, Safari, Firefox, Edge). Internet Explorer is not supported.</p>
+<div id="background" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Background</h1>
+<p>The wide range of enhanced surveillance applications is made possible through the tool’s multivariable predictive approach. The statistical and machine learning algorithms used by the BPL planning tool are a more complex approach to measure the burden from health behaviours compared to traditional approaches.<span class="citation">(Manuel et al. <a href="#ref-manuel2018">2016</a>)</span> However, the planning tool carries out those complex calculators for you, without the need for statistical software.</p>
+<p>Calculations are performed on a population sample of individuals rather than the traditional approach of using aggregated data. The predictive algorithms use the distinct characteristics of each respondent in the database, rather than assuming a person’s risk of a health outcome (e.g. death) is the same as other respondents with the same age and sex.</p>
+<p>The algorithms available on the planning tool have been developed and validated using data routinely-collected by Statistics Canada and provincial health agencies. All algorithms have been published in peer-review journals and are <a href="https://github.com/Big-Life-Lab/predictive-algorithms">publicly available</a>. More information about multivariable predictive risk algorithms can be found in the <a href="keyconcepts.html#keyconcepts">key concepts</a> or <a href="mport.html#mport">appendices</a>.</p>
+<p><strong>Features and contributing</strong>
+The PBL tool is currently a pilot project. You can view changes and new features in the website’s <a href="http://http://planning.projectbiglife.ca/">Change Log</a>.</p>
+<p>We welcome suggestions and issues. Please follow this <a href="https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/blob/master/contributing/CONTRIBUTING.md">guide</a>.</p>
+<p>Please tell us if you have scenarios or uses of the planning tool that you want to share with others by commenting on this GitHub <a href="https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/issues/9">issue</a>.</p>
+<p><strong>Acknowledgements</strong></p>
+<p>The PBL Planning Tool was developed by the <a href="https://www.projectbiglife.ca">Project Big Life</a> Team based at the <a href="http://www.ohri.ca/home.asp">Ottawa Hospital</a> and the <a href="https://www.bruyere.org/en/bruyere-research-institute">Bruyère Research Institute</a>.</p>
+<p>The tool was made in collaboration with <a href="https://www.publichealthontario.ca/">Public Health Ontario</a>, the <a href="https://pophealthanalytics.com/">Population Health Analytics Lab</a> at the University of Toronto and <a href="http://www.ottawapublichealth.ca/en/index.aspx">Ottawa Public Health</a>.</p>
+<p>Tool development was supported by the Ontario Ministry of Health and Long-term Care through the Applied Health Research Question program, administered through <a href="https://www.ICES.on.ca">ICES</a>.</p>
+<p>Algorithms used in the planning tool were developed using linked population data housed at <a href="https://www.ices.on.ca/">ICES</a> and validated at Statistics Canada. All algorithms have been published in peer-review journals. To learn more about the specific algorithms used in the Project Big Life Planning Tool see our <a href="mport.html#mport">appendices</a> to the specific algorithms or <a href="https://www.projectbiglife.ca/science">Project Big Life</a> website.</p>
 
+</div>
+<h3><span class="header-section-number">D</span> Bibilography</h3>
+<div id="refs" class="references">
+<div id="ref-manuel2018">
+<p>Manuel, D. G., R. Perez, C. Sanmartin, M. Taljaard, D. Hennessy, K. Wilson, P. Tanuseputro, et al. 2016. “Measuring Burden of Unhealthy Behaviours Using a Multivariable Predictive Approach: Life Expectancy Lost in Canada Attributable to Smoking, Alcohol, Physical Inactivity, and Diet.” Journal Article. <em>PLoS Med</em> 13 (8): e1002082. <a href="https://doi.org/10.1371/journal.pmed.1002082">https://doi.org/10.1371/journal.pmed.1002082</a>.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="background.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="howto.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getting-started.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -255,7 +261,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/Rmd//03-Tutorials.Rmd",
+"link": "https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/Rmd//02-Background.Rmd",
 "text": "Edit"
 },
 "history": {
