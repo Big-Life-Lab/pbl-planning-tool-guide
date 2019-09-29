@@ -13,7 +13,7 @@ github-repo: Big-Life-Lab/BATCH-Guidance
 description: "Guidance on how to use the Project Big Life Planning Tool."
 ---
 
-# Background
+# Introduction
 
 ```{r eval=FALSE, echo=FALSE}
 library(bookdown)
@@ -36,41 +36,44 @@ The Project Big Life Planning Tool ([PBL Planning Tool](http://planning.projectb
 
 The tool was developed in response to requests from public health departments to create, replicate, and update health status reports such as Public Health Ontario's [Seven More Years](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) which examined the impact of health behaviours on health outcomes: mortality and life expectancy.
 
-The tool can help you:
+We hope you find the tool helpful for your research and policy planning, including the development and evaluation of population-based health interventions.
+
+**The tool can help you to:**
 
 - Determine who in the Canadian population is at risk of dying
-- Predict number of new deaths in different Canadian populations
+- Predict the number of new deaths in different Canadian populations
 - Determine how much a risk factor contributes to a health outcome
-- Assess health benefits of potential interventions
+- Assess the health benefits of potential interventions
 
-The tool is well-suited to calculate health burdens for a range of social and demographic groups, providing a resource to examine inequities associated with health behaviours.[@manuel2018] Also supported is the ability to examine the impact of different types of preventive scenarios including population strategies that have a small incremental change in health behaviours for a broad target population or high-risk strategies with a larger change in health behaviours that target a smaller number of high-risk people.[@PoRTover] 
+**Examples questions the tool can answer**
 
-The wide range of enhanced surveillance applications is made possible through PBL planning tool's multivariable predictive approach. The advance statistical and machine learning algorithms used by the BPL planning tool are a more complex approach to measure the burden from health behaviours compared to traditional  approaches, but the planning tool carries out those complex complications for you. 
+The Project Big Life Planning Tool can answer the following types of questions:
 
-We hope you find the tool helpful for your research and policy planning, including the development and evalaution of population-based health interventions.
+- What is the burden of smoking on life expectancy in Canada?
+- How many deaths would be prevented if everyone in Winnipeg increased their daily exercise by 10%?
 
-## Requirements
+The tool is well-suited to calculate health burdens for a range of social and demographic groups, providing a resource to examine inequities associated with health behaviours.[@manuel2018] Also supported is the ability to examine the impact of different types of preventive scenarios including population strategies that have a small incremental change in health behaviours for a broad target population or high-risk strategies with a larger change in health behaviours that target a smaller number of high-risk people.[@PoRTover]
 
-### Data requirements
-The tool uses the Canadian Community Health Survey (CCHS), Canada's main population health survey adminstered by Statistics Canada. Information about the CCHS can be found [here](http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&SDDS=3226). The tool supports the CCHS 2013 PUMF or Shared files. Information for how to access the CCHS data can be found [here](https://www150.statcan.gc.ca/n1/pub/82-620-m/2005001/4144189-eng.htm). Canadian university community can also access the CCCHS through [Odesi](http://odesi2.scholarsportal.info/webview/) -- See health/Canada/Canadian Community Health Survey.
+**How it works**
 
-### Web browswer
-Modern web broswers are supported (Google Chrome, Safari, Firefox, Edge). Internet Explorer is not supported.
+The PBL planning tool uses multivariable predictive risk algorithms. All algorithms use by the planning too are developed and validated using data routinely collected by Statistics Canada and provincial health agencies, and the algorithms have been published in various journals. More information about algorithms can be found in the [Background](#background), [Key concepts](#keyconcepts) and [Appendices](#mport).
 
-## Features and contributing
-The PBL tool is currently a pilot project. You can view changes and new features in the website's [Change Log](http://http://planning.projectbiglife.ca/).
+**Why should I use the tool**
 
-We welcome suggestions and issues. Please follow this [guide](https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/blob/master/contributing/CONTRIBUTING.md).
+- It is **easy** and **flexible** to use. 
 
-Please tell us if you have scenarios or uses of the planning tool that you want to share with others by making a comment in this GitHub [issue](https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/issues/9).
+    - The user only needs to upload their data and choose which calculation to run.
+    - It can be used to assess the future risk of a health outcome.
+    - It can be used to assess the effectiveness of different intervention scenarios (e.g. policy) on a health outcome.
 
-## Acknowlegements
+- It is **robust** and **flexible**.
 
-The PBL Planning Tool was developed by the [Project Big Life](https://www.projectbiglife.ca) Team based at the [Ottawa Hospital](http://www.ohri.ca/home.asp) and the [Bruyère Research Institute](https://www.bruyere.org/en/bruyere-research-institute).
+    - It can be used to examine health outcomes in a range of social and demographic groups. 
+    
+-    It generates **accurate** predictions.
 
-The tool was made in collaboration with [Public Health Ontario](https://www.publichealthontario.ca/), the [Population Health Analytics Lab](https://pophealthanalytics.com/) at the University of Toronto and [Ottawa Public Health](http://www.ottawapublichealth.ca/en/index.aspx). 
+    - The tool's algorithms have been published in peer-review journals, validated in the Canadian population for a wide range of populations, and are publicly available.
+    
+-    It is **private**. 
 
-Tool development was supported by the Ontario Ministry of Health and Long-term Care through the Applied Health Research Question program, adminstered through [ICES](https://www.ICES.on.ca).
-
-Algorithms used in the planning tool were developed using linked population data housed at [ICES](https://www.ices.on.ca/) and validated at Statistics Canada. All algorithms have been published in peer-review journals. To learn more about the specific algorithms used in the Project Big Life Planning Tool see our [appendices](#mport) to the specific algorithms or [Project Big Life](https://www.projectbiglife.ca/science) website.
-
+    - Loaded data remains on your computer and is not uploaded or sent anywhere.
