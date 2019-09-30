@@ -1,6 +1,6 @@
 # Project Big Life Planning Tool guidance document
 
-The Project Big Life Planning Tool (http://planning.projectbiglife.ca/) was developed to support public health surveillance, planing and research. The planning tool can assess the health burden of health behaviours and the potential health impact of public health preventive strategies in Canada, amongst other uses. 
+The Project Big Life Planning Tool (http://planning.projectbiglife.ca/) was developed to support public health surveillance, planning and research. Amongst other uses, the planning tool can assess the health burden of health behaviours and the potential health impact of public health prevention strategies in Canada. 
 
 This guidance document outlines **what the tool is**, **how it to use it**, and **how it operates**. The guidance includes the following sections:
 
@@ -9,19 +9,19 @@ This guidance document outlines **what the tool is**, **how it to use it**, and 
 - **How-to:** learn how to use the tool with the practical step-by-step guides 
 - **Real life applications:** see how you can apply the tool in your work
 - **Key concepts:** understand how the tool works
-- **Glossary:** reference terms used in the tool and guidance
+- **Glossary:** reference terms used in the tool and guidance document
 
 ## Contributing
 We welcome suggestions and additions to the Project Big Life Planning Tool documentation. Please follow [this guide](contributing/CONTRIBUTING.MD) if you would like contribute.
 
-## Do you have a senerio or use of the planninng tool that you would like to share with others?
+## Do you have a senerio or use of the planning tool that you would like to share with others?
 
 Please tell us if you have scenarios or uses of the planning tool that you want to share with others by making a comment in this [issue](https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/issues/9).
 
 ## Downloading the Project Big Life Planning Tool guidance repository
-Feel free to copy this repository. To do so, complete the following steps. (These steps have been adapted from Yihui Xie's "Bookdown: Authoring Books and Technical Documents with R Markdown" https://bookdown.org/yihui/bookdown/.)
+Feel free to copy this repository. To do so, complete the following steps (which have been adapted from Yihui Xie's [_Bookdown: Authoring Books and Technical Documents with R Markdown_](https://bookdown.org/yihui/bookdown/)):
 
-1) Download the latest version of R if your version is lower then 1.0.0.
+1) Download the latest version of R if your version is earlier then 1.0.0.
 
 2) Install the R package **bookdown**
 
