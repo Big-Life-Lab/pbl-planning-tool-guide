@@ -1,13 +1,13 @@
 # Background {#background}
 
-The wide range of enhanced surveillance applications is made possible through the tool's multivariable predictive approach. The statistical and machine learning algorithms used by the BPL planning tool are a more complex approach to measure the burden from health behaviours compared to traditional approaches.[@manuel2018] However, the planning tool carries out those complex calculators for you, without the need for statistical software.
+The wide range of enhanced surveillance applications is made possible through the tool's multivariable predictive approach. Compared to traditional approaches, the statistical and machine learning algorithms used by the PBL Planning Tool are a more complex approach to measure the burden from health behaviours.[@manuel2018] However, the planning tool carries out those complex calculators for you, without the need for statistical software.
 
-Calculations are performed on a population sample of individuals rather than the traditional approach of using aggregated data. The predictive algorithms use the distinct characteristics of each respondent in the database, rather than assuming a person's risk of a health outcome (e.g. death) is the same as other respondents with the same age and sex. 
+Calculations are performed on a population sample of individuals rather than the traditional approach of using aggregated data. The predictive algorithms use the distinct characteristics of each respondent in the database, rather than assuming a person's risk of a health outcome (e.g., death) is the saame for all respondents with the same age and sex. 
 
-The algorithms available on the planning tool have been developed and validated using data routinely-collected by Statistics Canada and provincial health agencies. All algorithms have been published in peer-review journals and are [publicly available](https://github.com/Big-Life-Lab/predictive-algorithms). More information about multivariable predictive risk algorithms can be found in the [key concepts](#keyconcepts) or [appendices](#mport).
+The algorithms available on the planning tool have been developed and validated using data routinely-collected by Statistics Canada and provincial health agencies. All algorithms have been published in peer-review journals and are [publicly available](https://github.com/Big-Life-Lab/predictive-algorithms). More information about multivariable predictive risk algorithms can be found in the [key concepts](#keyconcepts) and [appendices](#mport).
 
-**Features and contributing**
-The PBL tool is currently a pilot project. You can view changes and new features in the website's [Change Log](http://http://planning.projectbiglife.ca/).
+**Features and contributing**  
+The PBL Planning Tool is currently a pilot project. You can view changes and new features in the website's [Change Log](http://planning.projectbiglife.ca/).
 
 We welcome suggestions and issues. Please follow this [guide](https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/blob/master/contributing/CONTRIBUTING.md).
 
