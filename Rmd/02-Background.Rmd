@@ -1,0 +1,24 @@
+# Background {#background}
+
+The wide range of enhanced surveillance applications is made possible through the tool's multivariable predictive approach. Compared to traditional approaches, the statistical and machine learning algorithms used by the PBL Planning Tool are a more complex approach to measure the burden from health behaviours.[@manuel2018] However, the planning tool carries out those complex calculators for you, without the need for statistical software.
+
+Calculations are performed on a population sample of individuals rather than the traditional approach of using aggregated data. The predictive algorithms use the distinct characteristics of each respondent in the database, rather than assuming a person's risk of a health outcome (e.g., death) is the saame for all respondents with the same age and sex. 
+
+The algorithms available on the planning tool have been developed and validated using data routinely-collected by Statistics Canada and provincial health agencies. All algorithms have been published in peer-review journals and are [publicly available](https://github.com/Big-Life-Lab/predictive-algorithms). More information about multivariable predictive risk algorithms can be found in the [key concepts](#keyconcepts) and [appendices](#mport).
+
+**Features and contributing**  
+The PBL Planning Tool is currently a pilot project. You can view changes and new features in the website's [Change Log](http://planning.projectbiglife.ca/).
+
+We welcome suggestions and issues. Please follow this [guide](https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/blob/master/contributing/CONTRIBUTING.md).
+
+Please tell us if you have scenarios or uses of the planning tool that you want to share with others by commenting on this GitHub [issue](https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/issues/9).
+
+**Acknowledgements**
+
+The PBL Planning Tool was developed by the [Project Big Life](https://www.projectbiglife.ca) Team based at the [Ottawa Hospital](http://www.ohri.ca/home.asp) and the [Bruyère Research Institute](https://www.bruyere.org/en/bruyere-research-institute).
+
+The tool was made in collaboration with [Public Health Ontario](https://www.publichealthontario.ca/), the [Population Health Analytics Lab](https://pophealthanalytics.com/) at the University of Toronto and [Ottawa Public Health](http://www.ottawapublichealth.ca/en/index.aspx). 
+
+Tool development was supported by the Ontario Ministry of Health and Long-term Care through the Applied Health Research Question program, administered through [ICES](https://www.ICES.on.ca).
+
+Algorithms used in the planning tool were developed using linked population data housed at [ICES](https://www.ices.on.ca/) and validated at Statistics Canada. All algorithms have been published in peer-review journals. To learn more about the specific algorithms used in the Project Big Life Planning Tool see our [appendices](#mport) to the specific algorithms or [Project Big Life](https://www.projectbiglife.ca/science) website.
