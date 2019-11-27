@@ -264,14 +264,14 @@ Multiple health behaviours and variables within the health behaviours can be sel
 
 - Once selected, the name(s) of the health behaviour(s) that have been selected for the intervention will appear to the right of "Scenario".
 
-###Health behaviour attribution scenarios
+### Health behaviour attribution scenarios
 
 Health behaviour attribution scenarios provide you with the ability to see the best case scenario for the population. For example:
 
 - what if no one in the population ever smoked?
 - what if everyone in the population met their recommended physical activity levels (3.00 METs/week)?
 
-More information on health behaviour attribution calculations and how they are calculated can be found in key concepts](#keyconcepts) - "Scenarios: Health behaviour attribution".
+More information on health behaviour attribution calculations and how they are calculated can be found in [key concepts](#keyconcepts) - "Scenarios: Health behaviour attribution".
 
 **Steps**
 
@@ -284,7 +284,7 @@ More information on health behaviour attribution calculations and how they are c
 Multiple health behaviours can be selected for a single calculation. 
 
 
-##Calculate results
+## Calculate results
 
 1. Name your calculation in the text box: Calculation name. 
   - Be specific when naming the calculation as it will make it easier to distinguish after running multiple calculations.
@@ -300,7 +300,7 @@ Multiple health behaviours can be selected for a single calculation.
 A green check mark will appear in the status column.
 
 
-##View Results
+## View Results
 
 1. Click on the calculation name, in the table under the green calculation button. 
 
@@ -314,11 +314,11 @@ A green check mark will appear in the status column.
 
 - **Log:** will give you a summary of the warnings and errors that occurred during the calculation.
     
-###Graph
+### Graph
 
 The graph produce through plotly is interactive. Hover over the graph to see the results for each strata, exclude strata, download a .png of the graph, and much more.
 
-##Download results
+## Download results
 
 Click on the **Download results** button under the **Results** section.
 
@@ -337,16 +337,16 @@ Two files will be downloaded.
 
 
 
-##Resolve warning or error messages (To be developed)
+## Resolve warning or error messages (To be developed)
 
 There are different types of warning and error messages that may appear.
 
 Below describes some of the messages that are likely to occur and steps to resolve them.
 
-###Invalid category
+### Invalid category
 
-###Out of range
+### Out of range
 
-###Not a number
+### Not a number
 
-###Sample size is too small
+### Sample size is too small
