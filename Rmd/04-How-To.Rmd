@@ -137,8 +137,6 @@ Note:
   
 - If the loaded file does **not** have all the variables **recommended** for calculation you will be able to continue with the planning tool, however the calculations may be less accurate. 
 
-
-
 ## Select measure (calculation)
 
 There are two general types of calculations: summary measures and by row measures.
@@ -221,7 +219,8 @@ Scenarios can be used to predict the health outcomes when unhealthy behaviours:
 - are modified in the population: **Intervention**, or
 - were never present in the population: **health behaviour attribution**
 
-Scenarios can be used to inform potential health policies or programs.
+Scenarios can be used to inform potential health policies or programs. Scenarios 
+can be run on health behaviours (smoking, physical activity, diet, alcohol).
 
 ### Intervention scenarios
 
@@ -264,11 +263,11 @@ Multiple health behaviours and variables within the health behaviours can be sel
 
 - Once selected, the name(s) of the health behaviour(s) that have been selected for the intervention will appear to the right of "Scenario".
 
-### Health behaviour attribution scenarios
+### Attributable fraction scenarios
 
-Health behaviour attribution scenarios provide you with the ability to see the best case scenario for the population. For example:
+Atttributable fraction scenarios provide you with the ability to see the best case scenario for the population. These scenarios replicate the commonly used method by Levin{ref}. For example:
 
-- what if no one in the population ever smoked?
+- what if no one in the population ever smoked? (also known as smoking attributable mortality)
 - what if everyone in the population met their recommended physical activity levels (3.00 METs/week)?
 
 More information on health behaviour attribution calculations and how they are calculated can be found in [key concepts](#keyconcepts) - "Scenarios: Health behaviour attribution".
