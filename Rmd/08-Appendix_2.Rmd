@@ -1,0 +1,232 @@
+# (APPENDIX) Appendix {-} 
+
+# Scenario method
+
+Running a scenario on a population or an individual allows you to evaluate how changing a risk factor or a combination of risk factors changes the outcome of a model. Using the scenario API we can answer questions like:
+
+* How does the life expectancy of a population change if I decrease smoking by 10%?
+* How much does an individual's mortality risk change by if they improve their diet?
+
+## Scenario Object
+
+A key ingredient required to run a scenario is what we call a **scenario object**. A scenario object is a JSON object that tells the engine how to run a scenario. Although there is a lot going on underneath the hood when running a scenario, the 3 main steps are outlined below:
+1. Does the individual meet the inclusion criteria for the scenario? This is decided by the `targetPop` field.
+2. Update the scenario variable using the method outlined in the `method` field. 
+3. Check the updated variable value using the `postScenarioRange` field.
+
+The `method` field decides how the variable(s) involved in a certain scenario are manipulated. The methods we currently offer are described below:
+
+1. [Simple Methods](https://github.com/Big-Life-Lab/pbl-calculator-engine/wiki/Scenario-Simple-Methods): These are methods that involve simple changes to a variable. Such as changing it to a new value, updating it by a percentage or an absolute value.
+2. [Categorical Methods](here): These are methods that involve changes to the prevalence of a risk factor and can be used only with categorical variables. For eg. Changing the prevalence of smoking in a population.
+3. [Component Methods](https://github.com/Big-Life-Lab/pbl-calculator-engine/wiki/Scenario-Component-Methods): These are methods that involve changes to a variable based on the value of another variable. For eg. Changing the amount of vegetables a person eats based on their total fruit and vegetable consumption.
+
+### Example: How would the life expectancy of a population change if they all started following the "Canadian Physical Activity Guidelines"?
+
+The JSON object below implements the question described above. Don't worry if it does not make sense, we will be explaining the various fields that go into the object in other sections.
+
+```
+{
+    "subject": "activity",
+    "algorithms": ["MPoRTv2-PUMF"],
+    "description": "Canadian Physical Activity Guidelines for Adults (18-64 years)",
+    "scenarios": [
+        {
+            "name": "total attribution",
+            "male": {
+                "variables": [
+                    {
+                        "variableName": "PACDEE",
+                        "method": "attribution",
+                        "targetPop": [0, 2.1],
+                        "postScenarioRange": [2.1, null]
+                    }
+                ]
+            },
+            "female": {
+                "variables": [
+                    {
+                        "variableName": "PACDEE",
+                        "method": "attribution",
+                        "targetPop": [0, 2.1],
+                        "postScenarioRange": [2.1, null]
+                    }
+                ]
+            }
+        }
+}
+```
+
+
+## Next Steps
+Go over [this](TODO) page that describes the general structure of a scenario object as well as the fields common from one object to another. 
+
+# Editing Scenario Simple Methods
+
+Use the methods in this section for simple manipulation of scenario variables like updating them to a new value,  updating them by a percentage etc.
+
+There are 3 types of simple methods:
+1. Attribution
+2. Relative
+3. Absolute
+
+We will consider scenarios involving individuals who do not meet the "Canadian Physical Activity Guidelines", seeing how each of the above methods changes an individuals's physical activity.  The guidelines state that an adult should do 60 minutes of moderate to vigorous physical activity in a day which roughly translates to a minimum of 3 "metabolic equivalent of task" (METs) a day. We'll the use the name "PhysicalActivity_cont" to represent the variable for the number of METs completed in a day.
+
+We will be running each scenario through the following 2 individuals:
+1. One who meets the guidelines (PhysicalActivity_cont >= 3)
+2. One who does not meet the guidelines (PhysicalActivity_cont < 3)
+And see how their profile changes with each method
+
+# Attribution
+
+Use this method when the scenario variable needs to be updated to a new value. Consider the scenario object below:
+
+```
+{
+    "variableName": "PhysicalActivity_cont", // This is the variable we want to change
+    "method": "attribution", // The method type
+    "targetPop": [null, 3], // Only run the scenario on individuals who do not meet the guidelines
+    "scenarioValue": 3 // What the value of the variable should be i.e. bring them up to the recommended level
+}
+```
+
+The aim of the above object is to bring people who do not meet the guidelines up to the recommended level i.e. 3 METs.
+
+Looking at our 2 example individuals:
+1. With a `targetPop` field value of `[null, 3]`, this individual would not meet the inclusion criteria for this scenario, thus his profile would not be changed by it
+2. This individual does meet the inclusion criteria and his new value for the `PhysicalActivity_cont` variable would be 3
+
+# Relative
+
+Use this method when the scenario variable needs to be increased or decreased by a percentage value. Consider the scenario object below:
+
+```
+{
+    "variableName": "PhysicalActivity_cont", // This is the variable we want to change
+    "method": "relative", // The method type
+    "targetPop": [null, 3], // Only run the scenario on individuals who do not meet the guidelines
+    "scenarioValue": 10 // Increase the variable's value by 10%
+}
+```
+
+The aim of this object is to increase the physical activity value for individuals by 10%, but only if they do not meet the guidelines defined in the `targetPop` field.
+
+Looking at our 2 individuals once again, nothing would happen to individual 1. However for individual 2, the way the scenario is applied would change due to our new relative method. Now rather than the `PhysicalActivity_cont` variable being set to 3, it would increase by 10%. For eg., if the current value was 1.5 METs, after going through the scenario it would be 1.65 METs.
+
+# Absolute
+
+Similar to the relative method, an absolute method changes the scenario variable by increasing or decreasing it by the value provided in the `scenarioVariable` field. Take a look at the scenario object below:
+
+```
+{
+    "variableName": "PhysicalActivity_cont", // This is the variable we want to change
+    "method": "absolute", // The method type
+    "targetPop": [null, 3], // Only run the scenario on individuals who do not meet the guidelines
+    "scenarioValue": 10 // Increase the variable's value by 10 METs
+}
+```
+
+Here we want to increase the number of METs by 10 if the individual does not meet the Canadian guidelines.
+
+Once again for our 2 individuals, this scenario would only affect individual 2 by increasing their METs value by 10. Thus if they had a value of 5 METs, it would be 15 after the scenario.
+
+# Scenario Component Methods
+
+Component methods can be used when the new value of an intervention variable is calculated by first modifying another related variable and using it's relationship to the intervention variable to calculate it's new value.
+
+E.g., An intervention on the total number of vegetables that an individual consumes in a day (Veg_cont) by first changing the total number of fruits and vegetables that they consume in a day (TotalFruitVeg_cont).
+In the above example,\
+**Veg_cont** is the intervention variable\
+**TotalFruitVeg_cont** is the related variable
+
+The relation between the variables is described by the formula below:\
+TotalFruitVeg_cont = Veg_cont + Fruit_cont\
+where **Fruit_cont** is the total number of fruits eaten in a day
+
+There are 3 types of component methods:
+1. Component Attribution
+2. Component Relative
+3. Component Absolute
+
+We will explain each of them by using the diet example above.
+
+# Component Attribution
+
+Use this method when the related variable has to be updated to a new value. E.g., if we wanted all the individuals in our scenario to consume 5 total fruits and vegetables in a day (TotalFruitVeg_cont = 5) by only updating the number of vegetables they eat. The scenario object would look like,
+
+```jsonc
+{
+    "variableName": "Veg_cont", // This is the variable we want to change
+    "method": "component attribution", // The method type
+    "targetPop": [ 
+        {
+            "variableName": "TotalFruitVeg_cont",
+            "range": [null, 5]
+        }
+     ], // Only change an individual if they are below or at 5 total fruit and vegetables in a day
+     "parentVariable": "TotalFruitVeg", // The related variable
+     "scenarioValue": 5 // What the value of the related variable should be 
+}
+```
+Let's look at how the scenario object would work with the 2 individuals below:
+1. An individual who eats 3 vegetables and 7 fruits per day
+2. An individual who eats 3 vegetables and 1 fruit per day
+
+For the first individual, the value of TotalFruitVeg_cont would be 10, which does not meet the inclusion criteria for this scenario which is that the TotalFruitVeg_cont value should be less than or equal to 5.
+
+For the second individual, the value of TotalFruitVeg_cont would be 4 which meets the inclusion criteria for the scenario. We know that the target value of TotalFruitVeg_cont is 5, which is 1 more than what this individual has. So the new value of Veg_cont will be 4, bringing the TotalFruitVeg_cont value up to 5.
+
+# Component Relative
+
+Use this method when the intervention variable is updated by first updating the related variable by a percentage defined in the scenario object.
+
+```jsonc
+{
+    "variableName": "Veg_cont", // This is the variable we want to change
+    "method": "component relative", // The method type
+    "targetPop": [ 
+        {
+            "variableName": "TotalFruitVeg_cont",
+            "range": [null, 7]
+        }
+     ], // Only change an individual if they are below or at 7 total fruit and vegetables in a day
+     "parentVariable": "TotalFruitVeg_cont", // The related variable
+     "scenarioValue": 15 // Update their total fruits and vegetables count by 15%
+}
+```
+Here the **scenarioValue** describes a percentage which can be negative or positive. Let's once again look at how the scenario would be run with the individuals in the component attribution scenario.
+
+For the first individual, once again they would not be included in the scenario since they do not meet the inclusion criteria.
+
+For the second individual, their TotalFruitVeg_cont value is 6 which does meet the inclusion criteria. So we would increase this value by 15% which would bring it up to 6.9 leading to an increase in the intervention variable (Veg_cont) of 0.9 to make up this difference.
+
+# Component Absolute
+
+Use this method when the intervention variable is updated by first updating the related variable by a value defined in the scenario object.
+
+```jsonc
+{
+    "variableName": "Veg_cont", // This is the variable we want to change
+    "method": "component absolute", // The method type
+    "targetPop": [ 
+        {
+            "variableName": "TotalFruitVeg_cont",
+            "range": [null, 7]
+        }
+     ], // Only change an individual if they are below or at 7 total fruit and vegetables in a day
+     "parentVariable": "TotalFruitVeg_cont", // The related variable
+     "scenarioValue": 5 // Update the TotalFruitVeg_cont value by 5
+}
+```
+
+Here the **scenarioValue** describes a number which can be negative or positive. Looking at our individuals again,
+
+For the first individual, once again they would not be included in the scenario since they do not meet the inclusion criteria.
+
+For the second individual, their TotalFruitVeg_cont value is 6 which does meet the inclusion criteria. So we would increase this value by 5 which would bring it up to 11 leading to an increase in the intervention variable (Veg_cont) of 5 to make up this difference.
+
+# Things to Note
+
+1. The relationship between the intervention and related variable should be linear of the form,\
+y = x + m*v + n*z + .... <br /> 
+where **x** is the intervention variable, **y** is the related variable, **v, z** are other variables and **m, n** are constants. Notice how the there is no intercept in the equation and no constant term in front of the intervention variable.
+2. The **scenarioValue** field describes how the **parentVariable** should be changes, which in turn affects the intervention variable described by the variableName field.
