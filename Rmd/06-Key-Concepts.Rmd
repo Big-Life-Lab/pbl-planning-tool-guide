@@ -2,28 +2,24 @@
 
 This section explains some key concepts in Project Big Life’s Planning Tool. This section will explain how it works rather then how to do things.
 
-- Data and sample files
+-  [Data and sample files](#dataandsamplefiles)
 - Multivariable predictive risk algorithms
 - Calculations: general
-
     - Summary vs. By Row
     - Weighted vs. unweighted
-
 - Calculations: specific health outcomes
-
     - Risk of health outcome
     - Number of health outcomes
     - Life expectancy
-
-- Scenario: Intervention
-- Scenario: Health behaviour attribution
+- [Scenarios](#scenarios)
+    - [Interventions](#interventions)
+    - [Attributable fraction in the population](#afp)
 - Results
-
     - Why are there more deaths for the healthy behaviour?
     
 - Assumptions and limitations
 
-## Data and sample files
+## Data and sample files {#dataandsamplefiles}
 
 <div class="FOO">
 The Project Big Life Planning Tool currently accepts **2013/2014 Public Use Microdata File and Shared File of the Canadian Community Health Survey (CCHS) in '.csv' format.**
@@ -49,9 +45,6 @@ Yes you can use other population health survey data sets but you have to transfo
 ### Sample Files
 
 - data.sample.csv this is synthetic data set that includes all variables required for calculation, recommend for calculation, and needed for the case examples (found in Chapter \@ref(caseexamples)). While this data set was model on the response rates of the 2013/2014 CCHS PUMF (e.g. approximately 80% of respondents did not have high blood pressure (CCC_071)), the data is fabricated. **This data set cannot be used for real analysis**.
-
-
-
 
 ## Multivariable predictive risk algorithms
 
@@ -110,9 +103,6 @@ library(kableExtra)
 kable(PoRTs) %>%
   kable_styling(full_width = T)
 ```
-
-
-
 
 
 ## Calculations
@@ -222,9 +212,27 @@ These life tables are 1-year abridge life tables, and begin at the individual's 
 **Note:** By row life expectancy does not account for the individual's weight, and therefore can not be used to estimate the summary life expectancy. 
 <div>
 
+## Scenarios {#scenarios}
 
+*How would life expectancy change if everyone increased their physical activity levels by 10%?*
+*What if Canadians never smoked?*
 
-## Scenario: Intervention
+You are likely thinking about a scenario if you start your sentence with "what if..." or "how would...". In the planning tool, a scenario allows you to calculate an outcome by changing a risk factor or a combination of risk factors.
+
+<div class="AOO">
+**scenario** noun [ C ] UK  /sɪˈnɑː.ri.əʊ/ US /səˈner.i.oʊ/
+
+A description of possible actions or events in the future.
+
+[Cambridge Dictionary](https://dictionary.cambridge.org/dictionary/english/scenario)
+</div>
+
+There are two types of scenarios that can be calucated in the planning tool:
+
+- [Interventions](#intervetions) - that calculate a health outcome by modifing or changing health behaviour(s).
+- [Attributable fraction in the population](#afp) - that calculate a helath outcome under the scenario that no one in the population ever smoked. Attributable fraction in the poulation is known under many terms, including 'popuation attributable risk'. An example is the commonly used term 'smoking attributable mortalty'.
+
+### Interventions {#interventions}
 
 How would life expectancy change if everyone increased their physical activity levels by 10%?
 
@@ -286,10 +294,7 @@ knitr::include_graphics("Images/Scenario-Abs, Rel, Target cropped.jpg")
 To adjust the prevalence of smokers, the change is applied to every current smoker in the population; individuals are not selected at random.
 
 
-
-
-
-## Scenario: Health behaviour attribution
+### Attributable Fraction in the Population {#afp}
 
 What would be the life expectancy of a population if be no one in the population ever smoked? This scenario is a health behaviour attribution scenario.
 
