@@ -10,7 +10,7 @@ biblio-style: apalike
 link-citations: yes
 always_allow_html: yes
 github-repo: Big-Life-Lab/BATCH-Guidance
-description: "Guidance on how to use the Project Big Life Planning Tool."
+description: "How to use the Project Big Life Planning Tool."
 ---
 
 # Introduction
@@ -23,13 +23,6 @@ install.packages("ggplot2")
 #install.packages('tinytex')
 #tinytex::install_tinytex()
 tinytex:::is_tinytex()
-```
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
 ```
 
 The Project Big Life Planning Tool ([PBL Planning Tool](http://planning.projectbiglife.ca/)) is a web-based application to assess the burden of health behaviours (smoking, diet, physical activity) and the potential health impact of public health preventive strategies in Canada. 
