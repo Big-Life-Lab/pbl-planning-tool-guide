@@ -9,7 +9,8 @@ bibliography: [./bibliography/book.bib]
 biblio-style: apalike
 link-citations: yes
 always_allow_html: yes
-github-repo: Big-Life-Lab/BATCH-Guidance
+github-repo: https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/blob/master/index.Rmd
+
 description: "How to use the Project Big Life Planning Tool."
 ---
 
