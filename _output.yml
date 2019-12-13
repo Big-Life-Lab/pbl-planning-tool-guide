@@ -12,6 +12,7 @@ bookdown::gitbook:
       position: "fixed"
     edit: https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/blob/master/%s
     download: ["pdf", "epub"]
+    sharing: no
 bookdown::pdf_book:
   includes:
     in_header: ./styling/pdf/preamble.tex
