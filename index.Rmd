@@ -28,9 +28,7 @@ tinytex:::is_tinytex()
 
 The Project Big Life Planning Tool ([PBL Planning Tool](http://planning.projectbiglife.ca/)) is a web-based application to assess the burden of health behaviours (smoking, diet, physical activity) and the potential health impact of public health preventive strategies in Canada. 
 
-The tool was developed in response to requests from public health departments to create, replicate, and update health status reports such as Public Health Ontario's [Seven More Years](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) report which examined the impact of health behaviours on health outcomes: mortality and life expectancy.
-
-We hope you find the tool helpful for your research and policy planning, including the development and evaluation of population-based health interventions.
+The tool was developed in response to requests from public health departments to create, replicate, and update health status reports such as Public Health Ontario's [Seven More Years](https://www.ices.on.ca/Publications/Atlases-and-Reports/2012/Seven-More-Years) study which examined the effect of health behaviours on health outcomes: mortality and life expectancy.
 
 **The tool can help you to:**
 
