@@ -1,0 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+.book.font-family-0 {font-family: Georgia, serif;}
+.book.font-family-1 {font-family: Montserrat, Helvetica, Arial, sans-serif;}
+.book .book-summary{left:-240px;width:240px;}.book .book-body .page-wrapper .page-inner{max-width:860px;}@media (min-width: 600px) {.book.with-summary .book-header.fixed {left: 240px;}.book.with-summary .book-body{left:240px}}@media (max-width: 600px) {.book.with-summary .book-header.fixed {min-width: 240px;}.book.with-summary .book-body {min-width: 240px;}}
