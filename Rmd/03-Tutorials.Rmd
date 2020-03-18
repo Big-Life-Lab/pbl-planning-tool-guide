@@ -2,7 +2,7 @@
 
 To help you get started quickly with Project Big Life's Planning Tool, we built a Tutorial directly onto the web application.
 
-The tutorial takes you through step-by-step how to use Project Big Life's Planning Tool. The tutorial will not explain the [steps in detail](#howto)) nor will it provide terminology [glossary](#glossary) or how the [tool operates](#mport), but it will give you an understanding of how easy it is to use the Planning Tool! 
+The tutorial takes you through step-by-step how to use Project Big Life's Planning Tool. The tutorial will not explain the [steps in detail](#howto) nor will it provide terminology [glossary](#glossary) or how the [tool operates](#mport), but it will give you an understanding of how easy it is to use the Planning Tool! 
 
 **To access the tutorial**, go onto [Project Big Life's Planning Tool](http://planning.projectbiglife.ca/) and click on the Tutorial button in the top right corner!
 
@@ -10,10 +10,7 @@ The tutorial takes you through step-by-step how to use Project Big Life's Planni
 knitr::include_graphics("Images/Tutorial Button.jpg")
 ```
 
-**Data requirements**
-The tool uses the Canadian Community Health Survey (CCHS), Canada's main population health survey administered by Statistics Canada. Information about the CCHS can be found [here](http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&SDDS=3226). The tool supports the CCHS 2013 PUMF or Shared files. Information for how to access the CCHS data can be found [here](https://www150.statcan.gc.ca/n1/pub/82-620-m/2005001/4144189-eng.htm). The Canadian university community can also access the CCCHS through [Odesi](http://odesi2.scholarsportal.info/webview/) -- See health/Canada/Canadian Community Health Survey.
 
-The web application provides two CCHS data samples that can be accessed directly in the web application. These two data samples are synthetic data that do not represent actual respondents. For this reason, the results should not be used other than for demonstration purposes.
 
 **Web browser support**
 The PBL Planning Tool is a web application with all calculations performed on your desktop within the web browswer. Once loaded on your desktop, no connection to the Internet is required. 

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.6 Run scenarios | Project Biglife Planning Tool Guide</title>
   <meta name="description" content="Guidance on how to use the Project Big Life Planning Tool." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.6 Run scenarios | Project Biglife Planning Tool Guide" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="Project Big Life" />
 
 
-<meta name="date" content="2019-09-30" />
+<meta name="date" content="2020-03-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="stratify-data.html"/>
-<link rel="next" href="caseexamples.html"/>
+<link rel="prev" href="stratify-data.html">
+<link rel="next" href="run-calculation.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,7 +51,7 @@
 
 
 
-<link rel="stylesheet" href="styling/html/style.css" type="text/css" />
+<link rel="stylesheet" href="styling\html\style.css" type="text/css" />
 </head>
 
 <body>
@@ -73,12 +73,13 @@
 <li class="chapter" data-level="4" data-path="howto.html"><a href="howto.html"><i class="fa fa-check"></i><b>4</b> How To</a><ul>
 <li class="chapter" data-level="4.1" data-path="customize-data.html"><a href="customize-data.html"><i class="fa fa-check"></i><b>4.1</b> Customize Data</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="customize-data.html"><a href="customize-data.html#customize-filter-andor-stratification"><i class="fa fa-check"></i><b>4.1.1</b> Customize filter and/or stratification</a></li>
+<li class="chapter" data-level="4.1.2" data-path="customize-data.html"><a href="customize-data.html#transforming-variables-to-20132014-cchs-format"><i class="fa fa-check"></i><b>4.1.2</b> Transforming variables to 2013/2014 CCHS format</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="load-data.html"><a href="load-data.html"><i class="fa fa-check"></i><b>4.2</b> Load data</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="load-data.html"><a href="load-data.html#load-sample-files"><i class="fa fa-check"></i><b>4.2.1</b> Load sample files</a></li>
 <li class="chapter" data-level="4.2.2" data-path="load-data.html"><a href="load-data.html#load-your-own-file"><i class="fa fa-check"></i><b>4.2.2</b> Load your own file</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="select-measure-calculation.html"><a href="select-measure-calculation.html"><i class="fa fa-check"></i><b>4.3</b> Select measure (calculation)</a></li>
+<li class="chapter" data-level="4.3" data-path="select-calculation.html"><a href="select-calculation.html"><i class="fa fa-check"></i><b>4.3</b> Select calculation</a></li>
 <li class="chapter" data-level="4.4" data-path="filter-data.html"><a href="filter-data.html"><i class="fa fa-check"></i><b>4.4</b> Filter data</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="filter-data.html"><a href="filter-data.html#remove-a-filter"><i class="fa fa-check"></i><b>4.4.1</b> Remove a filter</a></li>
 </ul></li>
@@ -87,6 +88,18 @@
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="run-scenarios.html"><a href="run-scenarios.html"><i class="fa fa-check"></i><b>4.6</b> Run scenarios</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="run-scenarios.html"><a href="run-scenarios.html#intervention-scenarios"><i class="fa fa-check"></i><b>4.6.1</b> Intervention scenarios</a></li>
+<li class="chapter" data-level="4.6.2" data-path="run-scenarios.html"><a href="run-scenarios.html#health-behaviour-attribution-scenarios"><i class="fa fa-check"></i><b>4.6.2</b> Health behaviour attribution scenarios</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="run-calculation.html"><a href="run-calculation.html"><i class="fa fa-check"></i><b>4.7</b> Run calculation</a></li>
+<li class="chapter" data-level="4.8" data-path="view-results.html"><a href="view-results.html"><i class="fa fa-check"></i><b>4.8</b> View results</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="view-results.html"><a href="view-results.html#graph"><i class="fa fa-check"></i><b>4.8.1</b> Graph</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="download-results.html"><a href="download-results.html"><i class="fa fa-check"></i><b>4.9</b> Download results</a></li>
+<li class="chapter" data-level="4.10" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html"><i class="fa fa-check"></i><b>4.10</b> Resolve warning or error messages (To be developed)</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html#invalid-category"><i class="fa fa-check"></i><b>4.10.1</b> Invalid category</a></li>
+<li class="chapter" data-level="4.10.2" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html#out-of-range"><i class="fa fa-check"></i><b>4.10.2</b> Out of range</a></li>
+<li class="chapter" data-level="4.10.3" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html#not-a-number"><i class="fa fa-check"></i><b>4.10.3</b> Not a number</a></li>
+<li class="chapter" data-level="4.10.4" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html#sample-size-is-too-small"><i class="fa fa-check"></i><b>4.10.4</b> Sample size is too small</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="caseexamples.html"><a href="caseexamples.html"><i class="fa fa-check"></i><b>5</b> Case examples</a><ul>
@@ -112,7 +125,8 @@
 <li class="chapter" data-level="5.5" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html"><i class="fa fa-check"></i><b>5.5</b> Smoking by-law, 2004 Ottawa: retrospective</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-a-transform-2003-cchs-pumf-variables-to-2013-cchs-pumf-variables"><i class="fa fa-check"></i><b>5.5.1</b> Part A: Transform 2003 CCHS PUMF variables to 2013 CCHS PUMF variables</a></li>
 <li class="chapter" data-level="5.5.2" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-b-determine-the-prevalence-of-current-smokers-in-2003"><i class="fa fa-check"></i><b>5.5.2</b> Part B: Determine the prevalence of current smokers in 2003</a></li>
-<li class="chapter" data-level="5.5.3" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-d-estimate-how-many-smoking-attributable-deaths-were-prevented-due-to-enacting-the-by-law"><i class="fa fa-check"></i><b>5.5.3</b> Part D: Estimate how many smoking attributable deaths were prevented due to enacting the by-law</a></li>
+<li class="chapter" data-level="5.5.3" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-c-determine-the-prevalence-of-current-smokers-in-2013."><i class="fa fa-check"></i><b>5.5.3</b> Part C: Determine the prevalence of current smokers in 2013.</a></li>
+<li class="chapter" data-level="5.5.4" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-d-estimate-how-many-smoking-attributable-deaths-were-prevented-due-to-enacting-the-by-law"><i class="fa fa-check"></i><b>5.5.4</b> Part D: Estimate how many smoking attributable deaths were prevented due to enacting the by-law</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="keyconcepts.html"><a href="keyconcepts.html"><i class="fa fa-check"></i><b>6</b> Key Concepts</a><ul>
@@ -217,7 +231,7 @@
 <ul>
 <li>what if we only had 15% of the population smoked rather then the current 20%?</li>
 <li>what if everyone increased their physical activity by 10%?</li>
-<li>what if everyone ate 4 fruit servings each day?</li>
+<li>what if everyone ate 4 fruit and vegetable servings each day?</li>
 <li>what if everyone drank 2 fewer drinks per week?</li>
 </ul>
 <p>These intervention scenarios allow you to predict and compare the effectiveness of policies.</p>
@@ -230,29 +244,29 @@
 <p>More information on the specifics of each type of intervention scenario and how they are calculated can be found in <a href="keyconcepts.html#keyconcepts">key concepts</a> - “Scenarios: Interventions”.</p>
 <p><strong>Steps</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>Click the box beside either “Life Expectancy (Summary)” under the “Calculation” drop down.</p></li>
-<li><p>Check the button beside: “Intervention” under the “Scenario” drop down.</p></li>
-<li><p>Click on the health behaviour you want to modify: e.g. Diet.</p></li>
+<li>Click the toggle button beside “Scenario”</li>
+</ol>
+<p><img src="Images/Scenario.jpg" style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Select “Intervention” from the “Scenario Type” menu.</li>
+</ol>
+<p><img src="Images/Scenario-Intervention.jpg" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Select the “Type” of intervention you want beside your target health behaviour.</li>
 </ol>
 <ul>
-<li>A drop down menu of all the possible variables of that health behaviour you can modify will appear.</li>
+<li>A description of each intervention scenario and how they are calculated can be found in <a href="keyconcepts.html#keyconcepts">key concepts</a> - “Scenarios: Interventions”</li>
 </ul>
+<p><img src="Images/Scenario-Intervention-Abs.jpg" style="display: block; margin: auto;" /></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Click the box beside the variable you want to modify: e.g. Daily consumption - fruit - (D).</li>
+<li>Type or use the arrow keys to get the value you want.</li>
 </ol>
-<ul>
-<li>A drop down menu of the scenario types: absolute, relative, and target, will appear.</li>
-</ul>
-<ol start="5" style="list-style-type: decimal">
-<li><p>Check the button beside the type of intervention you want to modify: e.g. Target.</p></li>
-<li><p>Use the arrows beside the the text box: “Decrease by” or “Increase by” to add the value you are modifying: e.g. The value of 4 is used for the scenario what if everyone ate 4 fruit servings each day?</p></li>
-</ol>
-<p>Multiple health behaviours and variables within the health behaviours can be selected for a single calculation.</p>
-<ul>
-<li>Once selected, the name(s) of the health behaviour(s) that have been selected for the intervention will appear to the right of “Scenario”.</li>
-</ul>
-<p>###Health behaviour attribution scenarios</p>
-<p>Health behaviour attribution scenarios provide you with the ability to see the best case scenario for the population. For example:</p>
+<p><img src="Images/Scenario-Intervention-Abs2.jpg" style="display: block; margin: auto;" /></p>
+<p>Multiple health behaviour interventions can be selected for a single calculation.</p>
+</div>
+<div id="health-behaviour-attribution-scenarios" class="section level3">
+<h3><span class="header-section-number">4.6.2</span> Health behaviour attribution scenarios</h3>
+<p>Health behaviour attribution scenarios provide you with the best case scenario for the population. For example:</p>
 <ul>
 <li>what if no one in the population ever smoked?</li>
 <li>what if everyone in the population met their recommended physical activity levels (3.00 METs/week)?</li>
@@ -260,71 +274,27 @@
 <p>More information on health behaviour attribution calculations and how they are calculated can be found in key concepts](#keyconcepts) - “Scenarios: Health behaviour attribution”.</p>
 <p><strong>Steps</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>Click the box beside either “Life Expectancy (Summary)” under the “Calculation” drop down.</p></li>
-<li><p>Check the button beside: “Health behaviour attribution” under the “Scenario” drop down.</p></li>
-<li><p>Check the box beside the health behaviour that you want to have a health behaviour attribution calculation.</p></li>
+<li>Click the toggle button beside “Scenario”</li>
 </ol>
-<p>Multiple health behaviours can be selected for a single calculation.</p>
-<p>##Calculate results</p>
-<ol style="list-style-type: decimal">
-<li>Name your calculation in the text box: Calculation name.</li>
-</ol>
-<ul>
-<li>Be specific when naming the calculation as it will make it easier to distinguish after running multiple calculations.</li>
-</ul>
-<div class="FOO">
-<p><strong>Note:</strong> the larger the data set is the longer the calculations will take. Depending on the size of the data set and the type of calculation being preformed it could take an hour or more.</p>
-</div>
+<p><img src="Images/Scenario.jpg" style="display: block; margin: auto;" /></p>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Click the “calculate” button.</p></li>
-<li><p>A new table will appear under the calculate button. The table includes the status of the calculation, the calculation: name, measures, filters and stratifications that were select.</p></li>
+<li>Select “Intervention” from the “Scenario Type” menu.</li>
 </ol>
-<p>A green check mark will appear in the status column.</p>
-<p>##View Results</p>
-<ol style="list-style-type: decimal">
-<li><p>Click on the calculation name, in the table under the green calculation button.</p></li>
-<li><p>There are three tabs for the results:</p></li>
+<p><img src="Images/Scenario-HBattribution.jpg" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Check the box beside the intervention you want to do.</li>
 </ol>
-<ul>
-<li><p><strong>Overview:</strong> provides a summary of the calculation that was preformed including: measure, filters used, errors, and warnings.</p></li>
-<li><strong>Stratifications:</strong> This will show the results for the measurement you choose to calculate. This screen will either have:
-<ul>
-<li><strong>a table</strong> when you stratifications are selected.</li>
-<li><strong>a graph</strong> when stratification are selected. The graph is further described below.</li>
-</ul></li>
-<li><p><strong>Log:</strong> will give you a summary of the warnings and errors that occurred during the calculation.</p></li>
-</ul>
-<p>###Graph</p>
-<p>The graph produce through plotly is interactive. Hover over the graph to see the results for each strata, exclude strata, download a .png of the graph, and much more.</p>
-<p>##Download results</p>
-<p>Click on the <strong>Download results</strong> button under the <strong>Results</strong> section.</p>
-<p>A pop-up will appear.</p>
-<p>Select which measures you would like to download.</p>
-<p>Select which calculations you’d like to download.</p>
-<p>Scroll down in the pop up window and select “Download File: Your_file_and_calculation_name”.</p>
-<p>Two files will be downloaded.</p>
-<ul>
-<li><strong>Text file:</strong> will give you a summary of the calculation preformed.</li>
-<li><strong>CSV file:</strong> will provide you a table with the measures you preformed.</li>
-</ul>
-<p>##Resolve warning or error messages (To be developed)</p>
-<p>There are different types of warning and error messages that may appear.</p>
-<p>Below describes some of the messages that are likely to occur and steps to resolve them.</p>
-<p>###Invalid category</p>
-<p>###Out of range</p>
-<p>###Not a number</p>
-<p>###Sample size is too small</p>
-
+<p><img src="Images/Scenario-HBattribution2.jpg" style="display: block; margin: auto;" /></p>
+<p>Multiple health behaviours can be selected for a single calculation.</p>
 </div>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="stratify-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="caseexamples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="run-calculation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -354,7 +324,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/Rmd//04-How-To.Rmd",
+"link": "https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/Rmd/04-How-To.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -377,11 +347,10 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

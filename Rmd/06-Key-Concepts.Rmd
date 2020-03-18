@@ -26,29 +26,36 @@ This section explains some key concepts in Project Big Life’s Planning Tool. T
 ## Data and sample files
 
 <div class="FOO">
-The Project Big Life Planning Tool currently accepts **2013/2014 Public Use Microdata File and Shared File of the Canadian Community Health Survey (CCHS) in '.csv' format.**
+The Project Big Life Planning Tool currently accepts **2013/2014 Public Use Microdata File of the Canadian Community Health Survey (CCHS) in '.csv' format.**
 </div>
 
 ### What is the Canadian Community Health Survey?
 
-The CCHS is an annual cross-sectional survey preformed by Statistics Canada. The CCHS collects information related to health status, health care utilization, and health determinants for the Canadian population. Data is shared at the the sub-provincial geographic level (health region or combination of health regions).
+The Canadian Community Health Survey (CCHS) is an annual cross-sectional survey preformed by Statistics Canada. The CCHS is Canada's main population health survey. It collects information related to health status, health care utilization, and health determinants for the Canadian population. Data is shared at the the sub-provincial geographic level (health region or combination of health regions).
 
 - Details about the survey and its design can be found on Statistic Canada website  (http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&Id=144170). 
-- Details and access to the Public Use Microdata file (PUMF) can be found through the Odesi website (https://search2.odesi.ca/#/details?uri=%2Fodesi%2Fcchs-82M0013-E-2013-2014-Annual-component.xml)
+- Details and access to all CCHS year and thier Public Use Microdata files (PUMF) can be found through the Odesi website (https://search2.odesi.ca/#/details?uri=%2Fodesi%2Fcchs-82M0013-E-2013-2014-Annual-component.xml)
 
 ### Why can the Project Big Life Planning Tool only accept the 2013/2014 Canadian Community Health Survey data?
 
 Each year the CCHS changes a few variables it captures. This makes CCHS data sets from every year other then 2013/2014 partly incompatible with the algorithms used by the Project Big Life Planning Tool.
 
-The Project Big Life Planning Team is currently working to adjust the algorithms so that they accept CCHS year: 2001 to 2014, and will update this guidance.
 
 ### Can I use other population health survey data sets?
 
 Yes you can use other population health survey data sets but you have to transform these data set to the 2013/2014 CCHS format.
 
+To transform CCHS cycles the Project Big Life Team developed an R-package CCHS-flow. This package transforms CCHS variables from cycles 2001 to 2014 into harmonized and consistent versions. To access or learn more about the CCHS flow visit CRAN packages (https://cran.r-project.org/web/packages/cchsflow/index.html).
+
 ### Sample Files
 
-- data.sample.csv this is synthetic data set that includes all variables required for calculation, recommend for calculation, and needed for the case examples (found in Chapter \@ref(caseexamples)). While this data set was model on the response rates of the 2013/2014 CCHS PUMF (e.g. approximately 80% of respondents did not have high blood pressure (CCC_071)), the data is fabricated. **This data set cannot be used for real analysis**.
+There are three sample files:
+
+- CCHS-2013-1-percent
+- CCHS-2013-10-percent
+- CCHS-2013-100-percent
+
+Each sample file is from the 2013/2014 CCHS PUMF datafile and contains: 1%, 10% or 100% of the respondents. Each sample file contains all the variables (survey questions).
 
 
 

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.2 Load data | Project Biglife Planning Tool Guide</title>
   <meta name="description" content="Guidance on how to use the Project Big Life Planning Tool." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.2 Load data | Project Biglife Planning Tool Guide" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="Project Big Life" />
 
 
-<meta name="date" content="2019-09-30" />
+<meta name="date" content="2020-03-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="customize-data.html"/>
-<link rel="next" href="select-measure-calculation.html"/>
+<link rel="prev" href="customize-data.html">
+<link rel="next" href="select-calculation.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,7 +51,7 @@
 
 
 
-<link rel="stylesheet" href="styling/html/style.css" type="text/css" />
+<link rel="stylesheet" href="styling\html\style.css" type="text/css" />
 </head>
 
 <body>
@@ -73,12 +73,13 @@
 <li class="chapter" data-level="4" data-path="howto.html"><a href="howto.html"><i class="fa fa-check"></i><b>4</b> How To</a><ul>
 <li class="chapter" data-level="4.1" data-path="customize-data.html"><a href="customize-data.html"><i class="fa fa-check"></i><b>4.1</b> Customize Data</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="customize-data.html"><a href="customize-data.html#customize-filter-andor-stratification"><i class="fa fa-check"></i><b>4.1.1</b> Customize filter and/or stratification</a></li>
+<li class="chapter" data-level="4.1.2" data-path="customize-data.html"><a href="customize-data.html#transforming-variables-to-20132014-cchs-format"><i class="fa fa-check"></i><b>4.1.2</b> Transforming variables to 2013/2014 CCHS format</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="load-data.html"><a href="load-data.html"><i class="fa fa-check"></i><b>4.2</b> Load data</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="load-data.html"><a href="load-data.html#load-sample-files"><i class="fa fa-check"></i><b>4.2.1</b> Load sample files</a></li>
 <li class="chapter" data-level="4.2.2" data-path="load-data.html"><a href="load-data.html#load-your-own-file"><i class="fa fa-check"></i><b>4.2.2</b> Load your own file</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="select-measure-calculation.html"><a href="select-measure-calculation.html"><i class="fa fa-check"></i><b>4.3</b> Select measure (calculation)</a></li>
+<li class="chapter" data-level="4.3" data-path="select-calculation.html"><a href="select-calculation.html"><i class="fa fa-check"></i><b>4.3</b> Select calculation</a></li>
 <li class="chapter" data-level="4.4" data-path="filter-data.html"><a href="filter-data.html"><i class="fa fa-check"></i><b>4.4</b> Filter data</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="filter-data.html"><a href="filter-data.html#remove-a-filter"><i class="fa fa-check"></i><b>4.4.1</b> Remove a filter</a></li>
 </ul></li>
@@ -87,6 +88,18 @@
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="run-scenarios.html"><a href="run-scenarios.html"><i class="fa fa-check"></i><b>4.6</b> Run scenarios</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="run-scenarios.html"><a href="run-scenarios.html#intervention-scenarios"><i class="fa fa-check"></i><b>4.6.1</b> Intervention scenarios</a></li>
+<li class="chapter" data-level="4.6.2" data-path="run-scenarios.html"><a href="run-scenarios.html#health-behaviour-attribution-scenarios"><i class="fa fa-check"></i><b>4.6.2</b> Health behaviour attribution scenarios</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="run-calculation.html"><a href="run-calculation.html"><i class="fa fa-check"></i><b>4.7</b> Run calculation</a></li>
+<li class="chapter" data-level="4.8" data-path="view-results.html"><a href="view-results.html"><i class="fa fa-check"></i><b>4.8</b> View results</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="view-results.html"><a href="view-results.html#graph"><i class="fa fa-check"></i><b>4.8.1</b> Graph</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="download-results.html"><a href="download-results.html"><i class="fa fa-check"></i><b>4.9</b> Download results</a></li>
+<li class="chapter" data-level="4.10" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html"><i class="fa fa-check"></i><b>4.10</b> Resolve warning or error messages (To be developed)</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html#invalid-category"><i class="fa fa-check"></i><b>4.10.1</b> Invalid category</a></li>
+<li class="chapter" data-level="4.10.2" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html#out-of-range"><i class="fa fa-check"></i><b>4.10.2</b> Out of range</a></li>
+<li class="chapter" data-level="4.10.3" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html#not-a-number"><i class="fa fa-check"></i><b>4.10.3</b> Not a number</a></li>
+<li class="chapter" data-level="4.10.4" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html#sample-size-is-too-small"><i class="fa fa-check"></i><b>4.10.4</b> Sample size is too small</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="caseexamples.html"><a href="caseexamples.html"><i class="fa fa-check"></i><b>5</b> Case examples</a><ul>
@@ -112,7 +125,8 @@
 <li class="chapter" data-level="5.5" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html"><i class="fa fa-check"></i><b>5.5</b> Smoking by-law, 2004 Ottawa: retrospective</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-a-transform-2003-cchs-pumf-variables-to-2013-cchs-pumf-variables"><i class="fa fa-check"></i><b>5.5.1</b> Part A: Transform 2003 CCHS PUMF variables to 2013 CCHS PUMF variables</a></li>
 <li class="chapter" data-level="5.5.2" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-b-determine-the-prevalence-of-current-smokers-in-2003"><i class="fa fa-check"></i><b>5.5.2</b> Part B: Determine the prevalence of current smokers in 2003</a></li>
-<li class="chapter" data-level="5.5.3" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-d-estimate-how-many-smoking-attributable-deaths-were-prevented-due-to-enacting-the-by-law"><i class="fa fa-check"></i><b>5.5.3</b> Part D: Estimate how many smoking attributable deaths were prevented due to enacting the by-law</a></li>
+<li class="chapter" data-level="5.5.3" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-c-determine-the-prevalence-of-current-smokers-in-2013."><i class="fa fa-check"></i><b>5.5.3</b> Part C: Determine the prevalence of current smokers in 2013.</a></li>
+<li class="chapter" data-level="5.5.4" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-d-estimate-how-many-smoking-attributable-deaths-were-prevented-due-to-enacting-the-by-law"><i class="fa fa-check"></i><b>5.5.4</b> Part D: Estimate how many smoking attributable deaths were prevented due to enacting the by-law</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="keyconcepts.html"><a href="keyconcepts.html"><i class="fa fa-check"></i><b>6</b> Key Concepts</a><ul>
@@ -206,45 +220,58 @@
 <div id="load-data" class="section level2">
 <h2><span class="header-section-number">4.2</span> Load data</h2>
 <div class="FOO">
-<p><strong>Note:</strong> The Project Big Life Planning Tool can currently only support .csv data files from the 2013/2014 Canadian Community Health Survey (CCHS). Both the 2013/2014 CCHS PUMF and Shared file are accepted.</p>
+<p><strong>Note:</strong> The Project Big Life Planning Tool can only be used with the 2013/2014 Canadian Community Health Survey (CCHS) Public Use Microdata File (PUMF) in ‘.csv’ format.</p>
+<p>Other years of CCHS can be used but only if the required variables are transformed to the 2013/2014 CCHS variable format.</p>
 </div>
-<p>Data loaded to the Project Big Life Planning Tool:</p>
+<p>Only <strong>one data file</strong> can be used on the planning tool at a time; the planning tool cannot preform a calculation across multiple data files. If you wish to use data from different data sets, you first merge the data sets together and use the 2013/2014 CCHS format (e.g. variable names). Once data sets are merged into one data file you can load your data on to the Planning Tool.</p>
+<p>There are two options of data files: a sample file or your own file.</p>
+<div id="load-sample-files" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Load sample files</h3>
+<p>If you don’t have your own data or want to explore the platform’s capabilities before using your data, you can use the sample file on the Project Big Life Planning Tool. There are three sample files included on the planning tool:</p>
+<p>There are three sample files:</p>
+<ul>
+<li>CCHS-2013-1-percent</li>
+<li>CCHS-2013-10-percent</li>
+<li>CCHS-2013-100-percent</li>
+</ul>
+<p>Each sample file is from the 2013/2014 CCHS PUMF datafile and contains: 1%, 10% or 100% of the respondents. Each sample file contains all the variables (survey questions) from the 2013/2014 CCHS survey.</p>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Click ‘Select’ beside the “Sample file” to select it.</li>
+</ol>
+<p><img src="Images/Datafiles.jpg" style="display: block; margin: auto;" /></p>
+</div>
+<div id="load-your-own-file" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Load your own file</h3>
+<div class="FOO">
+<p><strong>Note:</strong> Data you load to the Project Big Life Planning Tool remains on your computer and is not uploaded or sent anywhere.</p>
+</div>
+<p>If you want to use your own file, that file must use the 2013/2014 CCHS variable names and:</p>
 <ul>
 <li><p><strong>Must include all</strong> the <strong>required</strong> variables: DDH_SEX (sex), DHHGAGE (age), and WTS_M (survey weight).</p></li>
 <li><p><strong>Should include</strong> some or all of the <strong>recommended</strong> variables. Recommended variables aren’t required for calculations but will increase the accuracy of the predicted health outcome.</p></li>
 </ul>
 <p>More information on the required and recommended variables can be found <a href="mport.html#mport">Appendix</a>.</p>
-<p>Only <strong>one data file</strong> can be used on the planning tool at a time; the planning tool cannot preform a calculation across multiple data files. If you wish to use data from different data sets, you first merge the data sets together and use the 2013/2014 CCHS format (e.g. variable names). Once data sets are merged into one data file you can load your data on to the Planning Tool.</p>
-<div class="FOO">
-<p><strong>Note:</strong> Data you load to the Project Big Life Planning Tool remains on your computer and is not uploaded or sent anywhere.</p>
-</div>
-<p>There are two options of data files: a sample file or your own file.</p>
-<div id="load-sample-files" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> Load sample files</h3>
-<p>If you don’t have your own data or want to explore the platform’s capabilities before using your data, you can use the sample file on the Project Big Life Planning Tool. There are two sample files included on the planning tool:</p>
-<ul>
-<li><strong>sample.csv (Sample)</strong> this is fabricated data set that includes all variables required for calculation, recommend for calculation, and needed for the <a href="caseexamples.html#caseexamples">case examples</a>. This data set is based on the 2013/2014 CCHS PUMF but it is <strong>entirely fabricated and can only be used for examplary purposes.</strong></li>
-<li><strong>sample_small.csv (Sample)</strong> is the same data set as above but has fewer observations. Use this data set if you are testing out the platform as it will take less time to compute.</li>
-</ul>
 <p><strong>Steps</strong></p>
 <ol style="list-style-type: decimal">
-<li>Click on the checkmark beside the “Sample file” to select it.</li>
+<li>Click the <strong>Load file</strong> button under “Select a file to use in calculations”.</li>
 </ol>
-</div>
-<div id="load-your-own-file" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Load your own file</h3>
-<p><strong>Steps</strong></p>
-<ol style="list-style-type: decimal">
-<li><p>Click the <strong>Browse</strong> button under “Select a file to use in calculations”.</p></li>
+<p><img src="Images/Datafiles-Load.jpg" style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
 <li><p>Locate the file on your computer, select, and open.</p></li>
-<li><p>Choose the file type (2013/2014 PUMF or 2013/2014 Shared) for your uploaded file, in the table that showcases all of the files.</p></li>
+<li><p>Choose the file type: PUMF CCHS 2013/2014 PUMF for your uploaded file, in the table that showcases all of the files.</p></li>
 </ol>
+<p><img src="Images/Datafiles-Load-Filetype.jpg" style="display: block; margin: auto;" /></p>
 <p>Note:</p>
 <ul>
-<li><p>If the loaded file has all of the variables required and recommended for calculation, you will be able to continue with the planning tool.</p></li>
+<li><p>If the loaded file has all of the variables required and recommended for calculation, you will be able to ‘Select’ the file and continue with the planning tool.</p></li>
 <li><p>If the loaded file does <strong>not</strong> have all the variables <strong>required</strong> for the calculation you will not be able to continue with the planning tool.</p></li>
-<li><p>If the loaded file does <strong>not</strong> have all the variables <strong>recommended</strong> for calculation you will be able to continue with the planning tool, however the calculations may be less accurate.</p></li>
 </ul>
+<p><img src="Images/Datafiles-Load-Error.jpg" style="display: block; margin: auto;" /></p>
+<ul>
+<li>If the loaded file does <strong>not</strong> have all the variables <strong>recommended</strong> for calculation you will be able to ‘Select’ the file and continue with the planning tool, however the calculations may be less accurate.</li>
+</ul>
+<p><img src="Images/Datafiles-Load-Warning.jpg" style="display: block; margin: auto;" /></p>
 </div>
 </div>
             </section>
@@ -253,7 +280,7 @@
         </div>
       </div>
 <a href="customize-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="select-measure-calculation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="select-calculation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -283,7 +310,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/Rmd//04-How-To.Rmd",
+"link": "https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/Rmd/04-How-To.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -306,11 +333,10 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
