@@ -307,7 +307,8 @@ Scenarios can be used to predict the health outcomes when unhealthy behaviours:
 - are modified in the population: **Intervention**, or
 - were never present in the population: **health behaviour attribution**
 
-Scenarios can be used to inform potential health policies or programs.
+Scenarios can be used to inform potential health policies or programs. Scenarios 
+can be run on health behaviours (smoking, physical activity, diet, alcohol).
 
 ### Intervention scenarios
 
@@ -364,10 +365,10 @@ Multiple health behaviour interventions can be selected for a single calculation
 
 Health behaviour attribution scenarios provide you with the best case scenario for the population. For example:
 
-- what if no one in the population ever smoked?
+- what if no one in the population ever smoked? (also known as smoking attributable mortality)
 - what if everyone in the population met their recommended physical activity levels (3.00 METs/week)?
 
-More information on health behaviour attribution calculations and how they are calculated can be found in key concepts](#keyconcepts) - "Scenarios: Health behaviour attribution".
+More information on health behaviour attribution calculations and how they are calculated can be found in [key concepts](#keyconcepts) - "Scenarios: Health behaviour attribution".
 
 **Steps**
 
@@ -458,7 +459,7 @@ knitr::include_graphics("Images/Results-Summary.jpg")
 
 The graph is interactive. Hover over the graph to see the results for each strata, exclude strata, download a .png of the graph, and much more.
 
-##Download results
+## Download results
 
 1. Click on the **Download results** button under the **Results** section.
 
@@ -490,16 +491,16 @@ knitr::include_graphics("Images/Results-Download4.jpg")
 
 5. The a .zip file will automatically download
 
-##Resolve warning or error messages (To be developed)
+## Resolve warning or error messages (To be developed)
 
 There are different types of warning and error messages that may appear.
 
 Below describes some of the messages that are likely to occur and steps to resolve them.
 
-###Invalid category
+### Invalid category
 
-###Out of range
+### Out of range
 
-###Not a number
+### Not a number
 
-###Sample size is too small
+### Sample size is too small
