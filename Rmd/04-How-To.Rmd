@@ -16,21 +16,24 @@ These guides will cover the topics covered in the tutorial but in greater detail
 ## Customize Data
 
 <div class="FOO">
-**Note:** The Project Big Life Planning Tool can only be used with the 2013/2014 Canadian Community Health Survey (CCHS) Public Use Microdata File (PUMF) in '.csv' format. 
+<!-- **Note:** The Project Big Life Planning Tool can only be used with the 2013/2014 Canadian Community Health Survey (CCHS) Public Use Microdata File (PUMF) in '.csv' format.  -->
+```{r}
 
-Other years of CCHS can be used but only if the required variables are transformed to the 2013/2014 CCHS format. 
+```
+
+Other years of CCHS can be used but only if the required variables are transformed to the 2013/2014 CCHS format.
 </div>
 
 
 
 Prior to using the Project Big Life Planning Tool you may want to transform your data set. Reasons include: customized filter(s) and/or customized stratification(s), or transforming variables from other population health surveys to the 2013/2014 Canadian Community Health Survey (CCHS) format. Any variable that you create can be selected within the planning tool in the filter and/or stratify options.
 
-Data manipulation can occur on any programming software: R, SAS, STATA, etc, as long as you output your data set as a '.csv' file. 
+Data manipulation can occur on any programming software: R, SAS, STATA, etc, as long as you output your data set as a '.csv' file.
 
 ### Customize filter and/or stratification
 
 An example of customizing your data set is converting the variable: Body Mass Index (CCHS 2013/2014 variable HWTGBMI) from a continuous variable into four distinct categories:
-    
+
 - Underweight: BMI less then 18.5
 - Normal or Healthy Weight: BMI of 18.5 to 24.9
 - Overweight: BMI of 25.0 to 29.9
@@ -41,17 +44,17 @@ An example of customizing your data set is converting the variable: Body Mass In
 The following steps show the R code that would be used to create these strata:
 
 1. Convert observations "Not stated" from 999.99 to NA
-```    
+```
     data[data == 999.99] <- NA
-```      
+```
 2. Load the R package dpylr. This package is used for data manipulation.
 ```
     library(dpylr)
-```       
+```
 3. Create a new column that contains four categories for BMI
-``` 
+```
     data$newcolumn <- cut(data$HWTGBMI, breaks = c(0,18.5,25,30,Inf),  labels=c("Underweight", "Healthy", "Overweight", "Obese")
-``` 
+```
 4. The output will be your data set + a new column with the corresponding category ("Underweight", "Healthy", "Overweight", "Obese") for that individual.
 
 ```
@@ -68,32 +71,32 @@ This new column can be now be used with the Project Big Life Planning Tool for t
 
 ###Transforming variables to 2013/2014 CCHS format
 
-Population health surveys other then the 2013/2014 CCHS PUMF can be used if the variables: sex, age and survey weight (required variables) are transformed to the 2013/2014 CCHS format. 
+Population health surveys other then the 2013/2014 CCHS PUMF can be used if the variables: sex, age and survey weight (required variables) are transformed to the 2013/2014 CCHS format.
 
-For example the 2005/2006 CCHS data can be used if the 2005/2006 CCHS variable for age is renamed from DHH**E**GAGE to and DHHGAGE (2013/2014 format). Although the name for the variable name for age is different between the 2005/2006 and 2013/2014 surveys, they capture identical information.  
+For example the 2005/2006 CCHS data can be used if the 2005/2006 CCHS variable for age is renamed from DHH**E**GAGE to and DHHGAGE (2013/2014 format). Although the name for the variable name for age is different between the 2005/2006 and 2013/2014 surveys, they capture identical information.
 
 
 ```{}
 library(dpylr)
 
-CCHSdata.2005.2006 <- CCHSdata.2005.2006 %>% 
+CCHSdata.2005.2006 <- CCHSdata.2005.2006 %>%
   rename(DHHGAGE = DHHEGAGE)
 ```
 
 All required variables **must** be transformed to the 2013/2014 CCHS format. It is also recommended that you transform the recommend variables as well to increase the accuracy of the prediction(s).
 
-When transforming required or recommended variables pay attention to how the data was captured. There may be differences limit the ability to use the data set or differences that will affect your results. For instance from the 2001-2004 CCHS survey age is captured in 15 categories but from 2005-2013 age is captured in 16 categories. 
+When transforming required or recommended variables pay attention to how the data was captured. There may be differences limit the ability to use the data set or differences that will affect your results. For instance from the 2001-2004 CCHS survey age is captured in 15 categories but from 2005-2013 age is captured in 16 categories.
 
 
-## Load data 
+## Load data
 
 <div class="FOO">
-**Note:** The Project Big Life Planning Tool can only be used with the 2013/2014 Canadian Community Health Survey (CCHS) Public Use Microdata File (PUMF) in '.csv' format. 
+**Note:** The Project Big Life Planning Tool can only be used with the 2013/2014 Canadian Community Health Survey (CCHS) Public Use Microdata File (PUMF) in '.csv' format.
 
-Other years of CCHS can be used but only if the required variables are transformed to the 2013/2014 CCHS variable format. 
+Other years of CCHS can be used but only if the required variables are transformed to the 2013/2014 CCHS variable format.
 </div>
 
-Only **one data file** can be used on the planning tool at a time; the planning tool cannot preform a calculation across multiple data files. If you wish to use data from different data sets, you first merge the data sets together and use the 2013/2014 CCHS format (e.g. variable names). Once data sets are merged into one data file you can load your data on to the Planning Tool. 
+Only **one data file** can be used on the planning tool at a time; the planning tool cannot preform a calculation across multiple data files. If you wish to use data from different data sets, you first merge the data sets together and use the 2013/2014 CCHS format (e.g. variable names). Once data sets are merged into one data file you can load your data on to the Planning Tool.
 
 There are two options of data files: a sample file or your own file.
 
@@ -112,7 +115,7 @@ Each sample file is from the 2013/2014 CCHS PUMF datafile and contains: 1%, 10% 
 
 **Steps**
 
-1. Click 'Select' beside the "Sample file" to select it. 
+1. Click 'Select' beside the "Sample file" to select it.
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("Images/Datafiles.jpg")
@@ -128,7 +131,7 @@ If you want to use your own file, that file must use the 2013/2014 CCHS variable
 
 - **Must include all** the **required** variables: DDH_SEX (sex), DHHGAGE (age), and WTS_M (survey weight).
 
-- **Should include** some or all of the **recommended** variables. Recommended variables aren't required for calculations but will increase the accuracy of the predicted health outcome. 
+- **Should include** some or all of the **recommended** variables. Recommended variables aren't required for calculations but will increase the accuracy of the predicted health outcome.
 
 More information on the required and recommended variables can be found [Appendix](#mport).
 
@@ -141,7 +144,7 @@ More information on the required and recommended variables can be found [Appendi
 knitr::include_graphics("Images/Datafiles-Load.jpg")
 ```
 
-2. Locate the file on your computer, select, and open. 
+2. Locate the file on your computer, select, and open.
 
 3. Choose the file type: PUMF CCHS 2013/2014 PUMF for your uploaded file, in the table that showcases all of the files.
 
@@ -152,15 +155,15 @@ knitr::include_graphics("Images/Datafiles-Load-Filetype.jpg")
 
 Note:
 
-- If the loaded file has all of the variables required and recommended for calculation, you will be able to 'Select' the file and continue with the planning tool. 
-  
+- If the loaded file has all of the variables required and recommended for calculation, you will be able to 'Select' the file and continue with the planning tool.
+
 - If the loaded file does **not** have all the variables **required** for the calculation you will not be able to continue with the planning tool.
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("Images/Datafiles-Load-Error.jpg")
 ```
-  
-- If the loaded file does **not** have all the variables **recommended** for calculation you will be able to 'Select' the file and continue with the planning tool, however the calculations may be less accurate. 
+
+- If the loaded file does **not** have all the variables **recommended** for calculation you will be able to 'Select' the file and continue with the planning tool, however the calculations may be less accurate.
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("Images/Datafiles-Load-Warning.jpg")
@@ -230,21 +233,21 @@ knitr::include_graphics("Images/FilterSearch.jpg")
 4. Filter **in** the categories/levels within the variable by:
 
   - **Categorical:** Clicking on the "Search categories"" text bar. Scroll and select the category you want to **keep** in your data. Repeat this step to add additional categories.
-  
+
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("Images/FilterCat.jpg")
 ```
 
-  - **Continous:** Click the "cycle button" found under the variable you have selected. Two new boxes will appear. 
-    - Select the minimum value for your subset data in the box on the left by typin the value. 
+  - **Continous:** Click the "cycle button" found under the variable you have selected. Two new boxes will appear.
+    - Select the minimum value for your subset data in the box on the left by typin the value.
     - Select the maximum value for your subset data in the box on your right by typing the value.
-    
+
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("Images/FilterCont.jpg")
-```    
+```
 
-    
-4. To add another filter repeat the steps above. A maximum of three filters are recommended to maintain statistical power (added filters reduce sample sizes and reduces statistical power). 
+
+4. To add another filter repeat the steps above. A maximum of three filters are recommended to maintain statistical power (added filters reduce sample sizes and reduces statistical power).
 
   - Once selected, the name(s) of the filtered variable(s) will appear to the right of "Filters".
 
@@ -257,17 +260,17 @@ You are able to filter on all types of variables: required for calculation, reco
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("Images/FilterRemove1.jpg")
-```  
+```
 
 - To remove a level within a filtered variable - categorical, click on the 'x' beside the variable level.
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("Images/FilterRemove2.jpg")
-```  
+```
 
 ## Stratify data
 
-Use stratifications when you want to get a result for multiple strata (levels or classes). 
+Use stratifications when you want to get a result for multiple strata (levels or classes).
 
 A summary measure must be selected for stratifications, as only a summary measure will be outputted for each strata. By row measurements may also be selected but they will not be stratified.
 
@@ -307,8 +310,7 @@ Scenarios can be used to predict the health outcomes when unhealthy behaviours:
 - are modified in the population: **Intervention**, or
 - were never present in the population: **health behaviour attribution**
 
-Scenarios can be used to inform potential health policies or programs. Scenarios 
-can be run on health behaviours (smoking, physical activity, diet, alcohol).
+Scenarios can be used to inform potential health policies or programs.
 
 ### Intervention scenarios
 
@@ -323,7 +325,7 @@ These intervention scenarios allow you to predict and compare the effectiveness 
 
 There are 3 types of intervention scenarios that you can select:
 
-- **Absolute:** each individual in the population **changes** their health behaviour **by a value of x**. 
+- **Absolute:** each individual in the population **changes** their health behaviour **by a value of x**.
 - **Relative:** each individual in the population **changes** their health behaviour **by a ratio of y**.
 - **Target:** each individual in the population **has a set value of z.**
 
@@ -343,7 +345,7 @@ knitr::include_graphics("Images/Scenario.jpg")
 knitr::include_graphics("Images/Scenario-Intervention.jpg")
 ```
 
-3. Select the "Type" of intervention you want beside your target health behaviour. 
+3. Select the "Type" of intervention you want beside your target health behaviour.
 
 - A description of each intervention scenario and how they are calculated can be found in [key concepts](#keyconcepts) - "Scenarios: Interventions"
 
@@ -351,7 +353,7 @@ knitr::include_graphics("Images/Scenario-Intervention.jpg")
 knitr::include_graphics("Images/Scenario-Intervention-Abs.jpg")
 ```
 
-4. Type or use the arrow keys to get the value you want. 
+4. Type or use the arrow keys to get the value you want.
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("Images/Scenario-Intervention-Abs2.jpg")
@@ -365,10 +367,10 @@ Multiple health behaviour interventions can be selected for a single calculation
 
 Health behaviour attribution scenarios provide you with the best case scenario for the population. For example:
 
-- what if no one in the population ever smoked? (also known as smoking attributable mortality)
+- what if no one in the population ever smoked?
 - what if everyone in the population met their recommended physical activity levels (3.00 METs/week)?
 
-More information on health behaviour attribution calculations and how they are calculated can be found in [key concepts](#keyconcepts) - "Scenarios: Health behaviour attribution".
+More information on health behaviour attribution calculations and how they are calculated can be found in key concepts](#keyconcepts) - "Scenarios: Health behaviour attribution".
 
 **Steps**
 
@@ -390,24 +392,24 @@ knitr::include_graphics("Images/Scenario-HBattribution.jpg")
 knitr::include_graphics("Images/Scenario-HBattribution2.jpg")
 ```
 
-Multiple health behaviours can be selected for a single calculation. 
+Multiple health behaviours can be selected for a single calculation.
 
 
 ##Run calculation
 
 **Steps**
 
-Click "Calculate" in the bottom right corner once you have selected your conditions. 
+Click "Calculate" in the bottom right corner once you have selected your conditions.
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("Images/Calculate.jpg")
 ```
 
 <div class="FOO">
-**Note:** the larger the data set is the longer the calculations will take. Depending on the size of the data set and the type of calculation being preformed it could take an hour or more. 
+**Note:** the larger the data set is the longer the calculations will take. Depending on the size of the data set and the type of calculation being preformed it could take an hour or more.
 </div>
 
-2. A new table will appear under the calculations box. The table includes the status of the calculation, calculation name and the selected conditions: measures, filters, stratifications, and scenarios. 
+2. A new table will appear under the calculations box. The table includes the status of the calculation, calculation name and the selected conditions: measures, filters, stratifications, and scenarios.
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("Images/Calculate2.jpg")
@@ -422,7 +424,7 @@ knitr::include_graphics("Images/Calculate3.jpg")
 
 ##View results
 
-1. Click the "View" button beside the calculation you want to see. 
+1. Click the "View" button beside the calculation you want to see.
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("Images/Calculate3.jpg")
 ```
@@ -431,7 +433,7 @@ knitr::include_graphics("Images/Calculate3.jpg")
 
 The following tabs will **always** appear:
 
-- **Overview:** gives a summary of the calculation(s). 
+- **Overview:** gives a summary of the calculation(s).
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("Images/Results-Overview.jpg")
@@ -459,7 +461,7 @@ knitr::include_graphics("Images/Results-Summary.jpg")
 
 The graph is interactive. Hover over the graph to see the results for each strata, exclude strata, download a .png of the graph, and much more.
 
-## Download results
+##Download results
 
 1. Click on the **Download results** button under the **Results** section.
 
@@ -467,9 +469,9 @@ The graph is interactive. Hover over the graph to see the results for each strat
 knitr::include_graphics("Images/Results-Download.jpg")
 ```
 
-A pop-up will appear. 
+A pop-up will appear.
 
-2. Select which file you would like to download. 
+2. Select which file you would like to download.
 
 - **Input file with calculation results** gives you a .csv file with all observations and calculation per row
 - **Population summary** gives you a .csv file with only summary results
@@ -491,16 +493,34 @@ knitr::include_graphics("Images/Results-Download4.jpg")
 
 5. The a .zip file will automatically download
 
-## Resolve warning or error messages (To be developed)
+##Resolve warning or error messages
 
 There are different types of warning and error messages that may appear.
 
 Below describes some of the messages that are likely to occur and steps to resolve them.
 
-### Invalid category
+###Invalid category
 
-### Out of range
+The value for a variable in the row is not one of the recognized category values.
 
-### Not a number
+You can click the **View variables** button to see all recognized category values.
 
-### Sample size is too small
+###Out of range
+
+The value for a variable in the row is outside of the recognized range of values.
+
+You can click the **View variables** button to see all recognized value ranges.
+
+###Not a number
+
+The value for a variable in the row is not a number, and can't be processed.
+
+###Sample size is too small
+
+A small sample size could be the result of one or more of the following:
+- The input file has a small sample size
+- The filters that were applied reduced the number of rows significantly
+- The calculation is being stratified, and one or more of the groupings has a small sample size
+- There were a significant number of rows with errors
+
+Rows with one or more errors won't be processed, and won't be included in the sample size. Rows with no errors will be processed and included in the sample size, even if they have multiple warnings.
