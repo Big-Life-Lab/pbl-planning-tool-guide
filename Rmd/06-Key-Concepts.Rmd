@@ -287,7 +287,7 @@ kable(scenarios.smoke) %>%
 Although each type of health intervention for smoking: absolute, relative and target, changes the prevalence of current smokers they are different. The following figure shows how each is different from one another. 
 
 ```{r, echo=FALSE, fig.align='center', fig.cap= "Comparison of health intervention scenario types"}
-knitr::include_graphics("Images/Scenario-Abs, Rel, Target cropped.jpg")
+knitr::include_graphics("../Images/Scenario-Abs, Rel, Target cropped.jpg")
 ```
 
 To adjust the prevalence of smokers, the change is applied to every current smoker in the population; individuals are not selected at random.
@@ -316,7 +316,7 @@ The number of deaths for a population is calculated twice:
 The difference between the number of deaths for of the two populations is the **smoking attributable deaths**.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap= "Health behaviour attributable scenario - Deaths"}
-knitr::include_graphics("Images/HB attributable number of deaths.jpg")
+knitr::include_graphics("../Images/HB attributable number of deaths.jpg")
 ```
 
 In this example smoking attributes approximately 15,000 deaths in the population. 
@@ -329,7 +329,7 @@ This can also be done with life expectancy. Life expectancy is calculated:
 The difference between the life expectancy of the two populations is the **life expectancy lost due to smoking**.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap= "Health behaviour attributable scenario - Life expectancy"}
-knitr::include_graphics("Images/HB attributable LE.jpg")
+knitr::include_graphics("../Images/HB attributable LE.jpg")
 ```
 
 ### Multiple selected health behaviours
@@ -394,7 +394,7 @@ kable(HBAref) %>%
 
 You may get a result where there are more deaths for the "healthier" exposure rather then an "unhealthier" exposure, for instance:
 ```{r, echo=FALSE, fig.align='center'}
-knitr::include_graphics("Images/Graph-hypertension-diabetes.jpg")
+knitr::include_graphics("../Images/Graph-hypertension-diabetes.jpg")
 ```
 
 This result occurs as there are more people in the population that do not have diabetes. You can standarized your data set prior to the calculation to get a differnt result.
