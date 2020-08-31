@@ -407,7 +407,7 @@ This result occurs as there are more people in the population that do not have d
 
 The Canadian Community Health Surveys used to both develop the mortality algorithm (MPoRT) employed in the Project Big Life Planning Tool and to assess burden, only included individuals living in the community setting. Excluded from the sampling frame were people living on First Nation Reserves and Crown Land, people living in long-term care facilities, incarcerated individuals, and full-time members of the Canadian Forces. The algorithm also excluded people younger than 20 years of age. 
 
-The exclusion of these individuals may lead to a small under-estimation of the health behaviour attributable burden since the excluded populations have higher prevalence of unhealthy behaviours like smoking. For example, current smoker prevalence is higher on First Nations reserves and among the incarcerated compared to the general population {TBA Marrett and Chaudry, 2003; Baybutt et al., 2012}. That stated, this under-estimation is likely small as the excluded population accounts for approxiamtely 2% of the Canadian population {TBA Beland, 2002}. 
+The exclusion of these individuals may lead to a small under-estimation of the health behaviour attributable burden since the excluded populations have higher prevalence of unhealthy behaviours like smoking. For example, current smoker prevalence is higher on First Nations reserves and among the incarcerated compared to the general population [TBA Marrett and Chaudry, 2003; Baybutt et al., 2012]. That stated, this under-estimation is likely small as the excluded population accounts for approxiamtely 2% of the Canadian population [TBA Beland, 2002]. 
 
 #### Reporting of health behaviours
 
