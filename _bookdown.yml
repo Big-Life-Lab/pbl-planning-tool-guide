@@ -1,6 +1,6 @@
-book_filename: "Project Biglife Planning Tool Guide"
+book_filename: "Project-Biglife-Planning-Tool-Guide"
 rmd_subdir: ["Rmd/"]
-language:
+language:de
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
