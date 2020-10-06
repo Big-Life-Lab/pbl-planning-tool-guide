@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.7 Run calculation | Project Biglife Planning Tool Guide</title>
   <meta name="description" content="Guidance on how to use the Project Big Life Planning Tool." />
-  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.7 Run calculation | Project Biglife Planning Tool Guide" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="Project Big Life" />
 
 
-<meta name="date" content="2020-03-18" />
+<meta name="date" content="2020-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="run-scenarios.html">
-<link rel="next" href="view-results.html">
+<link rel="prev" href="run-scenarios.html"/>
+<link rel="next" href="view-results.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,11 +48,14 @@
 
 
 
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 
-<link rel="stylesheet" href="styling\html\style.css" type="text/css" />
+<link rel="stylesheet" href="styling/html/style.css" type="text/css" />
 </head>
 
 <body>
@@ -73,7 +77,6 @@
 <li class="chapter" data-level="4" data-path="howto.html"><a href="howto.html"><i class="fa fa-check"></i><b>4</b> How To</a><ul>
 <li class="chapter" data-level="4.1" data-path="customize-data.html"><a href="customize-data.html"><i class="fa fa-check"></i><b>4.1</b> Customize Data</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="customize-data.html"><a href="customize-data.html#customize-filter-andor-stratification"><i class="fa fa-check"></i><b>4.1.1</b> Customize filter and/or stratification</a></li>
-<li class="chapter" data-level="4.1.2" data-path="customize-data.html"><a href="customize-data.html#transforming-variables-to-20132014-cchs-format"><i class="fa fa-check"></i><b>4.1.2</b> Transforming variables to 2013/2014 CCHS format</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="load-data.html"><a href="load-data.html"><i class="fa fa-check"></i><b>4.2</b> Load data</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="load-data.html"><a href="load-data.html#load-sample-files"><i class="fa fa-check"></i><b>4.2.1</b> Load sample files</a></li>
@@ -95,11 +98,11 @@
 <li class="chapter" data-level="4.8.1" data-path="view-results.html"><a href="view-results.html#graph"><i class="fa fa-check"></i><b>4.8.1</b> Graph</a></li>
 </ul></li>
 <li class="chapter" data-level="4.9" data-path="download-results.html"><a href="download-results.html"><i class="fa fa-check"></i><b>4.9</b> Download results</a></li>
-<li class="chapter" data-level="4.10" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html"><i class="fa fa-check"></i><b>4.10</b> Resolve warning or error messages (To be developed)</a><ul>
-<li class="chapter" data-level="4.10.1" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html#invalid-category"><i class="fa fa-check"></i><b>4.10.1</b> Invalid category</a></li>
-<li class="chapter" data-level="4.10.2" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html#out-of-range"><i class="fa fa-check"></i><b>4.10.2</b> Out of range</a></li>
-<li class="chapter" data-level="4.10.3" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html#not-a-number"><i class="fa fa-check"></i><b>4.10.3</b> Not a number</a></li>
-<li class="chapter" data-level="4.10.4" data-path="resolve-warning-or-error-messages-to-be-developed.html"><a href="resolve-warning-or-error-messages-to-be-developed.html#sample-size-is-too-small"><i class="fa fa-check"></i><b>4.10.4</b> Sample size is too small</a></li>
+<li class="chapter" data-level="4.10" data-path="resolve-warning-or-error-messages.html"><a href="resolve-warning-or-error-messages.html"><i class="fa fa-check"></i><b>4.10</b> Resolve warning or error messages</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="resolve-warning-or-error-messages.html"><a href="resolve-warning-or-error-messages.html#invalid-category"><i class="fa fa-check"></i><b>4.10.1</b> Invalid category</a></li>
+<li class="chapter" data-level="4.10.2" data-path="resolve-warning-or-error-messages.html"><a href="resolve-warning-or-error-messages.html#out-of-range"><i class="fa fa-check"></i><b>4.10.2</b> Out of range</a></li>
+<li class="chapter" data-level="4.10.3" data-path="resolve-warning-or-error-messages.html"><a href="resolve-warning-or-error-messages.html#not-a-number"><i class="fa fa-check"></i><b>4.10.3</b> Not a number</a></li>
+<li class="chapter" data-level="4.10.4" data-path="resolve-warning-or-error-messages.html"><a href="resolve-warning-or-error-messages.html#sample-size-is-too-small"><i class="fa fa-check"></i><b>4.10.4</b> Sample size is too small</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="caseexamples.html"><a href="caseexamples.html"><i class="fa fa-check"></i><b>5</b> Case examples</a><ul>
@@ -125,8 +128,7 @@
 <li class="chapter" data-level="5.5" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html"><i class="fa fa-check"></i><b>5.5</b> Smoking by-law, 2004 Ottawa: retrospective</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-a-transform-2003-cchs-pumf-variables-to-2013-cchs-pumf-variables"><i class="fa fa-check"></i><b>5.5.1</b> Part A: Transform 2003 CCHS PUMF variables to 2013 CCHS PUMF variables</a></li>
 <li class="chapter" data-level="5.5.2" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-b-determine-the-prevalence-of-current-smokers-in-2003"><i class="fa fa-check"></i><b>5.5.2</b> Part B: Determine the prevalence of current smokers in 2003</a></li>
-<li class="chapter" data-level="5.5.3" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-c-determine-the-prevalence-of-current-smokers-in-2013."><i class="fa fa-check"></i><b>5.5.3</b> Part C: Determine the prevalence of current smokers in 2013.</a></li>
-<li class="chapter" data-level="5.5.4" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-d-estimate-how-many-smoking-attributable-deaths-were-prevented-due-to-enacting-the-by-law"><i class="fa fa-check"></i><b>5.5.4</b> Part D: Estimate how many smoking attributable deaths were prevented due to enacting the by-law</a></li>
+<li class="chapter" data-level="5.5.3" data-path="smoking-by-law-2004-ottawa-retrospective.html"><a href="smoking-by-law-2004-ottawa-retrospective.html#part-d-estimate-how-many-smoking-attributable-deaths-were-prevented-due-to-enacting-the-by-law"><i class="fa fa-check"></i><b>5.5.3</b> Part D: Estimate how many smoking attributable deaths were prevented due to enacting the by-law</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="keyconcepts.html"><a href="keyconcepts.html"><i class="fa fa-check"></i><b>6</b> Key Concepts</a><ul>
@@ -221,16 +223,17 @@
 <h2><span class="header-section-number">4.7</span> Run calculation</h2>
 <p><strong>Steps</strong></p>
 <p>Click “Calculate” in the bottom right corner once you have selected your conditions.</p>
-<p><img src="Images/Calculate.jpg" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Calculate.jpg" width="546" style="display: block; margin: auto;" /></p>
 <div class="FOO">
 <p><strong>Note:</strong> the larger the data set is the longer the calculations will take. Depending on the size of the data set and the type of calculation being preformed it could take an hour or more.</p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>A new table will appear under the calculations box. The table includes the status of the calculation, calculation name and the selected conditions: measures, filters, stratifications, and scenarios.</li>
 </ol>
-<p><img src="Images/Calculate2.jpg" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Calculate2.jpg" width="900" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
-<li>A “View” button will appear next to your calculation once it is complete. <img src="Images/Calculate3.jpg" style="display: block; margin: auto;" /></li>
+<li>A “View” button will appear next to your calculation once it is complete.
+<img src="Images/Calculate3.jpg" width="882" style="display: block; margin: auto;" /></li>
 </ol>
 </div>
             </section>
@@ -244,11 +247,13 @@
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -256,12 +261,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -269,10 +273,14 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/Rmd/04-How-To.Rmd",
+"link": "https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/blob/master/Rmd//04-How-To.Rmd",
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -292,10 +300,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
