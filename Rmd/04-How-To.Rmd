@@ -519,12 +519,9 @@ The value for a variable in the row is not a number, and can't be processed.
 
 A small sample size could be the result of one or more of the following:
 
-- The input file has a small sample size
-
-- The filters that were applied reduced the number of rows significantly
-
-- The calculation is being stratified, and one or more of the groupings has a small sample size
-
-- There were a significant number of rows with errors
+* The input file has a small sample size
+* The filters that were applied reduced the number of rows significantly
+* The calculation is being stratified, and one or more of the groupings has a small sample size
+* There were a significant number of rows with errors
 
 Rows with one or more errors won't be processed, and won't be included in the sample size. Rows with no errors will be processed and included in the sample size, even if they have multiple warnings.
