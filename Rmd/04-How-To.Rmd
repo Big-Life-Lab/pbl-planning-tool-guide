@@ -363,7 +363,7 @@ Multiple health behaviour interventions can be selected for a single calculation
 
 
 
-###Health behaviour attribution scenarios
+### Health behaviour attribution scenarios
 
 Health behaviour attribution scenarios provide you with the best case scenario for the population. For example:
 
@@ -395,7 +395,7 @@ knitr::include_graphics("Images/Scenario-HBattribution2.jpg")
 Multiple health behaviours can be selected for a single calculation.
 
 
-##Run calculation
+## Run calculation
 
 **Steps**
 
@@ -422,7 +422,7 @@ knitr::include_graphics("Images/Calculate3.jpg")
 
 
 
-##View results
+## View results
 
 1. Click the "View" button beside the calculation you want to see.
 ```{r, echo=FALSE, fig.align='center'}
@@ -457,11 +457,11 @@ knitr::include_graphics("Images/Results-Summary.jpg")
 
 - **Stratifications** will give you a graph with the summary measures, when stratifications are selected.
 
-###Graph
+### Graph
 
 The graph is interactive. Hover over the graph to see the results for each strata, exclude strata, download a .png of the graph, and much more.
 
-##Download results
+## Download results
 
 1. Click on the **Download results** button under the **Results** section.
 
@@ -493,34 +493,38 @@ knitr::include_graphics("Images/Results-Download4.jpg")
 
 5. The a .zip file will automatically download
 
-##Resolve warning or error messages
+## Resolve warning or error messages
 
 There are different types of warning and error messages that may appear.
 
 Below describes some of the messages that are likely to occur and steps to resolve them.
 
-###Invalid category
+### Invalid category
 
 The value for a variable in the row is not one of the recognized category values.
 
 You can click the **View variables** button to see all recognized category values.
 
-###Out of range
+### Out of range
 
 The value for a variable in the row is outside of the recognized range of values.
 
 You can click the **View variables** button to see all recognized value ranges.
 
-###Not a number
+### Not a number
 
 The value for a variable in the row is not a number, and can't be processed.
 
-###Sample size is too small
+### Sample size is too small
 
 A small sample size could be the result of one or more of the following:
+
 - The input file has a small sample size
+
 - The filters that were applied reduced the number of rows significantly
+
 - The calculation is being stratified, and one or more of the groupings has a small sample size
+
 - There were a significant number of rows with errors
 
 Rows with one or more errors won't be processed, and won't be included in the sample size. Rows with no errors will be processed and included in the sample size, even if they have multiple warnings.
