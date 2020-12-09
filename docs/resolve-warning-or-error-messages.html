@@ -223,20 +223,27 @@
 <div id="resolve-warning-or-error-messages" class="section level2">
 <h2><span class="header-section-number">4.10</span> Resolve warning or error messages</h2>
 <p>There are different types of warning and error messages that may appear.</p>
-<p>Below describes some of the messages that are likely to occur and steps to resolve them.</p>
+<p>Many errors are caused by invalid values for variables. To see the valid categories and intervals for variables,
+take a look at the <strong>Variables view</strong>.</p>
+<p>Below describes some of the messages that are likely to occur and steps to resolve them. The examples assume
+using a PUMF CCHS 2013/14 file.</p>
 <div id="invalid-category" class="section level3">
 <h3><span class="header-section-number">4.10.1</span> Invalid category</h3>
 <p>The value for a variable in the row is not one of the recognized category values.</p>
-<p>You can click the <strong>View variables</strong> button to see all recognized category values.</p>
+<p><em>Example</em>: Age (Variable: DHHGAGE) value of <code>50</code>.</p>
+<p><em>Why it’s an error</em>: The recognized age categories are between <code>1</code> and <code>16</code>.</p>
 </div>
 <div id="out-of-range" class="section level3">
 <h3><span class="header-section-number">4.10.2</span> Out of range</h3>
 <p>The value for a variable in the row is outside of the recognized range of values.</p>
-<p>You can click the <strong>View variables</strong> button to see all recognized value ranges.</p>
+<p><em>Example</em>: Daily fruit consumption (Variable: FVCDFRU) value of <code>25</code>.</p>
+<p><em>Why it’s an error</em>: The recognized daily fruit consumption range is between <code>0</code> and <code>20</code>.</p>
 </div>
 <div id="not-a-number" class="section level3">
 <h3><span class="header-section-number">4.10.3</span> Not a number</h3>
 <p>The value for a variable in the row is not a number, and can’t be processed.</p>
+<p><em>Example</em>: Age (Variable: DHHGAGE) value of <code>FIVE</code>.</p>
+<p><em>Why it’s an error</em>: The variable’s value must be a number.</p>
 </div>
 <div id="sample-size-is-too-small" class="section level3">
 <h3><span class="header-section-number">4.10.4</span> Sample size is too small</h3>
@@ -247,7 +254,7 @@
 <li>The calculation is being stratified, and one or more of the groupings has a small sample size</li>
 <li>There were a significant number of rows with errors</li>
 </ul>
-<p>Rows with one or more errors won’t be processed, and won’t be included in the sample size. Rows with no errors will be processed and included in the sample size, even if they have multiple warnings.</p>
+<p>Rows with one or more errors won’t be processed, and won’t be included in the sample size. Rows with no errors will be processed and included in the sample size, even if they have warnings.</p>
 
 </div>
 </div>
