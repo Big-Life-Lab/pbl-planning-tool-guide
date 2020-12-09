@@ -1,3 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+@font-face {
+  font-family: Bariol;
+  src: url('https://planning.projectbiglife.ca/dist/fonts/Bariol_Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Bariol;
+  font-weight: bold;
+  src: url('https://planning.projectbiglife.ca/dist/fonts/Bariol_Bold.otf') format('opentype');
+}
+
+.page-inner section {
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+}
+
+.page-inner section h1,
+.page-inner section h2,
+.page-inner section h3,
+.page-inner section h4,
+.page-inner section h5,
+.page-inner section h6 {
+  font-family: Bariol, Montserrat, Helvetica, Arial, sans-serif;
+}
+
 p.caption {
   color: #777;
   margin-top: 10px;
