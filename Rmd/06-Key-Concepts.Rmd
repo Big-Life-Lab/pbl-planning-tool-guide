@@ -36,7 +36,7 @@ The Project Big Life Planning Tool currently accepts **2013/2014 Public Use Micr
 
 ### What is the Canadian Community Health Survey?
 
-The CCHS is an annual cross-sectional survey preformed by Statistics Canada. The CCHS collects information related to health status, health care utilization, and health determinants for the Canadian population. Data is shared at the the sub-provincial geographic level (health region or combination of health regions).
+The Canadian Community Health Survey (CCHS) is an annual cross-sectional survey preformed by Statistics Canada. The CCHS is Canada's main population health survey. It collects information related to health status, health care utilization, and health determinants for the Canadian population. Data is shared at the the sub-provincial geographic level (health region or combination of health regions).
 
 -   Details about the survey and its design can be found on Statistic Canada website (<http://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&Id=144170>).
 -   Details and access to the Public Use Microdata file (PUMF) can be found through the Odesi website (<https://search2.odesi.ca/#/details?uri=%2Fodesi%2Fcchs-82M0013-E-2013-2014-Annual-component.xml>)
@@ -45,19 +45,29 @@ The CCHS is an annual cross-sectional survey preformed by Statistics Canada. The
 
 Each year the CCHS changes a few variables it captures. This makes CCHS data sets from every year other then 2013/2014 partly incompatible with the algorithms used by the Project Big Life Planning Tool.
 
-The Project Big Life Planning Team is currently working to adjust the algorithms so that they accept CCHS year: 2001 to 2014, and will update this guidance.
 
 ### Can I use other population health survey data sets?
 
 Yes you can use other population health survey data sets but you have to transform these data set to the 2013/2014 CCHS format.
 
+To transform CCHS cycles the Project Big Life Team developed an R-package CCHS-flow. This package transforms CCHS variables from cycles 2001 to 2014 into harmonized and consistent versions. To access or learn more about the CCHS flow visit CRAN packages (https://cran.r-project.org/web/packages/cchsflow/index.html).
+
 ### Sample Files
 
 -   data.sample.csv this is synthetic data set that includes all variables required for calculation, recommend for calculation, and needed for the case examples (found in Chapter \@ref(caseexamples)). While this data set was model on the response rates of the 2013/2014 CCHS PUMF (e.g. approximately 80% of respondents did not have high blood pressure (CCC\_071)), the data is fabricated. **This data set cannot be used for real analysis**.
 
+- CCHS-2013-1-percent
+- CCHS-2013-10-percent
+- CCHS-2013-100-percent
+
+Each sample file is from the 2013/2014 CCHS PUMF datafile and contains: 1%, 10% or 100% of the respondents. Each sample file contains all the variables (survey questions).
+
+
+
+
 ## Multivariable predictive risk algorithms
 
-Multivariable predictive risk algorithms predict the future risk of health outcomes (e.g. Life Expectancy) for a population using routinely collected health data.
+Multivariable predictive risk algorithms predict the future risk of health outcomes (e.g., Life Expectancy) for a population using routinely collected health data.
 
 Multivariable predictive risk algorithms can be used to:
 
@@ -66,7 +76,7 @@ Multivariable predictive risk algorithms can be used to:
 -   Evaluate effectiveness of health interventions
 -   Describe the distribution of risk in the population (diffused or concentrated)
 
-Multivariable predictive risk algorithms are able to assess equity issues compared to competing population risk methods (e.g. World Health Organization Global Burden of Disease).
+Multivariable predictive risk algorithms are able to assess equity issues compared to competing population risk methods (e.g., World Health Organization Global Burden of Disease).
 
 More information on what multivariable predictive risk algorithms are and how they can be used can be found the journal article: *Predictive risk algorithms in a population setting: an overview* [@PoRTover]
 
@@ -146,7 +156,7 @@ In either case, weights are not used in the calculation of an individual's outco
 
 ### Risk of health outcome
 
-Risk of the health outcome (e.g. risk of dying) is the outcome of a multivariable predictive risk algorithm. An example of the mutlivariable risk algorithm is:
+Risk of the health outcome (e.g., risk of dying) is the outcome of a multivariable predictive risk algorithm. An example of the mutlivariable risk algorithm is:
 
 $$ \text{Risk} = \sum_t h_0(t) * e^{\beta_{pred.smoking}*x_{smoking}+\beta_{pred.cancer}*x_{cancer} + \beta_{pred.age}*x_{age} +...}  $$ Where:
 
@@ -159,7 +169,7 @@ Categorical exposures are represented by dummy/factor variables. Each category h
 
 ### Number of health outcomes
 
-The number of health outcomes (e.g. summary - deaths) is calculated through the following steps:
+The number of health outcomes (e.g., summary - deaths) is calculated through the following steps:
 
 1.  Risk of the health outcome is calculated for each individual (row) in the data set using the mutlivariable predictive risk algorithm.
 
@@ -246,7 +256,7 @@ There are two types of scenarios that can be calucated in the planning tool:
 
 How would life expectancy change if everyone increased their physical activity levels by 10%?
 
-The health intervention scenario allows you to predict how changing the health behaviours: alcohol consumption, diet, physical activity, and smoking, of a population will affect the population health outcome (e.g. life expectancy). This feature can be used to predict the effectiveness of proposed policies or programs.
+The health intervention scenario allows you to predict how changing the health behaviours: alcohol consumption, diet, physical activity, and smoking, of a population will affect the population health outcome (e.g., life expectancy). This feature can be used to predict the effectiveness of proposed policies or programs.
 
 There are three types of scenarios: **absolute, relative,** and **target**.
 
@@ -300,7 +310,7 @@ kable(scenarios.smoke) %>%
 Although each type of health intervention for smoking: absolute, relative and target, changes the prevalence of current smokers they are different. The following figure shows how each is different from one another.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap= "Comparison of health intervention scenario types"}
-knitr::include_graphics("Images/Scenario-Abs, Rel, Target cropped.jpg")
+knitr::include_graphics("Images/Scenario-Abs, Rel, Target cropped.jpg", error = FALSE)
 ```
 
 To adjust the prevalence of smokers, the change is applied to every current smoker in the population; individuals are not selected at random.
@@ -325,7 +335,7 @@ The number of deaths for a population is calculated twice:
 The difference between the number of deaths for of the two populations is the **smoking attributable deaths**.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap= "Health behaviour attributable scenario - Deaths"}
-knitr::include_graphics("Images/HB attributable number of deaths.jpg")
+knitr::include_graphics("Images/HB attributable number of deaths.jpg", error = FALSE)
 ```
 
 In this example smoking attributes approximately 15,000 deaths in the population.
@@ -338,7 +348,7 @@ This can also be done with life expectancy. Life expectancy is calculated:
 The difference between the life expectancy of the two populations is the **life expectancy lost due to smoking**.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap= "Health behaviour attributable scenario - Life expectancy"}
-knitr::include_graphics("Images/HB attributable LE.jpg")
+knitr::include_graphics("Images/HB attributable LE.jpg", error = FALSE)
 ```
 
 ### Multiple selected health behaviours
@@ -404,14 +414,14 @@ kable(HBAref) %>%
 You may get a result where there are more deaths for the "healthier" exposure rather then an "unhealthier" exposure, for instance:
 
 ```{r, echo=FALSE, fig.align='center'}
-knitr::include_graphics("Images/Graph-hypertension-diabetes.jpg")
+knitr::include_graphics("Images/Graph-hypertension-diabetes.jpg", error = FALSE)
 ```
 
-This result occurs as there are more people in the population that do not have diabetes. You can standarized your data set prior to the calculation to get a differnt result.
+This result occurs as there are more people in the population that do not have diabetes. You can standarized your data set prior to the calculation to get a different result.
 
-## Assumptions and Limitations
+## Assumptions and Interpretive Cautions
 
-### Limitation: Data source: Canadian Community Health Survey
+### Data source: Canadian Community Health Survey (CCHS)
 
 #### Included population
 
@@ -425,7 +435,7 @@ Self-reported data is used to health surveys use self-reported data to predict r
 
 This is particularly the case with alcohol, where there is a consistent under-reporting of alcohol consumption in most population health surveys. In Ontario, the sum of self-reported alcohol consumption is about half the volume of alcohol sold {[@ONalcohol]}.
 
-In addition the full spectrum of the behaviour has not been captured due to limited questions about the health behaviour in surveys. With diet there were few questions on the CCHS survey and these questions only asked about frequency of diet components. Information on diet factors like quantity, sodium intake, trans fat, or other healthy/unhealthy behaviours were not captured. It is likely that the burden of poor diet is under-estimated.
+Additionally, the full spectrum of the behaviour may not have been captured due to limited questions about the health behaviour in the CCHSs. For example, our measure of diet was based on fruit and vegetable frequency of consumption. Information on diet factors like quantity, sodium intake, trans fat, or other aspects of healthy and unhealthy eating were not captured. This will likely result in underestimation of the burden of poor diet.
 
 Although more accurate risk factor ascertainment could improve discriminiation and calibration of the algorithms used in the Project Big Life Planning Tool, these algorithms already have high discrimination and calibration.
 
@@ -440,6 +450,7 @@ Constant hazard ratios do not account for period effect which could lead to an o
 ### Limitation: Calculations
 
 #### Uncertainty
+While the original MPoRT algorithm estimated uncertainty intervals through a stepwise approach to model building that assessed confounding and mediation, the Project Big Life Planning Tool does not currently incorporate these uncertainty intervals.
 
 #### Attributable risk calculations
 

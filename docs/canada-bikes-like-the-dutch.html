@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.4 Canada bikes like the Dutch | Project Biglife Planning Tool Guide</title>
   <meta name="description" content="Guidance on how to use the Project Big Life Planning Tool." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.4 Canada bikes like the Dutch | Project Biglife Planning Tool Guide" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Project Big Life" />
 
 
-<meta name="date" content="2019-09-30" />
+<meta name="date" content="2020-12-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -40,6 +40,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,7 +48,13 @@
 
 
 
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 
@@ -78,7 +85,7 @@
 <li class="chapter" data-level="4.2.1" data-path="load-data.html"><a href="load-data.html#load-sample-files"><i class="fa fa-check"></i><b>4.2.1</b> Load sample files</a></li>
 <li class="chapter" data-level="4.2.2" data-path="load-data.html"><a href="load-data.html#load-your-own-file"><i class="fa fa-check"></i><b>4.2.2</b> Load your own file</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="select-measure-calculation.html"><a href="select-measure-calculation.html"><i class="fa fa-check"></i><b>4.3</b> Select measure (calculation)</a></li>
+<li class="chapter" data-level="4.3" data-path="select-calculation.html"><a href="select-calculation.html"><i class="fa fa-check"></i><b>4.3</b> Select calculation</a></li>
 <li class="chapter" data-level="4.4" data-path="filter-data.html"><a href="filter-data.html"><i class="fa fa-check"></i><b>4.4</b> Filter data</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="filter-data.html"><a href="filter-data.html#remove-a-filter"><i class="fa fa-check"></i><b>4.4.1</b> Remove a filter</a></li>
 </ul></li>
@@ -87,6 +94,18 @@
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="run-scenarios.html"><a href="run-scenarios.html"><i class="fa fa-check"></i><b>4.6</b> Run scenarios</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="run-scenarios.html"><a href="run-scenarios.html#intervention-scenarios"><i class="fa fa-check"></i><b>4.6.1</b> Intervention scenarios</a></li>
+<li class="chapter" data-level="4.6.2" data-path="run-scenarios.html"><a href="run-scenarios.html#health-behaviour-attribution-scenarios"><i class="fa fa-check"></i><b>4.6.2</b> Health behaviour attribution scenarios</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="run-calculation.html"><a href="run-calculation.html"><i class="fa fa-check"></i><b>4.7</b> Run calculation</a></li>
+<li class="chapter" data-level="4.8" data-path="view-results.html"><a href="view-results.html"><i class="fa fa-check"></i><b>4.8</b> View results</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="view-results.html"><a href="view-results.html#graph"><i class="fa fa-check"></i><b>4.8.1</b> Graph</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="download-results.html"><a href="download-results.html"><i class="fa fa-check"></i><b>4.9</b> Download results</a></li>
+<li class="chapter" data-level="4.10" data-path="resolve-warning-or-error-messages.html"><a href="resolve-warning-or-error-messages.html"><i class="fa fa-check"></i><b>4.10</b> Resolve warning or error messages</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="resolve-warning-or-error-messages.html"><a href="resolve-warning-or-error-messages.html#invalid-category"><i class="fa fa-check"></i><b>4.10.1</b> Invalid category</a></li>
+<li class="chapter" data-level="4.10.2" data-path="resolve-warning-or-error-messages.html"><a href="resolve-warning-or-error-messages.html#out-of-range"><i class="fa fa-check"></i><b>4.10.2</b> Out of range</a></li>
+<li class="chapter" data-level="4.10.3" data-path="resolve-warning-or-error-messages.html"><a href="resolve-warning-or-error-messages.html#not-a-number"><i class="fa fa-check"></i><b>4.10.3</b> Not a number</a></li>
+<li class="chapter" data-level="4.10.4" data-path="resolve-warning-or-error-messages.html"><a href="resolve-warning-or-error-messages.html#sample-size-is-too-small"><i class="fa fa-check"></i><b>4.10.4</b> Sample size is too small</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="caseexamples.html"><a href="caseexamples.html"><i class="fa fa-check"></i><b>5</b> Case examples</a><ul>
@@ -143,11 +162,9 @@
 <li class="chapter" data-level="6.7" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>6.7</b> Results</a><ul>
 <li class="chapter" data-level="6.7.1" data-path="results.html"><a href="results.html#why-are-there-more-deaths-for-the-healthy-behaviour"><i class="fa fa-check"></i><b>6.7.1</b> Why are there more deaths for the healthy behaviour?</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="assumptions-and-limitations.html"><a href="assumptions-and-limitations.html"><i class="fa fa-check"></i><b>6.8</b> Assumptions and Limitations</a><ul>
-<li class="chapter" data-level="6.8.1" data-path="assumptions-and-limitations.html"><a href="assumptions-and-limitations.html#limitation-data-source-canadian-community-health-survey"><i class="fa fa-check"></i><b>6.8.1</b> Limitation: Data source: Canadian Community Health Survey</a></li>
-<li class="chapter" data-level="6.8.2" data-path="assumptions-and-limitations.html"><a href="assumptions-and-limitations.html#limitation-multivariable-predictive-risk-algorithms"><i class="fa fa-check"></i><b>6.8.2</b> Limitation: Multivariable predictive risk algorithms</a></li>
-<li class="chapter" data-level="6.8.3" data-path="assumptions-and-limitations.html"><a href="assumptions-and-limitations.html#limitation-calculations"><i class="fa fa-check"></i><b>6.8.3</b> Limitation: Calculations</a></li>
-<li class="chapter" data-level="6.8.4" data-path="assumptions-and-limitations.html"><a href="assumptions-and-limitations.html#limitation-using-the-project-big-life-planning-tool"><i class="fa fa-check"></i><b>6.8.4</b> Limitation: Using the Project Big Life Planning Tool</a></li>
+<li class="chapter" data-level="6.8" data-path="assumptions-and-interpretive-cautions.html"><a href="assumptions-and-interpretive-cautions.html"><i class="fa fa-check"></i><b>6.8</b> Assumptions and Interpretive Cautions</a><ul>
+<li class="chapter" data-level="6.8.1" data-path="assumptions-and-interpretive-cautions.html"><a href="assumptions-and-interpretive-cautions.html#data-source-canadian-community-health-survey-cchs"><i class="fa fa-check"></i><b>6.8.1</b> Data source: Canadian Community Health Survey (CCHS)</a></li>
+<li class="chapter" data-level="6.8.2" data-path="assumptions-and-interpretive-cautions.html"><a href="assumptions-and-interpretive-cautions.html#multivariable-predictive-risk-algorithms-1"><i class="fa fa-check"></i><b>6.8.2</b> Multivariable predictive risk algorithms</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>7</b> Glossary</a></li>
@@ -288,11 +305,13 @@
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -300,12 +319,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -313,14 +331,18 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/Rmd//05-Case-Examples.Rmd",
+"link": "https://github.com/Big-Life-Lab/PBL-Planning-Tool-Guidance/blob/master/Rmd//05-Case-Examples.Rmd",
 "text": "Edit"
 },
 "history": {
 "link": null,
 "text": null
 },
-"download": ["Project Biglife Planning Tool Guide.pdf", "Project Biglife Planning Tool Guide.epub"],
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Project-Biglife-Planning-Tool-Guide.pdf", "Project-Biglife-Planning-Tool-Guide.epub"],
 "toc": {
 "collapse": "section"
 },
